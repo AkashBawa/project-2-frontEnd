@@ -1,16 +1,32 @@
 import { useState } from "react";
+import { Button } from 'antd';
+import { useNavigate } from "react-router-dom";
+
+import localStorage from "../../services/localStorage";
 import axios from "../../services/axios";
 
 function Login() {
 
     const [email, setEmail] = useState();
     const [passWord, setPassWord] = useState();
+    const navigate = useNavigate();
 
     const submit = async () => {
         console.log(email);
         console.log(passWord);
         const data = await axios.postRequest("login",{email, password: passWord});
-        console.log(data);
+        if(data.success) {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('role', data.role);
+
+          if(data.role == "elder") {
+            navigate('/elder/dashboard')
+          } else {
+            navigate ('/volunteer/dashboard')
+          }
+        }
+        
+
     }
     return (
       <div className="Login">
@@ -25,7 +41,7 @@ function Login() {
             <input onKeyUp={(e) => { setPassWord(e.target.value) }} id="Password" placeholder="Password"/>
         </div>
 
-        <button onClick={submit}>Submit</button>
+        <Button type="default" onClick={submit}>Submit</Button>
       </div>
     );
   }
