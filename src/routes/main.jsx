@@ -6,8 +6,13 @@ import {
 // Import all components here
 import Login from "../components/auth/login";
 import Signup from "../components/auth/signup";
+import Profiles from "../components/elderly/Profiles";
 
   const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Signup/>
+    },
     {
       path: "/login",
       element: <Login/>,
@@ -15,6 +20,10 @@ import Signup from "../components/auth/signup";
     {
       path: "/signup",
       element: <Signup/>
+    },
+    {
+      path:"/elderProfile",
+      element: <Profiles/>
     }
 
   ]);
