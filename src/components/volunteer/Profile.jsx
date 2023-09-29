@@ -1,9 +1,8 @@
-import "./Profile.css"
 
-function Profile() {
+const Profile = () => {
   return (
     <div>
-        
+        Volunteer Profile
     </div>
   )
 }

@@ -3,21 +3,20 @@ import { useNavigate } from "react-router-dom";
 
 import  { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
-import localStorage from "../../services/localStorage";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {
-
-  const navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false);
-  const { token: { colorBgContainer }} = theme.useToken();
 
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     navigate("/login")
   }
+
+  const navigate = useNavigate();
+  const [collapsed, setCollapsed] = useState(false);
+  const { token: { colorBgContainer }} = theme.useToken();
 
   return (
     <div>
@@ -36,22 +35,10 @@ const AppHeader = () => {
                 onClick: ()=> { navigate('dashboard')}
               },
               {
-                key: '2',
-                icon: <UserOutlined />,
-                label: 'Profile',
-                onClick: ()=> { navigate('profile')}
-              },
-              {
                 key: '3',
-                icon: <UserOutlined />,
-                label: 'Add post',
-                onClick: ()=> { navigate('addpost')}
-              },
-              {
-                key: '4',
                 icon: <VideoCameraOutlined />,
                 label: 'Logout',
-                onClick: ()=> {logout()}
+                onClick: ()=> { logout()}
               }
             ]}
           />
