@@ -1,56 +1,117 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
+import axios from '../../services/axios';
 
 const Profiles = () => {
-
-
   const [formData, setFormData] = useState({
     name: '',
     lName: '',
     age: '',
-    gender: 'male', // Default value
+    gender: '',
     contactNumber: '',
     interest: '',
     eContact: '',
   });
 
-  
-    return (
-      <div>
-          <h1>Elderly Profile</h1>
-          <form action="post">
-    <label htmlFor="name">Name</label>
-    <input id="name" type="text" />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    <label htmlFor="lName">Last Name</label>
-    <input id="lName" type="text" />
+    try {
+      const response = await axios.postRequest('updateProfile', formData, true);
 
-    <label htmlFor="age">Age</label>
-    <input id="age" type="number" />
+      // Handle success, e.g., show a success message to the user
+      console.log('Form submission successful:', response.data);
+      console.log(response)
 
-    <label htmlFor="gender">Gender</label>
-    <select name="gender" id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="prefered">Prefer not to say</option>
-    </select>
-
-    <label htmlFor="contactNumber">Contact Number</label>
-    <input id="contactNumber" type="tel" />
-
-    <label htmlFor="interest">Interest</label>
-    <input id="interest" type="text" />
-
-    <label htmlFor="eContact">Emergency Contact</label>
-    <input type="tel" name="emergency_contact" id="eContact" />
-
-    <input type="submit" />
-</form>
+      // Optionally, you can reset the form fields
+      setFormData({
+        name: '',
+        lName: '',
+        age: '',
+        gender: '',
+        contactNumber: '',
+        interest: '',
+        eContact: '',
+      });
+    } catch (error) {
+      
+      console.error('Form submission error:', error);
+    }
+    console.log(formData)
+  };
 
   
-      </div>
-    )
-  }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    
+  };
+
+
   
-  export default Profiles
+  return (
+    <div>
+      <h1>Elderly Profile</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+        />
+
+     
+
+        <label htmlFor="age">Age</label>
+        <input
+          id="age"
+          type="number"
+          name="age"
+          value={formData.age}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="gender">Gender</label>
+        <select
+          id="gender"
+          name="gender"
+          value={formData.gender}
+          onChange={handleInputChange}
+        >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="prefered">Prefer not to say</option>
+        </select>
+
+        <label htmlFor="contactNumber">Contact Number</label>
+        <input
+          id="contactNumber"
+          type="tel"
+          name="contactNumber"
+          value={formData.contactNumber}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="interest">Interest</label>
+        <input
+          id="interest"
+          type="text"
+          name="interest"
+          value={formData.interest}
+          onChange={handleInputChange}
+        />
+
+    
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  );
+};
+
+export default Profiles;

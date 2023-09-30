@@ -8,6 +8,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, Vid
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {
 
+
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
@@ -33,6 +34,12 @@ const AppHeader = () => {
                 icon: <UserOutlined />,
                 label: 'Dashboard',
                 onClick: ()=> { navigate('dashboard')}
+              },
+              {
+                key: '2',
+                icon: <UserOutlined />,
+                label: 'Profile',
+                onClick: ()=> { navigate('Profile')}
               },
               {
                 key: '3',
