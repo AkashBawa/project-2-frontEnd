@@ -61,7 +61,11 @@ const Dashboard = () => {
             <Card
             key={`card-${index}`}
             title= {post.serviceTitle}
-            extra={<Button type="default" onClick={() => {sendRequest(post._id)}}>Send Request</Button>}
+            extra={
+              post.invitations.map((invite) => invite.user).indexOf(userId) > -1 ? 
+              <Button type="default" disabled>Already send</Button> : 
+              <Button type="default" onClick={() => {sendRequest(post._id, index)}}>Send Request</Button>
+            }
             style={{
               width: "100%",
             }}

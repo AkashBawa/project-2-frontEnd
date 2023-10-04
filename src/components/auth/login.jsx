@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from 'antd';
+import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import localStorage from "../../services/localStorage";
@@ -28,22 +28,37 @@ function Login() {
         
 
     }
-    return (
-      <div className="Login">
-        <h2>Login</h2>
-        <div> 
-            <label htmlFor="email">Email</label> 
-            <input id="email" placeholder="email" onKeyUp={(e) => {setEmail(e.target.value)}}/>
-        </div>
-
-        <div> 
-            <label htmlFor="Password">Password</label> 
-            <input onKeyUp={(e) => { setPassWord(e.target.value) }} id="Password" placeholder="Password"/>
-        </div>
-
-        <Button type="default" onClick={submit}>Submit</Button>
-      </div>
-    );
-  }
   
-  export default Login;
+  return (
+    <div className="Login">
+      <h2>Login</h2>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          placeholder="email"
+          onKeyUp={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="Password">Password</label>
+        <input
+          onKeyUp={(e) => {
+            setPassWord(e.target.value);
+          }}
+          id="Password"
+          placeholder="Password"
+        />
+      </div>
+
+      <Button type="default" onClick={submit}>
+        Submit
+      </Button>
+    </div>
+  );
+}
+
+export default Login;

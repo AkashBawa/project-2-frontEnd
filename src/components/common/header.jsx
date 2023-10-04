@@ -44,11 +44,17 @@ const AppHeader = () => {
               {
                 key: '3',
                 icon: <UserOutlined />,
-                label: 'Add post',
-                onClick: ()=> { navigate('addpost')}
+                label: 'Posts',
+                onClick: ()=> { navigate('posts')}
               },
+              // {
+              //   key: '4',
+              //   icon: <UserOutlined />,
+              //   label: 'Add post',
+              //   onClick: ()=> { navigate('addpost')}
+              // },
               {
-                key: '4',
+                key: '5',
                 icon: <VideoCameraOutlined />,
                 label: 'Logout',
                 onClick: ()=> {logout()}
