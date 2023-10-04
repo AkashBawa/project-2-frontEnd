@@ -70,5 +70,6 @@ const putRequest = async (link, data, tokenRequired = false) => {
 
 export default  {
     getRequest,
-    postRequest
+    postRequest,
+    putRequest
 }
