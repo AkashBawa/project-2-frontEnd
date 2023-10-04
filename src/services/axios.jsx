@@ -46,6 +46,28 @@ const postRequest = async (link, data, tokenRequired = false) => {
     }
 }
 
+const putRequest = async (link, data, tokenRequired = false) => {
+    try {
+        console.log(baseUrl);
+        const finalUrl = `${baseUrl}/${link}`;
+
+        let config = {};
+        if(tokenRequired) {
+            const token = localStorage.getItem('token');
+            config = {
+                headers : {
+                    "token" : token
+                }
+            }
+        }
+        const response = await axios.put(finalUrl, data, config);
+        return response.data;
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 export default  {
     getRequest,
     postRequest

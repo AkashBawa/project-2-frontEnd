@@ -50,6 +50,7 @@ const Dashboard = () => {
         posts.map((post, index) => {
           return (
             <Card
+            key={`card-${index}`}
             title= {post.serviceTitle}
             extra={<Button type="default">Send Invitation</Button>}
             style={{
