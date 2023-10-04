@@ -1,59 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-import axios from '../../services/axios';
+import axios from "../../services/axios";
 
 const Profile = () => {
+  const [formDataVol, setFormDataVol] = useState({
+    name: "",
+    lName: "",
+    age: "",
+    gender: "male",
+    contactNumber: "",
+    interest: "",
+    eContact: "",
+  });
 
-    const [formDataVol, setFormDataVol] = useState({
-      name: '',
-      lName: '',
-      age: '',
-      gender: '',
-      contactNumber: '',
-      interest: '',
-      eContact: '',
-    });
+  const [volProfile, setVolProfile] = useState();
+
+  const fetchVolUserProfile = async () => {
+    try {
+      let getVolProfile = await axios.getRequest("user", true);
+      setVolProfile(getVolProfile);
+      console.log(volProfile)
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
+  useEffect(() => {
+    fetchVolUserProfile();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.postRequest('updateProfileVol', formDataVol, true);
+      const response = await axios.postRequest(
+        "updateProfileVol",
+        formDataVol,
+        true
+      );
 
       // Handle success, e.g., show a success message to the user
-      console.log('Form submission successful:', response.data);
-      console.log(response)
+      console.log("Form submission successful:", response.data);
+      console.log(response);
 
       // Optionally, you can reset the form fields
       setFormDataVol({
-        name: '',
-        lName: '',
-        age: '',
-        gender: '',
-        contactNumber: '',
-        interest: '',
-        eContact: '',
+        name: "",
+        lName: "",
+        age: "",
+        gender: "",
+        contactNumber: "",
+        interest: "",
+        eContact: "",
       });
+
+      fetchVolUserProfile();
     } catch (error) {
-      
-      console.error('Form submission error:', error);
+      console.error("Form submission error:", error);
     }
-    console.log(formDataVol)
+    console.log(formDataVol);
   };
 
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setFormDataVol({
       ...formDataVol,
       [name]: value,
     });
-    
   };
 
   return (
     <div>
-        <h1>Elderly Profile</h1>
+      <h1>Elderly Profile</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
@@ -63,8 +83,6 @@ const Profile = () => {
           value={formDataVol.name}
           onChange={handleInputChange}
         />
-
-     
 
         <label htmlFor="age">Age</label>
         <input
@@ -105,12 +123,25 @@ const Profile = () => {
           onChange={handleInputChange}
         />
 
-    
-
         <input type="submit" value="Submit" />
       </form>
-    </div>
-  )
-}
 
-export default Profile
+      <div className="displayProfile">
+      {volProfile ? (
+    <div>
+      <p>Name: {volProfile.name}</p>
+      <p>Age: {volProfile.age}</p>
+      <p>Gender: {volProfile.gender}</p>
+      <p>Contact Number: {volProfile.contactNumber}</p>
+      <p>Interest: {volProfile.interest}</p>
+    </div>
+  ) : (
+    <p>Loading...</p>
+  )}
+      </div>
+      
+    </div>
+  );
+};
+
+export default Profile;

@@ -22,9 +22,9 @@ function Signup() {
       localStorage.setItem('role', data.role);
 
       if(data.role == "elder") {
-        navigate('/elder/dashboard')
+        navigate('/elder/profile')
       } else {
-        navigate ('/volunteer/dashboard')
+        navigate ('/volunteer/profile')
       }
     }
     
