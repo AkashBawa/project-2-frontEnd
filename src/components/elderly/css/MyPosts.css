@@ -1,0 +1,11 @@
+.myPostElderly {
+    margin-bottom: 2rem;
+}
+
+.requestList {
+    display: flex;
+}
+
+.requestList p {
+    margin-right: 1rem;
+}

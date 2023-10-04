@@ -1,5 +1,5 @@
 import { Radio, Tabs } from 'antd';
-import myPosts from './myPosts';
+import MyPosts from './MyPosts';
 import AppPost from "./addPost";
 
 const Posts = () => {
@@ -14,7 +14,7 @@ const Posts = () => {
             {
               label: `My Posts`,
               key: "1",
-              children: <myPosts/>,
+              children: <MyPosts/>,
             },
             {
               label: `Add post`,
