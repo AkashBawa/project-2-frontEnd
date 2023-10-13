@@ -16,11 +16,11 @@ const Posts = () => {
               key: "1",
               children: <MyPosts/>,
             },
-            {
-              label: `Add post`,
-              key: "2",
-              children: <AppPost/>,
-            },
+            // {
+            //   label: `Add post`,
+            //   key: "2",
+            //   children: <AppPost/>,
+            // },
         ]
         }
       />

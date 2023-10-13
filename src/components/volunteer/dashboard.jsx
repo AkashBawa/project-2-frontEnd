@@ -39,13 +39,12 @@ const Dashboard = () => {
     try {
 
       const response = await axios.putRequest("sendInvitation", {postId}, true);
-      debugger;
+
       if(response.success == true) {
 
         let newPosts = [...posts];
         newPosts[index].invitations = response.updatePost.invitations;
         setPosts(newPosts);
-        debugger;
       }
     } catch (err) {
       console.log(err)

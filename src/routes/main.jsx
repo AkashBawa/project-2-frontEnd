@@ -46,17 +46,16 @@ import VolunteerProfile from "./../components/volunteer/Profile";
           path: "posts",
           element: <Posts/>
         },
-        // {
-        //   path: "addPost",
-        //   element: <AddPost/>
-        // },
+        {
+          path: "addPost",
+          element: <AddPost/>
+        },
         {
           path: "profile",
           element: <Profiles/>
         }
       ]
     },
-
     {
       path: "/volunteer",
       element: <VOlunteerHeader/>,

@@ -13,6 +13,26 @@ const AppHeader = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { token: { colorBgContainer }} = theme.useToken();
 
+  const [menuItems, setMenuItems] = useState([
+    {
+      label: "Dashboard",
+      link: "dashboard"
+    },
+    {
+      label: "Profile",
+      link: "profile"
+    },
+    {
+      label: "Ask Voluteer",
+      link: "addPost"
+
+    },
+    {
+      label: "History",
+      link: "posts"
+    }
+  ])
+
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
@@ -28,38 +48,26 @@ const AppHeader = () => {
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
-            items={[
-              {
-                key: '1',
-                icon: <UserOutlined />,
-                label: 'Dashboard',
-                onClick: ()=> { navigate('dashboard')}
-              },
-              {
-                key: '2',
-                icon: <UserOutlined />,
-                label: 'Profile',
-                onClick: ()=> { navigate('profile')}
-              },
-              {
-                key: '3',
-                icon: <UserOutlined />,
-                label: 'Posts',
-                onClick: ()=> { navigate('posts')}
-              },
-              // {
-              //   key: '4',
-              //   icon: <UserOutlined />,
-              //   label: 'Add post',
-              //   onClick: ()=> { navigate('addpost')}
-              // },
-              {
-                key: '5',
-                icon: <VideoCameraOutlined />,
-                label: 'Logout',
-                onClick: ()=> {logout()}
-              }
-            ]}
+            items={
+              [ 
+                ...menuItems.map((item, index) => {
+                  return {
+                    key: index,
+                    icon: <UserOutlined />,
+                    label: item.label,
+                    onClick: () => {navigate(item.link)}
+                  }
+                })
+
+                ,{
+                  key: menuItems.length,
+                  icon: <VideoCameraOutlined />,
+                  label: 'Logout',
+                  onClick: ()=> {logout()}
+                }
+              ]
+   
+          }
           />
         </Sider>
         <Layout>
