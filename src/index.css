@@ -1,0 +1,14 @@
+.dashBoardElder h1{
+text-align: center;
+}
+.dashElder{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+text-align: center;
+}
+.dashElder div{
+min-height: 50px;
+}
+div.dashElderEvent {
+background-color: red;
+}
