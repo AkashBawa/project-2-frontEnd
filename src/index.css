@@ -1,14 +1,80 @@
-.dashBoardElder h1{
-text-align: center;
+.dashBoardElder h1 {
+    text-align: center;
 }
-.dashElder{
-display: grid;
-grid-template-columns: repeat(3,1fr);
-text-align: center;
+
+.dashElder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
 }
-.dashElder div{
-min-height: 50px;
+
+.dashElder div {
+    min-height: 50px;
 }
-div.dashElderEvent {
-background-color: red;
+
+.dashElderEvent,
+div.dashElderUnanswered,
+.dashElderPending {
+    background-color: lightgray;
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: 0.5em;
+}
+
+.unansCount,
+.pendingCount {
+    background-color: #F2F2F2;
+    max-width: 50%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: auto;
+}
+
+.eventMore {
+    color: white;
+    background-color: black;
+    border-radius: .25rem;
+    padding: 0.5rem;
+}
+
+.appoArea h1 {
+    text-align: left;
+}
+
+.appoArea div {
+    background-color: lightgray;
+    display: inline-block;
+    margin-right: 1rem;
+    min-width: 22%;
+    height: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.appoTable {
+    width: 100%;
+    height: auto;
+}
+
+.row1,
+.row2 {
+    background-color: grey;
+}
+
+.ant-tabs-tab {
+    margin-right: 2rem !important;
+    color: black !important;
+    min-width: 25% !important;
+    background: lightgray !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+    color: white !important;
+    background: grey !important;
+}
+
+.myPostElderly{
+    background-color: lightgray;
+    
 }

@@ -18,7 +18,7 @@ const MyPosts = () => {
   const fetchMyPosts = async () => {
     try {
       const response = await axios.getRequest("getPostByUser", true);
-      if(response.success == true) {
+      if (response.success == true) {
         setPosts(response.posts);
       }
     } catch (err) {
@@ -27,19 +27,19 @@ const MyPosts = () => {
   }
 
   const findBookedIndex = (post) => {
-    const index = post?.invitations.map((invite) => { return invite.status}).indexOf("ACCEPTED");
+    const index = post?.invitations.map((invite) => { return invite.status }).indexOf("ACCEPTED");
     return index;
   }
 
   const responseInvitation = async (postIndex, acceptedUserId, status) => {
     try {
-        const postId = posts[postIndex]._id;
-        const response = await axios.putRequest("responseInvitation", { postId , acceptedUserId, status }, true);
-        console.log(response);
-        fetchMyPosts();
+      const postId = posts[postIndex]._id;
+      const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
+      console.log(response);
+      fetchMyPosts();
 
     } catch (err) {
-        console.log(err)
+      console.log(err)
     }
   }
 
@@ -49,47 +49,42 @@ const MyPosts = () => {
         posts.map((post, postIndex) => {
           return (
             <Card
-            key={`card-${postIndex}`}
-            title= {post.serviceTitle}
-            extra={ post.status}
-            className="myPostElderly"
-            style={{
-              width: "100%",
-            }}
-          >
-            {
-               post.status == "BOOKED" ? <p>Booked By: { post?.invitations[findBookedIndex(post)].user.name } </p> :  <div>
-
-                <h2>Invitations</h2>
-
-                        <ul>
-
+              key={`card-${postIndex}`}
+              title={post.serviceTitle}
+              extra={post.status}
+              className="myPostElderly"
+              style={{
+                width: "100%",
+              }}
+            >
+              {
+                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} </p> : <div>
+                  <h2>Invitations</h2>
+                  <ul>
+                    {
+                      post?.invitations.map((invite, invitationIndex) => {
+                        return (
+                          <li className="requestList">
+                            <p>Name: {invite.user.name} </p>
                             {
-                                post?.invitations.map((invite, invitationIndex) => {
-                                    return  (
-                                        <li className="requestList">
-                                            <p>Name: {invite.user.name} </p>
-                                            {
-                                                invite.status == "REJECTED" ? "Rejected" : 
-                                                <>
-                                                    <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED")}} /> </p>
-                                                    <p> <CloseOutlined onClick={() => { responseInvitation(postIndex,  invite.user._id, "REJECTED")}}/> </p>
-                                                </>
-                                            }
-                                            
-                                        </li>
-                                    )
-                                })
+                              invite.status == "REJECTED" ? "Rejected" :
+                                <>
+                                  <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> </p>
+                                  <p> <CloseOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "REJECTED") }} /> </p>
+                                </>
                             }
-                            
-                        </ul>
-                        
-               </div>
-            }
-             </Card>
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+
+                </div>
+              }
+            </Card>
           )
         })
-       }
+      }
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../services/axios";
-import "./Profiles.css";
+import "./css/Profiles.css";
 import { Alert, Select, Form, Input, DatePicker, TimePicker } from "antd";
 import { Button } from "antd";
 
