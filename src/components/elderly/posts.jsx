@@ -1,5 +1,5 @@
 import { Radio, Tabs } from 'antd';
-import MyPosts from './MyPosts';
+import MyPosts from './myPosts';
 import AppPost from "./addPost";
 
 const Posts = () => {
