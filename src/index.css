@@ -61,7 +61,7 @@ div.dashElderUnanswered,
 .row2 {
     background-color: grey;
 }
-
+/* 
 .ant-tabs-tab {
     margin-right: 2rem !important;
     color: black !important;
@@ -72,7 +72,7 @@ div.dashElderUnanswered,
 .ant-tabs-tab.ant-tabs-tab-active {
     color: white !important;
     background: grey !important;
-}
+} */
 
 .myPostElderly{
     background-color: lightgray;

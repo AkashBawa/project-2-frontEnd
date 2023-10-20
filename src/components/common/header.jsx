@@ -30,6 +30,10 @@ const AppHeader = () => {
     {
       label: "History",
       link: "posts"
+    },
+    {
+      label: "Events",
+      link: "event"
     }
   ])
 
