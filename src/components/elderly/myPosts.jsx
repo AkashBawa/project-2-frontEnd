@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-
 import { Card, Space, Button } from "antd";
 import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
-
 import axios from "../../services/axios";
+import "./css/MyPosts.css";
 
-import "./css/MyPosts.css"
 
 const MyPosts = () => {
 
@@ -27,10 +25,9 @@ const MyPosts = () => {
   }
 
   const findBookedIndex = (post) => {
-    const index = post?.invitations.map((invite) => { return invite.status }).indexOf("ACCEPTED");
-    return index;
+    const index = post?.invitations.findIndex((invite) => invite.status === "ACCEPTED");
+    return index !== -1 ? index : 0; 
   }
-
   const responseInvitation = async (postIndex, acceptedUserId, status) => {
     try {
       const postId = posts[postIndex]._id;
@@ -58,14 +55,15 @@ const MyPosts = () => {
               }}
             >
               {
-                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} </p> : <div>
+                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)]?.user?.name || 'No Name'}</p>
+                : <div>
                   <h2>Invitations</h2>
                   <ul>
                     {
                       post?.invitations.map((invite, invitationIndex) => {
                         return (
                           <li className="requestList">
-                            <p>Name: {invite.user.name} </p>
+                            <p>Name: {invite.user?.name || 'No Name'} </p>
                             {
                               invite.status == "REJECTED" ? "Rejected" :
                                 <>

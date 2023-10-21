@@ -1,8 +1,11 @@
 import { Outlet } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
+import React, { useState } from 'react'; 
 
 const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState('1'); // Use state to track the active tab
+
   return (
     <div className="dashBoardElder">
       <h1>Hi, Ana</h1>
@@ -32,26 +35,26 @@ const Dashboard = () => {
           [
             {
               label: `Unanswered`,
-              key: "1",
-              children: <MyPosts />,
+              key: '1',
+              children: <MyPosts status="booked" />, 
             },
             {
               label: `Pending`,
-              key: "2",
-              children: <MyPosts />,
+              key: '2',
+              children: <MyPosts status="pending" />, 
             },
             {
               label: `Approved`,
-              key: "3",
-              children: <MyPosts />,
+              key: '3',
+              children: <MyPosts status="approved" />, 
             },
             {
               label: `Completed`,
-              key: "4",
-              children: <MyPosts />,
+              key: '4',
+              children: <MyPosts status="ACCEPTED" />, 
             },
-          ]
-        }
+          ]}
+        
       />
 
 
