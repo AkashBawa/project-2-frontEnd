@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import tt from "@tomtom-international/web-sdk-maps";
+import "./TomTomAutoComplete.css";
 
 const TomTomAutoComplete = () => {
   const [query, setQuery] = useState("");
