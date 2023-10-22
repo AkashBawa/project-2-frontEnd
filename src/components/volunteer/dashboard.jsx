@@ -8,15 +8,15 @@ import reject from './../../images/reject.png';
 import accept from './../../images/accept.png';
 
 const Dashboard = () => {
+  
+    const [posts, setPosts] = useState([]);
+    const [userId, setUserId] = useState();
 
   useEffect(() => {
     fetchPost();
     fetchId();
   }, []);
 
-
-  const [posts, setPosts] = useState([]);
-  const [setUserId] = useState();
 
   const fetchId = () => {
     const userId = localStorage.getItem('userId');

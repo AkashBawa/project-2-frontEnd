@@ -57,10 +57,7 @@ const AddPost = () => {
             <input type="time" onChange={(e) => { setTime(e.target.value) }} required />
           </Form.Item>
 
-          <Button type="primary" onClick={() => {
-            // setserviceStatus("good");
-            submit();
-          }}>Submit</Button>
+          <Button type="primary" onClick={() => { submit(); }}>Submit</Button>
 
         </Form>
 

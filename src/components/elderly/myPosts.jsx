@@ -9,10 +9,20 @@ import accept from './../../images/accept.png';
 
 const MyPosts = () => {
   
-  useEffect(() => {
-    fetchMyPosts();
-  }, []);
   const [posts, setPosts] = useState([]);
+  const [userId, setUserId] = useState();
+
+useEffect(() => {
+  fetchMyPosts();
+  fetchId();
+}, []);
+
+
+const fetchId = () => {
+  const userId = localStorage.getItem('userId');
+  setUserId(userId);
+}
+
 
   const fetchMyPosts = async () => {
     try {
