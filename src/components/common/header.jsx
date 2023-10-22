@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import  { Layout, Menu, Button, theme } from "antd";
+import { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import localStorage from "../../services/localStorage";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import wiseCareLogo from './../../images/wiseCareLogo.png';
 
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {
 
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const { token: { colorBgContainer }} = theme.useToken();
+  const { token: { colorBgContainer } } = theme.useToken();
 
   const [menuItems, setMenuItems] = useState([
     {
@@ -44,30 +45,32 @@ const AppHeader = () => {
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="demo-logo-vertical" />
+          <img src={wiseCareLogo} alt="Logo" style={{ width: '200px' }} />
+
           <Menu
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
             items={
-              [ 
+              [
                 ...menuItems.map((item, index) => {
                   return {
                     key: index,
                     icon: <UserOutlined />,
                     label: item.label,
-                    onClick: () => {navigate(item.link)}
+                    onClick: () => { navigate(item.link) }
                   }
                 })
 
-                ,{
+                , {
                   key: menuItems.length,
                   icon: <VideoCameraOutlined />,
                   label: 'Logout',
-                  onClick: ()=> {logout()}
+                  onClick: () => { logout() }
                 }
               ]
-   
-          }
+
+            }
           />
         </Sider>
         <Layout>
@@ -96,7 +99,7 @@ const AppHeader = () => {
               background: colorBgContainer,
             }}
           >
-            <Outlet/>
+            <Outlet />
           </Content>
         </Layout>
       </Layout>
