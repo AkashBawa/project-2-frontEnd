@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
 import React, { useState } from 'react';
+import iconProfile from './../../images/icon_profile.png';
+import iconNotification from './../../images/icon_notification.png';
+import iconAdd from './../../images/icon_add.png';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('1'); // Use state to track the active tab
@@ -10,7 +13,12 @@ const Dashboard = () => {
   return (
     // console.log(serviceTitle);
     <div className="dashBoardElder">
+      <div>
       <h1>Hi, Ana</h1>
+      <img src={iconNotification} alt="iconNotification" />
+      <img src={iconAdd} alt="iconAdd" />
+      <img src={iconProfile} alt="iconProfile" />
+            </div>
       <div className="dashElder">
         <div className="dashElderEvent">
           <h2>Join our Community</h2>
