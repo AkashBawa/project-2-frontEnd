@@ -22,6 +22,8 @@ import VOlunteerHeader from "./../components/volunteer/header";
 import VolunteerProfile from "./../components/volunteer/Profile";
 import VolunteerHistory from "./../components/volunteer/history/History";
 
+import ReviewByElder from "../components/elderly/ReviewByElder";
+import Rewards from "../components/elderly/Rewards";
 
   const router = createBrowserRouter([
     {
@@ -53,6 +55,10 @@ import VolunteerHistory from "./../components/volunteer/history/History";
           element: <AddPost/>
         },
         {
+          path: "reviewelder/:id",
+          element: <ReviewByElder/>
+        },
+        {
           path: "profile",
           element: <Profiles/>
         },
@@ -77,6 +83,10 @@ import VolunteerHistory from "./../components/volunteer/history/History";
         {
           path: "history",
           element: <VolunteerHistory/>
+        },
+        {
+          path: "rewards",
+          element: <Rewards/>
         }
       ]
     },

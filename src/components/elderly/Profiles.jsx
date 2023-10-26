@@ -3,9 +3,67 @@ import axios from "../../services/axios";
 import "./css/Profiles.css";
 import { Alert, Select, Form, Input, DatePicker, TimePicker } from "antd";
 import { Button } from "antd";
+import { PlusOutlined } from '@ant-design/icons';
+import { Modal, Upload } from 'antd';
+
+const getBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
+   const dataURLtoFile = (dataurl, filename) => {
+    var arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[arr.length - 1]), 
+        n = bstr.length, 
+        u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, {type:mime});
+}
 
 const Profiles = () => {
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
+  const [previewTitle, setPreviewTitle] = useState('');
+  const [fileList, setFileList] = useState([]);
+  const [myPhoto, setPhoto] = useState("");
+
+
+  const handleCancel = () => setPreviewOpen(false);
+  const handlePreview = async (file) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreviewImage(file.url || file.preview);
+    setPreviewOpen(true);
+    setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
+  };
+
+  const handleChange = ({ fileList: newFileList }) =>  {
+    setFileList(newFileList);
+  }
+
+  const uploadButton = (
+    <div>
+      <PlusOutlined />
+      <div
+        style={{
+          marginTop: 8,
+        }}
+      >
+        Upload
+      </div>
+    </div>
+  );
+
+
   const [formData, setFormData] = useState({
+    profilePhoto: "",
     name: "",
     lName: "",
     age: "",
@@ -20,38 +78,38 @@ const Profiles = () => {
   const fetchUserProfile = async () => {
     try {
       const getProfile = await axios.getRequest("user", true);
-      setProfile(getProfile); // Set the user profile data in the state
+      setProfile(getProfile);
+      if(getProfile.profilePhoto){
+        debugger;
+          var file = dataURLtoFile(getProfile.profilePhoto, "photo")
+          file.originFileObj = file
+    
+          setFileList([file])
+      }
     } catch (error) {
       console.error("Error fetching user profile:", error);
     }
   };
 
   useEffect(() => {
-    // Fetch user profile data when the component mounts
+    
     fetchUserProfile();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(fileList && fileList.length){
+      formData.profilePhoto = await getBase64(fileList[0].originFileObj)
+    }
+
     try {
       const response = await axios.postRequest("updateProfile", formData, true);
 
-      // Handle success, e.g., show a success message to the user
 
       console.log("Form submission successful:", response.data);
       console.log(response);
-
-      // Optionally, you can reset the form fields
-      setFormData({
-        name: "",
-        lName: "",
-        age: "",
-        gender: "",
-        contactNumber: "",
-        interest: "",
-        emergencyContact: "",
-      });
+     
     } catch (error) {
       console.error("Form submission error:", error);
     }
@@ -73,67 +131,29 @@ const Profiles = () => {
 
   return (
     <div>
-      {/* <h1>Elderly Profile</h1>
-      <form className="elderFrom" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
+       <Upload
+        
+        beforeUpload={(file) => {
+          return false
+        }}
+        listType="picture-circle"
+        fileList={fileList}
+        onPreview={handlePreview}
+        onChange={handleChange}
+      >
+        {fileList.length >= 1 ? null : uploadButton}
+      </Upload>
+      {/* <img src={myPhoto} alt="" /> */}
+      <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
+        <img
+          alt="example"
+          style={{
+            width: '100%',
+          }}
+          src={myPhoto}
         />
-
-        <label htmlFor="age">Age</label>
-        <input
-          id="age"
-          type="number"
-          name="age"
-          value={formData.age}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="gender">Gender</label>
-        <select
-          id="gender"
-          name="gender"
-          value={formData.gender}
-          onChange={handleInputChange}
-        >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="prefered">Prefer not to say</option>
-        </select>
-
-        <label htmlFor="contactNumber">Contact Number</label>
-        <input
-          id="contactNumber"
-          type="tel"
-          name="contactNumber"
-          value={formData.contactNumber}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="interest">Interest</label>
-        <input
-          id="interest"
-          type="text"
-          name="interest"
-          value={formData.interest}
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="emergencyContact">Emergency Contact</label>
-        <input
-          id="emergencyContact"
-          type="number"
-          name="emergencyContact"
-          value={formData.emergencyContact}
-          onChange={handleInputChange}
-        />
-
-        <input type="submit" value="Submit" />
-      </form> */}
+      </Modal>
+    
 
       <div className="displayProfile">
         <h2>User Profile</h2>
