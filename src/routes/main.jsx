@@ -20,6 +20,8 @@ import Posts from "../components/elderly/posts";
 import VolunteerDashBoard from "./../components/volunteer/dashboard";
 import VOlunteerHeader from "./../components/volunteer/header";
 import VolunteerProfile from "./../components/volunteer/Profile";
+import ReviewByElder from "../components/elderly/ReviewByElder";
+import Rewards from "../components/elderly/Rewards";
 
   const router = createBrowserRouter([
     {
@@ -46,10 +48,10 @@ import VolunteerProfile from "./../components/volunteer/Profile";
           path: "posts",
           element: <Posts/>
         },
-        // {
-        //   path: "addPost",
-        //   element: <AddPost/>
-        // },
+        {
+          path: "/elder/reviewelder",
+          element: <ReviewByElder/>
+        },
         {
           path: "profile",
           element: <Profiles/>
@@ -68,6 +70,10 @@ import VolunteerProfile from "./../components/volunteer/Profile";
         {
           path: "profile",
           element: <VolunteerProfile/>
+        },
+        {
+          path: "rewards",
+          element: <Rewards/>
         }
       ]
     },

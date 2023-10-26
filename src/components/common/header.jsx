@@ -58,7 +58,7 @@ const AppHeader = () => {
                 icon: <VideoCameraOutlined />,
                 label: 'Logout',
                 onClick: ()=> {logout()}
-              }
+              },
             ]}
           />
         </Sider>

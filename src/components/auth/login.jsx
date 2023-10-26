@@ -15,6 +15,7 @@ function Login() {
         console.log(email);
         console.log(passWord);
         const data = await axios.postRequest("login",{email, password: passWord});
+        debugger
         if(data.success) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('role', data.role);
