@@ -14,7 +14,7 @@ import Dashboard from "../components/elderly/Dashboard";
 import AddPost from "../components/elderly/addPost";
 import Headers from "./../components/common/header";
 import Posts from "../components/elderly/posts";
-import Events from "../components/elderly/events/Events";
+import Events from "../components/common/events/Events";
 
 // volunteer components
 import VolunteerDashBoard from "./../components/volunteer/dashboard";
