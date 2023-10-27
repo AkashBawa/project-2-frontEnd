@@ -78,49 +78,57 @@ const MyPosts = () => {
               title={post.serviceTitle}
               style={{ width: "100%", }}
             >
-              {
-                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link> </p> : 
-                <div>
-                  <h2>Invitations</h2>
-                  <ul>
-                    {
-                      post?.invitations.map((invite, invitationIndex) => {
-                        return (
-                          <li className="requestList">
-                            <p>Name: {invite.user.name} </p>
-                            {
-                              invite.status == "REJECTED" ? "Rejected" :
-                                <>
-                                  <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> </p>
-                                  <p> <CloseOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "REJECTED") }} /> </p>
-                                </>
-                            }
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
+              <div>
+                {
 
-                </div>
-                <p>{post?.serviceStatus}</p>
+                  post.status == "BOOKED" ?
+                    <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name}
+                      <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link>
+                    </p> :
+                    <div>
+                      <h2>Invitations</h2>
+                      <ul>
+                        {
+                          post?.invitations.map((invite, invitationIndex) => {
+                            return (
+                              <li className="requestList">
+                                <p>Name: {invite.user.name} </p>
+                                {
+                                  invite.status == "REJECTED" ? "Rejected" :
+                                    <>
+                                      <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> </p>
+                                      <p> <CloseOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "REJECTED") }} /> </p>
+                                    </>
+                                }
+                              </li>
+                            )
+                          })
+                        }
+                      </ul>
 
-                <button type="default" className="acceptbtn" onClick={() => { sendRequest(post._id, index) }} >
-                  <img src={accept} alt="Accept" />
-                </button>
-                <button type="default" className="rejectbtn" onClick={() => { sendRequest(post._id, index) }}>
-                  <img src={reject} alt="Reject" />
-                </button>
-                <button type="default" className="profilebtn" onClick={() => { sendRequest(post._id, index) }}>
-                  <img src={profile} alt="profile" />
-                </button>
+                      <p>{post?.serviceStatus}</p>
 
-                // </Card>
-              }
-       })
-      }
-              )
-        }
-            </div>
+                      <button type="default" className="acceptbtn" onClick={() => { sendRequest(posts._id, index) }} >
+                        <img src={accept} alt="Accept" />
+                      </button>
+                      <button type="default" className="rejectbtn" onClick={() => { sendRequest(post._id, index) }}>
+                        <img src={reject} alt="Reject" />
+                      </button>
+                      <button type="default" className="profilebtn" onClick={() => { sendRequest(post._id, index) }}>
+                        <img src={profile} alt="profile" />
+                      </button>
+                    </div>
+                }
+              </div>
+
+
+
+            </Card>
           )
+        })
+      }
+    </div>
+  )
+}
 
-          export default MyPosts;
+export default MyPosts;
