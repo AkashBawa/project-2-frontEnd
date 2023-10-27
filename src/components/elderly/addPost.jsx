@@ -1,16 +1,34 @@
-import { Alert, Form, Input, DatePicker, TimePicker } from "antd";
+import { Alert, Form, Input, DatePicker, TimePicker, notification } from "antd";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Button } from 'antd';
 import axios from "../../services/axios";
+import TomTomAutoComplete from "../map/TomTomAutoComplete";
 
 const AddPost = () => {
 
+  const [api, contextHolder] = notification.useNotification();
   const [time, setTime] = useState();
   const [serviceTitle, setserviceTitle] = useState();
   const [serviceType, setserviceType] = useState();
   const [date, setdate] = useState();
   const [serviceStatus, setserviceStatus] = useState();
+
+  const resetForm = () => {
+    setTime("");
+    setdate("");
+    setserviceTitle("");
+    setserviceType("");
+  }
+
+  const openNotification = (message, description = "") => {
+    api.open({
+      message: message,
+      description:
+        description,
+      duration: 1,
+    });
+  };
 
   const submit = async () => {
     console.log("submit", time, serviceTitle, serviceType, date, serviceStatus);
@@ -20,17 +38,20 @@ const AddPost = () => {
       time,
       serviceTitle,
       serviceType,
-      serviceStatus,
-      "location": {
-        "coordinates": [-122.778620, 49.163640]
+      location: {
+        coordinates: [-122.77862, 49.16364]
       }
-    }
+    };
 
     if (time && serviceTitle && serviceType && date && serviceStatus) {
       const response = await axios.postRequest("addpost", payload, true);
-      console.log(response)
+      // console.log(response);
+      if (response && response.success) {
+        openNotification("Post added successfully")
+      }
+      resetForm();
     }
-  }
+  };
   return (
     <div>
       <h2>Add Post</h2>
@@ -38,7 +59,7 @@ const AddPost = () => {
         <Form
           name="trigger"
           style={{
-            maxWidth: 400,
+            maxWidth: 400
           }}
           layout="vertical"
           autoComplete="off"
@@ -59,11 +80,17 @@ const AddPost = () => {
 
           <Button type="primary" onClick={() => { submit(); }}>Submit</Button>
 
-        </Form>
 
+          <TomTomAutoComplete />
+
+          <Button type="primary" onClick={submit}>
+            Submit
+          </Button>
+        </Form>
       </div>
     </div>
-  )
-}
 
-export default AddPost
+  );
+};
+
+export default AddPost;

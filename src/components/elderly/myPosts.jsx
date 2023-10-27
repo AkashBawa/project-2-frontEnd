@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Card } from "antd";
 import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+
+
 import axios from "../../services/axios";
 import "./css/MyPosts.css";
 import profile from './../../images/profile.png';
@@ -8,20 +11,20 @@ import reject from './../../images/reject.png';
 import accept from './../../images/accept.png';
 
 const MyPosts = () => {
-  
+
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState();
 
-useEffect(() => {
-  fetchMyPosts();
-  fetchId();
-}, []);
+  useEffect(() => {
+    fetchMyPosts();
+    fetchId();
+  }, []);
 
 
-const fetchId = () => {
-  const userId = localStorage.getItem('userId');
-  setUserId(userId);
-}
+  const fetchId = () => {
+    const userId = localStorage.getItem('userId');
+    setUserId(userId);
+  }
 
 
   const fetchMyPosts = async () => {
@@ -75,13 +78,29 @@ const fetchId = () => {
               title={post.serviceTitle}
               style={{ width: "100%", }}
             >
-              <div className="cardStyle">
-                <p>{post?.userId.name}</p>
-                <p>{post?.serviceType}</p>
-                <div className="dateTimeStyle" >
-                  <p>{new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()}</p>
-                  <p>
-                    {post.time}</p>
+              {
+                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link> </p> : 
+                <div>
+                  <h2>Invitations</h2>
+                  <ul>
+                    {
+                      post?.invitations.map((invite, invitationIndex) => {
+                        return (
+                          <li className="requestList">
+                            <p>Name: {invite.user.name} </p>
+                            {
+                              invite.status == "REJECTED" ? "Rejected" :
+                                <>
+                                  <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> </p>
+                                  <p> <CloseOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "REJECTED") }} /> </p>
+                                </>
+                            }
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+
                 </div>
                 <p>{post?.serviceStatus}</p>
 
@@ -94,13 +113,14 @@ const fetchId = () => {
                 <button type="default" className="profilebtn" onClick={() => { sendRequest(post._id, index) }}>
                   <img src={profile} alt="profile" />
                 </button>
-              </div>
-            </Card>
-          )
-        })
-      }
-    </div>
-  )
-}
 
-export default MyPosts;
+                // </Card>
+              }
+       })
+      }
+              )
+        }
+            </div>
+          )
+
+          export default MyPosts;

@@ -14,12 +14,16 @@ import Dashboard from "../components/elderly/Dashboard";
 import AddPost from "../components/elderly/addPost";
 import Headers from "./../components/common/header";
 import Posts from "../components/elderly/posts";
-
+import Events from "../components/common/events/Events";
 
 // volunteer components
 import VolunteerDashBoard from "./../components/volunteer/dashboard";
 import VOlunteerHeader from "./../components/volunteer/header";
 import VolunteerProfile from "./../components/volunteer/Profile";
+import VolunteerHistory from "./../components/volunteer/history/History";
+
+import ReviewByElder from "../components/elderly/ReviewByElder";
+import Rewards from "../components/elderly/Rewards";
 
   const router = createBrowserRouter([
     {
@@ -51,8 +55,16 @@ import VolunteerProfile from "./../components/volunteer/Profile";
           element: <AddPost/>
         },
         {
+          path: "reviewelder/:id",
+          element: <ReviewByElder/>
+        },
+        {
           path: "profile",
           element: <Profiles/>
+        },
+        {
+          path: "event",
+          element: <Events/>
         }
       ]
     },
@@ -67,6 +79,14 @@ import VolunteerProfile from "./../components/volunteer/Profile";
         {
           path: "profile",
           element: <VolunteerProfile/>
+        },
+        {
+          path: "history",
+          element: <VolunteerHistory/>
+        },
+        {
+          path: "rewards",
+          element: <Rewards/>
         }
       ]
     },
