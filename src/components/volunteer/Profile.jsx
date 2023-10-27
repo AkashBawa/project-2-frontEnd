@@ -15,6 +15,7 @@ const Profile = () => {
 
   const [volProfile, setVolProfile] = useState();
   const [rating, setRating] = useState()
+  const [points, setPoints] = useState([])
 
   const fetchRating = async () => {
     try {
@@ -25,6 +26,18 @@ const Profile = () => {
       console.log(error);
     }
   }
+
+  const fetchReview = async () => {
+    try {
+      const response = await axios.getRequest("getReview", true);
+      setPoints(response.data);
+      console.log(points); 
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  
 
   const fetchVolUserProfile = async () => {
     try {
@@ -40,6 +53,7 @@ const Profile = () => {
   useEffect(() => {
     fetchVolUserProfile();
     fetchRating()
+    fetchReview()
   }, []);
 
   const handleSubmit = async (e) => {
@@ -147,6 +161,8 @@ const Profile = () => {
       <p>Contact Number: {volProfile.contactNumber}</p>
       <p>Interest: {volProfile.interest}</p>
       <p>rating average:{rating}</p>
+      <p>Rewards Points: {volProfile.point}</p>
+
     </div>
   ) : (
     <p>Loading...</p>
