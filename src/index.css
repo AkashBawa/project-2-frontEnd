@@ -130,3 +130,17 @@ div.dashElderUnanswered {
     background-color: white;
     color: #00756A;
 }
+
+.dashBoardElderHeader {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.dashBoardElderHeader h1 {
+    grid-column: 1/4;
+    text-align: left;
+}
+
+.dashBoardElderHeader div {
+    text-align: center;
+}

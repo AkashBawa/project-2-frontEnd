@@ -13,12 +13,14 @@ const Dashboard = () => {
   return (
     // console.log(serviceTitle);
     <div className="dashBoardElder">
-      <div>
-      <h1>Hi, Ana</h1>
-      <img src={iconNotification} alt="iconNotification" />
-      <img src={iconAdd} alt="iconAdd" />
-      <img src={iconProfile} alt="iconProfile" />
-            </div>
+      <div className="dashBoardElderHeader">
+        <h1>Hi, Ana</h1>
+        <div>
+          <img src={iconNotification} alt="iconNotification" />
+          <img src={iconAdd} alt="iconAdd" />
+          <img src={iconProfile} alt="iconProfile" />
+        </div>
+      </div>
       <div className="dashElder">
         <div className="dashElderEvent">
           <h2>Join our Community</h2>
