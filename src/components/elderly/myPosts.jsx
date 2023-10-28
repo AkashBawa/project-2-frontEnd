@@ -96,8 +96,8 @@ const MyPosts = () => {
                                 {
                                   invite.status == "REJECTED" ? "Rejected" :
                                     <>
-                                      <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> </p>
-                                      <p> <CloseOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "REJECTED") }} /> </p>
+                                      {/* <p> <CheckCircleOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> </p> */}
+                                      {/* <p> <CloseOutlined onClick={() => { responseInvitation(postIndex, invite.user._id, "REJECTED") }} /> </p> */}
                                     </>
                                 }
                               </li>
@@ -120,9 +120,6 @@ const MyPosts = () => {
                     </div>
                 }
               </div>
-
-
-
             </Card>
           )
         })
