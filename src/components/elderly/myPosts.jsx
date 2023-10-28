@@ -60,7 +60,13 @@ const MyPosts = () => {
               }}
             >
               {
-                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link> </p> : <div>
+                post.status == "BOOKED" && <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link> </p> 
+                
+              }
+              {
+                post.status == "PENDING" &&
+                <div>
+                  
                   <h2>Invitations</h2>
                   <ul>
                     {
