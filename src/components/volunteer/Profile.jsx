@@ -30,12 +30,19 @@ const Profile = () => {
   const fetchReview = async () => {
     try {
       const response = await axios.getRequest("getReview", true);
-      setPoints(response.data);
-      console.log(points); 
+  
+      // Check if the 'review' property exists in the response data
+      if (response.data && response.data.review) {
+        setPoints(response.data.review);
+        console.log("Review:", points);
+      } else {
+        console.log("Review data not found in the response.");
+      }
     } catch (error) {
-      console.log(error);
+      console.log("Error fetching review:", error);
     }
-  }
+  };
+  
   
   
 
@@ -162,6 +169,7 @@ const Profile = () => {
       <p>Interest: {volProfile.interest}</p>
       <p>rating average:{rating}</p>
       <p>Rewards Points: {volProfile.point}</p>
+      {/* {points.map()} */}
 
     </div>
   ) : (
