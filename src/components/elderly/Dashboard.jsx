@@ -1,11 +1,21 @@
 import { Outlet } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
+import React from 'react';
+import './css/Dashboard.css'
+import iconProfile from './../../images/icon_profile.png';
+import iconNotification from './../../images/icon_notification.png';
+import iconAdd from './../../images/icon_add.png';
 
 const Dashboard = () => {
   return (
     <div className="dashBoardElder">
       <h1>Hi, Ana</h1>
+      <div>
+        <img src={iconNotification} alt="iconNotification" />
+        <img src={iconAdd} alt="iconAdd" />
+        <img src={iconProfile} alt="iconProfile" />
+      </div>
       <div className="dashElder">
         <div className="dashElderEvent">
           <h3>Join our Community</h3>
