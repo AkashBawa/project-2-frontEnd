@@ -18,6 +18,7 @@
 .dashBoardElderHeader div {
     text-align: center;
 }
+
 .dashBoardElder h1 {
     text-align: center;
     color: red;
@@ -146,4 +147,14 @@ div.dashElderUnanswered {
 :where(.css-dev-only-do-not-override-pr0fja).ant-menu-dark>.ant-menu .ant-menu-item-selected {
     background-color: white;
     color: #00756A;
+}
+
+.dashBoardElderHeader {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.dashBoardElderHeader h1 {
+    grid-column: span 2;
+    text-align: left;
 }

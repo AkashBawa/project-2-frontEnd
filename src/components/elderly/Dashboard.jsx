@@ -10,11 +10,13 @@ import iconAdd from './../../images/icon_add.png';
 const Dashboard = () => {
   return (
     <div className="dashBoardElder">
+      <div className="dashBoardElderHeader">
       <h1>Hi, Ana</h1>
       <div>
         <img src={iconNotification} alt="iconNotification" />
         <img src={iconAdd} alt="iconAdd" />
         <img src={iconProfile} alt="iconProfile" />
+      </div>
       </div>
       <div className="dashElder">
         <div className="dashElderEvent">
