@@ -11,7 +11,6 @@ const Dashboard = () => {
 
   console.log("Hi")
   return (
-    // console.log(serviceTitle);
     <div className="dashBoardElder">
       <div className="dashBoardElderHeader">
         <h1>Hi, Ana</h1>

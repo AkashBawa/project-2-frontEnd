@@ -1,0 +1,20 @@
+/* Styling for the Elder Dashboard */
+
+.myPostElderly {
+    background-color: lightgray;
+
+}
+
+.dashBoardElderHeader {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.dashBoardElderHeader h1 {
+    grid-column: 1/4;
+    text-align: left;
+}
+
+.dashBoardElderHeader div {
+    text-align: center;
+}

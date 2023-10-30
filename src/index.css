@@ -95,10 +95,6 @@ div.dashElderUnanswered {
     background: #00756A !important;
 }
 
-.myPostElderly {
-    background-color: lightgray;
-
-}
 
 .cardStyle {
     align-items: center;
@@ -129,18 +125,4 @@ div.dashElderUnanswered {
 :where(.css-dev-only-do-not-override-pr0fja).ant-menu-dark>.ant-menu .ant-menu-item-selected {
     background-color: white;
     color: #00756A;
-}
-
-.dashBoardElderHeader {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.dashBoardElderHeader h1 {
-    grid-column: 1/4;
-    text-align: left;
-}
-
-.dashBoardElderHeader div {
-    text-align: center;
 }
