@@ -7,7 +7,7 @@ import "./events.scss";
 
 const Events = () => {
 
-
+    console.log("event reached")
     return (
         <div className="events">
             <h2>Create Event</h2>
@@ -23,7 +23,7 @@ const Events = () => {
                             children: <CreateEvent/>,
                         },
                         {
-                            label: `Join Event`,
+                            label: `Participate`,
                             key: "2",
                             children: <JoinEvent />,
                         },
