@@ -40,7 +40,8 @@ const CreateEvent = () => {
                 location,
                 date,
                 startTime,
-                endTime
+                endTime,
+                specialNote
             }
 
             const imgToBase64 = await toBase64(selectedImage);
