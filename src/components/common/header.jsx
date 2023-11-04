@@ -5,6 +5,9 @@ import  { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import localStorage from "../../services/localStorage";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import iconProfile from './../../images/icon_profile.png';
+import iconAdd from './../../images/icon_add.png';
+import './header.css'
 
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {
@@ -15,21 +18,28 @@ const AppHeader = () => {
 
   const [menuItems, setMenuItems] = useState([
     {
+      key: "logo",
+      icon: <img src={iconProfile} alt="Profile" />,
+      label: "", // You can replace this label with the name of your logo.
+    },
+    {
       label: "Dashboard",
-      link: "dashboard"
-    },
-    {
-      label: "Profile",
-      link: "profile"
-    },
-    {
-      label: "Ask Voluteer",
-      link: "addPost"
+      link: "dashboard",
+      icon: <img src={iconAdd} alt="Dashboard" />,
 
     },
+    // {
+    //   label: "Profile",
+    //   link: "profile"
+    // },
+    // {
+    //   label: "Ask Voluteer",
+    //   link: "addPost"
+
+    // },
     {
-      label: "History",
-      link: "posts"
+      label: "Favourite Volunteers",
+      link: "addPost"
     },
     {
       label: "Events",
