@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
 import React from 'react';
@@ -8,14 +8,17 @@ import iconNotification from './../../images/icon_notification.png';
 import iconAdd from './../../images/icon_add.png';
 
 const Dashboard = () => {
+
+
+
   return (
     <div className="dashBoardElder">
       <div className="dashBoardElderHeader">
       <h1>Hi, Ana</h1>
       <div className="topIcons">
         <img src={iconNotification} alt="iconNotification" />
-        <img src={iconAdd} alt="iconAdd" />
-        <img src={iconProfile} alt="iconProfile" />
+        <Link to='/elder/addPost'><img src={iconAdd} alt="iconAdd" /></Link>
+        <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
       </div>
       </div>
       <div className="dashElder">

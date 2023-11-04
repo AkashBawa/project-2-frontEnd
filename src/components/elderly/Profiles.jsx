@@ -80,7 +80,6 @@ const Profiles = () => {
       const getProfile = await axios.getRequest("user", true);
       setProfile(getProfile);
       if(getProfile.profilePhoto){
-        debugger;
           var file = dataURLtoFile(getProfile.profilePhoto, "photo")
           file.originFileObj = file
     
