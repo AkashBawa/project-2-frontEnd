@@ -7,6 +7,7 @@ import localStorage from "../../services/localStorage";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import iconProfile from './../../images/icon_profile.png';
 import iconAdd from './../../images/icon_add.png';
+import IconLogo from "./../../images/logo.png";
 import './header.css'
 
 const { Header, Sider, Content } = Layout;
@@ -17,11 +18,11 @@ const AppHeader = () => {
   const { token: { colorBgContainer }} = theme.useToken();
 
   const [menuItems, setMenuItems] = useState([
-    {
-      key: "logo",
-      icon: <img src={iconProfile} alt="Profile" />,
-      label: "", // You can replace this label with the name of your logo.
-    },
+    // {
+    //   key: "logo",
+    //   icon: "",
+    //   label: <img src={IconLogo} alt="Profile" />, // You can replace this label with the name of your logo.
+    // },
     {
       label: "Dashboard",
       link: "dashboard",
@@ -55,8 +56,10 @@ const AppHeader = () => {
 
   return (
     <div>
+     
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
+          <img src={IconLogo}/>
           <div className="demo-logo-vertical" />
           <Menu
             theme="dark"

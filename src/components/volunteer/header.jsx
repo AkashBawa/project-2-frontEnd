@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import  { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
-
+import IconLogo from "./../../images/logo.png";
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {
 
@@ -24,6 +24,7 @@ const AppHeader = () => {
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="demo-logo-vertical" />
+          <img src={IconLogo}/>
           <Menu
             theme="dark"
             mode="inline"

@@ -3,7 +3,7 @@
 }
 
 .ant-menu-item:nth-of-type(1) {
-    background-image: url(./../../images/logo.png);
+    /* background-image: url(./../../images/logo.png); */
     background-repeat: no-repeat;
     margin: .5rem;
 }
