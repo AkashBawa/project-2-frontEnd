@@ -55,7 +55,13 @@ const AppHeader = () => {
                 onClick: () => {navigate('event')}
               },
               {
-                key: '5',
+                key: "5",
+                icon: <UserOutlined/>,
+                label: "Rewards",
+                onClick: () => {navigate('rewards')}
+              },
+              {
+                key: '6',
                 icon: <VideoCameraOutlined />,
                 label: 'Logout',
                 onClick: ()=> { logout()}
