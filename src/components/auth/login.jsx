@@ -51,6 +51,7 @@ function Login() {
           }}
           id="Password"
           placeholder="Password"
+          type="password"
         />
       </div>
 

@@ -1,0 +1,68 @@
+#joinevent {
+
+    h1 {
+        text-align: center;
+        color: $primaryGreen;
+    }
+    width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: $lightGreen;
+
+    
+    img {
+        max-width: 150px;
+        height: 100%;
+        border-radius: 1rem 0 0 1rem;
+    }
+
+    .event {
+        cursor: pointer;
+        border: 2px solid $primaryGreen ;
+        background-color: white;
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
+        height: 156px;
+
+        .middle-date {
+            text-align: center;
+            color: $primaryGreen;
+        }
+    }
+
+    .details {
+        h2 {
+            color: $primaryGreen;
+        }
+    }
+}
+
+#singleEvent {
+    width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: $lightGreen;   
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        color: $primaryGreen;
+    }
+
+    .buttons {
+        text-align: center;
+    }
+
+    .ant-modal-body {
+        text-align: center;
+
+        h2 {
+            text-transform: capitalize;
+        }
+    }
+}

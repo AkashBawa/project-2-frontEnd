@@ -1,0 +1,160 @@
+/* Styling for the Elder Dashboard */
+
+.myPostElderly {
+    background-color: lightgray;
+
+}
+
+.dashBoardElderHeader {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.dashBoardElderHeader h1 {
+    grid-column: 1/4;
+    text-align: left;
+}
+
+.dashBoardElderHeader div {
+    text-align: center;
+}
+
+.dashBoardElder h1 {
+    text-align: center;
+    color: red;
+}
+
+.dashElder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.dashElder div {
+    min-height: 50px;
+}
+
+.dashElderEvent,
+div.dashElderUnanswered,
+.dashElderPending {
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: 0.5em;
+    border: 2px #00756A solid !important;
+}
+
+.dashElderEvent h2 {
+    color: #00756A;
+
+}
+
+div.dashElderUnanswered {
+    color: grey;
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: 0.5em;
+    border: 2px grey solid !important;
+}
+
+.dashElderPending {
+    color: orangered;
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: 0.5em;
+    border: 2px orangered solid !important;
+}
+
+.unansCount,
+.pendingCount {
+    max-width: 50%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: auto;
+}
+
+.eventMore {
+    color: white;
+    background-color: #00756A;
+    border-radius: .25rem;
+    padding: 0.5rem;
+}
+
+.appoArea h1 {
+    text-align: left;
+}
+
+.appoArea div {
+    background-color: lightgray;
+    display: inline-block;
+    margin-right: 1rem;
+    min-width: 22%;
+    height: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.appoTable {
+    width: 100%;
+    height: auto;
+}
+
+.row1,
+.row2 {
+    background-color: #00756A;
+}
+
+.ant-tabs-tab {
+    margin-right: 2rem !important;
+    color: #00756A !important;
+    min-width: 25% !important;
+    border: 1px #00756A solid !important;
+    font-weight: bold !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+    color: white !important;
+    background: #00756A !important;
+}
+
+
+.cardStyle {
+    align-items: center;
+    margin: auto;
+    padding: auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.dateTimeStyle {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    margin: auto;
+}
+
+:where(.css-dev-only-do-not-override-pr0fja).ant-menu-dark,
+:where(.css-dev-only-do-not-override-pr0fja).ant-menu-dark>.ant-menu,
+:where(.css-dev-only-do-not-override-pr0fja).ant-layout .ant-layout-sider {
+    background: #00756A !important;
+}
+
+:where(.css-dev-only-do-not-override-pr0fja).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: white !important;
+}
+
+:where(.css-dev-only-do-not-override-pr0fja).ant-menu-dark .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-pr0fja).ant-menu-dark>.ant-menu .ant-menu-item-selected {
+    background-color: white;
+    color: #00756A;
+}
+
+.dashBoardElderHeader {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.dashBoardElderHeader h1 {
+    grid-column: span 2;
+    text-align: left;
+}

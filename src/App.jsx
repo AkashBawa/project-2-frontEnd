@@ -1,4 +1,5 @@
 import "./App.scss";
+import "./scss/main.scss"
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes/main";
 import Header from "./components/common/header";

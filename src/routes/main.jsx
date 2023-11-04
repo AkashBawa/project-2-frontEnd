@@ -85,6 +85,10 @@ import Rewards from "../components/volunteer/Rewards";
           element: <VolunteerHistory/>
         },
         {
+          path: "event",
+          element: <Events/>
+        },
+        {
           path: "rewards",
           element: <Rewards/>
         }
