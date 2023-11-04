@@ -1,0 +1,40 @@
+#addPost {
+  h2 {
+    color: darkgreen;
+  }
+  form {
+    max-width: 100% !important;
+  }
+  input {
+    border: 1px solid #292929;
+    width: 100%;
+    padding: 1rem 0.5rem;
+  }
+  button {
+    display: block;
+    background: orangered !important;
+    border-color: orangered !important;
+    margin: 2rem auto 0;
+    border-radius: 8px;
+  }
+  .bottomPart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  .mapDiv {
+    border-radius: 8px;
+  }
+  .mapbox {
+    label {
+      padding: 0 0 8px;
+      line-height: 1.5715;
+      white-space: initial;
+      text-align: left;
+      display: block;
+    }
+  }
+}
