@@ -1,5 +1,5 @@
 import { Card } from "antd";
-import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
+// import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
 
@@ -16,7 +16,7 @@ const HistoryListPost = ({ posts }) => {
                             <Meta title={post.serviceTitle} description={post.serviceType} />
                         
                         <div className="button">
-                            <button>My button</button>
+                            {/* <button>My button</button> */}
                         </div>
                         </Card>
                     )

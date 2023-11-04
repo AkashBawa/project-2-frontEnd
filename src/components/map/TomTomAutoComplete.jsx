@@ -126,12 +126,16 @@ const TomTomAutoComplete = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter an address"
-        value={query}
-        onChange={handleInputChange}
-      />
+      <form>
+        <label htmlFor="address">Address</label>
+        <input
+          type="text"
+          placeholder="Enter an address"
+          value={query}
+          onChange={handleInputChange}
+          id="address"
+        />
+      </form>
       <ul>
         {suggestions.map(suggestion => (
           <li

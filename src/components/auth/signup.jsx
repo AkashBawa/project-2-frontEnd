@@ -40,7 +40,7 @@ function Signup() {
 
       <div> 
           <label htmlFor="Password">Password</label> 
-          <input onKeyUp={(e) => { setPassWord(e.target.value) }} id="Password" placeholder="Password"/>
+          <input type="password"  onKeyUp={(e) => { setPassWord(e.target.value) }} id="Password" placeholder="Password"/>
       </div>
 
       <div> 

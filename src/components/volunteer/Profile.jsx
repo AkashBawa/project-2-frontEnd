@@ -14,6 +14,37 @@ const Profile = () => {
   });
 
   const [volProfile, setVolProfile] = useState();
+  const [rating, setRating] = useState()
+  const [points, setPoints] = useState([])
+
+  const fetchRating = async () => {
+    try {
+      let getrating = await axios.getRequest("averageRating", true);
+      setRating(getrating[0].ratingAvg);
+      console.log(rating)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const fetchReview = async () => {
+    try {
+      const response = await axios.getRequest("getReview", true);
+  
+      // Check if the 'review' property exists in the response data
+      if (response.data && response.data.review) {
+        setPoints(response.data.review);
+        console.log("Review:", points);
+      } else {
+        console.log("Review data not found in the response.");
+      }
+    } catch (error) {
+      console.log("Error fetching review:", error);
+    }
+  };
+  
+  
+  
 
   const fetchVolUserProfile = async () => {
     try {
@@ -28,6 +59,8 @@ const Profile = () => {
 
   useEffect(() => {
     fetchVolUserProfile();
+    fetchRating()
+    fetchReview()
   }, []);
 
   const handleSubmit = async (e) => {
@@ -40,11 +73,11 @@ const Profile = () => {
         true
       );
 
-      // Handle success, e.g., show a success message to the user
+      
       console.log("Form submission successful:", response.data);
       console.log(response);
 
-      // Optionally, you can reset the form fields
+
       setFormDataVol({
         name: "",
         lName: "",
@@ -134,6 +167,10 @@ const Profile = () => {
       <p>Gender: {volProfile.gender}</p>
       <p>Contact Number: {volProfile.contactNumber}</p>
       <p>Interest: {volProfile.interest}</p>
+      <p>rating average:{rating}</p>
+      <p>Rewards Points: {volProfile.point}</p>
+      {/* {points.map()} */}
+
     </div>
   ) : (
     <p>Loading...</p>

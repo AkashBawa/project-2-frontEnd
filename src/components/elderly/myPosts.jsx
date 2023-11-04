@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import { Card, Space, Button } from "antd";
 import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+
 
 import axios from "../../services/axios";
 
@@ -58,7 +60,13 @@ const MyPosts = () => {
               }}
             >
               {
-                post.status == "BOOKED" ? <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} </p> : <div>
+                post.status == "BOOKED" && <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link> </p> 
+                
+              }
+              {
+                post.status == "PENDING" &&
+                <div>
+                  
                   <h2>Invitations</h2>
                   <ul>
                     {
