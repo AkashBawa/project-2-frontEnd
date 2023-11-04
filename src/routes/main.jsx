@@ -23,7 +23,7 @@ import VolunteerProfile from "./../components/volunteer/Profile";
 import VolunteerHistory from "./../components/volunteer/history/History";
 
 import ReviewByElder from "../components/elderly/ReviewByElder";
-import Rewards from "../components/elderly/Rewards";
+import Rewards from "../components/volunteer/Rewards";
 
   const router = createBrowserRouter([
     {

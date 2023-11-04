@@ -1,0 +1,44 @@
+.rewardsTop{
+    display: flex;
+    justify-content: space-between;
+}
+
+.earn-rewards{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #F5FAF6;
+    padding: 3rem;
+}
+
+.earn-rewards img {
+    width: 20%;
+}
+
+.certificate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center; 
+    align-items: center;
+}
+
+.certificate img {
+    width: 30%;
+    justify-self: center; 
+}
+
+.appply-now-btn{
+    display: grid;
+}
+
+.certificate-section{
+    text-align: center;
+    margin: 3rem;
+}
+
+.certificate-description{
+    display: grid;
+    text-align: center;
+    background-color: #FFF6F5;
+    padding: 4rem 0;
+}

@@ -31,7 +31,6 @@ const Profile = () => {
     try {
       const response = await axios.getRequest("getReview", true);
   
-      // Check if the 'review' property exists in the response data
       if (response.data && response.data.review) {
         setPoints(response.data.review);
         console.log("Review:", points);
