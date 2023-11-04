@@ -10,17 +10,17 @@
 
 
 .ant-menu-item :nth-of-type(2) span{
-    background-image: url(./../../images/icon_profile_elderly.png);
+    /* background-image: url(./../../images/icon_profile_elderly.png); */
     background-repeat: no-repeat;
 
 }
 
 .ant-menu-item:nth-of-type(3) span {
-    background-image: url(./../../images/favourite.png);
+    /* background-image: url(./../../images/favourite.png); */
     background-repeat: no-repeat;
 }
 
 .ant-menu-item:nth-of-type(4) span {
-    background-image: url(./../../images/icon_party.png);
+    /* background-image: url(./../../images/icon_party.png); */
     background-repeat: no-repeat;
 }
