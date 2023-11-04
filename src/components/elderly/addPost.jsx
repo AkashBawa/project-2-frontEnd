@@ -5,7 +5,6 @@ import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
 
 const AddPost = () => {
-
   const [api, contextHolder] = notification.useNotification();
   const [time, setTime] = useState();
   const [serviceTitle, setserviceTitle] = useState();
@@ -17,14 +16,13 @@ const AddPost = () => {
     setdate("");
     setserviceTitle("");
     setserviceType("");
-  }
+  };
 
   const openNotification = (message, description = "") => {
     api.open({
       message: message,
-      description:
-        description,
-      duration: 1,
+      description: description,
+      duration: 1
     });
   };
 
@@ -44,14 +42,14 @@ const AddPost = () => {
     if (time && serviceTitle && serviceType && date) {
       const response = await axios.postRequest("addpost", payload, true);
       // console.log(response);
-      if(response && response.success) {
-        openNotification("Post added successfully")
+      if (response && response.success) {
+        openNotification("Post added successfully");
       }
       resetForm();
     }
   };
   return (
-    <div>
+    <div id="addPost">
       <h2>Add post</h2>
       <div className="addpost">
         <Form
@@ -81,30 +79,35 @@ const AddPost = () => {
               }}
             />
           </Form.Item>
-          <Form.Item label="Date">
-            <input
-              type="date"
-              value={date}
-              onChange={e => {
-                setdate(e.target.value);
-              }}
-            />
-          </Form.Item>
-          <Form.Item label="Select time">
-            <input
-              type="time"
-              value={time}
-              onChange={e => {
-                setTime(e.target.value);
-              }}
-              required
-            />
-          </Form.Item>
+          <div className="bottomPart">
+            <div className="bottomLeft">
+              <Form.Item label="Date">
+                <input
+                  type="date"
+                  value={date}
+                  onChange={e => {
+                    setdate(e.target.value);
+                  }}
+                />
+              </Form.Item>
 
-          {/* map */}
+              <Form.Item label="Select time">
+                <input
+                  type="time"
+                  value={time}
+                  onChange={e => {
+                    setTime(e.target.value);
+                  }}
+                  required
+                />
+              </Form.Item>
+            </div>
 
-          <TomTomAutoComplete />
-
+            {/* map */}
+            <div className="mapbox">
+              <TomTomAutoComplete />
+            </div>
+          </div>
           <Button type="primary" onClick={submit}>
             Submit
           </Button>
