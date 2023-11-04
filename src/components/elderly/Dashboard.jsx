@@ -12,7 +12,7 @@ const Dashboard = () => {
     <div className="dashBoardElder">
       <div className="dashBoardElderHeader">
       <h1>Hi, Ana</h1>
-      <div>
+      <div className="topIcons">
         <img src={iconNotification} alt="iconNotification" />
         <img src={iconAdd} alt="iconAdd" />
         <img src={iconProfile} alt="iconProfile" />

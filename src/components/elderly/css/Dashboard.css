@@ -1,5 +1,23 @@
 /* Styling for the Elder Dashboard */
 
+.dashElder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.dashElder div {
+    min-height: 50px;
+}
+
+.dashElderEvent,
+div.dashElderUnanswered,
+.dashElderPending {
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: 0.5em;
+}
+
 .myPostElderly {
     background-color: lightgray;
 
@@ -20,8 +38,8 @@
 }
 
 .dashBoardElder h1 {
-    text-align: center;
-    color: red;
+    text-align: left;
+    color: #00756A;
 }
 
 .dashElder {
@@ -76,8 +94,9 @@ div.dashElderUnanswered {
 .eventMore {
     color: white;
     background-color: #00756A;
-    border-radius: .25rem;
-    padding: 0.5rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+
 }
 
 .appoArea h1 {
@@ -105,18 +124,32 @@ div.dashElderUnanswered {
 }
 
 .ant-tabs-tab {
-    margin-right: 2rem !important;
-    color: #00756A !important;
-    min-width: 25% !important;
+    color: white !important;
+    min-width: 24.5% !important;
+    /* min-width: calc(25%-4px) !important; */
     border: 1px #00756A solid !important;
     font-weight: bold !important;
+    background-color: #00756A !important;
 }
 
-.ant-tabs-tab.ant-tabs-tab-active {
-    color: white !important;
-    background: #00756A !important;
+
+
+.ant-tabs-nav-list .ant-tabs-tab-active {
+    background-color: #fff !important;
+    color: #00756A !important;
 }
 
+:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    display: block;
+    color: #00756A !important;
+    text-align: center;
+
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap,
+:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-wrap {
+    display: block !important;
+}
 
 .cardStyle {
     align-items: center;
@@ -157,4 +190,32 @@ div.dashElderUnanswered {
 .dashBoardElderHeader h1 {
     grid-column: span 2;
     text-align: left;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-menu-dark,
+:where(.css-dev-only-do-not-override-xu9wm8).ant-layout .ant-layout-sider {
+    background: #00756A !important;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-menu-dark .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-xu9wm8).ant-menu-dark>.ant-menu .ant-menu-item-selected {
+    background-color: white;
+    color: #00756A;
+}
+
+.dashBoardElder img {
+    width: 50px;
+    height: 50px;
+}
+
+.topIcons {
+    margin-right: 25%;
+    margin-left: 25%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.ant-tabs-nav {
+    width: 100%;
 }
