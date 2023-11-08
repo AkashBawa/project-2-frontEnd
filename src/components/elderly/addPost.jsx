@@ -4,7 +4,7 @@ import { Button } from "antd";
 import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
 
-const AddPost = () => {
+const AddPost = (userName) => {
   const [api, contextHolder] = notification.useNotification();
   const [time, setTime] = useState();
   const [serviceTitle, setserviceTitle] = useState();
@@ -36,7 +36,8 @@ const AddPost = () => {
       serviceType,
       location: {
         coordinates: [-122.77862, 49.16364]
-      }
+      },
+      userName: userName, // Include the user's name in the post
     };
 
     if (time && serviceTitle && serviceType && date) {
@@ -60,7 +61,6 @@ const AddPost = () => {
           layout="vertical"
           autoComplete="off"
         >
-          {/* <Alert message="Use 'max' rule, continue type chars to see it" /> */}
           <Form.Item label="Service title">
             <Input
               placeholder="Service title"

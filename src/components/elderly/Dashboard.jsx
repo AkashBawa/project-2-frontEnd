@@ -14,16 +14,16 @@ const Dashboard = () => {
   return (
     <div className="dashBoardElder">
       <div className="dashBoardElderHeader">
-      <h1>Hi, Ana</h1>
-      <div className="topIcons">
-        <img src={iconNotification} alt="iconNotification" />
-        <Link to='/elder/addPost'><img src={iconAdd} alt="iconAdd" /></Link>
-        <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+        <h1>Hi, Ana</h1>
+        <div className="topIcons">
+          <img src={iconNotification} alt="iconNotification" />
+          <Link to='/elder/addPost'><img src={iconAdd} alt="iconAdd" /></Link>
+          <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+        </div>
       </div>
-      </div>
-      <div className="dashElder">
+      <div className="dashElderNav">
         <div className="dashElderEvent">
-          <h3>Join our Community</h3>
+          <h2>Join our Community</h2>
           <h4>Join us for our upcoming yoga session.</h4>
           <button className="eventMore">Read More</button>
         </div>
@@ -37,68 +37,41 @@ const Dashboard = () => {
         </div>
       </div>
 
+      <div id="postsSection">
+        <h1>Posts</h1>
+      
+        <Tabs className="tabs"
+          defaultActiveKey="1"
+          type="card"
+          size={"middle"}
+          items={
+            [
+              {
+                label: `Unanswered`,
+                key: "1",
+                children: <MyPosts />,
+              },
+              {
+                label: `Pending`,
+                key: "2",
+                children: <MyPosts />,
+              },
+              {
+                label: `Approved`,
+                key: "3",
+                children: <MyPosts />,
+              },
+              {
+                label: `Completed`,
+                key: "4",
+                children: <MyPosts />,
+              },
+            ]
+          }
+        />
 
-      <h1>Appointments</h1>
-      <Tabs className="tabs"
-        defaultActiveKey="1"
-        type="card"
-        size={"middle"}
-        items={
-          [
-            {
-              label: `Unanswered`,
-              key: "1",
-              children: <MyPosts />,
-            },
-            {
-              label: `Pending`,
-              key: "2",
-              children: <MyPosts />,
-            },
-            {
-              label: `Approved`,
-              key: "3",
-              children: <MyPosts />,
-            },
-            {
-              label: `Completed`,
-              key: "4",
-              children: <MyPosts />,
-            },
-          ]
-        }
-      />
+      </div>
 
-
-      <article>
-        <table className="appoTable">
-          <tr>
-            <th>Name</th>
-            <th>Task</th>
-            <th>Data and Time</th>
-            <th>accept</th>
-            <th>reject</th>
-            <th>profile</th>
-          </tr>
-          <tr className="row1">
-            <td>Ahmed C.</td>
-            <td>Do groceries and bring them home.</td>
-            <td>Oct 16,2023 10am</td>
-            <td>accept</td>
-            <td>reject</td>
-            <td>profile</td>
-          </tr>
-          <tr className="row2">
-            <td>Jessica R.</td>
-            <td>Take me to a doctor appointment.</td>
-            <td>Oct 25,2023 2pm</td>
-            <td>accept</td>
-            <td>reject</td>
-            <td>profile</td>
-          </tr>
-
-        </table>
-      </article>
     </div>
 
 

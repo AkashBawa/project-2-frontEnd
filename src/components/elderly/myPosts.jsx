@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-
 import { Card, Space, Button } from "antd";
 import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-
-
 import axios from "../../services/axios";
-
 import "./css/MyPosts.css"
+import Profile from './../../images/profile.png';
+import Accept from './../../images/accept.png';
 
 const MyPosts = () => {
 
@@ -20,7 +18,7 @@ const MyPosts = () => {
   const fetchMyPosts = async () => {
     try {
       const response = await axios.getRequest("getPostByUser", true);
-      if (response.success == true) {
+      if (response.success === true) {
         setPosts(response.posts);
       }
     } catch (err) {
@@ -46,31 +44,43 @@ const MyPosts = () => {
   }
 
   return (
-    <div>
+    <div >
+      <div id="postTableHeader">
+        <h3>Name</h3>
+        <h3>Task</h3>
+        <h3>Date and Time</h3>
+      </div>
+
       {
         posts.map((post, postIndex) => {
+
           return (
+
             <Card
               key={`card-${postIndex}`}
-              title={post.serviceTitle}
-              extra={post.status}
-              className="myPostElderly"
-              style={{
-                width: "100%",
-              }}
+              id="myPostsCard"
+              title={post.user ? `${post.user.name}` : `User Name Not Loaded`}
+            // extra={post.status}
             >
-              {
-                post.status == "BOOKED" && <p>Booked By: {post?.invitations[findBookedIndex(post)].user.name} <Link to={`/elder/reviewelder/${post._id}`}><button>review</button></Link> </p> 
-                
-              }
-              {
-                post.status == "PENDING" &&
-                <div>
-                  
-                  <h2>Invitations</h2>
-                  <ul>
-                    {
-                      post?.invitations.map((invite, invitationIndex) => {
+
+              <div className="cardBody">
+                {
+                  post.status == "BOOKED" &&
+                  <div>
+                    <h2>Booked By:
+                      {post?.invitations[findBookedIndex(post)].user.name}
+                      <Link to={`/elder/reviewelder/${post._id}`}>
+                        <button type="primary">Review</button>
+                      </Link>
+                    </h2>
+                  </div>
+                }
+                {
+                  post.status == "PENDING" &&
+                  <div>
+                    <h2>Pending</h2>
+                    <ul>
+                      {post?.invitations.map((invite, invitationIndex) => {
                         return (
                           <li className="requestList">
                             <p>Name: {invite.user.name} </p>
@@ -84,11 +94,22 @@ const MyPosts = () => {
                           </li>
                         )
                       })
-                    }
-                  </ul>
+                      }
+                    </ul>
+                  </div>
 
+                }
+                <div className="myPostDT">
+                  {`${post.date} ${post.time}`}
                 </div>
-              }
+                <div className="myPostProfile">
+                  <img src={Profile} alt="Profile Image" />
+                </div>
+                <div className="myPostAccept">
+                  <img src={Accept} alt="Accept Image" />
+                </div>
+              </div>
+
             </Card>
           )
         })

@@ -1,15 +1,21 @@
+/* Giving the side menu its background color  */
+:where(.css-dev-only-do-not-override-2i2tap).ant-layout .ant-layout-sider,
+:where(.css-dev-only-do-not-override-2i2tap).ant-layout .ant-layout-sider ul {
+    background: #00756A !important;
+}
+
+/* Removing the images beside the menu text from the ant library */
 .ant-menu-item span svg {
     display: none !important;
+    width: -10px;
 }
 
 .ant-menu-item:nth-of-type(1) {
-    /* background-image: url(./../../images/logo.png); */
     background-repeat: no-repeat;
-    margin: .5rem;
 }
 
 
-.ant-menu-item :nth-of-type(2) span{
+.ant-menu-item :nth-of-type(2) span {
     /* background-image: url(./../../images/icon_profile_elderly.png); */
     background-repeat: no-repeat;
 
@@ -23,4 +29,29 @@
 .ant-menu-item:nth-of-type(4) span {
     /* background-image: url(./../../images/icon_party.png); */
     background-repeat: no-repeat;
+}
+
+:where(.css-dev-only-do-not-override-2i2tap).ant-menu-dark .ant-menu-item-selected,
+:where(.css-dev-only-do-not-override-2i2tap).ant-menu-dark>.ant-menu .ant-menu-item-selected {
+    background-color: #fff;
+    color: #00756A;
+}
+
+.ant-layout-sider-children ul li {
+    padding: 0px !important;
+    margin: 0 !important;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+#menuLogo {
+    margin: auto;
+    padding: 5px 10%;
+}
+
+#menuLogo img {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 5px 5px;
 }
