@@ -1,3 +1,24 @@
+/* Styling the page responsive  */
+#root:has(.dashBoardElder) {
+    max-width: 1280px;
+    margin: auto;
+}
+
+/* Screen between 1280px and 900px */
+#root:has(.dashBoardElder) {
+    @media screen and (max-width: 900px) {
+        .topIcons img {
+            width: 35px;
+            height: 35px;
+        }
+
+        #postsSection img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
 /* Styling for the Elder Dashboard Header*/
 .dashBoardElder h1 {
     text-align: left;
@@ -18,17 +39,16 @@
     text-align: left;
 }
 
-.dashBoardElder img {
-    width: 50px;
-    height: 50px;
-}
 
 .topIcons {
-    margin-right: 25%;
-    margin-left: 25%;
     display: flex;
     justify-content: space-between;
     margin-left: 1rem;
+}
+
+.topIcons img {
+    width: 48px;
+    height: 48px;
 }
 
 /* ============================================= */
@@ -162,13 +182,13 @@
 }
 
 
+
 .myPostDT {
     grid-column: 2/3;
 }
 
 .myPostProfile {
     grid-column: 3/4;
-
 }
 
 .myPostAccept {

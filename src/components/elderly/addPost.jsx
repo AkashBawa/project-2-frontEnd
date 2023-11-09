@@ -37,14 +37,16 @@ const AddPost = (userName) => {
       location: {
         coordinates: [-122.77862, 49.16364]
       },
-      userName: userName, // Include the user's name in the post
+      // userName, // Include the user's name in the post
     };
 
     if (time && serviceTitle && serviceType && date) {
       const response = await axios.postRequest("addpost", payload, true);
-      // console.log(response);
+      console.log(response);
       if (response && response.success) {
         openNotification("Post added successfully");
+        console.log("This is the post content from addPost" + response);
+
       }
       resetForm();
     }

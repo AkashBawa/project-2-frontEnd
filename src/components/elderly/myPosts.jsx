@@ -6,6 +6,8 @@ import axios from "../../services/axios";
 import "./css/MyPosts.css"
 import Profile from './../../images/profile.png';
 import Accept from './../../images/accept.png';
+import moment from "moment";
+
 
 const MyPosts = () => {
 
@@ -35,7 +37,7 @@ const MyPosts = () => {
     try {
       const postId = posts[postIndex]._id;
       const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
-      console.log(response);
+      console.log("This is the post content From MyPost" + response);
       fetchMyPosts();
 
     } catch (err) {
@@ -53,22 +55,27 @@ const MyPosts = () => {
 
       {
         posts.map((post, postIndex) => {
+          // console.log(post.invitations[0].user.userName);
+          console.log(post);
 
           return (
 
             <Card
               key={`card-${postIndex}`}
               id="myPostsCard"
-              title={post.user ? `${post.user.name}` : `User Name Not Loaded`}
+              title={post.invitations[0].user.userName ? `${post.invitations[0].user.userName}` : `User Name Not Found`}
             // extra={post.status}
             >
 
               <div className="cardBody">
                 {
+                  <p>{post.serviceTitle}</p>
+                }
+                {/* {
                   post.status == "BOOKED" &&
                   <div>
                     <h2>Booked By:
-                      {post?.invitations[findBookedIndex(post)].user.name}
+                      {post?.invitations[findBookedIndex(post)].user.user}
                       <Link to={`/elder/reviewelder/${post._id}`}>
                         <button type="primary">Review</button>
                       </Link>
@@ -98,15 +105,20 @@ const MyPosts = () => {
                     </ul>
                   </div>
 
-                }
+                } */}
                 <div className="myPostDT">
-                  {`${post.date} ${post.time}`}
+                  {moment(post.date).format("MMM DD, YYYY")} {moment(post.time, "HH:mm").format("hh A")}
+
                 </div>
                 <div className="myPostProfile">
-                  <img src={Profile} alt="Profile Image" />
+                <Link to='/elder/profile'><img src={Profile} alt="Profile" /></Link>
+
+
+                  {/* <img src={Profile} alt="Profile Image" onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> */}
                 </div>
+
                 <div className="myPostAccept">
-                  <img src={Accept} alt="Accept Image" />
+                  <img src={Accept} alt="Accept Image" onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} />
                 </div>
               </div>
 
