@@ -39,7 +39,7 @@ const Dashboard = () => {
 
       <div id="postsSection">
         <h1>Posts</h1>
-      
+
         <Tabs className="tabs"
           defaultActiveKey="1"
           type="card"

@@ -1,0 +1,71 @@
+#myEvents {
+    width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: $lightGreen;
+    text-align: center;
+
+    h1 {
+        color: $primaryColor;
+    }
+
+    h2 {
+        color: $primaryColor;
+        text-transform:capitalize;
+    }
+
+    .event {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid $primaryGreen ;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+
+        .img {
+            max-height: 100px;
+
+            img {
+                width: 150px;
+                height: 100px;
+                border-radius: 1rem 0 0 1rem;
+            }
+        }
+
+        .lastLabel {
+            background: $btnDark;
+            height: 40px;
+            color: white;
+            margin-right: 2rem;
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            padding: 1rem;
+            font-weight: 700;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #myEvents {
+        width: 400px;
+        .event {
+            flex-direction: column;
+
+            .lastLabel {
+                margin: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .img {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        
+    }
+}

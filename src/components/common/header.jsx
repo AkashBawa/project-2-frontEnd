@@ -8,7 +8,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, Vid
 import iconProfile from './../../images/icon_profile.png';
 import iconAdd from './../../images/icon_add.png';
 import IconLogo from "./../../images/logo.png";
-import './header.css'
+import './header.css';
 
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {

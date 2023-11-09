@@ -1,3 +1,4 @@
+
 #joinevent {
 
     h1 {
@@ -39,6 +40,31 @@
     }
 }
 
+@media only screen and (max-width: 600px) {
+    #joinevent {
+        width: 400px;
+
+        img {
+            width: 100%;
+            max-width: none;
+        }
+        .event {
+            height: auto;
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        p {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 0;
+        }
+        h1 {
+            margin: 0;
+        }
+    }
+}
+
 #singleEvent {
     width: 700px;
     margin: 2rem auto;
@@ -66,3 +92,4 @@
         }
     }
 }
+
