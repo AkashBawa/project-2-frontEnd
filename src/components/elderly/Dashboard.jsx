@@ -17,7 +17,6 @@ const Dashboard = () => {
         <h1>Hi, Ana</h1>
         <div className="topIcons">
           <img src={iconNotification} alt="iconNotification" />
-          <Link to='/elder/addPost'><img src={iconAdd} alt="iconAdd" /></Link>
           <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
         </div>
       </div>
@@ -38,7 +37,10 @@ const Dashboard = () => {
       </div>
 
       <div id="postsSection">
-        <h1>Posts</h1>
+        <div id="postsSectionNav">
+          <h1>My Posts</h1>
+          <button id="createPost"><Link to='/elder/addPost'>Create Post</Link></button>
+        </div>
 
         <Tabs className="tabs"
           defaultActiveKey="1"
