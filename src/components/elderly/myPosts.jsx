@@ -4,8 +4,8 @@ import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import axios from "../../services/axios";
 import "./css/MyPosts.css"
-import Profile from './../../images/profile.png';
-import Accept from './../../images/accept.png';
+import DeleteImage from './../../images/delete.png';
+import Edit from './../../images/edit.png';
 import moment from "moment";
 
 
@@ -37,7 +37,7 @@ const MyPosts = () => {
     try {
       const postId = posts[postIndex]._id;
       const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
-      console.log("This is the post content From MyPost" + response);
+      // console.log("This is the post content From MyPost" + response);
       fetchMyPosts();
 
     } catch (err) {
@@ -48,9 +48,9 @@ const MyPosts = () => {
   return (
     <div >
       <div id="postTableHeader">
-        <h3>Name</h3>
-        <h3>Task</h3>
-        <h3>Date and Time</h3>
+        <h3>All Posts()</h3>
+        <h3>Active Posts()</h3>
+        <h3>History()</h3>
       </div>
 
       {
@@ -63,15 +63,52 @@ const MyPosts = () => {
             <Card
               key={`card-${postIndex}`}
               id="myPostsCard"
-              title={post.invitations[0].user.userName ? `${post.invitations[0].user.userName}` : `User Name Not Found`}
+            // title={post.invitations[0].user.userName ? `${post.invitations[0].user.userName}` : `User Name Not Found`}
             // extra={post.status}
             >
-
               <div className="cardBody">
                 {
-                  <p>{post.serviceTitle}</p>
+                  <img className="eventImage" src={DeleteImage} alt="Event Image" />
                 }
-                {/* {
+                {
+                  <div className="eventDetails">
+                    <h3>{post.serviceTitle}</h3>
+                    <p>location</p>
+                    <div className="myPostDT">
+                      {moment(post.date).format("MMM DD, YYYY")} {moment(post.time, "HH:mm").format("hh A")}
+
+                    </div>
+                  </div>
+                }
+                {
+                  <div className="deleteEditSection">
+                    <div className="myPostDelete">
+                      <Link to='/elder/profile'><img src={DeleteImage} alt="DeleteImage" /></Link>
+                    </div>
+
+                    <div className="myPostEdit">
+                      <img src={Edit} alt="Edit" />
+                    </div>
+                  </div>
+                }
+              </div>
+
+            </Card>
+          )
+        })
+      }
+    </div>
+  )
+}
+
+export default MyPosts;
+
+
+{/* <img src={Profile} alt="Profile Image" onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> */ }
+{/* Accepting Invitaion Code  */ }
+{/* onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} */ }
+
+{/* {
                   post.status == "BOOKED" &&
                   <div>
                     <h2>Booked By:
@@ -106,28 +143,3 @@ const MyPosts = () => {
                   </div>
 
                 } */}
-                <div className="myPostDT">
-                  {moment(post.date).format("MMM DD, YYYY")} {moment(post.time, "HH:mm").format("hh A")}
-
-                </div>
-                <div className="myPostProfile">
-                <Link to='/elder/profile'><img src={Profile} alt="Profile" /></Link>
-
-
-                  {/* <img src={Profile} alt="Profile Image" onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} /> */}
-                </div>
-
-                <div className="myPostAccept">
-                  <img src={Accept} alt="Accept Image" onClick={() => { responseInvitation(postIndex, invite.user._id, "ACCEPTED") }} />
-                </div>
-              </div>
-
-            </Card>
-          )
-        })
-      }
-    </div>
-  )
-}
-
-export default MyPosts;

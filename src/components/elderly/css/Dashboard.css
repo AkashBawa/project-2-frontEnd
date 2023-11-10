@@ -39,6 +39,7 @@
     height: 55px;
     width: 180px;
     border: #EB592D solid 1px;
+    font-size: large;
 }
 
 #createPost a {
@@ -51,11 +52,11 @@
 
 .dashBoardElderHeader {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .dashBoardElderHeader h1 {
-    grid-column: span 2;
+    grid-column: span 4;
     text-align: left;
 }
 
@@ -172,47 +173,3 @@
 
 /* ================== */
 
-/* Styling MyPost Area  */
-
-#postTableHeader {
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: .5rem;
-    text-align: center;
-}
-
-
-
-#myPostsCard {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: .5rem;
-    text-align: center;
-}
-
-#myPostsCard .ant-card-body {
-    grid-column: span 4;
-}
-
-.cardBody {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: .5rem;
-    text-align: center;
-}
-
-
-
-.myPostDT {
-    grid-column: 2/3;
-}
-
-.myPostProfile {
-    grid-column: 3/4;
-}
-
-.myPostAccept {
-    grid-column: 4/5;
-
-}

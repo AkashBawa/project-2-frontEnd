@@ -22,16 +22,16 @@ const Dashboard = () => {
       </div>
       <div className="dashElderNav">
         <div className="dashElderEvent">
-          <h2>Join our Community</h2>
+          <h2>Join our Events</h2>
           <h4>Join us for our upcoming yoga session.</h4>
-          <button className="eventMore">Read More</button>
+          <button className="eventMore">Join</button>
         </div>
         <div className="dashElderUnanswered">
-          <h3>Unanswered</h3>
+          <h3>Active Posts</h3>
           <div className="unansCount">0</div>
         </div>
         <div className="dashElderPending">
-          <h3>Pending</h3>
+          <h3>All Posts</h3>
           <div className="pendingCount">0</div>
         </div>
       </div>
