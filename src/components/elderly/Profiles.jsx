@@ -117,7 +117,7 @@ const Profiles = () => {
     console.log(profile);
 
     fetchUserProfile();
-    console.log("Profile response" + response);
+    // console.log("Profile response" + response);
   };
 
   const handleInputChange = (e) => {
