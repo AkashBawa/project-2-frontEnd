@@ -1,7 +1,7 @@
 /* Styling the page responsive  */
 #root:has(.dashBoardElder) {
-    /* max-width: 1280px;
-    margin: auto; */
+    max-width: 1280px;
+    margin: auto;
 }
 
 /* Screen between 1280px and 900px */
@@ -41,6 +41,7 @@
     border: #EB592D solid 1px;
     font-size: large;
 }
+
 
 #createPost a {
     color: white !important;
@@ -132,7 +133,8 @@
     background-color: #00756A;
     border-radius: .5rem;
     padding: .5rem 1.5rem;
-    border-style: solid;
+    border: 1px solid #00756A;
+
 }
 
 /* ==================================== */
@@ -172,4 +174,3 @@
 }
 
 /* ================== */
-

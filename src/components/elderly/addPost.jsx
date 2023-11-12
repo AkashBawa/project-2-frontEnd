@@ -42,7 +42,6 @@ const AddPost = (userName) => {
       location: {
         coordinates: [-122.77862, 49.16364]
       },
-      // userName, // Include the user's name in the post
     };
 
     if (time && serviceTitle && serviceType && date) {

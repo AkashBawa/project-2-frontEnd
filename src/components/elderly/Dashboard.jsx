@@ -66,7 +66,7 @@ const Dashboard = () => {
       <div className="dashElderNav">
         <div className="dashElderEvent">
           <h2>Join our Events</h2>
-          <h4>Join us for our upcoming yoga session.</h4>
+          <h4>Join us for our upcoming session.</h4>
           <button className="eventMore">Join</button>
         </div>
         <div className="dashElderUnanswered">
@@ -92,17 +92,17 @@ const Dashboard = () => {
           items={
             [
               {
-                label: `Unanswered`,
+                label: `All Posts(3)`,
                 key: "1",
                 children: <MyPosts posts={pendingPosts} />,
               },
               {
-                label: `Approved`,
+                label: `Active Posts(2)`,
                 key: "2",
                 children: <MyPosts posts={approvedPosts} />,
               },
               {
-                label: `Completed`,
+                label: `Hostory(2)`,
                 key: "3",
                 children: <MyPosts posts={completedPosts} />,
               },
