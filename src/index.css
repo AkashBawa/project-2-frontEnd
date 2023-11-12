@@ -1,3 +1,13 @@
+:where(.css-dev-only-do-not-override-1adbn6x).ant-menu-dark,
+:where(.css-dev-only-do-not-override-1adbn6x).ant-layout .ant-layout-sider {
+    background-color: #00756A;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-menu-dark .ant-menu-item-selected {
+    background-color: #fff;
+    color: #00756A;
+}
+
 .unansCount,
 .pendingCount {
     max-width: 50%;
@@ -27,4 +37,3 @@
     width: 100%;
     height: auto;
 }
-

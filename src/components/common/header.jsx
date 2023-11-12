@@ -1,43 +1,31 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import  { Layout, Menu, Button, theme } from "antd";
+import { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import localStorage from "../../services/localStorage";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import iconProfile from './../../images/icon_profile.png';
 import iconAdd from './../../images/icon_add.png';
 import IconLogo from "./../../images/logo.png";
-import './header.css'
+import './header.css';
 
 const { Header, Sider, Content } = Layout;
 const AppHeader = () => {
 
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const { token: { colorBgContainer }} = theme.useToken();
+  const { token: { colorBgContainer } } = theme.useToken();
 
   const [menuItems, setMenuItems] = useState([
-    // {
-    //   key: "logo",
-    //   icon: "",
-    //   label: <img src={IconLogo} alt="Profile" />, // You can replace this label with the name of your logo.
-    // },
+  
     {
       label: "Dashboard",
       link: "dashboard",
-      icon: <img src={iconAdd} alt="Dashboard" />,
+      // icon: <img src={iconAdd} alt="Dashboard" />,
 
     },
-    // {
-    //   label: "Profile",
-    //   link: "profile"
-    // },
-    // {
-    //   label: "Ask Voluteer",
-    //   link: "addPost"
 
-    // },
     {
       label: "Favourite Volunteers",
       link: "addPost"
@@ -56,35 +44,37 @@ const AppHeader = () => {
 
   return (
     <div>
-     
+
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
-          <img src={IconLogo}/>
+          <div id="menuLogo">
+            <img src={IconLogo}  />
+          </div>
           <div className="demo-logo-vertical" />
           <Menu
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
             items={
-              [ 
+              [
                 ...menuItems.map((item, index) => {
                   return {
                     key: index,
                     icon: <UserOutlined />,
                     label: item.label,
-                    onClick: () => {navigate(item.link)}
+                    onClick: () => { navigate(item.link) }
                   }
                 })
 
-                ,{
+                , {
                   key: menuItems.length,
                   icon: <VideoCameraOutlined />,
                   label: 'Logout',
-                  onClick: ()=> {logout()}
+                  onClick: () => { logout() }
                 }
               ]
-   
-          }
+
+            }
           />
         </Sider>
         <Layout>
@@ -113,7 +103,7 @@ const AppHeader = () => {
               background: colorBgContainer,
             }}
           >
-            <Outlet/>
+            <Outlet />
           </Content>
         </Layout>
       </Layout>

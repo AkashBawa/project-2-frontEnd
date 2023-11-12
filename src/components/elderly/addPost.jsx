@@ -3,8 +3,13 @@ import { useState } from "react";
 import { Button } from "antd";
 import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
+import { useDispatch } from "react-redux";
+import { setLoader } from './../../redux/user';
 
-const AddPost = () => {
+const AddPost = (userName) => {
+
+  const dispatch = useDispatch();
+
   const [api, contextHolder] = notification.useNotification();
   const [time, setTime] = useState();
   const [serviceTitle, setserviceTitle] = useState();
@@ -36,15 +41,24 @@ const AddPost = () => {
       serviceType,
       location: {
         coordinates: [-122.77862, 49.16364]
-      }
+      },
+      // userName, // Include the user's name in the post
     };
 
     if (time && serviceTitle && serviceType && date) {
-      const response = await axios.postRequest("addpost", payload, true);
-      // console.log(response);
-      if (response && response.success) {
-        openNotification("Post added successfully");
+      
+      dispatch(setLoader({loader: true}));
+      
+      try {
+        const response = await axios.postRequest("addpost", payload, true);
+        dispatch(setLoader({loader: false}));
+        if (response && response.success) {
+          openNotification("Post added successfully");
+        }
+      } catch (err) {
+        dispatch(setLoader({loader: false}));
       }
+      
       resetForm();
     }
   };
@@ -60,7 +74,6 @@ const AddPost = () => {
           layout="vertical"
           autoComplete="off"
         >
-          {/* <Alert message="Use 'max' rule, continue type chars to see it" /> */}
           <Form.Item label="Service title">
             <Input
               placeholder="Service title"

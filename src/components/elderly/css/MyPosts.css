@@ -1,12 +1,54 @@
-.myPostElderly {
-    margin-bottom: 2rem;
-}
+/* Styling MyPost Area  */
 
-.requestList {
+#postTableHeader {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: .5rem;
+    text-align: left;
+    padding-right: 25%;
+    font-weight: bold;
 }
- 
 
-.requestList p {
-    margin-right: 1rem;
+#myPostsCard {
+    background-color: #F5F5F5;
+    margin: 1rem;
+    padding: 0;
+    border-radius: 20px;
+}
+
+
+.cardBody {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-around;
+    gap: .5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.eventDetails {
+    grid-column: span 3;
+    text-align: left;
+}
+
+
+.deleteEditSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.myPostDelete,
+.myPostEdit {
+    width: 50px;
+    height: 65px;
+}
+
+.eventImage {
+    width: 104px;
+    height: 104px;
+    border-radius: 20px;
+    border: 1px solid;
 }

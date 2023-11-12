@@ -12,18 +12,19 @@ const getBase64 = (file) =>
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
+    console.log("this is the reader" + reader);
   });
 
-   const dataURLtoFile = (dataurl, filename) => {
-    var arr = dataurl.split(','),
-        mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[arr.length - 1]), 
-        n = bstr.length, 
-        u8arr = new Uint8Array(n);
-    while(n--){
-        u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new File([u8arr], filename, {type:mime});
+const dataURLtoFile = (dataurl, filename) => {
+  var arr = dataurl.split(','),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[arr.length - 1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, { type: mime });
 }
 
 const Profiles = () => {
@@ -44,7 +45,7 @@ const Profiles = () => {
     setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
   };
 
-  const handleChange = ({ fileList: newFileList }) =>  {
+  const handleChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   }
 
@@ -92,24 +93,23 @@ const Profiles = () => {
   };
 
   useEffect(() => {
-    
+
     fetchUserProfile();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(fileList && fileList.length){
+    if (fileList && fileList.length) {
       formData.profilePhoto = await getBase64(fileList[0].originFileObj)
     }
 
     try {
       const response = await axios.postRequest("updateProfile", formData, true);
 
-
       console.log("Form submission successful:", response.data);
       console.log(response);
-     
+
     } catch (error) {
       console.error("Form submission error:", error);
     }
@@ -117,6 +117,7 @@ const Profiles = () => {
     console.log(profile);
 
     fetchUserProfile();
+    console.log("Profile response" + response);
   };
 
   const handleInputChange = (e) => {
@@ -131,8 +132,8 @@ const Profiles = () => {
 
   return (
     <div>
-       <Upload
-        
+      <Upload
+
         beforeUpload={(file) => {
           return false
         }}
@@ -153,7 +154,7 @@ const Profiles = () => {
           src={myPhoto}
         />
       </Modal>
-    
+
 
       {/* <div className="displayProfile">
         <h2>User Profile</h2>

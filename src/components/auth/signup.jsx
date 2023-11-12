@@ -2,6 +2,7 @@ import { useState } from "react";
 import AxiosService from "./../../services/axios"
 import localStorage from "../../services/localStorage";
 import { useNavigate } from "react-router-dom";
+// import AddPost from "./../elderly/addPost";
 
 function Signup() {
 
@@ -59,6 +60,8 @@ function Signup() {
 
 
       <button onClick={submit}>Submit</button>
+      {/* <AddPost userName={userName} /> */}
+
     </div>
   );
 }

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../../services/axios';
 import SingleView from "./SingleView";
+import { useDispatch } from "react-redux";
+import { setLoader } from '../../../redux/user';
 
 const JoinEvent = () => {
 
+  const dispatch = useDispatch();
   const [activeEvens, setActiveEvents] = useState([]);
   const [singleView, setSingleView] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(null);
@@ -23,18 +26,23 @@ const JoinEvent = () => {
     "DEC"
   ])
   useEffect(() => {
+
+    dispatch(setLoader({loader: true}));
     fetchEvents();
+
   }, []);
 
   const fetchEvents = async () => {
     try {
       const response = await axios.getRequest("eventList", true);
+      dispatch(setLoader({loader: false}))
       if (response && response.success) {
         console.log(response)
         getDateFormat(response.events);
       }
     } catch (err) {
       console.log(err);
+      dispatch(setLoader({loader: false}))
     }
   }
 
