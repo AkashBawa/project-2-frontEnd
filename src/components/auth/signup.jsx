@@ -32,6 +32,9 @@ function Signup() {
 
   return (
     <div className="Signup">
+
+
+
       <h2>Signup</h2>
       <div> 
           <label htmlFor="email">Email</label> 

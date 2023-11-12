@@ -15,7 +15,7 @@ const Rewards = () => {
     } else if (points >= 201 && points <= 300) {
       console.log("Silver Badge");
       return 'Silver Badge';
-    } else if(points >= 300 && points <= 400){
+    } else if(points >= 300 && points <= 1000){
       console.log("Gold Badge");
       return 'Gold Badge';
     } else {

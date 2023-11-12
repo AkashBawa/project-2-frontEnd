@@ -65,7 +65,7 @@ const Profiles = () => {
   const [formData, setFormData] = useState({
     profilePhoto: "",
     name: "",
-    lName: "",
+    // lName: "",
     age: "",
     gender: "male",
     contactNumber: "",
@@ -79,6 +79,7 @@ const Profiles = () => {
     try {
       const getProfile = await axios.getRequest("user", true);
       setProfile(getProfile);
+      setFormData(getProfile);
       if(getProfile.profilePhoto){
           var file = dataURLtoFile(getProfile.profilePhoto, "photo")
           file.originFileObj = file
@@ -154,7 +155,7 @@ const Profiles = () => {
       </Modal>
     
 
-      <div className="displayProfile">
+      {/* <div className="displayProfile">
         <h2>User Profile</h2>
         <p>Name: {profile.name}</p>
         <p>Age: {profile.age}</p>
@@ -162,7 +163,7 @@ const Profiles = () => {
         <p>Contact Number: {profile.contactNumber}</p>
         <p>Interest: {profile.interest}</p>
         <p>Emergency Contact: {profile.emergencyContact}</p>
-      </div>
+      </div> */}
 
       <Form
         name="trigger"
