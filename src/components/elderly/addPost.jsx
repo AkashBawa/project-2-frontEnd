@@ -11,13 +11,15 @@ const AddPost = (userName) => {
   const dispatch = useDispatch();
 
   const [api, contextHolder] = notification.useNotification();
-  const [time, setTime] = useState();
+  const [startTime, setStartTime] = useState();
+  const [endTime, setEndTime] = useState();
   const [serviceTitle, setserviceTitle] = useState();
   const [serviceType, setserviceType] = useState();
   const [date, setdate] = useState();
 
   const resetForm = () => {
-    setTime("");
+    setStartTime("");
+    setEndTime("");
     setdate("");
     setserviceTitle("");
     setserviceType("");
@@ -32,11 +34,12 @@ const AddPost = (userName) => {
   };
 
   const submit = async () => {
-    console.log("submit", time, serviceTitle, serviceType, date);
+    console.log("submit", startTime, endTime, serviceTitle, serviceType, date);
 
     const payload = {
       date,
-      time,
+      startTime,
+      endTime,
       serviceTitle,
       serviceType,
       location: {
@@ -44,20 +47,20 @@ const AddPost = (userName) => {
       },
     };
 
-    if (time && serviceTitle && serviceType && date) {
-      
-      dispatch(setLoader({loader: true}));
-      
+    if (endTime && startTime && serviceTitle && serviceType && date) {
+
+      dispatch(setLoader({ loader: true }));
+
       try {
         const response = await axios.postRequest("addpost", payload, true);
-        dispatch(setLoader({loader: false}));
+        dispatch(setLoader({ loader: false }));
         if (response && response.success) {
           openNotification("Post added successfully");
         }
       } catch (err) {
-        dispatch(setLoader({loader: false}));
+        dispatch(setLoader({ loader: false }));
       }
-      
+
       resetForm();
     }
   };
@@ -103,16 +106,28 @@ const AddPost = (userName) => {
                 />
               </Form.Item>
 
-              <Form.Item label="Select time">
+              <Form.Item label="Start Time">
                 <input
                   type="time"
-                  value={time}
+                  value={startTime}
                   onChange={e => {
-                    setTime(e.target.value);
+                    setStartTime(e.target.value);
                   }}
                   required
                 />
               </Form.Item>
+
+              <Form.Item label="End Time">
+                <input
+                  type="time"
+                  value={endTime}
+                  onChange={e => {
+                    setEndTime(e.target.value);
+                  }}
+                  required
+                />
+              </Form.Item>
+
             </div>
 
             {/* map */}

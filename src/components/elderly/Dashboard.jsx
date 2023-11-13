@@ -102,7 +102,7 @@ const Dashboard = () => {
                 children: <MyPosts posts={approvedPosts} />,
               },
               {
-                label: `Hostory(2)`,
+                label: `History(2)`,
                 key: "3",
                 children: <MyPosts posts={completedPosts} />,
               },

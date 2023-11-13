@@ -36,7 +36,7 @@ const MyPosts = ({ posts }) => {
                   <h3>location</h3>
 
                   <div className="myPostDT">
-                    {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.time, "HH:mm").add(1, 'hour').format("h:mm A")}
+                    {moment(post.date).format("D MMMM")} {moment(post.startTime, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
                   </div>
                 </div>
                 {
