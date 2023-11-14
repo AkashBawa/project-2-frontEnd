@@ -38,6 +38,11 @@
     height: 65px;
 }
 
+.myPostDelete:hover,
+.myPostEdit:hover {
+    cursor: pointer;
+}
+
 .eventImage {
 
     padding: 1rem;
@@ -46,17 +51,53 @@
     border-radius: 20px;
 }
 
+.deletePostConfirmation {
+    position: absolute;
+    color: black;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+    padding: 20% 30%;
+
+}
+
+.deletePostConfirmation div {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.deletePostConfirmation .deleteNo {
+    padding: 1rem 2rem;
+    border: 1px solid #EB592D;
+    color: #EB592D;
+    margin-right: 1rem;
+}
 
 
+.deletePostConfirmation .deleteYes {
+    padding: 1rem 2rem;
+    background-color: #EB592D;
+    border: 1px solid #EB592D;
+    color: white;
 
 
+}
 
 
-
-
-
-
-
-
+.Visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: insert(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
 
 

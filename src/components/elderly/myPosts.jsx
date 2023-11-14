@@ -15,6 +15,13 @@ const MyPosts = ({ posts }) => {
   useEffect(() => {
   }, []);
 
+  // const [isDeleteVisible, setDeleteVisible] = useState(false);
+
+  // const handleDeleteClick = () => {
+  //   // Toggle the value of isDeleteVisible
+  //   setDeleteVisible(!isDeleteVisible);
+  // };
+
 
   return (
     <div >
@@ -43,8 +50,14 @@ const MyPosts = ({ posts }) => {
                   post.status == "PENDING" && <>
                     <div className="deleteEditSection">
                       <div className="myPostDelete">
-                        <Link to='/elder/profile'><img src={DeleteImage} alt="DeleteImage" /></Link>
+                        <img src={DeleteImage} alt="DeleteImage" />
                       </div>
+
+                      {/* ${isDeleteVisible ? 'Visually-hidden' : ''} */}{/* 
+                      <div id= "myPostDelete" className={`myPostDelete`}>
+                        <img src={DeleteImage} alt="DeleteImage" />
+                        // <img src={DeleteImage} alt="DeleteImage" onClick={handleDeleteClick} />
+                      </div> */}
 
                       <div className="myPostEdit">
                         <img src={Edit} alt="Edit" />
