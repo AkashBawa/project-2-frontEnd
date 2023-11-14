@@ -3,20 +3,19 @@ import axios from "../../services/axios";
 import "./css/Profiles.css";
 import { Alert, Select, Form, Input, DatePicker, TimePicker } from "antd";
 import { Button } from "antd";
-import { PlusOutlined } from '@ant-design/icons';
-import { Modal, Upload } from 'antd';
+import { PlusOutlined } from "@ant-design/icons";
+import { Modal, Upload } from "antd";
 
-const getBase64 = (file) =>
+const getBase64 = file =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-    console.log("this is the reader" + reader);
+    reader.onerror = error => reject(error);
   });
 
 const dataURLtoFile = (dataurl, filename) => {
-  var arr = dataurl.split(','),
+  var arr = dataurl.split(","),
     mime = arr[0].match(/:(.*?);/)[1],
     bstr = atob(arr[arr.length - 1]),
     n = bstr.length,
@@ -25,43 +24,43 @@ const dataURLtoFile = (dataurl, filename) => {
     u8arr[n] = bstr.charCodeAt(n);
   }
   return new File([u8arr], filename, { type: mime });
-}
+};
 
 const Profiles = () => {
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [previewImage, setPreviewImage] = useState('');
-  const [previewTitle, setPreviewTitle] = useState('');
+  const [previewImage, setPreviewImage] = useState("");
+  const [previewTitle, setPreviewTitle] = useState("");
   const [fileList, setFileList] = useState([]);
   const [myPhoto, setPhoto] = useState("");
 
-
   const handleCancel = () => setPreviewOpen(false);
-  const handlePreview = async (file) => {
+  const handlePreview = async file => {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj);
     }
     setPreviewImage(file.url || file.preview);
     setPreviewOpen(true);
-    setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
+    setPreviewTitle(
+      file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
+    );
   };
 
   const handleChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
-  }
+  };
 
   const uploadButton = (
     <div>
       <PlusOutlined />
       <div
         style={{
-          marginTop: 8,
+          marginTop: 8
         }}
       >
         Upload
       </div>
     </div>
   );
-
 
   const [formData, setFormData] = useState({
     profilePhoto: "",
@@ -71,7 +70,7 @@ const Profiles = () => {
     gender: "male",
     contactNumber: "",
     interest: "",
-    emergencyContact: "",
+    emergencyContact: ""
   });
 
   const [profile, setProfile] = useState({});
@@ -93,15 +92,14 @@ const Profiles = () => {
   };
 
   useEffect(() => {
-
     fetchUserProfile();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (fileList && fileList.length) {
-      formData.profilePhoto = await getBase64(fileList[0].originFileObj)
+      formData.profilePhoto = await getBase64(fileList[0].originFileObj);
     }
 
     try {
@@ -109,7 +107,11 @@ const Profiles = () => {
 
       console.log("Form submission successful:", response.data);
       console.log(response);
+      console.log(formData);
+      console.log(profile);
+      console.log("Profile response" + response);
 
+      fetchUserProfile();
     } catch (error) {
       console.error("Form submission error:", error);
     }
@@ -120,22 +122,22 @@ const Profiles = () => {
     // console.log("Profile response" + response);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
 
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
-    console.log(formData);
   };
 
   return (
-    <div>
+    <div id="profilePage">
+      <h2>About Me</h2>
       <Upload
-
-        beforeUpload={(file) => {
-          return false
+        className="userImage"
+        beforeUpload={file => {
+          return false;
         }}
         listType="picture-circle"
         fileList={fileList}
@@ -144,17 +146,22 @@ const Profiles = () => {
       >
         {fileList.length >= 1 ? null : uploadButton}
       </Upload>
-      {/* <img src={myPhoto} alt="" /> */}
-      <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
+
+      <Modal
+        open={previewOpen}
+        title={previewTitle}
+        footer={null}
+        onCancel={handleCancel}
+      >
         <img
+          className="image"
           alt="example"
           style={{
-            width: '100%',
+            width: "100%"
           }}
           src={myPhoto}
         />
       </Modal>
-
 
       {/* <div className="displayProfile">
         <h2>User Profile</h2>
@@ -169,7 +176,7 @@ const Profiles = () => {
       <Form
         name="trigger"
         style={{
-          maxWidth: 400,
+          maxWidth: 400
         }}
         layout="vertical"
         autoComplete="off"

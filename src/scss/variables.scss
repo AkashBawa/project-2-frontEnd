@@ -1,5 +1,13 @@
-$lightGreen: #F5FAF6;
+$lightGreen: #f5faf6;
 $primaryGreen: #00756a;
-$btnDark : #EB592D;
+$btnDark: #eb592d;
 $btnLight: white;
 $primaryColor: darkgreen;
+
+@mixin submitButton($bg-color: $btnDark) {
+  display: block;
+  background: $bg-color !important;
+  border-color: $bg-color !important;
+  margin: 2rem auto 0;
+  border-radius: 8px;
+}

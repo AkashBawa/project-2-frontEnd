@@ -5,6 +5,7 @@ import IconLogo from "./../../images/logo.png";
 import localStorage from "../../services/localStorage";
 import axios from "../../services/axios";
 import SignupImg from '../../images/group-seniors-park 1.png'
+import { Link } from "react-router-dom";
 
 import { Input } from 'antd';
 
@@ -41,7 +42,7 @@ function Login() {
           <img src={IconLogo} alt="" />
           <div className="headerLinks">
             <li><a href="">Contact</a></li>
-            <button className="darkBtn">Sign Up</button>
+            <Link to="/signup"><button className="darkBtn">Sign Up</button></Link>
           </div>
         </div>
       </nav>

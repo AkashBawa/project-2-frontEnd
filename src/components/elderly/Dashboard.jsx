@@ -1,15 +1,58 @@
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './css/Dashboard.css'
 import iconProfile from './../../images/icon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
 import iconAdd from './../../images/icon_add.png';
+import axios from "../../services/axios";
+import { useState } from "react";
 
 const Dashboard = () => {
 
+  const [ pendingPosts, setPendingRequest ] = useState([]);
+  const [ approvedPosts, setApprovedRequest ] = useState([]);
+  const [ completedPosts, setCompletedPosts ] = useState([]);
 
+  useEffect(() => {
+    fetchMyPosts();
+  }, []);
+
+
+  const filterPosts = (allPosts) => {
+    let pendingPosts = [];
+    let approvedPosts = [];
+    let completedPosts = [];
+
+    allPosts.forEach((post, index) => {
+
+      if( post.status === "PENDING" ) {
+        pendingPosts.push(post)
+      } else if (  post.status === "BOOKED"  ) {
+        approvedPosts.push(post);
+      } else {
+        completedPosts.push(post);
+      }
+    });
+
+    console.log(completedPosts)
+    setPendingRequest(pendingPosts);
+    setApprovedRequest(approvedPosts);
+    setCompletedPosts(completedPosts);
+  }
+
+
+  const fetchMyPosts = async () => {
+    try {
+      const response = await axios.getRequest("getPostByUser", true);
+      if (response.success === true && response.posts) {
+        filterPosts(response.posts);
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div className="dashBoardElder">
@@ -51,29 +94,23 @@ const Dashboard = () => {
               {
                 label: `Unanswered`,
                 key: "1",
-                children: <MyPosts />,
-              },
-              {
-                label: `Pending`,
-                key: "2",
-                children: <MyPosts />,
+                children: <MyPosts posts={pendingPosts} />,
               },
               {
                 label: `Approved`,
-                key: "3",
-                children: <MyPosts />,
+                key: "2",
+                children: <MyPosts posts={approvedPosts} />,
               },
               {
                 label: `Completed`,
-                key: "4",
-                children: <MyPosts />,
+                key: "3",
+                children: <MyPosts posts={completedPosts} />,
               },
             ]
           }
         />
 
       </div>
-
     </div>
 
 

@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import localStorage from "../../services/localStorage";
 import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
-import iconProfile from './../../images/icon_profile.png';
-import iconAdd from './../../images/icon_add.png';
 import IconLogo from "./../../images/logo.png";
 import './header.css';
 
@@ -26,10 +23,10 @@ const AppHeader = () => {
 
     },
 
-    {
-      label: "Favourite Volunteers",
-      link: "addPost"
-    },
+    // {
+    //   label: "Favourite Volunteers",
+    //   link: "addPost"
+    // },
     {
       label: "Events",
       link: "event"

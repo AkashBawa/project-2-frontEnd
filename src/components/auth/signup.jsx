@@ -8,6 +8,7 @@ import SignupImg from '../../images/group-seniors-park 1.png'
 import React from 'react';
 import { Input } from 'antd';
 import { Select } from 'antd';
+import { Link } from "react-router-dom";
 
 
 function Signup() {
@@ -45,7 +46,7 @@ function Signup() {
           <img src={IconLogo} alt="" />
           <div className="headerLinks">
             <li><a href="">Contact</a></li>
-            <button className="darkBtn">Login</button>
+            <Link to="/login"><button className="darkBtn">Login</button></Link>
           </div>
         </div>
       </nav>

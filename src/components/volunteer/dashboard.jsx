@@ -6,9 +6,16 @@ import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
 
+import { useDispatch } from "react-redux";
+import { setLoader } from '../../redux/user';
+
 const Dashboard = () => {
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
+
+    dispatch(setLoader({loader: true}));
     fetchPost();
     fetchId();
   },[]);
@@ -25,12 +32,14 @@ const Dashboard = () => {
   const fetchPost = async () => {
     try {
       const response = await axios.postRequest("fetchpost", {}, true);
+      dispatch(setLoader({loader: false}));
       if(response.success) {
         console.log(response.posts);
         setPosts(response.posts);
       }
 
     } catch(err) {
+      dispatch(setLoader({loader: false}));
       console.log(err)
     }
   };
