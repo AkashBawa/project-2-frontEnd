@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import tt from "@tomtom-international/web-sdk-maps";
 import "./TomTomAutoComplete.css";
 
-const TomTomAutoComplete = () => {
+const TomTomAutoComplete = ( {updateLocationAnsCoordinates} ) => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [userLocation, setUserLocation] = useState(null); // User's location
@@ -20,6 +20,8 @@ const TomTomAutoComplete = () => {
       navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
         setUserLocation({ lat: latitude, lon: longitude });
+
+        updateLocationAnsCoordinates( query, [longitude, latitude] );
       });
     }
   };
@@ -53,6 +55,7 @@ const TomTomAutoComplete = () => {
   };
 
   const handleSuggestionSelect = suggestion => {
+    // console.log(suggestion)
     setQuery(suggestion.address.freeformAddress);
     setSuggestions([]); // Clear the suggestions list
     setSelectedSuggestion(suggestion);
@@ -114,15 +117,15 @@ const TomTomAutoComplete = () => {
     }
   }, [selectedSuggestion]);
 
-  console.log(
-    "selectedSuggestion",
-    selectedSuggestion == null
-      ? {
-          lat: -123.138572,
-          lon: 49.263566
-        }
-      : selectedSuggestion.position
-  );
+  // console.log(
+  //   "selectedSuggestion",
+  //   selectedSuggestion == null
+  //     ? {
+  //         lat: -123.138572,
+  //         lon: 49.263566
+  //       }
+  //     : selectedSuggestion.position
+  // );
 
   return (
     <div>
@@ -146,9 +149,9 @@ const TomTomAutoComplete = () => {
           </li>
         ))}
       </ul>
-      {selectedSuggestion && (
+      {/* {selectedSuggestion && (
         <p>Selected: {selectedSuggestion.address.freeformAddress}</p>
-      )}
+      )} */}
 
       <div ref={mapElement} className="mapDiv"></div>
     </div>

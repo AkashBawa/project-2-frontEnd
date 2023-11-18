@@ -1,6 +1,6 @@
 /* Styling the page responsive  */
 #root:has(.dashBoardElder) {
-    max-width: 1280px;
+    /* max-width: 1280px; */
     margin: auto;
 }
 

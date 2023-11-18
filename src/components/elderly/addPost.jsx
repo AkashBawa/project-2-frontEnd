@@ -5,6 +5,7 @@ import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
 import { useDispatch } from "react-redux";
 import { setLoader } from './../../redux/user';
+import Swal from 'sweetalert2'
 
 const AddPost = (userName) => {
 
@@ -16,6 +17,8 @@ const AddPost = (userName) => {
   const [serviceTitle, setserviceTitle] = useState();
   const [serviceType, setserviceType] = useState();
   const [date, setdate] = useState();
+  const [coordinates, setCoordinates] = useState([]);
+  const [location, setLocation] = useState("");
 
   const resetForm = () => {
     setStartTime("");
@@ -32,19 +35,27 @@ const AddPost = (userName) => {
       duration: 1
     });
   };
+  
+  const updateLocationAnsCoordinates = ( location, coordinates) => {
+    console.log(location, coordinates);
+    setLocation(location);
+    setCoordinates(coordinates);
+  }
 
   const submit = async () => {
     console.log("submit", startTime, endTime, serviceTitle, serviceType, date);
 
     const payload = {
       date,
-      startTime,
+      // startTime,
+      time: startTime,
       endTime,
       serviceTitle,
       serviceType,
+      address: location,
       location: {
-        coordinates: [-122.77862, 49.16364]
-      },
+        coordinates: coordinates
+      }
     };
 
     if (endTime && startTime && serviceTitle && serviceType && date) {
@@ -53,15 +64,24 @@ const AddPost = (userName) => {
 
       try {
         const response = await axios.postRequest("addpost", payload, true);
-        dispatch(setLoader({ loader: false }));
+        setTimeout(() => {
+          dispatch(setLoader({ loader: false }));
+        }, 500);
         if (response && response.success) {
-          openNotification("Post added successfully");
+          resetForm();
+          Swal.fire({
+            title: "Thanks",
+            text: "Your post has successfully created",
+            icon: "success"
+          });
         }
       } catch (err) {
         dispatch(setLoader({ loader: false }));
       }
 
-      resetForm();
+      
+    } else {
+      openNotification("Fill all the details");
     }
   };
   return (
@@ -132,7 +152,7 @@ const AddPost = (userName) => {
 
             {/* map */}
             <div className="mapbox">
-              <TomTomAutoComplete />
+              <TomTomAutoComplete updateLocationAnsCoordinates={updateLocationAnsCoordinates} />
             </div>
           </div>
           <Button type="primary" onClick={submit}>

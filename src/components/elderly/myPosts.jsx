@@ -10,7 +10,7 @@ import postImage from './../../images/postImage.png';
 import moment from "moment";
 
 
-const MyPosts = ({ posts }) => {
+const MyPosts = ({ posts, fetchMyPosts, changeSingleView , status}) => {
 
   useEffect(() => {
   }, []);
@@ -21,6 +21,26 @@ const MyPosts = ({ posts }) => {
   //   // Toggle the value of isDeleteVisible
   //   setDeleteVisible(!isDeleteVisible);
   // };
+
+
+  const findBookedIndex = (post) => {
+    const index = post?.invitations.map((invite) => { return invite.status }).indexOf("ACCEPTED");
+    return index;
+  }
+
+
+
+  const responseInvitation = async (postIndex, acceptedUserId, status) => {
+    try {
+      const postId = posts[postIndex]._id;
+      const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
+      console.log(response);
+      fetchMyPosts();
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
 
   return (
@@ -34,7 +54,7 @@ const MyPosts = ({ posts }) => {
               key={`card-${postIndex}`}
               id="myPostsCard"
             >
-              <div className="cardBody">
+              <div className="cardBody" onClick={ () => {changeSingleView(post)}}>
 
                 <img className="eventImage" src={postImage} alt="Post Image" />
 
@@ -43,7 +63,7 @@ const MyPosts = ({ posts }) => {
                   <h3>location</h3>
 
                   <div className="myPostDT">
-                    {moment(post.date).format("D MMMM")} {moment(post.startTime, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
+                    {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
                   </div>
                 </div>
                 {
@@ -65,6 +85,21 @@ const MyPosts = ({ posts }) => {
                     </div>
                   </>
                 }
+                {
+                  post.status == "BOOKED" && <>
+                   <div className="deleteEditSection">
+
+              
+
+                      <div className="Review">
+                        <Link to={`/elder/reviewelder/${post._id}`}><button className="darkBtn">Review</button></Link>
+                      </div>
+                    </div>
+                  </>
+                }
+
+                
+
 
               </div>
             </Card>
