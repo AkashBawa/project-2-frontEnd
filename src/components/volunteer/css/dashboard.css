@@ -213,11 +213,13 @@ nav img {
     margin-left: 1rem;
 }
 
+
 .navtopIcons img,
 .topIcons img {
     width: 48px;
     height: 48px;
 }
+
 
 /* ============================================= */
 
@@ -244,20 +246,24 @@ nav img {
 
 }
 
-.dashVolunteerUnanswered {
-    color: grey;
-    border-radius: .5rem;
-    margin: .5rem;
-    padding: 0.5em;
-    border: 2px grey solid !important;
+.dashVolunteerEvent div {
+    color: #00756A;
 }
 
-.dashVolunteerPending {
+.dashVolunteerUnanswered {
     color: #EB592D;
     border-radius: .5rem;
     margin: .5rem;
     padding: 0.5em;
-    border: 2px#EB592D solid !important;
+    border: 2px #EB592D solid !important;
+}
+
+.dashVolunteerPending {
+    color: #00BBC2;
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: 0.5em;
+    border: 2px #00BBC2 solid !important;
 }
 
 .allTasksCount,
