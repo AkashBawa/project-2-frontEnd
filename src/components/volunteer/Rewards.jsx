@@ -4,6 +4,7 @@ import '../volunteer/rewards.css'
 import rewards from './Images/5558132.png'
 import { Link } from 'react-router-dom';
 import iconProfile from './../../images/icon_profile.png';
+import Certificate from '../../images/certificate 1.png'
 
 const Rewards = () => {
   const [volProfile, setVolProfile] = useState(null);
@@ -45,14 +46,15 @@ const Rewards = () => {
       <div className='rewardsTop'>
         <h1>Rewards</h1>
         {volProfile ? (
-        <div>
-          <h2>Your Points: {volProfile.point}</h2>
-          <h2>Badge: {getBadge(volProfile.point)}</h2>
+        <div className='pointDiv'>
+          <h2 className='points'>Your Points: {volProfile.point}</h2>
+          <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+          {/* <h2>Badge: {getBadge(volProfile.point)}</h2> */}
         </div>
       ) : (
         <p>Loading...</p>
       )}
-        <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+        
       </div>
 
 <div className='earn-rewards'>
@@ -63,17 +65,37 @@ const Rewards = () => {
   <div className='certificate-section'>
     <h2>Volunteer Certificate Request</h2>
     <div className='certificate'>
-      <img src={rewards} alt="" />
+      <img src={Certificate} alt="" />
       <div className='appply-now-btn'>
         <p>Complete the volunteer certificate request form and click ‘Apply Now' to initiate the certification process.</p>
-        <button>Apply now</button>
+        <button className='darkBtn'>Apply now</button>
       </div>
     </div>
   </div>
 
   <div className='certificate-description'>
     <h3>How you will receive volunteer certificate</h3>
-    <p>You have to request for volunteer certificate to Wisecare team. Then ourWisecare team will look into your profile. I you have completed minimum5 tasks as a volunteer through app. Wisecare will send Volunteer certificate to your e-mail account And sent you a notification on Your website account.</p>
+    <div>
+      <p>You have to request for volunteer certificate to Wisecare team. Then ourWisecare team will look into your profile. I you have completed minimum5 tasks as a volunteer through app. Wisecare will send Volunteer certificate to your e-mail account And sent you a notification on Your website account.</p>
+    </div>
+  </div>
+
+  <div>
+    <h2>Why Badged</h2>
+    <div>
+      <div className='whyBadgeDes'>
+        <img src={Certificate} alt="" />
+        <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a  volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+      </div>
+      <div className='whyBadgeDes'>
+        <img src={Certificate} alt="" />
+        <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a  volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+      </div>
+      <div className='whyBadgeDes'>
+        <img src={Certificate} alt="" />
+        <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a  volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+      </div>
+    </div>
   </div>
   
 

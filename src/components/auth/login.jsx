@@ -49,7 +49,7 @@ function Login() {
 
 
       <div className="main">
-        <img src={SignupImg} alt="" />
+        <img className="signupImg" src={SignupImg} alt="" />
         <div className="signupForm">
           <h2>Login</h2>
           <label htmlFor="email">Email</label>

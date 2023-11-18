@@ -73,7 +73,7 @@
 
 @media screen and (min-width: 900px) {
 
-    nav {
+    .dashNav {
         clip: rect(0 0 0 0);
         clip-path: insert(50%);
         height: 1px;
@@ -146,7 +146,7 @@ h1 {
     color: #00756A;
 }
 
-nav {
+.dashNav {
     background-color: #00756A;
     height: 200px;
 }

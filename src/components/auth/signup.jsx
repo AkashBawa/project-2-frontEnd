@@ -53,7 +53,7 @@ function Signup() {
 
 
       <div className="main">
-        <img src={SignupImg} alt="" />
+        <img className="signupImg" src={SignupImg} alt="" />
 
         
         <div className="formDiv">

@@ -67,7 +67,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashBoardElder">
-      <nav>
+      <nav className="dashNav">
         <img src={statusBar} alt="statusBar" id="statusBar" />
         <div>
           <img src={wiseCareLogo} alt="Logo" />
