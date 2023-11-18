@@ -51,7 +51,7 @@ const AppHeader = () => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={['0']}
             items={
               [
                 ...menuItems.map((item, index) => {
@@ -61,9 +61,7 @@ const AppHeader = () => {
                     label: item.label,
                     onClick: () => { navigate(item.link) }
                   }
-                })
-
-                , {
+                }), {
                   key: menuItems.length,
                   icon: <VideoCameraOutlined />,
                   label: 'Logout',

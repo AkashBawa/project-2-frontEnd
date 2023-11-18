@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from '../../services/axios';
 import '../volunteer/rewards.css'
 import rewards from './Images/5558132.png'
+import { Link } from 'react-router-dom';
+import iconProfile from './../../images/icon_profile.png';
 
 const Rewards = () => {
   const [volProfile, setVolProfile] = useState(null);
@@ -15,7 +17,7 @@ const Rewards = () => {
     } else if (points >= 201 && points <= 300) {
       console.log("Silver Badge");
       return 'Silver Badge';
-    } else if(points >= 300 && points <= 400){
+    } else if(points >= 300 && points <= 1000){
       console.log("Gold Badge");
       return 'Gold Badge';
     } else {
@@ -44,13 +46,13 @@ const Rewards = () => {
         <h1>Rewards</h1>
         {volProfile ? (
         <div>
-          <h2>My Points: {volProfile.point}</h2>
+          <h2>Your Points: {volProfile.point}</h2>
           <h2>Badge: {getBadge(volProfile.point)}</h2>
         </div>
       ) : (
         <p>Loading...</p>
       )}
-        
+        <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
       </div>
 
 <div className='earn-rewards'>

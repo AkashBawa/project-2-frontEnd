@@ -5,19 +5,24 @@ import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
 import { useDispatch } from "react-redux";
 import { setLoader } from './../../redux/user';
+import Swal from 'sweetalert2'
 
 const AddPost = (userName) => {
 
   const dispatch = useDispatch();
 
   const [api, contextHolder] = notification.useNotification();
-  const [time, setTime] = useState();
+  const [startTime, setStartTime] = useState();
+  const [endTime, setEndTime] = useState();
   const [serviceTitle, setserviceTitle] = useState();
   const [serviceType, setserviceType] = useState();
   const [date, setdate] = useState();
+  const [coordinates, setCoordinates] = useState([]);
+  const [location, setLocation] = useState("");
 
   const resetForm = () => {
-    setTime("");
+    setStartTime("");
+    setEndTime("");
     setdate("");
     setserviceTitle("");
     setserviceType("");
@@ -30,36 +35,53 @@ const AddPost = (userName) => {
       duration: 1
     });
   };
+  
+  const updateLocationAnsCoordinates = ( location, coordinates) => {
+    console.log(location, coordinates);
+    setLocation(location);
+    setCoordinates(coordinates);
+  }
 
   const submit = async () => {
-    console.log("submit", time, serviceTitle, serviceType, date);
+    console.log("submit", startTime, endTime, serviceTitle, serviceType, date);
 
     const payload = {
       date,
-      time,
+      // startTime,
+      time: startTime,
+      endTime,
       serviceTitle,
       serviceType,
+      address: location,
       location: {
-        coordinates: [-122.77862, 49.16364]
-      },
-      // userName, // Include the user's name in the post
+        coordinates: coordinates
+      }
     };
 
-    if (time && serviceTitle && serviceType && date) {
-      
-      dispatch(setLoader({loader: true}));
-      
+    if (endTime && startTime && serviceTitle && serviceType && date) {
+
+      dispatch(setLoader({ loader: true }));
+
       try {
         const response = await axios.postRequest("addpost", payload, true);
-        dispatch(setLoader({loader: false}));
+        setTimeout(() => {
+          dispatch(setLoader({ loader: false }));
+        }, 500);
         if (response && response.success) {
-          openNotification("Post added successfully");
+          resetForm();
+          Swal.fire({
+            title: "Thanks",
+            text: "Your post has successfully created",
+            icon: "success"
+          });
         }
       } catch (err) {
-        dispatch(setLoader({loader: false}));
+        dispatch(setLoader({ loader: false }));
       }
+
       
-      resetForm();
+    } else {
+      openNotification("Fill all the details");
     }
   };
   return (
@@ -104,21 +126,33 @@ const AddPost = (userName) => {
                 />
               </Form.Item>
 
-              <Form.Item label="Select time">
+              <Form.Item label="Start Time">
                 <input
                   type="time"
-                  value={time}
+                  value={startTime}
                   onChange={e => {
-                    setTime(e.target.value);
+                    setStartTime(e.target.value);
                   }}
                   required
                 />
               </Form.Item>
+
+              <Form.Item label="End Time">
+                <input
+                  type="time"
+                  value={endTime}
+                  onChange={e => {
+                    setEndTime(e.target.value);
+                  }}
+                  required
+                />
+              </Form.Item>
+
             </div>
 
             {/* map */}
             <div className="mapbox">
-              <TomTomAutoComplete />
+              <TomTomAutoComplete updateLocationAnsCoordinates={updateLocationAnsCoordinates} />
             </div>
           </div>
           <Button type="primary" onClick={submit}>

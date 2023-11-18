@@ -65,7 +65,7 @@ const Profiles = () => {
   const [formData, setFormData] = useState({
     profilePhoto: "",
     name: "",
-    lName: "",
+    // lName: "",
     age: "",
     gender: "male",
     contactNumber: "",
@@ -79,10 +79,12 @@ const Profiles = () => {
     try {
       const getProfile = await axios.getRequest("user", true);
       setProfile(getProfile);
-      if (getProfile.profilePhoto) {
-        var file = dataURLtoFile(getProfile.profilePhoto, "photo");
-        file.originFileObj = file;
-        setFileList([file]);
+      setFormData(getProfile);
+      if(getProfile.profilePhoto){
+          var file = dataURLtoFile(getProfile.profilePhoto, "photo")
+          file.originFileObj = file
+    
+          setFileList([file])
       }
     } catch (error) {
       console.error("Error fetching user profile:", error);
@@ -113,6 +115,11 @@ const Profiles = () => {
     } catch (error) {
       console.error("Form submission error:", error);
     }
+    console.log(formData);
+    console.log(profile);
+
+    fetchUserProfile();
+    // console.log("Profile response" + response);
   };
 
   const handleInputChange = e => {
@@ -156,31 +163,15 @@ const Profiles = () => {
         />
       </Modal>
 
-      <div className="displayProfile">
-        <p>
-          <span>Name:</span> {profile.name}
-        </p>
-        <p>
-          <span>Age:</span>
-          {profile.age}
-        </p>
-        <p>
-          <span>Gender:</span>
-          {profile.gender}
-        </p>
-        <p>
-          <span>Contact Number:</span>
-          {profile.contactNumber}
-        </p>
-        <p>
-          <span>Interest:</span>
-          {profile.interest}
-        </p>
-        <p>
-          <span>Emergency Contact:</span>
-          {profile.emergencyContact}
-        </p>
-      </div>
+      {/* <div className="displayProfile">
+        <h2>User Profile</h2>
+        <p>Name: {profile.name}</p>
+        <p>Age: {profile.age}</p>
+        <p>Gender: {profile.gender}</p>
+        <p>Contact Number: {profile.contactNumber}</p>
+        <p>Interest: {profile.interest}</p>
+        <p>Emergency Contact: {profile.emergencyContact}</p>
+      </div> */}
 
       <Form
         name="trigger"

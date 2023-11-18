@@ -71,7 +71,7 @@ const CreateEvent = () => {
 
     return (
         <div className="addEvents" id="addEvent">
-            <Modal title="Basic Modal" open={isModalOpen} footer={[]}>
+            <Modal title="" open={isModalOpen} footer={[]}>
                 <h2>Event Sent</h2>
                 <p>Your event has been received, we will get back to you as soon as possible</p>
                 <Button type="primary" onClick={handleOk}>Submit</Button>

@@ -1,0 +1,39 @@
+#singlePost {
+    h1, h2 {
+        text-align: center;
+    };
+
+    .requestList{
+        background-color: #F5F5F5;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .invitations {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .decisionButtons {
+        display: flex;
+
+        span {
+
+            :hover {
+                cursor: pointer;
+            }
+            margin-left: 1rem;
+    
+            img {
+                display: block;
+                width: 30px;
+            }
+        }
+    }
+     
+}
