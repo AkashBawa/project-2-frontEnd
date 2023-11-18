@@ -86,7 +86,7 @@ const Dashboard = () => {
       setSingleView(false);
       const response = await axios.getRequest("getPostByUser", true);
       if (response.success === true && response.posts) {
-        filterPosts(response.posts);
+        // filterPosts(response.posts);
       }
     } catch (err) {
       console.log(err)
@@ -99,7 +99,7 @@ const Dashboard = () => {
     console.log(post)
     console.log("change view")
     setSingleView(!singleView);
-    setCurrentPost(post);
+    // setCurrentPost(post);
   }
 
   return (
@@ -186,7 +186,7 @@ const Dashboard = () => {
       {
         singleView == true && (
           <div>
-            <SinglePostView currentPost={currentPost} fetchMyPosts={fetchMyPosts} />
+            <SinglePostView fetchMyPosts={fetchMyPosts} />
           </div>
         )
       }

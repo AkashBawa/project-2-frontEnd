@@ -88,8 +88,9 @@ const SinglePostView = ({ currentPost, fetchMyPosts }) => {
 
       <h2>{currentPost.serviceType}</h2>
 
-      <h3> Invitations </h3>
+      
       <div className="invitations">
+      <h3> Invitations </h3>
         {
           currentPost?.invitations.map((invite, invitationIndex) => {
             return (

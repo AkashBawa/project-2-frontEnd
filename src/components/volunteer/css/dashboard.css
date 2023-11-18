@@ -14,8 +14,8 @@
 
 /* Styling the page responsive  */
 #root:has(.dashBoardVolunteer) {
-    max-width: 1280px;
-    margin: auto;
+    /* max-width: 1280px;
+    margin: auto; */
 }
 
 /* Screen between 1280px and 900px */
@@ -162,7 +162,7 @@ h1 {
 
 nav {
     background-color: #00756A;
-    height: 200px;
+    /* height: 200px; */
 }
 
 nav div {

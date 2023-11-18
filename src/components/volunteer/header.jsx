@@ -42,12 +42,12 @@ const AppHeader = () => {
                 label: 'Profile',
                 onClick: ()=> { navigate('Profile')}
               },
-              {
-                key: '3',
-                icon: <UserOutlined />,
-                label: 'History',
-                onClick: ()=> { navigate('history')}
-              },
+              // {
+              //   key: '3',
+              //   icon: <UserOutlined />,
+              //   label: 'History',
+              //   onClick: ()=> { navigate('history')}
+              // },
               
               {
                 key: "4",

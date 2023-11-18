@@ -10,7 +10,7 @@ import postImage from './../../images/postImage.png';
 import moment from "moment";
 
 
-const MyPosts = ({ posts, fetchMyPosts, changeSingleView , status}) => {
+const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
   useEffect(() => {
   }, []);
@@ -79,21 +79,9 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView , status}) => {
                         // <img src={DeleteImage} alt="DeleteImage" onClick={handleDeleteClick} />
                       </div> */}
 
-                      <div className="myPostEdit">
+                      {/* <div className="myPostEdit">
                         <img src={Edit} alt="Edit" />
-                      </div>
-                    </div>
-                  </>
-                }
-                {
-                  post.status == "BOOKED" && <>
-                   <div className="deleteEditSection">
-
-              
-
-                      <div className="Review">
-                        <Link to={`/elder/reviewelder/${post._id}`}><button className="darkBtn">Review</button></Link>
-                      </div>
+                      </div> */}
                     </div>
                   </>
                 }
