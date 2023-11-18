@@ -55,9 +55,9 @@ function Signup() {
       <div className="main">
         <img src={SignupImg} alt="" />
 
-        
+
         <div className="formDiv">
-        <h2>Signup</h2>
+          <h2>Signup</h2>
           <div className="signupForm">
             <label htmlFor="email">Email</label>
             <Input id="email" placeholder="email" onKeyUp={(e) => { setEmail(e.target.value) }} />
@@ -72,10 +72,13 @@ function Signup() {
               <button className="darkBtn" onClick={submit}>Cancel</button>
             </div>
           </div>
+          <h2 id="loginUser">Already A User</h2>
+          <Link to="/login"><button className="darkBtn">Login</button></Link>
+
         </div>
 
 
-        
+
         {/* <AddPost userName={userName} /> */}
       </div>
 
