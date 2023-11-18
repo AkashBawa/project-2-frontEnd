@@ -84,7 +84,7 @@ const Dashboard = () => {
       {
         singleView == false && (
           <div className="dashBoardElder">
-            <nav>
+            {/* <nav>
               <img src={statusBar} alt="statusBar" id="statusBar" />
               <div>
                 <img src={wiseCareLogo} alt="Logo" />
@@ -93,7 +93,7 @@ const Dashboard = () => {
                   <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
                 </div>
               </div>
-            </nav>
+            </nav> */}
             <div className="dashBoardElderHeader">
               <h1>Hi, Ana</h1>
               <div className="topIcons">

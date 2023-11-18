@@ -80,11 +80,11 @@ const Profiles = () => {
       const getProfile = await axios.getRequest("user", true);
       setProfile(getProfile);
       setFormData(getProfile);
-      if(getProfile.profilePhoto){
-          var file = dataURLtoFile(getProfile.profilePhoto, "photo")
-          file.originFileObj = file
-    
-          setFileList([file])
+      if (getProfile.profilePhoto) {
+        var file = dataURLtoFile(getProfile.profilePhoto, "photo")
+        file.originFileObj = file
+
+        setFileList([file])
       }
     } catch (error) {
       console.error("Error fetching user profile:", error);
@@ -134,18 +134,21 @@ const Profiles = () => {
   return (
     <div id="profilePage">
       <h2>About Me</h2>
-      <Upload
-        className="userImage"
-        beforeUpload={file => {
-          return false;
-        }}
-        listType="picture-circle"
-        fileList={fileList}
-        onPreview={handlePreview}
-        onChange={handleChange}
-      >
-        {fileList.length >= 1 ? null : uploadButton}
-      </Upload>
+      <div className="interestDiv">
+        <Upload
+          className="userImage"
+          beforeUpload={file => {
+            return false;
+          }}
+          listType="picture-circle"
+          fileList={fileList}
+          onPreview={handlePreview}
+          onChange={handleChange}
+        >
+          {fileList.length >= 1 ? null : uploadButton}
+        </Upload>
+        {/* <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloremque eveniet unde fugiat velit sunt nihil architecto dignissimos aspernatur quibusdam dolore cum sit nobis praesentium, totam repellendus ducimus incidunt optio!</p> */}
+      </div>
 
       <Modal
         open={previewOpen}
@@ -214,7 +217,34 @@ const Profiles = () => {
           />
         </Form.Item>
 
-        <label htmlFor="gender">Gender</label>
+
+        <Form.Item label="Gender">
+  <Select
+    defaultValue="lucy"
+    style={{
+      width: 120,
+    }}
+    onChange={(value) => handleInputChange({ target: { name: 'gender', value } })}
+    value={formData.gender}
+    options={[
+      {
+        value: 'male',
+        label: 'Male',
+      },
+      {
+        value: 'female',
+        label: 'Female',
+      },
+      {
+        value: 'prefered',
+        label: 'Prefered',
+      },
+    ]}
+  />
+</Form.Item>
+
+
+        {/* <label htmlFor="gender">Gender</label>
         <select
           id="gender"
           name="gender"
@@ -224,7 +254,7 @@ const Profiles = () => {
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="prefered">Prefer not to say</option>
-        </select>
+        </select> */}
 
         <Form.Item label="Emergency Contact">
           <Input
