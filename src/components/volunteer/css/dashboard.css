@@ -1,11 +1,25 @@
+.ant-space {
+    display: block;
+    width: 80%;
+}
+
+.list-posts {
+    display: flex;
+    justify-content: center;
+}
+
+.ant-space-item {
+    margin-top: 1rem;
+}
+
 /* Styling the page responsive  */
-#root:has(.dashBoardElder) {
+#root:has(.dashBoardVolunteer) {
     max-width: 1280px;
     margin: auto;
 }
 
 /* Screen between 1280px and 900px */
-/* #root:has(.dashBoardElder) { */
+/* #root:has(.dashBoardVolunteer) { */
 @media screen and (max-width: 900px) {
     .topIcons img {
         width: 35px;
@@ -29,17 +43,17 @@
         width: 1px !important;
     }
 
-    .dashBoardElder h1 {
+    .dashBoardVolunteer h1 {
         text-align: center;
     }
 
-    .dashElderNav {
+    .dashVolunteerNav {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         text-align: center;
     }
 
-    .dashElderEvent {
+    .dashVolunteerEvent {
         grid-column: span 2;
         grid-row: 2/3;
     }
@@ -73,7 +87,7 @@
 
 @media screen and (min-width: 900px) {
 
-    nav {
+    .dashBoardVolunteer nav {
         clip: rect(0 0 0 0);
         clip-path: insert(50%);
         height: 1px;
@@ -84,18 +98,18 @@
     }
 
 
-    .dashBoardElderHeader {
+    .dashBoardVolunteerHeader {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
     }
 
-    .dashBoardElderHeader h1 {
+    .dashBoardVolunteerHeader h1 {
         grid-column: span 4;
         text-align: left;
     }
 
     /* Styling for the Elder Dashboard Navigation*/
-    .dashElderNav {
+    .dashVolunteerNav {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         text-align: center;
@@ -186,7 +200,7 @@ nav img {
     color: white !important;
 }
 
-.dashBoardElderHeader div {
+.dashBoardVolunteerHeader div {
     text-align: center;
 }
 
@@ -212,25 +226,25 @@ nav img {
 /* Styling for the Elder Dashboard Navigation*/
 
 
-.dashElderNav div {
+.dashVolunteerNav div {
     min-height: 50px;
 }
 
-.dashElderEvent,
-.dashElderUnanswered,
-.dashElderPending {
+.dashVolunteerEvent,
+.dashVolunteerUnanswered,
+.dashVolunteerPending {
     border-radius: .5rem;
     margin: .5rem;
     padding: 0.5em;
     border: 2px #00756A solid !important;
 }
 
-.dashElderEvent h2 {
+.dashVolunteerEvent h2 {
     color: #00756A;
 
 }
 
-.dashElderUnanswered {
+.dashVolunteerUnanswered {
     color: grey;
     border-radius: .5rem;
     margin: .5rem;
@@ -238,7 +252,7 @@ nav img {
     border: 2px grey solid !important;
 }
 
-.dashElderPending {
+.dashVolunteerPending {
     color: #EB592D;
     border-radius: .5rem;
     margin: .5rem;
@@ -246,7 +260,8 @@ nav img {
     border: 2px#EB592D solid !important;
 }
 
-.unansCount,
+.allTasksCount,
+.activeTasks,
 .pendingCount {
     max-width: 50%;
     text-align: center;
@@ -265,22 +280,3 @@ nav img {
 }
 
 /* ==================================== */
-
-
-
-.myPostElderly {
-    background-color: lightgray;
-
-}
-
-
-/* ================== */
-
-
-
-
-
-
-
-
-
