@@ -1,8 +1,10 @@
 /* Styling the page responsive  */
-#root:has(.dashBoardElder) {
-    /* max-width: 1280px; */
-    /* margin: auto; */
-}
+/* #root:has(.dashBoardElder) { */
+/* max-width: 1280px; */
+/* margin: auto; */
+/* } */
+
+
 
 /* Screen between 1280px and 900px */
 /* #root:has(.dashBoardElder) { */
@@ -275,12 +277,3 @@ nav img {
 
 
 /* ================== */
-
-
-
-
-
-
-
-
-

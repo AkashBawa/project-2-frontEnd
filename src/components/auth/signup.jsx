@@ -71,15 +71,9 @@ function Signup() {
               <button className="darkBtn" onClick={submit}>Submit</button>
               <button className="darkBtn" onClick={submit}>Cancel</button>
             </div>
+
           </div>
-          <h2 id="loginUser">Already A User</h2>
-          <Link to="/login"><button className="darkBtn">Login</button></Link>
-
         </div>
-
-
-
-        {/* <AddPost userName={userName} /> */}
       </div>
 
     </div>

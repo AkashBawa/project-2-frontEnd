@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
-import SinglePostView from "./viewSinglePost";
+import SinglePostView from "./SinglePostView";
 
 import React, { useEffect, useState } from 'react';
 import './css/Dashboard.css'
@@ -13,7 +13,11 @@ import iconNavNotification from './../../images/icon_request_mobile.png';
 import statusBar from './../../images/statusBar.png';
 import axios from "../../services/axios";
 
+import { useDispatch } from "react-redux";
+import { setLoader } from '../../redux/user';
+
 const Dashboard = () => {
+  const dispatch = useDispatch();
 
   const [pendingPosts, setPendingRequest] = useState([]);
   const [approvedPosts, setApprovedRequest] = useState([]);
@@ -27,6 +31,7 @@ const Dashboard = () => {
   const [currentPost, setCurrentPost] = useState({});
 
   useEffect(() => {
+    dispatch(setLoader({loader: true}))
     fetchMyPosts();
   }, []);
 
@@ -62,10 +67,12 @@ const Dashboard = () => {
     try {
       setSingleView(false);
       const response = await axios.getRequest("getPostByUser", true);
+      dispatch(setLoader({loader: false}))
       if (response.success === true && response.posts) {
         filterPosts(response.posts);
       }
     } catch (err) {
+      dispatch(setLoader({loader: false}))
       console.log(err)
     }
   }

@@ -18,12 +18,12 @@ const SingleView = ({ currentEvent, changeScreen }) => {
 
   const handleOk = () => {
     setIsModalOpen(false);
-};
+  };
 
   return (
 
     <div className="singleEvent" id="singleEvent">
-      <Modal className="textAlignCenter"  open={isModalOpen} footer={[]}>
+      <Modal className="textAlignCenter" open={isModalOpen} footer={[]}>
         <h2 className="textAlignCenter textCapital">{currentEvent.name}</h2>
         <p>Your event has been received, we will get back to you as soon as possible</p>
         <button type="primary" className="darkBtn" onClick={handleOk}>Close</button>

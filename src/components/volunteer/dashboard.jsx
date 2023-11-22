@@ -5,7 +5,7 @@ import { Radio, Tabs } from 'antd';
 import "./../volunteer/css/dashboard.css"
 import { useState } from "react";
 import MyPosts from './../elderly/myPosts';
-import SinglePostView from "./../elderly/viewSinglePost";
+import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
