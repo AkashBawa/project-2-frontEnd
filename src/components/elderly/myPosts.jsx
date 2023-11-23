@@ -22,13 +22,13 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
       const postId = posts[postIndex]._id;
       const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
       console.log(response);
-           fetchMyPosts();
+      fetchMyPosts();
 
     } catch (err) {
       console.log(err)
     }
   }
-  
+
 
   return (
     <div >
@@ -44,11 +44,13 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
               <div className="cardBody" onClick={() => { changeSingleView(post) }}>
 
                 <div className="eventDetails">
-                  <h2>{post.serviceTitle}</h2>
+                  <h1>{post.serviceTitle}</h1>
                   <h2>{post.location.coordinates}</h2>
 
                   <div className="myPostDT">
-                    {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
+                    <h2>
+                      {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
+                    </h2>
                   </div>
                 </div>
                 {

@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
-
+import './css/SinglePostView.css'
 const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +18,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
 
   const responseInvitation = async (acceptedUserId, status) => {
     try {
-       Swal.fire({
+      Swal.fire({
         title: 'Warning',
         text: `Do you want to  ${status === 'ACCEPTED' ? 'accept' : 'reject'} the post`,
         icon: 'warning',
@@ -76,7 +76,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
 
   return (
 
-    <div className="singlePost" id="singlePost">
+    <div className="ElderSinglePost" id="ElderSinglePost">
       {/* {contextHolder} */}
       {/* <Modal className="textAlignCenter" open={isModalOpen} footer={[]} onCancel={() => setIsModalOpen(false)}> */}
       <Modal className="textAlignCenter" open={isModalOpen} footer={[]} >

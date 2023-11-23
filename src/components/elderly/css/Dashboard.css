@@ -134,12 +134,16 @@
         display: block !important;
         text-align: center;
         margin: auto;
+        font-size: x-large;
+
     }
 
     #postsSection .ant-tabs-tab-active div {
+        display: inline;
         color: #00756A !important;
-    }
+        border-bottom: #EB592D 5px solid;
 
+    }
 
 }
 
