@@ -22,41 +22,23 @@ const LandingPage = () => {
     <title>Your Static Page</title>
   </head>
   <body>
-  <header>
-  <div class="container">
-    <a href="#" class="branding">
-      <img src=${IconLogo} alt="Description of the image" />
-    </a>
-
-    <div class="hamburger-menu" onClick=${toggleMobileMenu}>
-      ☰
-    </div>
-
-    <ul class=${showMobileMenu ? "mobile-menu" : ""}>
-      <li>
-        <a href="#">Seniors</a>
-      </li>
-      <li>
-        <a href="#">Volunteers</a>
-      </li>
-      <li>
-        <a href="#">Events</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
-      </li>
-    </ul>
-
-    <div class="logsignup">
-      <a href="#" class="whitebut">
-        Login
-      </a>
-      <a href="#" class="orgbut">
-        Sign up
-      </a>
-    </div>
-  </div>
-</header>
+    <header>
+      <div class="container">
+        <a href="#" class="branding">
+          <img src="${IconLogo}" alt="Description of the image"
+        /></a>
+        <ul>
+          <li><a href="#">Seniors</a></li>
+          <li><a href="#">Volunteers</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="logsignup">
+          <a href="#" class="whitebut">Login</a>
+          <a href="#" class="orgbut">Sign up</a>
+        </div>
+      </div>
+    </header>
     <main>
       <section>
         <div class="containercont">
