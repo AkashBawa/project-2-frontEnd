@@ -5,7 +5,9 @@
 @import "./events/myEvents.scss";
 @import "./auth/signup.scss";
 @import "./profile/profile.scss";
-
+@import "./static/landingpage.scss";
+@import "./header/header.scss";
+@import "./header/slidemenu.scss";
 button {
   border-radius: 5px;
   cursor: pointer;

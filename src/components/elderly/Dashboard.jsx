@@ -1,19 +1,18 @@
-import { Outlet, Link } from "react-router-dom"
-import { Radio, Tabs } from 'antd';
-import MyPosts from './myPosts';
-import React, { useEffect } from 'react';
-import './css/Dashboard.css'
-import wiseCareLogo from './../../images/wiseCareLogo.png';
-import iconProfile from './../../images/icon_profile.png';
-import iconNotification from './../../images/icon_notification.png';
-import iconNavProfile from './../../images/icon_profile_mobile.png';
-import iconNavNotification from './../../images/icon_request_mobile.png';
-import statusBar from './../../images/statusBar.png';
+import { Outlet, Link } from "react-router-dom";
+import { Radio, Tabs } from "antd";
+import MyPosts from "./myPosts";
+import React, { useEffect } from "react";
+import "./css/Dashboard.css";
+import wiseCareLogo from "./../../images/wiseCareLogo.png";
+import iconProfile from "./../../images/icon_profile.png";
+import iconNotification from "./../../images/icon_notification.png";
+import iconNavProfile from "./../../images/icon_profile_mobile.png";
+import iconNavNotification from "./../../images/icon_request_mobile.png";
+import statusBar from "./../../images/statusBar.png";
 import axios from "../../services/axios";
 import { useState } from "react";
 
 const Dashboard = () => {
-
   const [pendingPosts, setPendingRequest] = useState([]);
   const [approvedPosts, setApprovedRequest] = useState([]);
   const [completedPosts, setCompletedPosts] = useState([]);
@@ -26,14 +25,12 @@ const Dashboard = () => {
     fetchMyPosts();
   }, []);
 
-  const filterPosts = (allPosts) => {
-
+  const filterPosts = allPosts => {
     let pendingPosts = [];
     let approvedPosts = [];
     let completedPosts = [];
 
     allPosts.forEach((post, index) => {
-
       if (post.status === "PENDING") {
         pendingPosts.push(post);
       } else if (post.status === "BOOKED") {
@@ -51,8 +48,7 @@ const Dashboard = () => {
     setPendingCounter(pendingPosts.length);
     setApprovedCounter(approvedPosts.length);
     setCompletedCounter(completedPosts.length);
-  }
-
+  };
 
   const fetchMyPosts = async () => {
     try {
@@ -61,9 +57,9 @@ const Dashboard = () => {
         filterPosts(response.posts);
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div className="dashBoardElder">
@@ -73,7 +69,9 @@ const Dashboard = () => {
           <img src={wiseCareLogo} alt="Logo" />
           <div className="navtopIcons">
             <img src={iconNavNotification} alt="iconNavNotification" />
-            <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
+            <Link to="/elder/profile">
+              <img src={iconNavProfile} alt="iconNavProfile" />
+            </Link>
           </div>
         </div>
       </nav>
@@ -81,7 +79,9 @@ const Dashboard = () => {
         <h1>Hi, Ana</h1>
         <div className="topIcons">
           <img src={iconNotification} alt="iconNotification" />
-          <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+          <Link to="/elder/profile">
+            <img src={iconProfile} alt="iconProfile" />
+          </Link>
         </div>
       </div>
       <div className="dashElderNav">
@@ -111,39 +111,37 @@ const Dashboard = () => {
       <div id="postsSection">
         <div id="postsSectionNav">
           <h1>My Posts</h1>
-          <button id="createPost"><Link to='/elder/addPost'>Create Post</Link></button>
+          <button id="createPost">
+            <Link to="/elder/addPost">Create Post</Link>
+          </button>
         </div>
 
-        <Tabs className="tabs"
+        <Tabs
+          className="tabs"
           defaultActiveKey="1"
           type="card"
           size={"middle"}
-          items={
-            [
-              {
-                label: `All Posts(${pendingCounter})`,
-                key: "1",
-                children: <MyPosts posts={pendingPosts} />,
-              },
-              {
-                label: `Active Posts(${approvedCounter})`,
-                key: "2",
-                children: <MyPosts posts={approvedPosts} />,
-              },
-              {
-                label: `History(${completedCounter})`,
-                key: "3",
-                children: <MyPosts posts={completedPosts} />,
-              },
-            ]
-          }
+          items={[
+            {
+              label: `All Posts(${pendingCounter})`,
+              key: "1",
+              children: <MyPosts posts={pendingPosts} />
+            },
+            {
+              label: `Active Posts(${approvedCounter})`,
+              key: "2",
+              children: <MyPosts posts={approvedPosts} />
+            },
+            {
+              label: `History(${completedCounter})`,
+              key: "3",
+              children: <MyPosts posts={completedPosts} />
+            }
+          ]}
         />
-
       </div>
     </div>
+  );
+};
 
-
-  )
-}
-
-export default Dashboard
+export default Dashboard;

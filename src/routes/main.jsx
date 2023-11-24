@@ -1,10 +1,11 @@
 import {
-    createBrowserRouter,
-    Navigate,
-    RouterProvider,
-  } from "react-router-dom";
+  createBrowserRouter,
+  Navigate,
+  RouterProvider
+} from "react-router-dom";
 
 // Import all components here
+import LandingPage from "../components/common/LandingPage";
 import Login from "../components/auth/login";
 import Signup from "../components/auth/signup";
 import Profiles from "../components/elderly/Profiles";
@@ -25,83 +26,87 @@ import VolunteerHistory from "./../components/volunteer/history/History";
 import ReviewByElder from "../components/elderly/ReviewByElder";
 import Rewards from "../components/volunteer/Rewards";
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Signup/>
-    },
-    {
-      path: "/login",
-      element: <Login/>,
-    },
-    {
-      path: "/signup",
-      element: <Signup/>
-    },
-    {
-      path: "/elder",
-      element: <Headers/>,
-      children: [
-        {
-          path: "dashboard",
-          element: <Dashboard />
-        },
-        {
-          path: "posts",
-          element: <Posts/>
-        },
-        {
-          path: "addPost",
-          element: <AddPost/>
-        },
-        {
-          path: "reviewelder/:id",
-          element: <ReviewByElder/>
-        },
-        {
-          path: "profile",
-          element: <Profiles/>
-        },
-        {
-          path: "event",
-          element: <Events/>
-        }
-      ]
-    },
-    {
-      path: "/volunteer",
-      element: <VOlunteerHeader/>,
-      children: [
-        {
-          path: "dashboard",
-          element: <VolunteerDashBoard />
-        },
-        {
-          path: "profile",
-          element: <VolunteerProfile/>
-        },
-        {
-          path: "history",
-          element: <VolunteerHistory/>
-        },
-        {
-          path: "event",
-          element: <Events/>
-        },
-        {
-          path: "rewards",
-          element: <Rewards/>
-        }
-      ]
-    },
-    {
-      path: "/",
-      element: <Login/>
-    },
-    {
-      path: "*",
-      element: <Navigate to={"/"}/>
-    }
-  ]);
+const router = createBrowserRouter([
+  {
+    path: "/landingpage",
+    element: <LandingPage />
+  },
+  {
+    path: "/",
+    element: <Signup />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/signup",
+    element: <Signup />
+  },
+  {
+    path: "/elder",
+    element: <Headers />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />
+      },
+      {
+        path: "posts",
+        element: <Posts />
+      },
+      {
+        path: "addPost",
+        element: <AddPost />
+      },
+      {
+        path: "reviewelder/:id",
+        element: <ReviewByElder />
+      },
+      {
+        path: "profile",
+        element: <Profiles />
+      },
+      {
+        path: "event",
+        element: <Events />
+      }
+    ]
+  },
+  {
+    path: "/volunteer",
+    element: <VOlunteerHeader />,
+    children: [
+      {
+        path: "dashboard",
+        element: <VolunteerDashBoard />
+      },
+      {
+        path: "profile",
+        element: <VolunteerProfile />
+      },
+      {
+        path: "history",
+        element: <VolunteerHistory />
+      },
+      {
+        path: "event",
+        element: <Events />
+      },
+      {
+        path: "rewards",
+        element: <Rewards />
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <Login />
+  },
+  {
+    path: "*",
+    element: <Navigate to={"/"} />
+  }
+]);
 
-  export default router;
+export default router;

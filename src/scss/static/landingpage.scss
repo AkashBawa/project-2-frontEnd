@@ -1,0 +1,53 @@
+#landingpage {
+  section {
+    .container {
+      @media only screen and (min-height: 700px) {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .whitebut {
+    background: #fff !important;
+    border: 2px solid $btnDark !important;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: $btnDark;
+  }
+  .orgbut {
+    @include submitButton;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  li {
+    list-style: none;
+  }
+  ul {
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+  }
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  header {
+    background-color: $primaryGreen;
+    padding: 1rem 0;
+    color: #fff;
+
+    .container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between; /* Distribute space between items */
+      align-items: center; /* Center items vertically */
+    }
+  }
+}
