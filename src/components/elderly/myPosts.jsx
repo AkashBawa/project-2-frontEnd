@@ -25,7 +25,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
       if (postToDelete) {
         const postId = String(postToDelete._id);
         // await axios.deleteRequest(`/deletePost/${postId}`);
-        
+
         // const postId = posts[postIndex]._id;
         console.log("Deleting post with ID:", postId);
         await axios.deleteRequest("deletePost", postId, true);
@@ -78,7 +78,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
                 <div className="eventDetails">
                   <h1>{post.serviceTitle}</h1>
-                  <h2>{post.location.coordinates}</h2>
+                  <h2>{post.address}</h2>
 
                   <div className="myPostDT">
                     <h2>
