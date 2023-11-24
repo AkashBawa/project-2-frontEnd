@@ -9,11 +9,11 @@ const getRequest = async (link, tokenRequired = false) => {
     try {
         const finalUrl = `${baseUrl}/${link}`
         let config = {};
-        if(tokenRequired) {
+        if (tokenRequired) {
             const token = localStorage.getItem('token');
             config = {
-                headers : {
-                    "token" : token
+                headers: {
+                    "token": token
                 }
             }
         }
@@ -28,13 +28,15 @@ const postRequest = async (link, data, tokenRequired = false) => {
     try {
         console.log(baseUrl);
         const finalUrl = `${baseUrl}/${link}`;
+        console.log('Final URL:', finalUrl);
+
 
         let config = {};
-        if(tokenRequired) {
+        if (tokenRequired) {
             const token = localStorage.getItem('token');
             config = {
-                headers : {
-                    "token" : token
+                headers: {
+                    "token": token
                 }
             }
         }
@@ -52,11 +54,11 @@ const putRequest = async (link, data, tokenRequired = false) => {
         const finalUrl = `${baseUrl}/${link}`;
 
         let config = {};
-        if(tokenRequired) {
+        if (tokenRequired) {
             const token = localStorage.getItem('token');
             config = {
-                headers : {
-                    "token" : token
+                headers: {
+                    "token": token
                 }
             }
         }
@@ -68,8 +70,28 @@ const putRequest = async (link, data, tokenRequired = false) => {
     }
 }
 
-export default  {
+const deleteRequest = async (link, tokenRequired = false) => {
+    try {
+      const finalUrl = `${baseUrl}/${link}`;
+      let config = {};
+      if (tokenRequired) {
+        const token = localStorage.getItem('token');
+        config = {
+          headers: {
+            "token": token
+          }
+        };
+      }
+      const response = await axios.delete(finalUrl, config);
+      return response.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+export default {
     getRequest,
     postRequest,
-    putRequest
+    putRequest,
+    deleteRequest  
 }

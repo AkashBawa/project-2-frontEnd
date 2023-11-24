@@ -120,7 +120,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
 
       <div className="buttons">
         <button className="lightBtn" onClick={() => window.location.reload(false)}>Cancel</button>
-        <button className="darkBtn" onClick={() => { responseInvitation() }}> Join </button>
+        <button className="darkBtn" onClick={() => { responseInvitation() }}> Accept </button>
       </div>
     </div>
   )
