@@ -22,6 +22,7 @@
     }
 
     .button-bottom {
+        margin-top: 1rem;
         text-align: center;
     }
 
@@ -40,5 +41,21 @@
             justify-content: center;
             align-items: center;
         }
+    }
+
+    .ant-steps-item-icon {
+        color: $btnDark;
+        background-color: $btnDark;
+        border-color: white;
+    }
+
+    span.ant-steps-icon {
+        color: white;
+    }
+    .ant-steps-item-title::after{
+        background-color: $btnDark;
+    }
+    .ant-tabs-tab-btn {
+        font-size: 20px;
     }
 }

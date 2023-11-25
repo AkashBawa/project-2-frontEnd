@@ -4,7 +4,7 @@ import MyPosts from './myPosts';
 import SinglePostView from "./SinglePostView";
 
 import React, { useEffect, useState } from 'react';
-import './css/Dashboard.css'
+// import './css/Dashboard.css'
 import wiseCareLogo from './../../images/wiseCareLogo.png';
 import iconProfile from './../../images/icon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
@@ -121,7 +121,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="deletePostConfirmation Visually-hidden ">
+            <div className="deletePostConfirmation Visually-hidden">
               <div>
                 <h3>Are you sure you want to delete you post?</h3>
                 <button className="deleteNo">No</button>

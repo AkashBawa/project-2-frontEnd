@@ -7,10 +7,14 @@
 @import "./profile/profile.scss";
 @import "./posts/singlePost.scss";
 @import "./posts/ViewProfile.scss";
+@import "./elder/SinglePostView.scss";
 
 @import "./static/landingpage.scss";
 @import "./header/header.scss";
 @import "./header/slidemenu.scss";
+@import "./posts/MyPosts.scss";
+@import "./elder/Dashboard.scss";
+
 button {
   border-radius: 5px;
   cursor: pointer;
@@ -43,6 +47,11 @@ button {
   font-weight: bold;
 }
 
+.darkBtn:hover {
+  background-color: $btnDark;
+  color: $btnLight;
+}
+
 .loader .modalContent {
   background: none;
   background: rgba(0, 0, 0, 0.7);
@@ -53,7 +62,24 @@ button {
   align-items: center;
   justify-content: center;
   z-index: 999;
+
   img {
     height: 100px;
   }
+}
+
+.elderFrom{
+  display: flex;
+  flex-flow: column;
+  gap: .5rem;
+}
+
+.Visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: insert(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

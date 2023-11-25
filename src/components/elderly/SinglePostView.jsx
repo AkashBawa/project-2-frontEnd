@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
-import './css/SinglePostView.css'
+// import './css/SinglePostView.css'
 const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,7 +79,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
     <div className="ElderSinglePost" id="ElderSinglePost">
       {/* {contextHolder} */}
       {/* <Modal className="textAlignCenter" open={isModalOpen} footer={[]} onCancel={() => setIsModalOpen(false)}> */}
-      <Modal className="textAlignCenter" open={isModalOpen} footer={[]} >
+      {/* <Modal className="textAlignCenter" open={isModalOpen} footer={[]} >
 
         <ViewProfile user={viewUser} />
         <Link to='/elder/profile'><img src={AcceptImage} alt="iconProfile" /></Link>
@@ -87,41 +87,51 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
         <h2 className="textAlignCenter textCapital">{currentPost.name}</h2>
         <p>Are you sure you want Post has been received, we will get back to you as soon as possible</p>
         <button type="primary" className="darkBtn" onClick={handleOk}>Close</button>
-      </Modal>
+      </Modal> */}
 
       <h1>{currentPost.serviceTitle}</h1>
       <h2>{currentPost.serviceType}</h2>
-      <h2>{currentPost.startTime} - {currentPost.endTime}  </h2>
-      <h2>{currentPost.time} </h2>
-      <h2>{currentPost.location.coordinates}</h2>
+      <h2>{currentPost.time ? currentPost.time : currentPost.startTime} - {currentPost.endTime}  </h2>
+      {/* <h2>{currentPost.time} </h2> */}
+      <h2>{currentPost.address}</h2>
 
-      <div className="invitations">
-        <h3> Invitations </h3>
-        {
-          currentPost?.invitations.map((invite, invitationIndex) => {
-            return (
-              // invite.status == "PENDING" &&
-              // (
-              <div className="requestList" key={"invitation-" + invitationIndex}>
-                <span onClick={() => { viewProfile(invite.user) }}>By: {invite.user.name ? invite.user.name : invite.user.email} </span>
+      {
+        ( currentPost?.invitations && currentPost.invitations.length > 0 ) ?
+          (
+            <div className="invitations">
+              <h3> Invitations </h3>
+              {
+                currentPost?.invitations.map((invite, invitationIndex) => {
+                  return (
+                    // invite.status == "PENDING" &&
+                    // (
+                    <div className="requestList" key={"invitation-" + invitationIndex}>
+                      <span onClick={() => { viewProfile(invite.user) }}>By: {invite.user.name ? invite.user.name : invite.user.email} </span>
 
-                <div className="decisionButtons">
-                  <span> <img src={AcceptImage} onClick={() => { responseInvitation(invite.user._id, "ACCEPTED") }} /> Accept </span>
-                  <span> <img src={CancelImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Reject </span>
-                  <span> <img src={ProfileImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Profile </span>
-                </div>
-              </div>
-            )
+                      <div className="decisionButtons">
+                        <span> <img src={AcceptImage} onClick={() => { responseInvitation(invite.user._id, "ACCEPTED") }} /> Accept </span>
+                        <span> <img src={CancelImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Reject </span>
+                        <span> <img src={ProfileImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Profile </span>
+                      </div>
+                    </div>
+                  )
 
-            // )
-          })
-        }
-      </div>
+                  // )
+                })
+              }
+            </div>
+          ) : (
+            <div>
+              <span>This post does not have any active incitations</span>
+            </div>
+          )
+      }
 
-      <div className="buttons">
+
+      {/* <div className="buttons">
         <button className="lightBtn" onClick={() => window.location.reload(false)}>Cancel</button>
         <button className="darkBtn" onClick={() => { responseInvitation() }}> Accept </button>
-      </div>
+      </div> */}
     </div>
   )
 }

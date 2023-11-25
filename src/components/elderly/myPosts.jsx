@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Space, Button, Modal } from "antd";
 import axios from "../../services/axios";
 
-import "./css/MyPosts.css"
+// import "./css/MyPosts.css"
 import DeleteImage from './../../images/delete.png';
 import Edit from './../../images/edit.png';
 import moment from "moment";
@@ -64,7 +64,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
 
   return (
-    <div >
+    <div id="mypostID">
       {
         posts.map((post, postIndex) => {
           console.log(posts);
@@ -91,9 +91,9 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   post.status && <>
 
                     <div className="deleteEditSection" >
-                      <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
+                      {/* <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
                         <img src={DeleteImage} alt="DeleteImage" />
-                      </div>
+                      </div> */}
 
 
                       <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
@@ -114,14 +114,14 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
 
       {/* Delete Confirmation Modal */}
-      <Modal
+      {/* <Modal
         title="Delete Post"
         open={isDeleteModalVisible}
         onOk={handleDelete}
         onCancel={handleCancelDelete}
       >
         <p>Are you sure you want to delete this post?</p>
-      </Modal>
+      </Modal> */}
 
     </div>
   )
