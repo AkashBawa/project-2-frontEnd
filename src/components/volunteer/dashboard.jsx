@@ -11,11 +11,12 @@ import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
 import statusBar from './../../images/statusBar.png';
 import wiseCareLogo from './../../images/wiseCareLogo.png';
-import iconProfile from './../../images/icon_profile.png';
+import iconProfile from './../../images/vicon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
 import iconNavProfile from './../../images/icon_profile_mobile.png';
 import iconNavNotification from './../../images/icon_request_mobile.png';
 import rewards from './../../images/rewards.png';
+import rewardIcon from './../../images/rewardIcon.png';
 
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
@@ -119,6 +120,10 @@ const Dashboard = () => {
             </nav>
             <div className="dashBoardVolunteerHeader">
               <h1>Hi, Beant</h1>
+              <div className="rewardPoints">
+                <img src={rewardIcon} alt="reward" />
+                <h2>Yours Points: {approvedCounter}</h2>
+              </div>
               <div className="topIconsVolunteer">
                 <img src={iconNotification} alt="iconNotification" />
                 <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
@@ -160,7 +165,7 @@ const Dashboard = () => {
                 items={
                   [
                     {
-                      
+
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
                       children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
