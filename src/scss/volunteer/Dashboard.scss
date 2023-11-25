@@ -4,7 +4,8 @@ main {
 
 .ant-space {
   display: block;
-  width: 80%;
+  width: 100%;
+  margin: 2rem;
 }
 
 .list-posts {
@@ -254,7 +255,7 @@ nav img {
 
 
 
-/* Styling for the Elder Dashboard Navigation*/
+/* Styling for the Volunteer Dashboard Navigation*/
 
 
 .dashVolunteerNav div {
@@ -287,12 +288,21 @@ nav img {
   border: 2px #EB592D solid !important;
 }
 
+.dashVolunteerUnanswered h1 {
+  color: #EB592D;
+
+}
+
 .dashVolunteerPending {
   color: #00BBC2;
   border-radius: .5rem;
   margin: .5rem;
   padding: 0.5em;
   border: 2px #00BBC2 solid !important;
+}
+
+.dashVolunteerPending h1 {
+  color: #00BBC2;
 }
 
 .allTasksCount,
@@ -315,3 +325,24 @@ nav img {
 }
 
 /* ==================================== */
+
+// Stlying the Volunteer Card 
+
+.ant-card .ant-card-bordered {
+  background-color: lightgray !important;
+
+}
+
+#postsSection {
+  .ant-card-head-wrapper .ant-card-body {
+    background-color: lightgray !important;
+
+  }
+
+}
+
+.dashBoardVolunteer .tabs {
+  // background-color: red;
+}
+
+.ant-card-body {}

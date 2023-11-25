@@ -131,17 +131,17 @@ const Dashboard = () => {
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
-                <h2>All Tasks</h2>
+                <h1>All Tasks</h1>
                 <div className="allTasksCount">{approvedCounter}</div>
               </div>
               <div className="dashVolunteerUnanswered">
-                <h3>Active Tasks</h3>
+                <h1>Active Tasks</h1>
                 <div className="activeTasks">{approvedCounter}</div>
               </div>
               <div className="dashVolunteerPending">
-                <h3>Rewards</h3>
+                <h1>Rewards</h1>
                 <img src={rewards} alt="Rewards" />
-                <h4>Next Medal:  6 / 15</h4>
+                <h2>Next Medal:  6 / 15</h2>
               </div>
             </div>
 
