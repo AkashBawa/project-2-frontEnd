@@ -2,7 +2,7 @@ import { Card, Space, Button } from "antd";
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 
-import "./../volunteer/css/dashboard.css"
+// import "./../volunteer/css/dashboard.css"
 import { useState } from "react";
 import MyPosts from './../elderly/myPosts';
 import SinglePostView from "./../elderly/SinglePostView";

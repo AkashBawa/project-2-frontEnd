@@ -7,7 +7,6 @@ import React, { useEffect, useState } from 'react';
 // import './css/Dashboard.css'
 import wiseCareLogo from './../../images/wiseCareLogo.png';
 import iconProfile from './../../images/icon_profile.png';
-import iconNotification from './../../images/icon_notification.png';
 import statusBar from './../../images/statusBar.png';
 import axios from "../../services/axios";
 import { useNavigate } from "react-router-dom";
@@ -93,7 +92,6 @@ const Dashboard = () => {
               <div>
                 <img src={wiseCareLogo} alt="Logo" />
                 <div className="navtopIcons">
-                  <img src={iconNavNotification} alt="iconNavNotification" />
                   <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
                 </div>
               </div>
@@ -101,7 +99,6 @@ const Dashboard = () => {
             <div className="dashBoardElderHeader">
               <h1>Hi, Ana</h1>
               <div className="topIcons">
-                <img src={iconNotification} alt="iconNotification" />
                 <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
               </div>
             </div>
