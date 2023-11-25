@@ -35,14 +35,12 @@ const Dashboard = () => {
     fetchMyPosts();
   }, []);
 
-  const filterPosts = (allPosts) => {
-
+  const filterPosts = allPosts => {
     let pendingPosts = [];
     let approvedPosts = [];
     let completedPosts = [];
 
     allPosts.forEach((post, index) => {
-
       if (post.status === "PENDING") {
         pendingPosts.push(post);
       } else if (post.status === "BOOKED") {
@@ -60,8 +58,7 @@ const Dashboard = () => {
     setPendingCounter(pendingPosts.length);
     setApprovedCounter(approvedPosts.length);
     setCompletedCounter(completedPosts.length);
-  }
-
+  };
 
   const fetchMyPosts = async () => {
     try {
@@ -75,7 +72,7 @@ const Dashboard = () => {
       dispatch(setLoader({loader: false}))
       console.log(err)
     }
-  }
+  };
 
   const changeSingleView = (post) => {
 
@@ -176,9 +173,6 @@ const Dashboard = () => {
         )
       }
     </>
-
-
-  )
+  );
 }
-
-export default Dashboard
+export default Dashboard;
