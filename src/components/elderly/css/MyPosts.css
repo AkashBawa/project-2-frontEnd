@@ -26,12 +26,17 @@
     text-align: left;
 }
 
+.eventDetails h1 {
+    text-transform: capitalize;
+}
+
 
 .deleteEditSection {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: right;
     align-items: center;
+    gap: 1rem;
 }
 
 .myPostDelete,

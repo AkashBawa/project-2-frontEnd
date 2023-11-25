@@ -73,13 +73,13 @@
 
 @media screen and (min-width: 900px) {
   nav {
-    clip: rect(0 0 0 0);
-    clip-path: insert(50%);
-    height: 1px;
-    overflow: hidden;
+    /* clip: rect(0 0 0 0); */
+    /* clip-path: insert(50%); */
+    /* height: 1px; */
+    /* overflow: hidden;
     position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    white-space: nowrap; */
+    /* width: 1px; */
   }
 
   .dashBoardElderHeader {
@@ -196,8 +196,9 @@ nav img {
 
 .topIcons {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   margin-left: 1rem;
+  gap: 1rem;
 }
 
 .navtopIcons img,

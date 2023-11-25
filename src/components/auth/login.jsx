@@ -29,9 +29,8 @@ function Login() {
         navigate('/volunteer/dashboard')
       }
     } else {
-      
+      console.log(data)
     }
-
 
   }
 

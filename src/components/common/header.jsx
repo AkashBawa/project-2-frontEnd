@@ -5,7 +5,7 @@ import { Layout, Menu, Button, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import localStorage from "../../services/localStorage";
 import { MdMenu } from "react-icons/md";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import IconLogo from "./../../images/logo.png";
 import CustomMenuItem from "./CustomMenuItem"; // Update the import path
 import SlideMenu from "./SlideMenu"; // Import the new SlideMenu component
@@ -116,7 +116,10 @@ const AppHeader = () => {
               background: colorBgContainer
             }}
           >
-            <Outlet />
+            <div className="main-content">
+              <Outlet />
+            </div>
+           
           </Content>
         </Layout>
       </Layout>

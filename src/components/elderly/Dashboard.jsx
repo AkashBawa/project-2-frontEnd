@@ -8,16 +8,16 @@ import './css/Dashboard.css'
 import wiseCareLogo from './../../images/wiseCareLogo.png';
 import iconProfile from './../../images/icon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
-import iconNavProfile from './../../images/icon_profile_mobile.png';
-import iconNavNotification from './../../images/icon_request_mobile.png';
 import statusBar from './../../images/statusBar.png';
 import axios from "../../services/axios";
+import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [pendingPosts, setPendingRequest] = useState([]);
   const [approvedPosts, setApprovedRequest] = useState([]);
@@ -132,7 +132,7 @@ const Dashboard = () => {
             <div id="postsSection">
               <div id="postsSectionNav">
                 <h1>My Posts</h1>
-                <button id="createPost"><Link to='/elder/addPost'>Create Post</Link></button>
+                <button id="createPost" onClick={() => {navigate("/elder/addPost")}}><Link to='/elder/addPost'>Create Post</Link></button>
               </div>
 
               <Tabs className="tabs"
