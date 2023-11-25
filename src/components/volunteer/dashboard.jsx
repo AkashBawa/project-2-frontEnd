@@ -122,7 +122,7 @@ const Dashboard = () => {
               <h1>Hi, Beant</h1>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
-                <h2>Yours Points: {approvedCounter}</h2>
+                <h2>Yours Points: 200 </h2>
               </div>
               <div className="topIconsVolunteer">
                 <img src={iconNotification} alt="iconNotification" />
@@ -215,9 +215,10 @@ const Dashboard = () => {
                   }}
 
                 >
-                  <p>Description</p>
-                  <p>By: {post?.userId.name}</p>
-                  <p>On: {new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()} at: {post.time}</p>
+                  <h1>{post.serviceTitle}</h1>
+                  <h2>{post.address}</h2>
+                  <h2>By: {post?.userId.name}</h2>
+                  <h2>On: {new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()} at: {post.time}</h2>
                 </Card>
               )
             })

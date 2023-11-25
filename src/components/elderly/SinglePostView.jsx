@@ -11,10 +11,40 @@ import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
 // import './css/SinglePostView.css'
 const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
-
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+  const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewUser, setViewUser] = useState(null);
   // const [resolution, setResolution] = useState(null);
+  const showDeleteModal = (post) => {
+    setPostToDelete(post);
+    setIsDeleteModalVisible(true);
+  };
+
+  const handleDelete = async (postIndex) => {
+    try {
+      if (postToDelete) {
+        const postId = String(postToDelete._id);
+        // await axios.deleteRequest(`/deletePost/${postId}`);
+
+        // const postId = posts[postIndex]._id;
+        console.log("Deleting post with ID:", postId);
+        await axios.deleteRequest("deletePost", postId, true);
+
+        fetchMyPosts();
+        setIsDeleteModalVisible(false);
+      }
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  };
+
+
+  const handleCancelDelete = () => {
+    // Close the delete modal without deleting the post
+    setIsDeleteModalVisible(false);
+  };
+
 
   const responseInvitation = async (acceptedUserId, status) => {
     try {
@@ -34,7 +64,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
           if (response && response.success) {
             Swal.fire({
               title: "Thanks",
-              text: "The Post status is Deleted",
+              text: "The Post status is Accepted",
               icon: "success"
             });
             setIsModalOpen(true)
@@ -128,10 +158,10 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
       }
 
 
-      {/* <div className="buttons">
+      <div className="buttons">
         <button className="lightBtn" onClick={() => window.location.reload(false)}>Cancel</button>
-        <button className="darkBtn" onClick={() => { responseInvitation() }}> Accept </button>
-      </div> */}
+        <button className="redBtn" onClick={() => { responseInvitation() }}> Delete </button>
+      </div>
     </div>
   )
 }

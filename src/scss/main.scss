@@ -48,6 +48,15 @@ button {
   font-weight: bold;
 }
 
+.redBtn {
+  border: 1px solid red;
+  color: white;
+  padding: 5px 15px;
+  background-color: red;
+  width: 100px;
+  font-weight: bold;
+}
+
 .darkBtn:hover {
   background-color: $btnDark;
   color: $btnLight;
@@ -69,7 +78,7 @@ button {
   }
 }
 
-.elderFrom{
+.elderFrom {
   display: flex;
   flex-flow: column;
   gap: .5rem;
