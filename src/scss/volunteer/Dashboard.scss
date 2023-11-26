@@ -1,13 +1,30 @@
+main {
+  margin: 2rem;
+}
+
+.ant-space {
+  display: block;
+  width: 100%;
+  margin: 2rem;
+}
+
+.list-posts {
+  display: flex;
+  justify-content: center;
+}
+
+.ant-space-item {
+  margin-top: 1rem;
+}
+
 /* Styling the page responsive  */
-/* #root:has(.dashBoardElder) { */
-/* max-width: 1280px; */
-/* margin: auto; */
-/* } */
-
-
+#root:has(.dashBoardVolunteer) {
+  /* max-width: 1280px;
+  margin: auto; */
+}
 
 /* Screen between 1280px and 900px */
-/* #root:has(.dashBoardElder) { */
+/* #root:has(.dashBoardVolunteer) { */
 @media screen and (max-width: 900px) {
   .topIcons img {
     width: 35px;
@@ -19,7 +36,7 @@
     height: 50px;
   }
 
-  /* .topIcons,
+  .topIcons,
   .ant-layout-sider,
   .ant-layout-header {
     clip: rect(0 0 0 0) !important;
@@ -29,19 +46,19 @@
     position: absolute !important;
     white-space: nowrap !important;
     width: 1px !important;
-  } */
+  }
 
-  .dashBoardElder h1 {
+  .dashBoardVolunteer h1 {
     text-align: center;
   }
 
-  .dashElderNav {
+  .dashVolunteerNav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
   }
 
-  .dashElderEvent {
+  .dashVolunteerEvent {
     grid-column: span 2;
     grid-row: 2/3;
   }
@@ -55,7 +72,7 @@
   }
 
   .tabs .ant-tabs-nav-list .ant-tabs-tab {
-    border: 1px #00756a solid !important;
+    border: 1px #00756A solid !important;
   }
 
   .ant-tabs-tab-btn {
@@ -69,50 +86,42 @@
     margin: auto;
     margin-bottom: 1rem;
   }
+
+
 }
 
+
 @media screen and (min-width: 900px) {
-  nav {
-    /* clip: rect(0 0 0 0); */
-    /* clip-path: insert(50%); */
-    /* height: 1px; */
-    /* overflow: hidden;
+
+  .dashBoardVolunteer nav {
+    clip: rect(0 0 0 0);
+    clip-path: insert(50%);
+    height: 1px;
+    overflow: hidden;
     position: absolute;
-    white-space: nowrap; */
-    /* width: 1px; */
+    white-space: nowrap;
+    width: 1px;
   }
 
-  .dashBoardElderHeader {
+
+  .dashBoardVolunteerHeader {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 2rem;
   }
 
-  .dashBoardElderHeader h1 {
-    grid-column: span 4;
+  .dashBoardVolunteerHeader h1 {
+    grid-column: span 3;
     text-align: left;
   }
 
   /* Styling for the Elder Dashboard Navigation*/
-  .dashElderNav {
+  .dashVolunteerNav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
   }
 
-    #postsSection .ant-tabs-tab {
-        display: block !important;
-        text-align: center;
-        margin: auto;
-        font-size: x-large;
-
-    }
-
-    #postsSection .ant-tabs-tab-active div {
-        display: inline;
-        color: #00756A !important;
-        border-bottom: #EB592D 5px solid;
-
-    }
   #postsSectionNav {
     display: flex;
     flex-direction: row;
@@ -122,11 +131,13 @@
 
   /* Styling for the Elder Dashboard Posts Section*/
 
+
   #postsSection .ant-tabs-tab {
     color: white !important;
-    background-color: #00756a !important;
+    background-color: #00756A !important;
     font-weight: bold !important;
     flex-grow: 1;
+
   }
 
   #postsSection .ant-tabs-nav-list {
@@ -135,7 +146,7 @@
 
   #postsSection .ant-tabs-tab-active {
     background-color: white !important;
-    border: solid 1px #00756a;
+    border: solid 1px #00756A;
   }
 
   #postsSection .ant-tabs-tab {
@@ -145,18 +156,20 @@
   }
 
   #postsSection .ant-tabs-tab-active div {
-    color: #00756a !important;
+    color: #00756A !important;
   }
+
+
 }
 
 /* Styling for the Elder Dashboard Header*/
 h1 {
-  color: #00756a;
+  color: #00756A;
 }
 
-.dashNav {
-    background-color: #00756A;
-    height: 200px;
+nav {
+  background-color: #00756A;
+  /* height: 200px; */
 }
 
 nav div {
@@ -167,39 +180,69 @@ nav div {
 }
 
 nav img {
-  margin-right: 0.5rem;
+  margin-right: .5rem;
   padding: 0;
+
 }
 
 #statusBar {
   display: block;
   width: 100%;
   margin: 0 0 3rem 0;
+
+}
+
+.rewardPoints {
+  grid-column: 4/5;
+  border-radius: 20px;
+  border: 1px solid #EB592D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: auto 1rem;
+  // flex-flow: row wrap;
+}
+
+.rewardPoints img {
+  margin: .5rem;
+  width: 50px;
+  height: 50px;
+}
+
+.topIconsVolunteer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
 }
 
 #createPost {
-  background-color: #eb592d;
+  background-color: #EB592D;
   border-radius: 15px;
   height: 55px;
   width: 180px;
-  border: #eb592d solid 1px;
+  border: #EB592D solid 1px;
   font-size: large;
 }
+
 
 #createPost a {
   color: white !important;
 }
 
-.dashBoardElderHeader div {
+.dashBoardVolunteerHeader div {
   text-align: center;
 }
 
+
+
+
 .topIcons {
-  display: flex;
-  justify-content: right;
-  margin-left: 1rem;
-  gap: 1rem;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* margin-left: 1rem; */
 }
+
 
 .navtopIcons img,
 .topIcons img {
@@ -207,45 +250,63 @@ nav img {
   height: 48px;
 }
 
+
 /* ============================================= */
 
-/* Styling for the Elder Dashboard Navigation*/
 
-.dashElderNav div {
+
+/* Styling for the Volunteer Dashboard Navigation*/
+
+
+.dashVolunteerNav div {
   min-height: 50px;
 }
 
-.dashElderEvent,
-.dashElderUnanswered,
-.dashElderPending {
-  border-radius: 0.5rem;
-  margin: 0.5rem;
+.dashVolunteerEvent,
+.dashVolunteerUnanswered,
+.dashVolunteerPending {
+  border-radius: .5rem;
+  margin: .5rem;
   padding: 0.5em;
-  border: 2px #00756a solid !important;
-  font-size: large;
+  border: 2px #00756A solid !important;
 }
 
-.dashElderEvent h2 {
-  color: #00756a;
+.dashVolunteerEvent h2 {
+  color: #00756A;
+
 }
 
-.dashElderUnanswered {
-  color: grey;
-  border-radius: 0.5rem;
-  margin: 0.5rem;
+.dashVolunteerEvent div {
+  color: #00756A;
+}
+
+.dashVolunteerUnanswered {
+  color: #EB592D;
+  border-radius: .5rem;
+  margin: .5rem;
   padding: 0.5em;
-  border: 2px grey solid !important;
+  border: 2px #EB592D solid !important;
 }
 
-.dashElderPending {
-  color: #eb592d;
-  border-radius: 0.5rem;
-  margin: 0.5rem;
+.dashVolunteerUnanswered h1 {
+  color: #EB592D;
+
+}
+
+.dashVolunteerPending {
+  color: #00BBC2;
+  border-radius: .5rem;
+  margin: .5rem;
   padding: 0.5em;
-  border: 2px#EB592D solid !important;
+  border: 2px #00BBC2 solid !important;
 }
 
-.unansCount,
+.dashVolunteerPending h1 {
+  color: #00BBC2;
+}
+
+.allTasksCount,
+.activeTasks,
 .pendingCount {
   max-width: 50%;
   text-align: center;
@@ -256,17 +317,34 @@ nav img {
 
 .eventMore {
   color: white;
-  background-color: #00756a;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid #00756a;
-  font-size: x-large;
+  background-color: #00756A;
+  border-radius: .5rem;
+  padding: .5rem 1.5rem;
+  border: 1px solid #00756A;
+
 }
 
 /* ==================================== */
 
-.myPostElderly {
-  background-color: lightgray;
+// Stlying the Volunteer Card 
+
+.ant-card .ant-card-bordered {
+  background-color: lightgray !important;
+
 }
 
-/* ================== */
+#postsSection {
+  .ant-card-head-wrapper .ant-card-body {
+    background-color: lightgray !important;
+
+  }
+
+}
+
+// .list-posts div:nth-of-type(1){
+//   background-color: red;
+// }
+
+// .ant-card-head-title {
+//   font-size: x-large !important;
+// }
