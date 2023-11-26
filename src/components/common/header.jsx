@@ -71,18 +71,12 @@ const AppHeader = () => {
                 ...menuItems.map((item, index) => {
                   return {
                     key: index,
-                    icon: <UserOutlined />,
+                    icon: item.icon,
                     label: item.label,
                     onClick: () => { navigate(item.link) }
                   }
-                }), {
-                  key: menuItems.length,
-                  icon: <VideoCameraOutlined />,
-                  label: 'Logout',
-                  onClick: () => { logout() }
-                }
+                })
               ]
-
             }
           />
           <i className="hamburgerMenu" onClick={toggleSlideMenu}>
