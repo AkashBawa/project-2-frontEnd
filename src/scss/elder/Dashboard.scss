@@ -99,20 +99,21 @@
     text-align: center;
   }
 
-    #postsSection .ant-tabs-tab {
-        display: block !important;
-        text-align: center;
-        margin: auto;
-        font-size: x-large;
+  #postsSection .ant-tabs-tab {
+    display: block !important;
+    text-align: center;
+    margin: auto;
+    font-size: x-large;
 
-    }
+  }
 
-    #postsSection .ant-tabs-tab-active div {
-        display: inline;
-        color: #00756A !important;
-        border-bottom: #EB592D 5px solid;
+  #postsSection .ant-tabs-tab-active div {
+    display: inline;
+    color: #00756A !important;
+    border-bottom: #EB592D 5px solid;
 
-    }
+  }
+
   #postsSectionNav {
     display: flex;
     flex-direction: row;
@@ -155,8 +156,8 @@ h1 {
 }
 
 .dashNav {
-    background-color: #00756A;
-    height: 200px;
+  background-color: #00756A;
+  height: 200px;
 }
 
 nav div {

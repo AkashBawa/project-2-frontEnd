@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { Card, Space, Button, Modal } from "antd";
 import axios from "../../services/axios";
-
-// import "./css/MyPosts.css"
-import DeleteImage from './../../images/delete.png';
+import DeleteImage from './../../images/deletePost.png';
 import Edit from './../../images/edit.png';
 import moment from "moment";
+// import { Modal } from "antd";
 
 
 const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
   }, []);
@@ -86,25 +86,16 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                     </h2>
                   </div>
                 </div>
-                {
-                  // post.status == "PENDING" && <>
-                  post.status && <>
 
-                    <div className="deleteEditSection" >
-                      {/* <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
-                        <img src={DeleteImage} alt="DeleteImage" />
-                      </div> */}
+                <div className="deleteEditSection" >
+                  <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
+                    <img src={DeleteImage} alt="DeleteImage" />
+                  </div>
 
-
-                      <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
-                        <img src={Edit} alt="Edit" />
-                      </div>
-                    </div>
-                  </>
-                }
-
-
-
+                  <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
+                    <img src={Edit} alt="Edit" />
+                  </div>
+                </div>
 
               </div>
             </Card>

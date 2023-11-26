@@ -2,6 +2,10 @@
 
 #mypostID {
 
+    .cardBody {
+        display: grid;
+        grid-template-columns: 75% 25%;
+    }
 
     #myPostsCard {
         background-color: #F5F5F5;
@@ -11,8 +15,6 @@
     }
 
     .dashBoardElder .cardBody {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
         justify-content: space-around;
         gap: .5rem;
         text-align: center;
@@ -22,7 +24,7 @@
 
 
     .eventDetails {
-        grid-column: span 3;
+        grid-column: 1/2;
         text-align: left;
     }
 
@@ -32,8 +34,8 @@
 
 
     .deleteEditSection {
-        display: flex;
-        flex-direction: row;
+        grid-column: 2/-1;
+        grid-row: 1/-1;
         justify-content: right;
         align-items: center;
         gap: 1rem;
@@ -51,7 +53,6 @@
     }
 
     .eventImage {
-
         padding: 1rem;
         width: 100%;
         height: auto;
@@ -104,21 +105,22 @@
                 justify-content: center;
             }
         }
-        .eventDetails {
-            h2 {
-                font-weight: normal;
-            }
-        }
 
-        .deleteEditSection {
-            justify-content: center;
+        .eventDetails h2 {
+            font-weight: normal;
         }
 
     }
 
-    img {
-        width: auto !important;
-        height: auto !important;
+    .deleteEditSection {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
     }
 
+}
+
+img {
+    width: auto !important;
+    height: auto !important;
 }

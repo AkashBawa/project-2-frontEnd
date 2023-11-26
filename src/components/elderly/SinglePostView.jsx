@@ -9,41 +9,13 @@ import Swal from 'sweetalert2'
 import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
-// import './css/SinglePostView.css'
+
 const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewUser, setViewUser] = useState(null);
   // const [resolution, setResolution] = useState(null);
-  const showDeleteModal = (post) => {
-    setPostToDelete(post);
-    setIsDeleteModalVisible(true);
-  };
-
-  const handleDelete = async (postIndex) => {
-    try {
-      if (postToDelete) {
-        const postId = String(postToDelete._id);
-        // await axios.deleteRequest(`/deletePost/${postId}`);
-
-        // const postId = posts[postIndex]._id;
-        console.log("Deleting post with ID:", postId);
-        await axios.deleteRequest("deletePost", postId, true);
-
-        fetchMyPosts();
-        setIsDeleteModalVisible(false);
-      }
-    } catch (error) {
-      console.error("Error deleting post:", error);
-    }
-  };
-
-
-  const handleCancelDelete = () => {
-    // Close the delete modal without deleting the post
-    setIsDeleteModalVisible(false);
-  };
 
 
   const responseInvitation = async (acceptedUserId, status) => {
@@ -85,19 +57,6 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
     setIsModalOpen(false);
   };
 
-
-  // const [api, contextHolder] = notification.useNotification();
-
-  // const openNotification = (title, body) => {
-  //   api.open({
-  //     message: title,
-  //     description:
-  //       body,
-  //     duration: 1,
-  //   });
-  // };
-
-
   const viewProfile = (user) => {
     console.log(user);
     setViewUser(user);
@@ -107,17 +66,13 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
   return (
 
     <div className="ElderSinglePost" id="ElderSinglePost">
-      {/* {contextHolder} */}
-      {/* <Modal className="textAlignCenter" open={isModalOpen} footer={[]} onCancel={() => setIsModalOpen(false)}> */}
-      {/* <Modal className="textAlignCenter" open={isModalOpen} footer={[]} >
-
+      <Modal className="textAlignCenter" open={isModalOpen} footer={[]} >
         <ViewProfile user={viewUser} />
         <Link to='/elder/profile'><img src={AcceptImage} alt="iconProfile" /></Link>
-
         <h2 className="textAlignCenter textCapital">{currentPost.name}</h2>
-        <p>Are you sure you want Post has been received, we will get back to you as soon as possible</p>
+        <p>Thank you for reviewing my profile</p>
         <button type="primary" className="darkBtn" onClick={handleOk}>Close</button>
-      </Modal> */}
+      </Modal>
 
       <h1>{currentPost.serviceTitle}</h1>
       <h2>{currentPost.serviceType}</h2>
@@ -126,7 +81,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
       <h2>{currentPost.address}</h2>
 
       {
-        ( currentPost?.invitations && currentPost.invitations.length > 0 ) ?
+        (currentPost?.invitations && currentPost.invitations.length > 0) ?
           (
             <div className="invitations">
               <h3> Invitations </h3>
@@ -136,32 +91,33 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
                     // invite.status == "PENDING" &&
                     // (
                     <div className="requestList" key={"invitation-" + invitationIndex}>
-                      <span onClick={() => { viewProfile(invite.user) }}>By: {invite.user.name ? invite.user.name : invite.user.email} </span>
+                      <img src={invite.user.profilePhoto} alt="Volunteer Image" className="vimg" />
+                      <div className="vsummary">
+                        <h1>Volunteer Name: {invite.user.name ? invite.user.name : invite.user.email} </h1>
+                        <h2>Rating:</h2>
+                      </div>
 
                       <div className="decisionButtons">
                         <span> <img src={AcceptImage} onClick={() => { responseInvitation(invite.user._id, "ACCEPTED") }} /> Accept </span>
                         <span> <img src={CancelImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Reject </span>
-                        <span> <img src={ProfileImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Profile </span>
+                        <span> <img src={ProfileImage} onClick={() => { viewProfile(invite.user) }} /> Profile </span>
                       </div>
                     </div>
                   )
-
                   // )
                 })
               }
             </div>
           ) : (
             <div>
-              <span>This post does not have any active incitations</span>
+              <span>This post does not have any active invitations</span>
             </div>
           )
       }
 
+      <button className="lightBtn" onClick={() => window.location.reload(false)}>Cancel</button>
 
-      <div className="buttons">
-        <button className="lightBtn" onClick={() => window.location.reload(false)}>Cancel</button>
-        <button className="redBtn" onClick={() => { responseInvitation() }}> Delete </button>
-      </div>
+
     </div>
   )
 }

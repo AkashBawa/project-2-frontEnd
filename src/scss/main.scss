@@ -1,20 +1,20 @@
 @import "./variables.scss";
+@import "./static/landingpage.scss";
+@import "./auth/signup.scss";
+@import "./header/header.scss";
+@import "./header/slidemenu.scss";
+@import "./profile/profile.scss";
 @import "./events/addEvent.scss";
 @import "./events/joinEvent.scss";
 @import "./posts/addPost.scss";
+@import "./posts/MyPosts.scss";
 @import "./events/myEvents.scss";
-@import "./auth/signup.scss";
-@import "./profile/profile.scss";
 @import "./posts/singlePost.scss";
 @import "./posts/ViewProfile.scss";
-@import "./elder/SinglePostView.scss";
-
-@import "./static/landingpage.scss";
-@import "./header/header.scss";
-@import "./header/slidemenu.scss";
-@import "./posts/MyPosts.scss";
 @import "./elder/Dashboard.scss";
+@import "./elder/SinglePostView.scss";
 @import "./volunteer/Dashboard.scss";
+
 
 button {
   border-radius: 5px;
@@ -48,14 +48,6 @@ button {
   font-weight: bold;
 }
 
-.redBtn {
-  border: 1px solid red;
-  color: white;
-  padding: 5px 15px;
-  background-color: red;
-  width: 100px;
-  font-weight: bold;
-}
 
 .darkBtn:hover {
   background-color: $btnDark;
@@ -92,4 +84,8 @@ button {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.ant-layout .ant-layout-sider{
+  background-color: #00756a !important;
 }

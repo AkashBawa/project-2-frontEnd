@@ -7,10 +7,19 @@
     h1,
     h2 {
         text-align: center;
-        text-transform: capitalize
+        text-transform: capitalize;
     }
 
-    ;
+    .vimg {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .vsummary {
+        display: flex;
+        flex-flow: column;
+    }
 
     .requestList {
         background-color: #F5F5F5;
