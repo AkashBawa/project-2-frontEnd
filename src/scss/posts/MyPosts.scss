@@ -118,9 +118,10 @@
         justify-content: space-around;
     }
 
+    img {
+        width: auto !important;
+        height: auto !important;
+    }
+
 }
 
-img {
-    width: auto !important;
-    height: auto !important;
-}

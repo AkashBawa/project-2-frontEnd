@@ -3,10 +3,12 @@ $primaryGreen: #00756a;
 $btnDark: #eb592d;
 $btnLight: white;
 $primaryColor: darkgreen;
+$fontFamily: "Inter";
 
 @mixin submitButton($bg-color: $btnDark) {
   background: $bg-color !important;
   border: 2px solid $bg-color !important;
   border-radius: 8px;
   padding: 0.5rem 1rem;
+  color: white;
 }

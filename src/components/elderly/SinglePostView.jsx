@@ -10,7 +10,7 @@ import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
 
-const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
+const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +18,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
   // const [resolution, setResolution] = useState(null);
 
 
-  const responseInvitation = async (acceptedUserId, status) => {
+  const responseInvitation = async (acceptedUserId, status, changeSingleView) => {
     try {
       Swal.fire({
         title: 'Warning',
@@ -115,7 +115,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
           )
       }
 
-      <button className="lightBtn" onClick={() => window.location.reload(false)}>Cancel</button>
+      <button className="lightBtn" onClick={() => changeSingleView({})}>Cancel</button>
 
 
     </div>

@@ -1,353 +1,349 @@
-main {
-  margin: 2rem;
-}
-
-.ant-space {
-  display: block;
-  width: 100%;
-  margin: 2rem;
-}
-
-.list-posts {
-  display: flex;
-  justify-content: center;
-}
-
-.ant-space-item {
-  margin-top: 1rem;
-}
-
-/* Styling the page responsive  */
-#root:has(.dashBoardVolunteer) {
-  /* max-width: 1280px;
-  margin: auto; */
-}
-
-/* Screen between 1280px and 900px */
-/* #root:has(.dashBoardVolunteer) { */
-@media screen and (max-width: 900px) {
-  .topIcons img {
-    width: 35px;
-    height: 35px;
-  }
-
-  #postsSection img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .topIcons,
-  .ant-layout-sider,
-  .ant-layout-header {
-    clip: rect(0 0 0 0) !important;
-    clip-path: insert(50%) !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
-  }
-
-  .dashBoardVolunteer h1 {
-    text-align: center;
-  }
-
-  .dashVolunteerNav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    text-align: center;
-  }
-
-  .dashVolunteerEvent {
-    grid-column: span 2;
-    grid-row: 2/3;
-  }
-
-  .tabs .ant-tabs-nav-list {
-    display: grid !important;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    width: 100%;
-    margin: 1rem;
-  }
-
-  .tabs .ant-tabs-nav-list .ant-tabs-tab {
-    border: 1px #00756A solid !important;
-  }
-
-  .ant-tabs-tab-btn {
-    display: block !important;
-    text-align: center;
-    width: 100%;
-  }
-
-  #postsSectionNav button {
-    display: block;
-    margin: auto;
-    margin-bottom: 1rem;
-  }
-
-
-}
-
-
-@media screen and (min-width: 900px) {
-
-  .dashBoardVolunteer nav {
-    clip: rect(0 0 0 0);
-    clip-path: insert(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-
-
-  .dashBoardVolunteerHeader {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin-bottom: 2rem;
-  }
-
-  .dashBoardVolunteerHeader h1 {
-    grid-column: span 3;
-    text-align: left;
-  }
-
-  /* Styling for the Elder Dashboard Navigation*/
-  .dashVolunteerNav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-  }
-
-  #postsSectionNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1rem auto;
-  }
-
-  /* Styling for the Elder Dashboard Posts Section*/
-
-
-  #postsSection .ant-tabs-tab {
-    color: white !important;
-    background-color: #00756A !important;
-    font-weight: bold !important;
-    flex-grow: 1;
-
-  }
-
-  #postsSection .ant-tabs-nav-list {
-    flex-grow: 1;
-  }
-
-  #postsSection .ant-tabs-tab-active {
-    background-color: white !important;
-    border: solid 1px #00756A;
-  }
-
-  #postsSection .ant-tabs-tab {
-    display: block !important;
-    text-align: center;
-    margin: auto;
-  }
-
-  #postsSection .ant-tabs-tab-active div {
-    color: #00756A !important;
-  }
-
-
-}
-
-/* Styling for the Elder Dashboard Header*/
-h1 {
-  color: #00756A;
-}
-
-nav {
-  background-color: #00756A;
-  /* height: 200px; */
-}
-
-nav div {
-  display: flex;
-  flex-flow: row wrap;
-  align-content: space-between;
-  justify-content: space-between;
-}
-
-nav img {
-  margin-right: .5rem;
-  padding: 0;
-
-}
-
-#statusBar {
-  display: block;
-  width: 100%;
-  margin: 0 0 3rem 0;
-
-}
-
-.rewardPoints {
-  grid-column: 4/5;
-  border-radius: 20px;
-  border: 1px solid #EB592D;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: auto 1rem;
-  // flex-flow: row wrap;
-}
-
-.rewardPoints img {
-  margin: .5rem;
-  width: 50px;
-  height: 50px;
-}
-
-.topIconsVolunteer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-}
-
-#createPost {
-  background-color: #EB592D;
-  border-radius: 15px;
-  height: 55px;
-  width: 180px;
-  border: #EB592D solid 1px;
-  font-size: large;
-}
-
-
-#createPost a {
-  color: white !important;
-}
-
-.dashBoardVolunteerHeader div {
-  text-align: center;
-}
-
-
-
-
-.topIcons {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* margin-left: 1rem; */
-}
-
-
-.navtopIcons img,
-.topIcons img {
-  width: 48px;
-  height: 48px;
-}
-
-
-/* ============================================= */
-
-
-
-/* Styling for the Volunteer Dashboard Navigation*/
-
-
-.dashVolunteerNav div {
-  min-height: 50px;
-}
-
-.dashVolunteerEvent,
-.dashVolunteerUnanswered,
-.dashVolunteerPending {
-  border-radius: .5rem;
-  margin: .5rem;
-  padding: 0.5em;
-  border: 2px #00756A solid !important;
-}
-
-.dashVolunteerEvent h2 {
-  color: #00756A;
-
-}
-
-.dashVolunteerEvent div {
-  color: #00756A;
-}
-
-.dashVolunteerUnanswered {
-  color: #EB592D;
-  border-radius: .5rem;
-  margin: .5rem;
-  padding: 0.5em;
-  border: 2px #EB592D solid !important;
-}
-
-.dashVolunteerUnanswered h1 {
-  color: #EB592D;
-
-}
-
-.dashVolunteerPending {
-  color: #00BBC2;
-  border-radius: .5rem;
-  margin: .5rem;
-  padding: 0.5em;
-  border: 2px #00BBC2 solid !important;
-}
-
-.dashVolunteerPending h1 {
-  color: #00BBC2;
-}
-// .dashVolunteerPending img{
+// main {
+//   margin: 2rem;
+// }
+
+// .ant-space {
+//   display: block;
 //   width: 100%;
-//   height: auto;
-// }
-.allTasksCount,
-.activeTasks,
-.pendingCount {
-  max-width: 50%;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  margin: auto;
-}
-
-.eventMore {
-  color: white;
-  background-color: #00756A;
-  border-radius: .5rem;
-  padding: .5rem 1.5rem;
-  border: 1px solid #00756A;
-
-}
-
-/* ==================================== */
-
-// Stlying the Volunteer Card 
-
-.ant-card .ant-card-bordered {
-  background-color: lightgray !important;
-
-}
-
-#postsSection {
-  .ant-card-head-wrapper .ant-card-body {
-    background-color: lightgray !important;
-
-  }
-
-}
-
-// .list-posts div:nth-of-type(1){
-//   background-color: red;
+//   margin: 2rem;
 // }
 
-// .ant-card-head-title {
-//   font-size: x-large !important;
+// .list-posts {
+//   display: flex;
+//   justify-content: center;
 // }
+
+// .ant-space-item {
+//   margin-top: 1rem;
+// }
+
+// #root:has(.dashBoardVolunteer) {
+
+// }
+
+// @media screen and (max-width: 900px) {
+//   .topIcons img {
+//     width: 35px;
+//     height: 35px;
+//   }
+
+//   #postsSection img {
+//     width: 50px;
+//     height: 50px;
+//   }
+
+//   .topIcons,
+//   .ant-layout-sider,
+//   .ant-layout-header {
+//     clip: rect(0 0 0 0) !important;
+//     clip-path: insert(50%) !important;
+//     height: 1px !important;
+//     overflow: hidden !important;
+//     position: absolute !important;
+//     white-space: nowrap !important;
+//     width: 1px !important;
+//   }
+
+//   .dashBoardVolunteer h1 {
+//     text-align: center;
+//   }
+
+//   .dashVolunteerNav {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     text-align: center;
+//   }
+
+//   .dashVolunteerEvent {
+//     grid-column: span 2;
+//     grid-row: 2/3;
+//   }
+
+//   .tabs .ant-tabs-nav-list {
+//     display: grid !important;
+//     grid-template-columns: repeat(1, 1fr);
+//     gap: 1rem;
+//     width: 100%;
+//     margin: 1rem;
+//   }
+
+//   .tabs .ant-tabs-nav-list .ant-tabs-tab {
+//     border: 1px #00756A solid !important;
+//   }
+
+//   .ant-tabs-tab-btn {
+//     display: block !important;
+//     text-align: center;
+//     width: 100%;
+//   }
+
+//   #postsSectionNav button {
+//     display: block;
+//     margin: auto;
+//     margin-bottom: 1rem;
+//   }
+
+
+// }
+
+
+// @media screen and (min-width: 900px) {
+
+//   .dashBoardVolunteer nav {
+//     clip: rect(0 0 0 0);
+//     clip-path: insert(50%);
+//     height: 1px;
+//     overflow: hidden;
+//     position: absolute;
+//     white-space: nowrap;
+//     width: 1px;
+//   }
+
+
+//   .dashBoardVolunteerHeader {
+//     display: grid;
+//     grid-template-columns: repeat(5, 1fr);
+//     margin-bottom: 2rem;
+//   }
+
+//   .dashBoardVolunteerHeader h1 {
+//     grid-column: span 3;
+//     text-align: left;
+//   }
+
+//   /* Styling for the Elder Dashboard Navigation*/
+//   .dashVolunteerNav {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     text-align: center;
+//   }
+
+//   #postsSectionNav {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     margin: 1rem auto;
+//   }
+
+//   /* Styling for the Elder Dashboard Posts Section*/
+
+
+//   #postsSection .ant-tabs-tab {
+//     color: white !important;
+//     background-color: #00756A !important;
+//     font-weight: bold !important;
+//     flex-grow: 1;
+
+//   }
+
+//   #postsSection .ant-tabs-nav-list {
+//     flex-grow: 1;
+//   }
+
+//   #postsSection .ant-tabs-tab-active {
+//     background-color: white !important;
+//     border: solid 1px #00756A;
+//   }
+
+//   #postsSection .ant-tabs-tab {
+//     display: block !important;
+//     text-align: center;
+//     margin: auto;
+//   }
+
+//   #postsSection .ant-tabs-tab-active div {
+//     color: #00756A !important;
+//   }
+
+
+// }
+
+// /* Styling for the Elder Dashboard Header*/
+// h1 {
+//   color: #00756A;
+// }
+
+// nav {
+//   background-color: #00756A;
+//   /* height: 200px; */
+// }
+
+// nav div {
+//   display: flex;
+//   flex-flow: row wrap;
+//   align-content: space-between;
+//   justify-content: space-between;
+// }
+
+// nav img {
+//   margin-right: .5rem;
+//   padding: 0;
+
+// }
+
+// #statusBar {
+//   display: block;
+//   width: 100%;
+//   margin: 0 0 3rem 0;
+
+// }
+
+// .rewardPoints {
+//   grid-column: 4/5;
+//   border-radius: 20px;
+//   border: 1px solid #EB592D;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: auto 1rem;
+//   // flex-flow: row wrap;
+// }
+
+// .rewardPoints img {
+//   margin: .5rem;
+//   width: 50px;
+//   height: 50px;
+// }
+
+// .topIconsVolunteer {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+
+// }
+
+// #createPost {
+//   background-color: #EB592D;
+//   border-radius: 15px;
+//   height: 55px;
+//   width: 180px;
+//   border: #EB592D solid 1px;
+//   font-size: large;
+// }
+
+
+// #createPost a {
+//   color: white !important;
+// }
+
+// .dashBoardVolunteerHeader div {
+//   text-align: center;
+// }
+
+
+
+
+// .topIcons {
+//   /* display: flex; */
+//   /* justify-content: space-between; */
+//   /* margin-left: 1rem; */
+// }
+
+
+// .navtopIcons img,
+// .topIcons img {
+//   width: 48px;
+//   height: 48px;
+// }
+
+
+// /* ============================================= */
+
+
+
+// /* Styling for the Volunteer Dashboard Navigation*/
+
+
+// .dashVolunteerNav div {
+//   min-height: 50px;
+// }
+
+// .dashVolunteerEvent,
+// .dashVolunteerUnanswered,
+// .dashVolunteerPending {
+//   border-radius: .5rem;
+//   margin: .5rem;
+//   padding: 0.5em;
+//   border: 2px #00756A solid !important;
+// }
+
+// .dashVolunteerEvent h2 {
+//   color: #00756A;
+
+// }
+
+// .dashVolunteerEvent div {
+//   color: #00756A;
+// }
+
+// .dashVolunteerUnanswered {
+//   color: #EB592D;
+//   border-radius: .5rem;
+//   margin: .5rem;
+//   padding: 0.5em;
+//   border: 2px #EB592D solid !important;
+// }
+
+// .dashVolunteerUnanswered h1 {
+//   color: #EB592D;
+
+// }
+
+// .dashVolunteerPending {
+//   color: #00BBC2;
+//   border-radius: .5rem;
+//   margin: .5rem;
+//   padding: 0.5em;
+//   border: 2px #00BBC2 solid !important;
+// }
+
+// .dashVolunteerPending h1 {
+//   color: #00BBC2;
+// }
+// // .dashVolunteerPending img{
+// //   width: 100%;
+// //   height: auto;
+// // }
+// .allTasksCount,
+// .activeTasks,
+// .pendingCount {
+//   max-width: 50%;
+//   text-align: center;
+//   font-size: 3rem;
+//   font-weight: bold;
+//   margin: auto;
+// }
+
+// .eventMore {
+//   color: white;
+//   background-color: #00756A;
+//   border-radius: .5rem;
+//   padding: .5rem 1.5rem;
+//   border: 1px solid #00756A;
+
+// }
+
+// /* ==================================== */
+
+// // Stlying the Volunteer Card 
+
+// .ant-card .ant-card-bordered {
+//   background-color: lightgray !important;
+
+// }
+
+// #postsSection {
+//   .ant-card-head-wrapper .ant-card-body {
+//     background-color: lightgray !important;
+
+//   }
+
+// }
+
+// // .list-posts div:nth-of-type(1){
+// //   background-color: red;
+// // }
+
+// // .ant-card-head-title {
+// //   font-size: x-large !important;
+// // }

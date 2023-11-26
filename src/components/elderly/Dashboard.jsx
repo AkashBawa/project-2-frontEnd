@@ -54,9 +54,9 @@ const Dashboard = () => {
     setApprovedRequest(approvedPosts);
     setCompletedPosts(completedPosts);
 
-    setPendingCounter(pendingPosts.length);
-    setApprovedCounter(approvedPosts.length);
-    setCompletedCounter(completedPosts.length);
+    // setPendingCounter(pendingPosts.length);
+    // setApprovedCounter(approvedPosts.length);
+    // setCompletedCounter(completedPosts.length);
   };
 
   const fetchMyPosts = async () => {
@@ -75,9 +75,9 @@ const Dashboard = () => {
 
   const changeSingleView = (post) => {
 
-    console.log("post is ");
-    console.log(post)
-    console.log("change view")
+    // console.log("post is ");
+    // console.log(post)
+    // console.log("change view")
     setSingleView(!singleView);
     setCurrentPost(post);
   }
@@ -135,23 +135,22 @@ const Dashboard = () => {
               <Tabs className="tabs"
                 defaultActiveKey="1"
                 type="card"
-                size={"middle"}
                 items={
                   [
                     {
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView}  fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView}  fetchMyPosts={fetchMyPosts} />,
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
                     },
                   ]
                 }
@@ -165,7 +164,7 @@ const Dashboard = () => {
       {
         singleView == true && (
           <div>
-            <SinglePostView currentPost={currentPost} fetchMyPosts={fetchMyPosts} />
+            <SinglePostView currentPost={currentPost} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
           </div>
         )
       }
