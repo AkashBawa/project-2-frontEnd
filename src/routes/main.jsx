@@ -28,12 +28,8 @@ import Rewards from "../components/volunteer/Rewards";
 
 const router = createBrowserRouter([
   {
-    path: "/landingpage",
-    element: <LandingPage />
-  },
-  {
     path: "/",
-    element: <Signup />
+    element: <LandingPage />
   },
   {
     path: "/login",
