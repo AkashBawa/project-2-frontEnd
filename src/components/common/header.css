@@ -55,3 +55,7 @@
     margin: auto;
     padding: 5px 5px;
 }
+
+.ant-layout-sider-children{
+    height: 100vh;
+}

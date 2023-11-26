@@ -40,9 +40,9 @@ const AppHeader = () => {
   }
 
   return (
-    <div>
+    <div className="headers">
 
-      <Layout>
+      <Layout className="layout">
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div id="menuLogo">
             <img src={IconLogo}  />

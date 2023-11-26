@@ -20,8 +20,8 @@ const AppHeader = () => {
   const { token: { colorBgContainer }} = theme.useToken();
 
   return (
-    <div>
-      <Layout>
+    <div className="headers">
+      <Layout className="layout">
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="demo-logo-vertical" />
           <img src={IconLogo}/>

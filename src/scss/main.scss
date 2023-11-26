@@ -8,6 +8,9 @@
 @import "./posts/singlePost.scss";
 @import "./posts/ViewProfile.scss";
 
+.headers, .ant-layout {
+  min-height: 100vh;
+}
 button {
   border-radius: 5px;
   cursor: pointer;

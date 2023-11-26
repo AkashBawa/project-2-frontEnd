@@ -86,6 +86,19 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   </>
                 }
 
+{
+                  post.status == "BOOKED" && <>
+                   <div className="deleteEditSection">
+
+              
+
+                      <div className="Review">
+                        <Link to={`/elder/reviewelder/${post._id}`}><button className="darkBtn">Review</button></Link>
+                      </div>
+                    </div>
+                  </>
+                }
+
                 
 
 

@@ -265,8 +265,8 @@ const Profile = () => {
       <p>Age: {volProfile.age}</p>
       <p>Gender: {volProfile.gender}</p>
       <p>Contact Number: {volProfile.contactNumber}</p>
-      <p>Interest: {volProfile.interest}</p>
-      <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p> {/* Check if rating is defined */}
+      <p>Interest: {volProfile.interest}</p> */}
+      <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p> {/* Check if rating is defined
             {/* <p>Rewards Points: {volProfile.point}</p> */}
             {/* {points.map()} */}
 
