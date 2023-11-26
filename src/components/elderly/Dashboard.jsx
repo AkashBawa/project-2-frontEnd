@@ -30,7 +30,7 @@ const Dashboard = () => {
   const [currentPost, setCurrentPost] = useState({});
 
   useEffect(() => {
-    dispatch(setLoader({loader: true}))
+    dispatch(setLoader({ loader: true }))
     fetchMyPosts();
   }, []);
 
@@ -63,12 +63,12 @@ const Dashboard = () => {
     try {
       setSingleView(false);
       const response = await axios.getRequest("getPostByUser", true);
-      dispatch(setLoader({loader: false}))
+      dispatch(setLoader({ loader: false }))
       if (response.success === true && response.posts) {
         filterPosts(response.posts);
       }
     } catch (err) {
-      dispatch(setLoader({loader: false}))
+      dispatch(setLoader({ loader: false }))
       console.log(err)
     }
   };
@@ -106,7 +106,8 @@ const Dashboard = () => {
               <div className="dashElderEvent">
                 <h2>Join our Events</h2>
                 <h4>Join us for our upcoming session.</h4>
-                <button className="eventMore">Join</button>
+                <Link to='/elder/event'><button className="eventMore">Join</button></Link>
+
               </div>
               <div className="dashElderUnanswered">
                 <h3>Active Posts</h3>
@@ -129,7 +130,7 @@ const Dashboard = () => {
             <div id="postsSection">
               <div id="postsSectionNav">
                 <h1>My Posts</h1>
-                <button id="createPost" onClick={() => {navigate("/elder/addPost")}}><Link to='/elder/addPost'>Create Post</Link></button>
+                <button id="createPost" onClick={() => { navigate("/elder/addPost") }}><Link to='/elder/addPost'>Create Post</Link></button>
               </div>
 
               <Tabs className="tabs"
@@ -141,7 +142,7 @@ const Dashboard = () => {
                     {
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView}  fetchMyPosts={fetchMyPosts} />,
+                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,

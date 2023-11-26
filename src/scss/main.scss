@@ -89,6 +89,49 @@ button {
   width: 1px;
 }
 
-.ant-layout .ant-layout-sider{
+.ant-layout .ant-layout-sider,
+.ant-menu-dark {
   background-color: #00756a !important;
+}
+
+// Styling pop up menus =========== 
+div:where(.swal2-container).swal2-backdrop-show,
+div:where(.swal2-container).swal2-noanimation {
+  background: rgba(0, 0, 0, .8) !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+  color: #000 !important;
+  border-radius: 15px !important;
+}
+
+div:where(.swal2-icon).swal2-success {
+  border-color: aqua !important;
+  color: aqua !important;
+}
+
+.swal2-html-container {
+  color: #000;
+  font-size: xx-large !important;
+  font-weight: bold !important;
+  border-radius: 15px;
+}
+
+.swal2-actions .swal2-confirm {
+  background-color: #eb592d;
+  border-radius: 15px;
+  height: 55px;
+  width: 180px;
+  border: #eb592d solid 1px;
+  font-size: large;
+}
+
+.swal2-actions .swal2-cancel {
+  background-color: #fff;
+  color: #eb592d;
+  border-radius: 15px;
+  height: 55px;
+  width: 180px;
+  border: #eb592d solid 1px;
+  font-size: large;
 }

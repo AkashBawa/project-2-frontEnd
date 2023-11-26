@@ -11,6 +11,7 @@ import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
 
 const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
+
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,12 +22,12 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
   const responseInvitation = async (acceptedUserId, status) => {
     try {
       Swal.fire({
-        title: 'Warning',
-        text: `Do you want to  ${status === 'ACCEPTED' ? 'accept' : 'reject'} the post`,
-        icon: 'warning',
+        title: '',
+        text: `Are you sure you want to  ${status === 'ACCEPTED' ? 'accept' : 'reject'} this service`,
+        // icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes',
         cancelButtonText: "No",
+        confirmButtonText: 'Yes',
       }).then(async (data) => {
         console.log(data)
         if (data.isConfirmed) {
@@ -35,9 +36,10 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
           console.log(response);
           if (response && response.success) {
             Swal.fire({
-              title: "Thanks",
-              text: "The Post status is Accepted",
-              icon: "success"
+              icon: "success",
+              title: "Confirmation  ",
+              text: "You have accepted this service",
+              confirmButtonText: 'ok',
             });
             setIsModalOpen(true)
           }
