@@ -1,0 +1,104 @@
+#root {
+  /* header.css */
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-menu-dark
+    .ant-menu-item-selected {
+    background-color: #00756a !important;
+  }
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-menu-dark
+    .ant-menu-item-selected {
+    color: #fff !important;
+  }
+  .headerclass {
+    #menuLogo {
+      margin-bottom: 2rem;
+    }
+    img {
+      display: block !important;
+    }
+    @media screen and (max-width: 676px) {
+      :where(.css-dev-only-do-not-override-1adbn6x).ant-layout.ant-layout-has-sider
+        > .ant-layout,
+      :where(.css-dev-only-do-not-override-1adbn6x).ant-layout.ant-layout-has-sider
+        > .ant-layout-content {
+        width: 100%;
+      }
+      .ant-layout:nth-child(1) {
+        display: flex;
+        flex-flow: column nowrap;
+      }
+      aside {
+        width: 100% !important;
+        max-width: 100% !important;
+        .desktop-menu {
+          @media screen and (max-width: 676px) {
+            display: none;
+          }
+        }
+        .ant-layout-sider-children {
+          @media screen and (max-width: 676px) {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    aside {
+      f .ant-menu-item {
+        margin-bottom: 1rem !important;
+      }
+
+      .menu-icon {
+        color: white;
+        cursor: pointer;
+        display: none;
+        @media screen and (max-width: 676px) {
+          display: block;
+        }
+      }
+
+      .ant-menu-title-content {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+      }
+      .ant-menu-item {
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @media screen and (min-width: 676px) {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100%;
+      }
+      padding: 1rem;
+
+    }
+  }
+}
+
+aside.ant-layout-sider-collapsed {
+  #menuLogo {
+    display: none;
+  }
+}
+
+#menuLogo img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 676px) {
+  .main-content {
+    margin-left: 200px;
+  }  
+}
+

@@ -69,17 +69,14 @@ function Signup() {
             <Input onKeyUp={(e) => { setuserName(e.target.value) }} id="userName" placeholder="userName" />
             <div className="btnDivSignUp">
               <button className="darkBtn" onClick={submit}>Submit</button>
-              <button className="darkBtn" onClick={submit}>Cancel</button>
+              {/* <button className="darkBtn" onClick={submit}>Cancel</button> */}
             </div>
+
           </div>
           {/* <h2 id="loginUser">Already A User</h2>
           <Link to="/login"><button className="darkBtn">Login</button></Link> */}
 
         </div>
-
-
-
-        {/* <AddPost userName={userName} /> */}
       </div>
 
     </div>

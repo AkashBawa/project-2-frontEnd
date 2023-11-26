@@ -196,12 +196,12 @@ const CreateEvent = () => {
                 }
 
                 <div className="button-bottom">
-                    <Button type="" onClick={() => setCurrentStep(currentStep - 1)} disabled={currentStep == 0}>Previous</Button>
+                    <button type="" className="lightBtn" onClick={() => setCurrentStep(currentStep - 1)} disabled={currentStep == 0}>Previous</button>
                     {
-                        currentStep < 3 && <Button type="primary" onClick={() => { setCurrentStep(currentStep + 1) }} disabled={currentStep == 3} >Next</Button>
+                        currentStep < 3 && <button className="darkBtn"  onClick={() => { setCurrentStep(currentStep + 1) }} disabled={currentStep == 3} >Next</button>
                     }
                     {
-                        currentStep == 3 && <Button type="primary" onClick={submit}>Submit</Button>
+                        currentStep == 3 && <button className="darkBtn" onClick={submit}>Submit</button>
                     }
                 </div>
 

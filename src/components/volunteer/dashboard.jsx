@@ -2,20 +2,21 @@ import { Card, Space, Button } from "antd";
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 
-import "./../volunteer/css/dashboard.css"
+// import "./../volunteer/css/dashboard.css"
 import { useState } from "react";
 import MyPosts from './../elderly/myPosts';
-import SinglePostView from "./../elderly/viewSinglePost";
+import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
 import statusBar from './../../images/statusBar.png';
 import wiseCareLogo from './../../images/wiseCareLogo.png';
-import iconProfile from './../../images/icon_profile.png';
+import iconProfile from './../../images/vicon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
 import iconNavProfile from './../../images/icon_profile_mobile.png';
 import iconNavNotification from './../../images/icon_request_mobile.png';
 import rewards from './../../images/rewards.png';
+import rewardIcon from './../../images/rewardIcon.png';
 
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
@@ -119,6 +120,10 @@ const Dashboard = () => {
             </nav>
             <div className="dashBoardVolunteerHeader">
               <h1>Hi, Beant</h1>
+              <div className="rewardPoints">
+                <img src={rewardIcon} alt="reward" />
+                <h2>Yours Points: 200 </h2>
+              </div>
               <div className="topIconsVolunteer">
                 <img src={iconNotification} alt="iconNotification" />
                 <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
@@ -126,17 +131,17 @@ const Dashboard = () => {
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
-                <h2>All Tasks</h2>
+                <h1>All Tasks</h1>
                 <div className="allTasksCount">{approvedCounter}</div>
               </div>
               <div className="dashVolunteerUnanswered">
-                <h3>Active Tasks</h3>
+                <h1>Active Tasks</h1>
                 <div className="activeTasks">{approvedCounter}</div>
               </div>
               <div className="dashVolunteerPending">
-                <h3>Rewards</h3>
+                <h1>Rewards</h1>
                 <img src={rewards} alt="Rewards" />
-                <h4>Next Medal:  6 / 15</h4>
+                <h2>Next Medal:  6 / 15</h2>
               </div>
             </div>
 
@@ -160,7 +165,7 @@ const Dashboard = () => {
                 items={
                   [
                     {
-                      
+
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
                       children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
@@ -210,9 +215,10 @@ const Dashboard = () => {
                   }}
 
                 >
-                  <p>Description</p>
-                  <p>By: {post?.userId.name}</p>
-                  <p>On: {new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()} at: {post.time}</p>
+                  <h1>{post.serviceTitle}</h1>
+                  <h2>{post.address}</h2>
+                  <h2>By: {post?.userId.name}</h2>
+                  <h2>On: {new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()} at: {post.time}</h2>
                 </Card>
               )
             })

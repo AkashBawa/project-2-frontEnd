@@ -19,7 +19,7 @@ function Login() {
     console.log(email);
     console.log(passWord);
     const data = await axios.postRequest("login", { email, password: passWord });
-    if (data.success) {
+    if (data &&data.success) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('role', data.role);
       localStorage.setItem('userId', data.userId);
@@ -28,8 +28,9 @@ function Login() {
       } else {
         navigate('/volunteer/dashboard')
       }
+    } else {
+      console.log(data)
     }
-
 
   }
 

@@ -1,19 +1,22 @@
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
-import SinglePostView from "./viewSinglePost";
+import SinglePostView from "./SinglePostView";
 
 import React, { useEffect, useState } from 'react';
-import './css/Dashboard.css'
+// import './css/Dashboard.css'
 import wiseCareLogo from './../../images/wiseCareLogo.png';
 import iconProfile from './../../images/icon_profile.png';
-import iconNotification from './../../images/icon_notification.png';
-import iconNavProfile from './../../images/icon_profile_mobile.png';
-import iconNavNotification from './../../images/icon_request_mobile.png';
 import statusBar from './../../images/statusBar.png';
 import axios from "../../services/axios";
+import { useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { setLoader } from '../../redux/user';
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [pendingPosts, setPendingRequest] = useState([]);
   const [approvedPosts, setApprovedRequest] = useState([]);
@@ -27,17 +30,16 @@ const Dashboard = () => {
   const [currentPost, setCurrentPost] = useState({});
 
   useEffect(() => {
+    dispatch(setLoader({loader: true}))
     fetchMyPosts();
   }, []);
 
-  const filterPosts = (allPosts) => {
-
+  const filterPosts = allPosts => {
     let pendingPosts = [];
     let approvedPosts = [];
     let completedPosts = [];
 
     allPosts.forEach((post, index) => {
-
       if (post.status === "PENDING") {
         pendingPosts.push(post);
       } else if (post.status === "BOOKED") {
@@ -55,20 +57,21 @@ const Dashboard = () => {
     setPendingCounter(pendingPosts.length);
     setApprovedCounter(approvedPosts.length);
     setCompletedCounter(completedPosts.length);
-  }
-
+  };
 
   const fetchMyPosts = async () => {
     try {
       setSingleView(false);
       const response = await axios.getRequest("getPostByUser", true);
+      dispatch(setLoader({loader: false}))
       if (response.success === true && response.posts) {
         filterPosts(response.posts);
       }
     } catch (err) {
+      dispatch(setLoader({loader: false}))
       console.log(err)
     }
-  }
+  };
 
   const changeSingleView = (post) => {
 
@@ -89,7 +92,6 @@ const Dashboard = () => {
               <div>
                 <img src={wiseCareLogo} alt="Logo" />
                 <div className="navtopIcons">
-                  <img src={iconNavNotification} alt="iconNavNotification" />
                   <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
                 </div>
               </div>
@@ -97,7 +99,6 @@ const Dashboard = () => {
             <div className="dashBoardElderHeader">
               <h1>Hi, Ana</h1>
               <div className="topIcons">
-                <img src={iconNotification} alt="iconNotification" />
                 <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
               </div>
             </div>
@@ -117,7 +118,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="deletePostConfirmation Visually-hidden ">
+            <div className="deletePostConfirmation Visually-hidden">
               <div>
                 <h3>Are you sure you want to delete you post?</h3>
                 <button className="deleteNo">No</button>
@@ -128,7 +129,7 @@ const Dashboard = () => {
             <div id="postsSection">
               <div id="postsSectionNav">
                 <h1>My Posts</h1>
-                <button id="createPost"><Link to='/elder/addPost'>Create Post</Link></button>
+                <button id="createPost" onClick={() => {navigate("/elder/addPost")}}><Link to='/elder/addPost'>Create Post</Link></button>
               </div>
 
               <Tabs className="tabs"
@@ -169,9 +170,6 @@ const Dashboard = () => {
         )
       }
     </>
-
-
-  )
+  );
 }
-
-export default Dashboard
+export default Dashboard;
