@@ -245,15 +245,6 @@ nav img {
 }
 
 
-
-
-.topIcons {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* margin-left: 1rem; */
-}
-
-
 .navtopIcons img,
 .topIcons img {
   width: 48px;
@@ -382,11 +373,12 @@ nav img {
 }
 
 .servicePostDetails {
-  // text-align: left;
+  grid-column: span 2;
+  text-align: left;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .volPostCard h1 {

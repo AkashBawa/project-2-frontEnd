@@ -10,7 +10,7 @@ import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
 
-const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
+const SinglePostView = ({ currentPost, fetchMyPosts, fetchPost, changeScreen }) => {
 
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
@@ -44,6 +44,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
             setIsModalOpen(true)
           }
           fetchMyPosts();
+          fetchPost();
 
         } else {
           return;
@@ -112,7 +113,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeScreen }) => {
             </div>
           ) : (
             <div>
-              <span>This post does not have any active invitations</span>
+              <h2 className="noInvitations">This post does not have any active invitations</h2>
             </div>
           )
       }

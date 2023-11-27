@@ -57,10 +57,13 @@ const Dashboard = () => {
     allPosts.forEach((post, index) => {
       if (post.status === "PENDING") {
         pendingPosts.push(post);
+        console.log(pendingPosts)
       } else if (post.status === "BOOKED") {
         approvedPosts.push(post);
+        console.log(approvedPosts)
       } else {
         completedPosts.push(post);
+        console.log(completedPosts)
       }
     });
 
@@ -319,7 +322,13 @@ const Dashboard = () => {
 
                         // apply
 
-                        <button id="applyBtn" type="default" onClick={() => sendRequest(post._id, index)}>
+                        <button id="applyBtn" type="default"
+                          onClick={() => {
+                            // if (post.status === "PENDING") {
+                              sendRequest(post._id, index);
+                              // post.status = "BOOKED";
+                            // }
+                          }}>
                           <img src={apply} alt="" />
                         </button>
                       )}

@@ -1,9 +1,13 @@
 /* Styling the page responsive  */
-/* #root:has(.dashBoardElder) { */
-/* max-width: 1280px; */
-/* margin: auto; */
-/* } */
 
+
+main:has(.dashBoardElder) {
+  padding: 1rem 5% !important;
+
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-card .ant-card-body {
+    padding: 0 !important;
+  }
+}
 
 
 /* Screen between 1280px and 900px */
@@ -18,18 +22,6 @@
     width: 50px;
     height: 50px;
   }
-
-  /* .topIcons,
-  .ant-layout-sider,
-  .ant-layout-header {
-    clip: rect(0 0 0 0) !important;
-    clip-path: insert(50%) !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
-  } */
 
   .dashBoardElder h1 {
     text-align: center;
@@ -72,15 +64,6 @@
 }
 
 @media screen and (min-width: 900px) {
-  nav {
-    /* clip: rect(0 0 0 0); */
-    /* clip-path: insert(50%); */
-    /* height: 1px; */
-    /* overflow: hidden;
-    position: absolute;
-    white-space: nowrap; */
-    /* width: 1px; */
-  }
 
   .dashBoardElderHeader {
     display: grid;
@@ -221,7 +204,7 @@ nav img {
 .dashElderUnanswered,
 .dashElderPending {
   border-radius: 0.5rem;
-  margin: 0.5rem;
+  margin: 2rem 3rem;
   padding: 0.5em;
   border: 2px #00756a solid !important;
   font-size: large;
@@ -234,7 +217,6 @@ nav img {
 .dashElderUnanswered {
   color: grey;
   border-radius: 0.5rem;
-  margin: 0.5rem;
   padding: 0.5em;
   border: 2px grey solid !important;
 }
@@ -242,7 +224,6 @@ nav img {
 .dashElderPending {
   color: #eb592d;
   border-radius: 0.5rem;
-  margin: 0.5rem;
   padding: 0.5em;
   border: 2px#EB592D solid !important;
 }
@@ -251,7 +232,8 @@ nav img {
 .pendingCount {
   max-width: 50%;
   text-align: center;
-  font-size: 3rem;
+  font-size: 5rem;
+  margin-right: 3rem;
   font-weight: bold;
   margin: auto;
 }
@@ -278,7 +260,7 @@ nav img {
   margin-right: 20px !important;
 }
 
-.rewardPoints{
+.rewardPoints {
   background-color: #f4e0e0;
 }
 
