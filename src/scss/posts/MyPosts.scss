@@ -145,7 +145,8 @@
 
 .ant-modal-title{
     text-align: center;
-    color: #00756A;
+    color: #00756A !important;
+    font-size: 1.5rem !important;
 }
 
 .ant-space.css-dev-only-do-not-override-1adbn6x.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small{
@@ -157,10 +158,10 @@
     background-color: rgba(0, 0, 0, 0.60);
 }
 
-div#\:rf\:{
-    color: #00756A;
-    font-size: 1.5rem;
-}
+// div#\:rf\:{
+//     color: #00756A !important;
+//     font-size: 1.5rem !important;
+// }
 
 :where(.css-dev-only-do-not-override-1adbn6x).ant-btn-primary {
     background-color: #EB592D;

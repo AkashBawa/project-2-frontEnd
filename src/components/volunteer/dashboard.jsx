@@ -43,6 +43,7 @@ const Dashboard = () => {
     fetchPost();
     fetchId();
     fetchVolUserProfile();
+    
   }, []);
 
   const [volProfile, setVolProfile] = useState(null);
@@ -88,6 +89,17 @@ const Dashboard = () => {
     }
   }
 
+  const [formData, setFormData] = useState({
+    profilePhoto: "",
+    name: "",
+    // lName: "",
+    age: "",
+    gender: "male",
+    contactNumber: "",
+    interest: "",
+    emergencyContact: ""
+  });
+
 
   const fetchMyPosts = async () => {
     try {
@@ -119,6 +131,9 @@ const Dashboard = () => {
     }
   };
 
+  const volunteerName = volProfile ? volProfile.name : "Guest";
+
+
   return (
     <>
       {
@@ -135,10 +150,10 @@ const Dashboard = () => {
               </div>
             </nav>
             <div className="dashBoardVolunteerHeader">
-              <h1>Hi, Beant</h1>
+              <h1>Hi, {volunteerName}</h1>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
-                <h2>Your Points: {volProfile?.point}</h2>
+                <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
 
               </div>
               <div className="topIconsVolunteer">

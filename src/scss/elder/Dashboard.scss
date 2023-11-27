@@ -173,10 +173,11 @@ nav img {
 }
 
 #statusBar {
-  display: block;
+  display: none;
   width: 100%;
   margin: 0 0 3rem 0;
 }
+
 
 #createPost {
   background-color: #eb592d;
@@ -275,4 +276,14 @@ nav img {
 
 #postsSection .ant-tabs-tab {
   margin-right: 20px !important;
+}
+
+.rewardPoints{
+  background-color: #f4e0e0;
+}
+
+
+h2.pointsDash {
+  margin: 0;
+  font-size: 1rem;
 }

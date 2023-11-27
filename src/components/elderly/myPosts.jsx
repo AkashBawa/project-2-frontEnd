@@ -206,7 +206,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                               />
                               {/* {rating ? <span>{rating}</span> : ''} */}
                             </Space>
-                            <TextArea rows={4} placeholder="Review" maxLength={6} />
+                            <TextArea rows={4} placeholder="Review" maxLength={100} />
                           </Modal>
                         </>
                       </div>

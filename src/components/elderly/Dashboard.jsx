@@ -32,6 +32,8 @@ const Dashboard = () => {
   useEffect(() => {
     dispatch(setLoader({ loader: true }))
     fetchMyPosts();
+    fetchUserProfile()
+    
   }, []);
 
   const filterPosts = allPosts => {
@@ -57,6 +59,28 @@ const Dashboard = () => {
     setPendingCounter(pendingPosts.length);
     setApprovedCounter(approvedPosts.length);
     setCompletedCounter(completedPosts.length);
+  };
+
+
+  const [formData, setFormData] = useState({
+    profilePhoto: "",
+    name: "",
+    // lName: "",
+    age: "",
+    gender: "male",
+    contactNumber: "",
+    interest: "",
+    emergencyContact: ""
+  });
+
+  const fetchUserProfile = async () => {
+    try {
+      const getProfile = await axios.getRequest("user", true);
+      setFormData(getProfile);
+     
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+    }
   };
 
   const fetchMyPosts = async () => {
@@ -97,9 +121,9 @@ const Dashboard = () => {
               </div>
             </nav> */}
             <div className="dashBoardElderHeader">
-              <h1>Hi, Ana</h1>
+              <h1>Hi, {formData.name}</h1>
               <div className="topIcons">
-                <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+                <Link to='/elder/profile'><img src={formData.profilePhoto} alt="iconProfile" /></Link>
               </div>
             </div>
             <div className="dashElderNav">
