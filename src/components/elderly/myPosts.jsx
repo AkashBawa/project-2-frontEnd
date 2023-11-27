@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { Card, Space, Button, Modal } from "antd";
+import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
 import DeleteImage from './../../images/deletePost.png';
 import Edit from './../../images/edit.png';
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+
 // import { Modal } from "antd";
 
 
@@ -12,9 +16,39 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  // const [modalText, setModalText] = useState('Content of the modal');
+  const showModal = () => {
+    console.log(id + "id")
+    setOpen(true);
+  };
+
+  console.log(posts)
+  const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+  const [rating, setRating] = useState()
+  let { id } = useParams();
+  const navigate = useNavigate();
+
+  const { TextArea } = Input;
+
 
   useEffect(() => {
   }, []);
+
+
+  const handleOk = () => {
+    handleSubmit()
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 2000);
+  };
+  const handleCancel = () => {
+    console.log('Clicked cancel button');
+    setOpen(false);
+  };
 
   const showDeleteModal = (post) => {
     setPostToDelete(post);
@@ -64,6 +98,32 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   }
 
 
+  const handleSubmit = async () => {
+    try {
+
+      const reviewData = {
+        rating: rating,
+        id: id
+
+      }
+
+      const response = await axios.postRequest("updateRating", reviewData, true);
+
+
+      console.log("Form submission successful:", response.data);
+      console.log(response);
+
+      navigate("/elder/dashboard");
+
+
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+  }
+
+
+
+
   return (
     <div id="mypostID">
       {
@@ -102,20 +162,60 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
 
                 {
+                  post.status == "PENDING" && <>
+
+                    <div className="deleteEditSection" >
+                      <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
+                        <img src={DeleteImage} alt="DeleteImage" />
+                      </div>
+
+                      <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
+                        <img src={Edit} alt="Edit" />
+                      </div>
+                    </div>
+
+
+
+                  </>
+                }
+
+
+                {
                   post.status == "BOOKED" && <>
                     <div className="deleteEditSection">
 
 
 
                       <div className="Review">
-                        <Link to={`/elder/reviewelder/${post._id}`}><button className="darkBtn">Review</button></Link>
+                        <>
+                          <Button type="primary" onClick={showModal}>
+                            Review
+                          </Button>
+                          <Modal
+                            title="How Somchai did it?"
+                            open={open}
+                            onOk={handleOk}
+                            confirmLoading={confirmLoading}
+                            onCancel={handleCancel}
+                          >
+                            <Space>
+                              <Rate
+                                tooltips={desc}
+                                onChange={(value) => setRating(Math.ceil(value))}
+                                value={rating}
+                              />
+                              {/* {rating ? <span>{rating}</span> : ''} */}
+                            </Space>
+                            <TextArea rows={4} placeholder="Review" maxLength={6} />
+                          </Modal>
+                        </>
                       </div>
                     </div>
                   </>
                 }
 
 
-                <div className="deleteEditSection" >
+                {/* <div className="deleteEditSection" >
                   <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
                     <img src={DeleteImage} alt="DeleteImage" />
                   </div>
@@ -123,7 +223,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
                     <img src={Edit} alt="Edit" />
                   </div>
-                </div>
+                </div> */}
 
               </div>
             </Card>

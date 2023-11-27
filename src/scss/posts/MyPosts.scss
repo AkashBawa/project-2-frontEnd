@@ -124,3 +124,48 @@
     width: auto !important;
     height: auto !important;
 }
+
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-rate {
+    color: #EB592D;
+    font-size: 40px;
+    text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-modal .ant-modal-footer {
+    text-align: center;
+    background: transparent;
+    margin-top: 12px;
+}
+
+.ant-modal-content{
+    display: grid;
+    
+}
+
+.ant-modal-title{
+    text-align: center;
+    color: #00756A;
+}
+
+.ant-space.css-dev-only-do-not-override-1adbn6x.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small{
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-modal-root .ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+div#\:rf\:{
+    color: #00756A;
+    font-size: 1.5rem;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-btn-primary {
+    background-color: #EB592D;
+}
+
+.ant-modal.css-dev-only-do-not-override-1adbn6x{
+    width: 600px !important;
+}

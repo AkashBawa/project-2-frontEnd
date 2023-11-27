@@ -15,7 +15,10 @@ import iconProfile from './../../images/vicon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
 import iconNavProfile from './../../images/icon_profile_mobile.png';
 import iconNavNotification from './../../images/icon_request_mobile.png';
-import rewards from './../../images/rewards.png';
+// import rewards from './../../images/rewards.png';
+import Bronze from '../../images/image-25.png'
+import Silver from '../../images/image 24.png'
+import Gold from '../../images/image 23.png'
 import rewardIcon from './../../images/rewardIcon.png';
 
 import { useDispatch } from "react-redux";
@@ -32,15 +35,17 @@ const Dashboard = () => {
   const [completedCounter, setCompletedCounter] = useState(0);
 
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
 
     dispatch(setLoader({ loader: true }));
     fetchPost();
     fetchId();
+    fetchVolUserProfile();
   }, []);
 
-
+  const [volProfile, setVolProfile] = useState(null);
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState();
   const [singleView, setSingleView] = useState(false);
@@ -64,6 +69,8 @@ const Dashboard = () => {
       console.log(err)
     }
   };
+
+
 
   const sendRequest = async (postId, index) => {
     try {
@@ -103,6 +110,15 @@ const Dashboard = () => {
     // setCurrentPost(post);
   }
 
+  const fetchVolUserProfile = async () => {
+    try {
+      let getVolProfile = await axios.getRequest("user", true);
+      setVolProfile(getVolProfile);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {
@@ -122,7 +138,8 @@ const Dashboard = () => {
               <h1>Hi, Beant</h1>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
-                <h2>Yours Points: 200 </h2>
+                <h2>Your Points: {volProfile?.point}</h2>
+
               </div>
               <div className="topIconsVolunteer">
                 <img src={iconNotification} alt="iconNotification" />
@@ -140,7 +157,21 @@ const Dashboard = () => {
               </div>
               <div className="dashVolunteerPending">
                 <h1>Rewards</h1>
-                <img src={rewards} alt="Rewards" />
+                {volProfile && (
+                  <>
+                    <img
+                      src={
+                        volProfile.point >= 400
+                          ? Silver
+                          : volProfile.point >= 200
+                            ? Gold
+                            : Bronze
+                      }
+                      alt="Rewards"
+                    />
+                  </>
+                )}
+                {/* <img src={rewards} alt="Rewards" /> */}
                 <h2>Next Medal:  6 / 15</h2>
               </div>
             </div>
