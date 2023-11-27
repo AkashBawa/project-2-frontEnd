@@ -4,7 +4,6 @@ import MyPosts from './myPosts';
 import SinglePostView from "./SinglePostView";
 
 import React, { useEffect, useState } from 'react';
-// import './css/Dashboard.css'
 import wiseCareLogo from './../../images/wiseCareLogo.png';
 import iconProfile from './../../images/icon_profile.png';
 import statusBar from './../../images/statusBar.png';
@@ -111,15 +110,7 @@ const Dashboard = () => {
       {
         singleView == false && (
           <div className="dashBoardElder">
-            {/* <nav>
-              <img src={statusBar} alt="statusBar" id="statusBar" />
-              <div>
-                <img src={wiseCareLogo} alt="Logo" />
-                <div className="navtopIcons">
-                  <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
-                </div>
-              </div>
-            </nav> */}
+            
             <div className="dashBoardElderHeader">
               <h1>Hi, {formData.name}</h1>
               <div className="topIcons">

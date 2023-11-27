@@ -49,10 +49,6 @@ const ReviewByElder = () => {
           }
     }
 
-
-
-
-
     console.log(rating)
     console.log(review)
 

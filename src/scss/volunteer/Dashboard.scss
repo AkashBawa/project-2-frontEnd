@@ -18,9 +18,12 @@ main {
 }
 
 /* Styling the page responsive  */
-#root:has(.dashBoardVolunteer) {
-  /* max-width: 1280px;
-  margin: auto; */
+main:has(.dashBoardVolunteer) {
+  padding: 1rem 5% !important;
+
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-card .ant-card-body {
+    padding: 0 !important;
+  }
 }
 
 /* Screen between 1280px and 900px */
@@ -117,8 +120,10 @@ main {
 
   /* Styling for the Elder Dashboard Navigation*/
   .dashVolunteerNav {
+    margin: auto 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
     text-align: center;
   }
 
@@ -199,14 +204,19 @@ nav img {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: auto 1rem;
-  // flex-flow: row wrap;
+  padding: 1rem 1rem;
+}
+
+.pointsDash {
+  margin-left: 2rem;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 .rewardPoints img {
-  margin: .5rem;
-  width: 30px;
-  height: 30px;
+  margin-right: 2rem;
+  width: 50px;
+  height: 50px;
 }
 
 .topIconsVolunteer {
@@ -235,18 +245,10 @@ nav img {
 }
 
 
-
-
-.topIcons {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* margin-left: 1rem; */
-}
-
-
-.navtopIcons img, .topIcons img {
-  width: 70px;
-  height: 70px;
+.navtopIcons img,
+.topIcons img {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 1px solid black;
   padding: 5px;
@@ -264,11 +266,9 @@ nav img {
   min-height: 50px;
 }
 
-.dashVolunteerEvent,
-.dashVolunteerUnanswered,
-.dashVolunteerPending {
+.dashVolunteerEvent {
   border-radius: .5rem;
-  margin: .5rem;
+  margin-right: 3rem;
   padding: 0.5em;
   border: 2px #00756A solid !important;
 }
@@ -285,7 +285,7 @@ nav img {
 .dashVolunteerUnanswered {
   color: #EB592D;
   border-radius: .5rem;
-  margin: .5rem;
+  margin-right: 3rem;
   padding: 0.5em;
   border: 2px #EB592D solid !important;
 }
@@ -295,10 +295,11 @@ nav img {
 
 }
 
+
 .dashVolunteerPending {
   color: #00BBC2;
   border-radius: .5rem;
-  margin: .5rem;
+  margin-right: 3rem;
   padding: 0.5em;
   border: 2px #00BBC2 solid !important;
 }
@@ -306,16 +307,18 @@ nav img {
 .dashVolunteerPending h1 {
   color: #00BBC2;
 }
-// .dashVolunteerPending img{
-//   width: 100%;
-//   height: auto;
-// }
+
+.dashVolunteerPending img {
+  width: 100px;
+  height: 100px;
+}
+
 .allTasksCount,
 .activeTasks,
 .pendingCount {
   max-width: 50%;
   text-align: center;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: bold;
   margin: auto;
 }
@@ -346,10 +349,70 @@ nav img {
 
 }
 
-// .list-posts div:nth-of-type(1){
-//   background-color: red;
-// }
+.seniorProfilePhoto {
+  margin-right: 2rem;
+}
 
-// .ant-card-head-title {
-//   font-size: x-large !important;
-// }
+.seniorProfilePhoto img {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50% !important;
+}
+
+.volPostCard {
+  padding: 1rem 2rem;
+  background-color: #F5F5F5;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-around;
+  align-items: center;
+}
+
+.seniorProfileLink {
+  color: #EB592D;
+  text-decoration: underline;
+}
+
+.servicePostDetails {
+  grid-column: span 2;
+  text-align: left;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.volPostCard h1 {
+  text-transform: capitalize;
+  color: black;
+  font-weight: bold;
+}
+
+.responseButton {
+  grid-column: 4/-1;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+  border: 0px;
+}
+
+.reviewButton {
+  color: #fff;
+  background-color: #EB592D;
+  border-radius: 15px;
+  height: 55px;
+  width: 180px;
+  border: #EB592D solid 1px;
+  font-size: large;
+}
+
+#applyBtn {
+  border: 0 !important;
+
+}
+
+#applyBtn img {
+  width: 56px;
+  height: 64px;
+}

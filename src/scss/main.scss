@@ -16,9 +16,11 @@
 @import "./volunteer/Dashboard.scss";
 
 
-.headers, .ant-layout {
+.headers,
+.ant-layout {
   min-height: 100vh;
 }
+
 button {
   border-radius: 5px;
   cursor: pointer;
@@ -91,6 +93,11 @@ button {
 
 .ant-layout .ant-layout-sider,
 .ant-menu-dark {
+  background-color: #00756a !important;
+}
+
+:where(.css-1adbn6x).ant-menu-dark,
+:where(.css-1adbn6x).ant-menu-dark>.ant-menu {
   background-color: #00756a !important;
 }
 
