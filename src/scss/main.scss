@@ -11,10 +11,17 @@
 @import "./events/myEvents.scss";
 @import "./posts/singlePost.scss";
 @import "./posts/ViewProfile.scss";
-@import "./elder/Dashboard.scss";
 @import "./elder/SinglePostView.scss";
 @import "./volunteer/Dashboard.scss";
+@import "./elder/Dashboard.scss";
 
+*{
+  font-family: $fontFamily !important;
+}
+
+.ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  width: 250px !important;
+}
 
 .headers,
 .ant-layout {
@@ -35,22 +42,30 @@ button {
 }
 
 .lightBtn {
-  border: 1px solid $btnDark;
-  color: $btnDark;
-  padding: 5px 15px;
-  background-color: $btnLight;
-  width: 100px;
-  margin-right: 15px;
-  font-weight: bold;
+  // border: 1px solid $btnDark;
+  // color: $btnDark !important;
+  // padding: 5px 15px;
+  // background-color: $btnLight;
+  // width: 100px;
+  // margin-right: 15px;
+  // font-weight: bold;
+
+  background: #fff !important;
+  border: 2px solid $btnDark !important;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: $btnDark !important;
+  margin-right: 5px
 }
 
 .darkBtn {
-  border: 1px solid $btnDark;
-  color: $btnLight;
-  padding: 5px 15px;
-  background-color: $btnDark;
-  width: 100px;
-  font-weight: bold;
+  // border: 1px solid $btnDark;
+  // color: $btnLight !important;
+  // padding: 5px 15px;
+  // background-color: $btnDark;
+  // width: 100px;
+  // font-weight: bold;
+  @include submitButton;
 }
 
 

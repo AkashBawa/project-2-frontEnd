@@ -6,8 +6,10 @@ import localStorage from "../../services/localStorage";
 import axios from "../../services/axios";
 import SignupImg from '../../images/group-seniors-park 1.png'
 import { Link } from "react-router-dom";
+import { setLoader } from '../../redux/user';
 
 import { Input } from 'antd';
+import swal from "sweetalert2";
 
 function Login() {
 
@@ -16,10 +18,10 @@ function Login() {
   const navigate = useNavigate();
 
   const submit = async () => {
-    console.log(email);
-    console.log(passWord);
+    setLoader(true);
     const data = await axios.postRequest("login", { email, password: passWord });
-    if (data &&data.success) {
+    setLoader(false);
+    if (data && data.success) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('role', data.role);
       localStorage.setItem('userId', data.userId);
@@ -29,7 +31,11 @@ function Login() {
         navigate('/volunteer/dashboard')
       }
     } else {
-      console.log(data)
+      swal.fire({
+          title: "Something went wrong",
+          text: "Your email or password is incorrect",
+          icon: "waring",
+      })
     }
 
   }

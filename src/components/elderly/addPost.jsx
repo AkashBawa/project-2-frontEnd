@@ -155,9 +155,9 @@ const AddPost = (userName) => {
               <TomTomAutoComplete updateLocationAnsCoordinates={updateLocationAnsCoordinates} />
             </div>
           </div>
-          <Button type="primary" onClick={submit}>
+          <button type="primary" className="darkBtn" onClick={submit}>
             Submit
-          </Button>
+          </button>
         </Form>
       </div>
     </div>

@@ -8,24 +8,16 @@ import Seniorslan3 from "./../../images/group-seniors-park 1.png";
 import Seniorslan4 from "./../../images/group-seniors-park 1.png";
 import Seniorslan5 from "./../../images/group-seniors-park 1.png";
 
+import { Link } from "react-router-dom";
+
 const LandingPage = () => {
   return (
     <div id="landingpage">
-      {/* Include the raw HTML content here */}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Your Static Page</title>
-  </head>
-  <body>
+       <body>
     <header>
       <div class="container">
         <a href="#" class="branding">
-          <img src="${IconLogo}" alt="Description of the image"
+          <img src={IconLogo} alt="Description of the image"
         /></a>
         <ul>
           <li><a href="#">Seniors</a></li>
@@ -34,8 +26,8 @@ const LandingPage = () => {
           <li><a href="#">Contact</a></li>
         </ul>
         <div class="logsignup">
-          <a href="#" class="whitebut">Login</a>
-          <a href="#" class="orgbut">Sign up</a>
+          <Link to={"/login"} className="lightBtn"> Login </Link>
+          <Link to={"/signup"} className="darkBtn"> Signup </Link>
         </div>
       </div>
     </header>
@@ -63,7 +55,7 @@ const LandingPage = () => {
           </div>
 
           <div class="sectionimg">
-            <img src="${SeniorsImage}" alt="Description of the image" />
+            <img src={SeniorsImage} alt="Description of the image" />
           </div>
         </div>
 
@@ -83,7 +75,7 @@ const LandingPage = () => {
           </div>
 
           <div class="sectionimg">
-            <img src="${SeniorsImage}" alt="Description of the image" />
+            <img src={Seniorslan1} alt="Description of the image" />
           </div>
         </div>
 
@@ -101,7 +93,7 @@ const LandingPage = () => {
           </div>
 
           <div class="sectionimg">
-            <img src="${SeniorsImage}" alt="Description of the image" />
+            <img src={Seniorslan2} alt="Description of the image" />
           </div>
         </div>
 
@@ -122,7 +114,7 @@ const LandingPage = () => {
           </div>
 
           <div class="sectionimg">
-            <img src="${SeniorsImage}" alt="Description of the image" />
+            <img src={Seniorslan3} alt="Description of the image" />
           </div>
         </div>
 
@@ -141,18 +133,13 @@ const LandingPage = () => {
           </div>
 
           <div class="sectionimg">
-            <img src="${SeniorsImage}" alt="Description of the image" />
+            <img src={Seniorslan4} alt="Description of the image" />
           </div>
         </div>
       </section>
     </main>
   </body>
-</html>
 
-          
-      `
-        }}
-      />
     </div>
   );
 };
