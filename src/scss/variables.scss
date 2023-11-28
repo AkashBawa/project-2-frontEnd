@@ -4,6 +4,7 @@ $btnDark: #eb592d;
 $btnLight: white;
 $primaryColor: darkgreen;
 $fontFamily: "Inter";
+$breakPoint: 696px;
 
 @mixin submitButton($bg-color: $btnDark) {
   background: $bg-color !important;

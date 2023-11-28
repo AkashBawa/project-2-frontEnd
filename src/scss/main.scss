@@ -14,9 +14,20 @@
 @import "./elder/SinglePostView.scss";
 @import "./volunteer/Dashboard.scss";
 @import "./elder/Dashboard.scss";
-
+@import "./header/newSideBar.scss";
 *{
   font-family: $fontFamily !important;
+}
+
+@media screen and (min-width: $breakPoint) {
+  .mainContent {
+    margin-left: 230px;
+  }
+}
+
+
+.hide-in-small {
+  display: none;
 }
 
 .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {

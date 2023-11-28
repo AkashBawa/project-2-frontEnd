@@ -38,7 +38,7 @@
 }
 
 .ant-layout-sider-children ul li {
-    padding: 0px !important;
+    /* padding: 0px !important; */
     margin: 0 !important;
     border-radius: 0;
     font-size: 16px;

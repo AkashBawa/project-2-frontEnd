@@ -25,6 +25,7 @@ import VolunteerHistory from "./../components/volunteer/history/History";
 
 import ReviewByElder from "../components/elderly/ReviewByElder";
 import Rewards from "../components/volunteer/Rewards";
+import NewSideBar from "../components/common/newSideBar";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/elder",
-    element: <Headers />,
+    element: <NewSideBar/>,
     children: [
       {
         path: "dashboard",

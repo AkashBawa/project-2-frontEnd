@@ -57,7 +57,7 @@ const AppHeader = () => {
   return (
     <div className="headers">
 
-      <Layout className="layout">
+      {/* <Layout className="layout">
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <Link to="/elder/dashboard">
             <div id="menuLogo">
@@ -83,10 +83,10 @@ const AppHeader = () => {
               ]
             }
           />
-          {/* <i className="hamburgerMenu" onClick={toggleSlideMenu}>
+          <i className="hamburgerMenu" onClick={toggleSlideMenu}>
             {" "}
             <MdMenu className="menu-icon" size={32} />
-          </i> */}
+          </i>
         </Sider>
         <Layout>
           <Header
@@ -94,6 +94,7 @@ const AppHeader = () => {
               padding: 0,
               background: colorBgContainer
             }}
+            className="hide-in-small"
           >
             <Button
               type="text"
@@ -115,15 +116,16 @@ const AppHeader = () => {
             }}
           >
             <div className="main-content">
+            {showSlideMenu && (
+              <SlideMenu menuItems={menuItems} onClose={toggleSlideMenu} />
+            )}
               <Outlet />
             </div>
-           
+
           </Content>
         </Layout>
-      </Layout>
-      {showSlideMenu && (
-        <SlideMenu menuItems={menuItems} onClose={toggleSlideMenu} />
-      )}
+      </Layout> */}
+      {/* <Outlet /> */}
     </div>
   );
 };

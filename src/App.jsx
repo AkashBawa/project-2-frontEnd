@@ -1,6 +1,8 @@
 import "./App.scss";
 import Loader from "./components/common/Loader";
+import NewSideBar from "./components/common/newSideBar";
 import "./scss/main.scss";
+
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes/main";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
@@ -13,8 +15,9 @@ function App() {
   return (
     <div className="App">
       {loader && <Loader />}
-
+     
       <RouterProvider router={routes} />
+      
     </div>
   );
 }
