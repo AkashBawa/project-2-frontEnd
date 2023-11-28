@@ -14,10 +14,12 @@ function App() {
 
   return (
     <div className="App">
+    
+
       {loader && <Loader />}
-     
+
       <RouterProvider router={routes} />
-      
+
     </div>
   );
 }

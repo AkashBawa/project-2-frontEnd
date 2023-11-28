@@ -15,8 +15,9 @@
 @import "./volunteer/Dashboard.scss";
 @import "./elder/Dashboard.scss";
 @import "./header/newSideBar.scss";
-*{
-  font-family: $fontFamily !important;
+
+* {
+  font-family: $fontFamily;
 }
 
 @media screen and (min-width: $breakPoint) {
