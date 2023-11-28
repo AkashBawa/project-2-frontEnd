@@ -55,9 +55,9 @@ const Dashboard = () => {
     setApprovedRequest(approvedPosts);
     setCompletedPosts(completedPosts);
 
-    // setPendingCounter(pendingPosts.length);
-    // setApprovedCounter(approvedPosts.length);
-    // setCompletedCounter(completedPosts.length);
+    setPendingCounter(pendingPosts.length);
+    setApprovedCounter(approvedPosts.length);
+    setCompletedCounter(completedPosts.length);
   };
 
 
@@ -161,12 +161,12 @@ const Dashboard = () => {
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      // children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      // children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
                     },
                   ]
                 }

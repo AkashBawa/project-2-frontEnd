@@ -37,8 +37,9 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   }, []);
 
 
-  const handleOk = () => {
-    handleSubmit()
+  const handleOk = (postIndex) => {
+    console.log(postIndex);
+    handleSubmit(postIndex)
     setConfirmLoading(true);
     setTimeout(() => {
       setOpen(false);
@@ -98,16 +99,16 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   }
 
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (postIndex) => {
     try {
-
+      const currentPost = posts[postIndex];
       const reviewData = {
         rating: rating,
-        id: id
+        id: currentPost._id
 
       }
 
-      const response = await axios.postRequest("updateRating", reviewData, true);
+      const response = await axios.postRequest("updateRating" , reviewData, true);
 
 
       console.log("Form submission successful:", response.data);
@@ -194,7 +195,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                           <Modal
                             title="How Somchai did it?"
                             open={open}
-                            onOk={handleOk}
+                            onOk={ () => {handleOk (postIndex)}}
                             confirmLoading={confirmLoading}
                             onCancel={handleCancel}
                           >

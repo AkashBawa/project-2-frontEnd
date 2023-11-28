@@ -13,6 +13,7 @@ import UserOld from "./../../images/icon_profile_elderly_m.png";
 import Eventsicon from "./../../images/icon_party_m.png";
 import Logouticon from "./../../images/icon_logout_m.png";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
@@ -58,9 +59,11 @@ const AppHeader = () => {
 
       <Layout className="layout">
         <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div id="menuLogo">
-            <img src={IconLogo} alt="Logo" />
-          </div>
+          <Link to="/elder/dashboard">
+            <div id="menuLogo">
+              <img src={IconLogo} alt="Logo" />
+            </div>
+          </Link>
 
           <Menu
             className="desktop-menu"
@@ -80,10 +83,10 @@ const AppHeader = () => {
               ]
             }
           />
-          <i className="hamburgerMenu" onClick={toggleSlideMenu}>
+          {/* <i className="hamburgerMenu" onClick={toggleSlideMenu}>
             {" "}
             <MdMenu className="menu-icon" size={32} />
-          </i>
+          </i> */}
         </Sider>
         <Layout>
           <Header

@@ -31,6 +31,7 @@ main:has(.dashBoardElder) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
+    
   }
 
   .dashElderEvent {
@@ -80,6 +81,7 @@ main:has(.dashBoardElder) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
+    gap: 1rem;
   }
 
   #postsSection .ant-tabs-tab {
@@ -204,7 +206,7 @@ nav img {
 .dashElderUnanswered,
 .dashElderPending {
   border-radius: 0.5rem;
-  margin: 2rem 3rem;
+  // margin: 2rem 3rem;
   padding: 0.5em;
   border: 2px #00756a solid !important;
   font-size: large;
@@ -268,4 +270,8 @@ nav img {
 h2.pointsDash {
   margin: 0;
   font-size: 1rem;
+}
+
+img.ant-menu-item-icon {
+  width: 30px;
 }
