@@ -55,7 +55,7 @@ const TomTomAutoComplete = ( {updateLocationAnsCoordinates} ) => {
   };
 
   const handleSuggestionSelect = suggestion => {
-    // console.log(suggestion)
+
     setQuery(suggestion.address.freeformAddress);
     setSuggestions([]); // Clear the suggestions list
     setSelectedSuggestion(suggestion);
@@ -88,7 +88,6 @@ const TomTomAutoComplete = ( {updateLocationAnsCoordinates} ) => {
   }, []);
 
   useEffect(() => {
-    // console.log("selectedSuggestion", selectedSuggestion.position)
     if (selectedSuggestion) {
       let map = tt.map({
         key: apiKey,
@@ -117,15 +116,6 @@ const TomTomAutoComplete = ( {updateLocationAnsCoordinates} ) => {
     }
   }, [selectedSuggestion]);
 
-  // console.log(
-  //   "selectedSuggestion",
-  //   selectedSuggestion == null
-  //     ? {
-  //         lat: -123.138572,
-  //         lon: 49.263566
-  //       }
-  //     : selectedSuggestion.position
-  // );
 
   return (
     <div>

@@ -48,7 +48,6 @@ const CreateEvent = () => {
             if (imgToBase64) {
                 obj.image = imgToBase64;
             }
-            console.log("obj", obj)
             const response = await axios.postRequest("createEvent", obj, true);
 
             if (response && response.success) {

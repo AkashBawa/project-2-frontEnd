@@ -2,7 +2,7 @@ import { Card, Space, Button } from "antd";
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import { useState } from "react";
-import MyPosts from './../elderly/myPosts';
+import MypostVolunteer from './MyPosts';
 import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
@@ -57,13 +57,10 @@ const Dashboard = () => {
     allPosts.forEach((post, index) => {
       if (post.status === "PENDING") {
         pendingPosts.push(post);
-        console.log(pendingPosts)
       } else if (post.status === "BOOKED") {
         approvedPosts.push(post);
-        console.log(approvedPosts)
       } else {
         completedPosts.push(post);
-        console.log(completedPosts)
       }
     });
 
@@ -98,33 +95,7 @@ const Dashboard = () => {
     }
   };
 
-
-
-  // const fetchMyPosts = async () => {
-  //   try {
-  //     setSingleView(false);
-  //     const response = await axios.getRequest("getPostByUser", true);
-  //     dispatch(setLoader({ loader: false }))
-  //     if (response.success === true && response.posts) {
-  //       filterPosts(response.posts);
-  //     }
-  //   } catch (err) {
-  //     dispatch(setLoader({ loader: false }))
-  //     console.log(err)
-  //   }
-  // };
-
-  const changeSingleView = (post) => {
-
-    console.log("post is ");
-    console.log(post)
-    console.log("change view")
-    setSingleView(!singleView);
-    // setCurrentPost(post);
-  }
-
-
-  const [volProfile, setVolProfile] = useState(null);
+  const [volProfile, setVolProfile] = useState({});
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState();
   const [singleView, setSingleView] = useState(false);
@@ -137,13 +108,12 @@ const Dashboard = () => {
   const fetchPost = async () => {
     try {
       const response = await axios.postRequest("fetchpost", {}, true);
-      dispatch(setLoader({ loader: false }));
-      if (response.success) {
-        console.log(response.posts);
-        setPosts(response.posts);
-        console.log("Hi Ahmed it is working");
-        // filterPosts(response.posts);
+      // const volActivePost = await axios.getRequest("postByVolunteer", true);
 
+      dispatch(setLoader({ loader: false }));
+      if (response && response.success) {
+        setPosts(response.posts);
+        setPendingCounter(response.posts.length)
       }
 
     } catch (err) {
@@ -152,18 +122,6 @@ const Dashboard = () => {
     }
   };
 
-  // const fetchPost = async () => {
-  //   try {
-  //     setSingleView(false);
-  //     const response = await axios.getRequest("getPostByUser", true);
-  //     dispatch(setLoader({ loader: false }))
-  //     if (response.success === true && response.posts) {
-  //       filterPosts(response.posts);
-  //     }
-  //   } catch (err) {
-  //     dispatch(setLoader({ loader: false }))
-  //     console.log(err)
-  //   };
 
 
   const sendRequest = async (postId, index) => {
@@ -192,31 +150,23 @@ const Dashboard = () => {
 
 
   return (
-    <>
+    <div id="volunteerDashboard">
       {
         singleView == false && (
           <div className="dashBoardVolunteer">
-            <nav>
-              <img src={statusBar} alt="statusBar" id="statusBar" />
-              <div>
-                <img src={wiseCareLogo} alt="Logo" />
-                <div className="navtopIcons">
-                  <img src={iconNavNotification} alt="iconNavNotification" />
-                  <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
-                </div>
-              </div>
-            </nav>
             <div className="dashBoardVolunteerHeader">
-              <h1>Hi, {volunteerName}</h1>
+              <div>
+                
+                <h2>Hi, {volProfile ? volProfile.name : ""}</h2>
+              </div>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
                 <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
-
               </div>
-              <div className="topIconsVolunteer">
+              {/* <div className="topIconsVolunteer">
                 <img src={iconNotification} alt="iconNotification" />
                 <Link to='/volunteer/profile'><img src={iconProfile} alt="iconProfile" /></Link>
-              </div>
+              </div> */}
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
@@ -262,17 +212,17 @@ const Dashboard = () => {
 
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchPost={fetchPost} />,
+                      children: <MypostVolunteer posts={posts} fetchPost={fetchPost} />,
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchPost={fetchPost} />,
+                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchPost={fetchPost} />,
+                      children: <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />,
                     },
                   ]
                 }
@@ -292,7 +242,7 @@ const Dashboard = () => {
           </div>
         )
       }
-      <div className="list-posts">
+      {/* <div className="list-posts">
         <Space direction="vertical">
 
           {
@@ -340,8 +290,8 @@ const Dashboard = () => {
             })
           }
         </Space>
-      </div>
-    </>
+      </div> */}
+    </div>
 
 
   )

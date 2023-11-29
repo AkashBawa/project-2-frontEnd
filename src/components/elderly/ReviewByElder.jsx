@@ -37,9 +37,6 @@ const ReviewByElder = () => {
 
             const response = await axios.postRequest("updateRating", reviewData, true);
       
-      
-            console.log("Form submission successful:", response.data);
-            console.log(response);
 
             navigate("/elder/dashboard");
 
@@ -49,8 +46,6 @@ const ReviewByElder = () => {
           }
     }
 
-    console.log(rating)
-    console.log(review)
 
     return (
         <div>

@@ -28,11 +28,11 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
         cancelButtonText: "No",
         confirmButtonText: 'Yes',
       }).then(async (data) => {
-        console.log(data)
+
         if (data.isConfirmed) {
           const postId = currentPost._id;
           const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
-          console.log(response);
+
           if (response && response.success) {
             Swal.fire({
               icon: "success",
@@ -60,7 +60,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
   };
 
   const viewProfile = (user) => {
-    console.log(user);
+
     setViewUser(user);
     setIsModalOpen(true);
   }

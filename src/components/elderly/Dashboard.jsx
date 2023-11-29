@@ -50,7 +50,6 @@ const Dashboard = () => {
       }
     });
 
-    // console.log(completedPosts);
     setPendingRequest(pendingPosts);
     setApprovedRequest(approvedPosts);
     setCompletedPosts(completedPosts);
@@ -98,9 +97,6 @@ const Dashboard = () => {
 
   const changeSingleView = (post) => {
 
-    // console.log("post is ");
-    // console.log(post)
-    // console.log("change view")
     setSingleView(!singleView);
     setCurrentPost(post);
   }

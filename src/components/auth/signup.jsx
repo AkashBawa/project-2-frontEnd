@@ -21,8 +21,6 @@ function Signup() {
   const [userName, setuserName] = useState();
 
   const submit = async () => {
-    console.log(email);
-    console.log(password);
 
     const data = await AxiosService.postRequest('signup', { email, password, role, userName });
     if (data.success) {

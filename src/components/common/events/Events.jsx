@@ -6,7 +6,6 @@ import { Tabs } from 'antd';
 
 const Events = () => {
 
-    console.log("event reached")
     return (
         <div className="events">
             <h2>Create Event</h2>

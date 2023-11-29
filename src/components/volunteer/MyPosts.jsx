@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
-import DeleteImage from './../../images/deletePost.png';
+import IconApply from './../../images/icon_accept.png';
 import Edit from './../../images/edit.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
@@ -12,13 +12,12 @@ import { useNavigate } from "react-router-dom";
 // import { Modal } from "antd";
 
 
-const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
+const MyPostVolunteer = ({ posts, fetchMyPosts }) => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
-  // const [modalText, setModalText] = useState('Content of the modal');
   const showModal = () => {
     setOpen(true);
   };
@@ -47,51 +46,6 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
     setOpen(false);
   };
 
-  const showDeleteModal = (post) => {
-    setPostToDelete(post);
-    setIsDeleteModalVisible(true);
-  };
-
-  const handleDelete = async (postIndex) => {
-    try {
-      if (postToDelete) {
-        const postId = String(postToDelete._id);
-        // await axios.deleteRequest(`/deletePost/${postId}`);
-
-        await axios.deleteRequest("deletePost", postId, true);
-
-        fetchMyPosts();
-        setIsDeleteModalVisible(false);
-      }
-    } catch (error) {
-      console.error("Error deleting post:", error);
-    }
-  };
-
-
-  const handleCancelDelete = () => {
-    // Close the delete modal without deleting the post
-    setIsDeleteModalVisible(false);
-  };
-
-
-  const findBookedIndex = (post) => {
-    const index = post?.invitations.map((invite) => { return invite.status }).indexOf("ACCEPTED");
-    return index;
-  }
-
-  const responseInvitation = async (postIndex, acceptedUserId, status) => {
-    try {
-      const postId = posts[postIndex]._id;
-      const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
-
-      fetchMyPosts();
-
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
 
   const handleSubmit = async (postIndex) => {
     try {
@@ -116,7 +70,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
 
   return (
-    <div id="mypostID">
+    <div id="mypostID" className="volunteerMyPost">
       {
         posts.map((post, postIndex) => {
           return (
@@ -138,29 +92,12 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   </div>
                 </div>
 
-                {/* ${isDeleteVisible ? 'Visually-hidden' : ''} */}{/* 
-                      <div id= "myPostDelete" className={`myPostDelete`}>
-                        <img src={DeleteImage} alt="DeleteImage" />
-                        // <img src={DeleteImage} alt="DeleteImage" onClick={handleDeleteClick} />
-                      </div> */}
-
-                {/* <div className="myPostEdit">
-                        <img src={Edit} alt="Edit" />
-                      </div> */}
-                {/* </div> */}
-                {/* </> */}
-
-
                 {
                   post.status == "PENDING" && <>
 
                     <div className="deleteEditSection" >
-                      <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
-                        <img src={DeleteImage} alt="DeleteImage" />
-                      </div>
-
-                      <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
-                        <img src={Edit} alt="Edit" />
+                      <div className="myPostDelete" onClick={() => (post)} >
+                        <img src={IconApply} alt="DeleteImage" />
                       </div>
                     </div>
 
@@ -204,17 +141,6 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   </>
                 }
 
-
-                {/* <div className="deleteEditSection" >
-                  <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
-                    <img src={DeleteImage} alt="DeleteImage" />
-                  </div>
-
-                  <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
-                    <img src={Edit} alt="Edit" />
-                  </div>
-                </div> */}
-
               </div>
             </Card>
           )
@@ -236,5 +162,5 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   )
 }
 
-export default MyPosts;
+export default MyPostVolunteer;
 

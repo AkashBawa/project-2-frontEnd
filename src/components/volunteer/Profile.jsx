@@ -26,7 +26,7 @@ const Profile = () => {
     try {
       let getrating = await axios.getRequest("averageRating", true);
       setRating(getrating[0].ratingAvg);
-      console.log(rating)
+
     } catch (error) {
       console.log(error);
     }
@@ -38,9 +38,7 @@ const Profile = () => {
 
       if (response.data && response.data.review) {
         setPoints(response.data.review);
-        console.log("Review:", points);
       } else {
-        console.log("Review data not found in the response.");
       }
     } catch (error) {
       console.log("Error fetching review:", error);
@@ -87,16 +85,11 @@ const Profile = () => {
       if (selectedImage) {
         obj.profilePhoto = selectedImage;
       }
-      console.log(obj)
       const response = await axios.postRequest(
         "updateProfileVol",
         obj,
         true
       );
-
-
-      console.log("Form submission successful:", response.data);
-      console.log(response);
 
 
       setFormDataVol({
@@ -113,7 +106,6 @@ const Profile = () => {
     } catch (error) {
       console.error("Form submission error:", error);
     }
-    console.log(formDataVol);
   };
 
   const handleInputChange = (e) => {

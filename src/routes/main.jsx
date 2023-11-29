@@ -72,7 +72,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/volunteer",
-    element: <VOlunteerHeader />,
+    element: <NewSideBar/>,
     children: [
       {
         path: "dashboard",

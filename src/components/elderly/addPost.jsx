@@ -37,14 +37,13 @@ const AddPost = (userName) => {
   };
   
   const updateLocationAnsCoordinates = ( location, coordinates) => {
-    console.log(location, coordinates);
+   
     setLocation(location);
     setCoordinates(coordinates);
   }
 
   const submit = async () => {
-    console.log("submit", startTime, endTime, serviceTitle, serviceType, date);
-
+   
     const payload = {
       date,
       // startTime,

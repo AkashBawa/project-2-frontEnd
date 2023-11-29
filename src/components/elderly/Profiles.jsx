@@ -106,21 +106,12 @@ const Profiles = () => {
     try {
       const response = await axios.postRequest("updateProfile", formData, true);
 
-      console.log("Form submission successful:", response.data);
-      console.log(response);
-      console.log(formData);
-      console.log(profile);
-      console.log("Profile response" + response);
-
       fetchUserProfile();
     } catch (error) {
       console.error("Form submission error:", error);
     }
-    console.log(formData);
-    console.log(profile);
 
     fetchUserProfile();
-    // console.log("Profile response" + response);
   };
 
   const handleInputChange = e => {

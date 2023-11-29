@@ -20,14 +20,14 @@ const MyEvents = () => {
     try {
       const response = await axios.getRequest("fetchMyEvents", true);
       dispatch(setLoader({loader: false}))
-      console.log(response)
+     
       if (response && response.success && response.events) {
-        console.log(response.events);
+       
         setEvents(response.events);
       }
     } catch (err) {
       dispatch(setLoader({loader: false}))
-      console.log(err)
+     
     }
   }
 
