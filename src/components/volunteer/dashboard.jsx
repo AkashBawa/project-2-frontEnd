@@ -7,13 +7,6 @@ import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
-import statusBar from './../../images/statusBar.png';
-import wiseCareLogo from './../../images/wiseCareLogo.png';
-import iconProfile from './../../images/vicon_profile.png';
-import iconNotification from './../../images/icon_notification.png';
-import iconNavProfile from './../../images/icon_profile_mobile.png';
-import iconNavNotification from './../../images/icon_request_mobile.png';
-// import rewards from './../../images/rewards.png';
 import Bronze from '../../images/image-25.png'
 import Silver from '../../images/image 24.png'
 import Gold from '../../images/image 23.png'
@@ -174,12 +167,13 @@ const Dashboard = () => {
             <div className="dashBoardVolunteerHeader">
               <div>
                 
-                <h2>Hi, {volProfile ? volProfile.name : ""}</h2>
+                <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
               </div>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
                 <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
               </div>
+              
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">

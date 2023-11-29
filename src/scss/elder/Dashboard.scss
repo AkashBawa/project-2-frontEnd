@@ -1,8 +1,8 @@
 /* Styling the page responsive  */
 
 
-main:has(.dashBoardElder) {
-  padding: 1rem 5% !important;
+div:has(.dashBoardElder) {
+  padding: .5rem 1% !important;
 
   :where(.css-dev-only-do-not-override-1adbn6x).ant-card .ant-card-body {
     padding: 0 !important;
@@ -14,8 +14,9 @@ main:has(.dashBoardElder) {
 /* #root:has(.dashBoardElder) { */
 @media screen and (max-width: 900px) {
   .topIcons img {
-    width: 35px;
-    height: 35px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
   }
 
   #postsSection img {
@@ -31,7 +32,7 @@ main:has(.dashBoardElder) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
-    
+    gap: 1rem;
   }
 
   .dashElderEvent {
@@ -45,16 +46,46 @@ main:has(.dashBoardElder) {
     gap: 1rem;
     width: 100%;
     margin: 1rem;
-  }
 
-  .tabs .ant-tabs-nav-list .ant-tabs-tab {
-    border: 1px #00756a solid !important;
   }
 
   .ant-tabs-tab-btn {
     display: block !important;
     text-align: center;
     width: 100%;
+  }
+
+  #postsSection .ant-tabs-tab {
+    color: white !important;
+    background-color: #00756a !important;
+    font-weight: bold !important;
+    flex-grow: 1;
+  }
+
+  #postsSection .ant-tabs-nav-list {
+    flex-grow: 1;
+  }
+
+  #postsSection .ant-tabs-tab-active {
+    background-color: white !important;
+    border: solid 1px #00756a;
+  }
+
+  #postsSection .ant-tabs-tab {
+    display: block !important;
+    text-align: center;
+    margin: auto;
+    width: 100% !important;
+  }
+
+  #postsSection .ant-tabs-tab-active div {
+    color: #00756a !important;
+    display: inline !important;
+    border-bottom: #EB592D 5px solid;
+  }
+
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-tabs .ant-tabs-tab {
+    font-size: 1rem;
   }
 
   #postsSectionNav button {
@@ -69,6 +100,7 @@ main:has(.dashBoardElder) {
   .dashBoardElderHeader {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 1rem;
   }
 
   .dashBoardElderHeader h1 {
@@ -103,6 +135,7 @@ main:has(.dashBoardElder) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin: 1rem auto;
   }
 
@@ -175,6 +208,7 @@ nav img {
 
 #createPost a {
   color: white !important;
+  text-decoration: none;
 }
 
 .dashBoardElderHeader div {
@@ -190,8 +224,8 @@ nav img {
 
 .navtopIcons img,
 .topIcons img {
-  width: 48px;
-  height: 48px;
+  width: 75px;
+  height: 75px;
 }
 
 /* ============================================= */
@@ -260,6 +294,8 @@ nav img {
 
 #postsSection .ant-tabs-tab {
   margin-right: 20px !important;
+  // margin-left: 10px !important;
+
 }
 
 .rewardPoints {

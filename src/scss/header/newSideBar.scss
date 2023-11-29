@@ -1,7 +1,7 @@
 #newSideBar {
   z-index: 99999;
   position: relative;
-  
+
   .logo {
     margin-bottom: 1rem;
   }
@@ -105,4 +105,25 @@
   #newSideBar .menu__box {
     padding: 20px 6px;
   }
+}
+
+// Styling the menu icons 
+.sideBarIcons {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 10%;
+}
+
+.sideBarIcons img {
+  width: 30px;
+  height: 30px;
+}
+
+.sideBarIcons a {
+  text-align: left !important;
+  margin-left: .5rem;
+  padding-left: 0 !important;
 }

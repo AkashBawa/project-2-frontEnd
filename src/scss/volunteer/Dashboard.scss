@@ -1,7 +1,3 @@
-main {
-  margin: 2rem;
-}
-
 .ant-space {
   display: block;
   width: 100%;
@@ -18,8 +14,8 @@ main {
 }
 
 /* Styling the page responsive  */
-main:has(.dashBoardVolunteer) {
-  padding: 1rem 5% !important;
+div:has(.dashBoardVolunteer) {
+  padding: .5rem 1% !important;
 
   :where(.css-dev-only-do-not-override-1adbn6x).ant-card .ant-card-body {
     padding: 0 !important;
@@ -108,9 +104,6 @@ main:has(.dashBoardVolunteer) {
     width: 1px;
   }
 
-
-
-
   .dashBoardVolunteerHeader h1 {
     grid-column: span 3;
     text-align: left;
@@ -118,7 +111,6 @@ main:has(.dashBoardVolunteer) {
 
   /* Styling for the Elder Dashboard Navigation*/
   .dashVolunteerNav {
-    margin: auto 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -264,7 +256,6 @@ nav img {
 
 .dashVolunteerEvent {
   border-radius: .5rem;
-  margin-right: 3rem;
   padding: 0.5em;
   border: 2px #00756A solid !important;
 }
@@ -281,21 +272,17 @@ nav img {
 .dashVolunteerUnanswered {
   color: #EB592D;
   border-radius: .5rem;
-  margin-right: 3rem;
   padding: 0.5em;
   border: 2px #EB592D solid !important;
 }
 
 .dashVolunteerUnanswered h1 {
   color: #EB592D;
-
 }
-
 
 .dashVolunteerPending {
   color: #00BBC2;
   border-radius: .5rem;
-  margin-right: 3rem;
   padding: 0.5em;
   border: 2px #00BBC2 solid !important;
 }
@@ -423,5 +410,6 @@ nav img {
     justify-content: space-between;
     margin: 1rem;
     align-items: center;
+    margin-bottom: 2rem;
   }
 }
