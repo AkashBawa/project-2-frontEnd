@@ -5,6 +5,7 @@ import { Input, Select, Form } from "antd";
 
 const Profile = () => {
 
+  const { TextArea } = Input;
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [formDataVol, setFormDataVol] = useState({
@@ -25,7 +26,7 @@ const Profile = () => {
     try {
       let getrating = await axios.getRequest("averageRating", true);
       setRating(getrating[0].ratingAvg);
-      console.log(rating)
+
     } catch (error) {
       console.log(error);
     }
@@ -37,9 +38,7 @@ const Profile = () => {
 
       if (response.data && response.data.review) {
         setPoints(response.data.review);
-        console.log("Review:", points);
       } else {
-        console.log("Review data not found in the response.");
       }
     } catch (error) {
       console.log("Error fetching review:", error);
@@ -86,16 +85,11 @@ const Profile = () => {
       if (selectedImage) {
         obj.profilePhoto = selectedImage;
       }
-      console.log(obj)
       const response = await axios.postRequest(
         "updateProfileVol",
         obj,
         true
       );
-
-
-      console.log("Form submission successful:", response.data);
-      console.log(response);
 
 
       setFormDataVol({
@@ -112,7 +106,6 @@ const Profile = () => {
     } catch (error) {
       console.error("Form submission error:", error);
     }
-    console.log(formDataVol);
   };
 
   const handleInputChange = (e) => {
@@ -133,7 +126,7 @@ const Profile = () => {
     <div>
 
       <>
-        <h2>Event Media</h2>
+        <h1>Hi, {volProfile.name}</h1>
         {
           selectedImage == null && (
             <div className="take-image">
@@ -147,6 +140,7 @@ const Profile = () => {
           selectedImage && (
             <div>
               <img
+                className="volProfile"
                 alt="Event Image"
                 width={"250px"}
                 src={selectedImage}
@@ -157,8 +151,9 @@ const Profile = () => {
           )
         }
       </>
-      <h1>Volenteer Profile</h1>
+      {/* <h1>Volenteer Profile</h1> */}
 
+<br />
 
       <Form
         name="trigger"
@@ -230,7 +225,7 @@ const Profile = () => {
         </select> */}
 
 
-        <Form.Item label="Age">
+        <Form.Item label="Contact Number">
           <Input
             id="contactNumber"
             type="tel"
@@ -242,7 +237,7 @@ const Profile = () => {
 
         <Form.Item>
           <label htmlFor="interest">Interest</label>
-          <Input
+          <TextArea  rows={7}
             id="interest"
             type="text"
             name="interest"
@@ -261,15 +256,8 @@ const Profile = () => {
       <div className="displayProfile">
         {volProfile ? (
           <div>
-            {/* <p>Name: {volProfile.name}</p>
-      <p>Age: {volProfile.age}</p>
-      <p>Gender: {volProfile.gender}</p>
-      <p>Contact Number: {volProfile.contactNumber}</p>
-      <p>Interest: {volProfile.interest}</p>
-      <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p> {/* Check if rating is defined */}
-            {/* <p>Rewards Points: {volProfile.point}</p> */}
-            {/* {points.map()} */}
-
+        
+      <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p> 
           </div>
         ) : (
           <p>Loading...</p>

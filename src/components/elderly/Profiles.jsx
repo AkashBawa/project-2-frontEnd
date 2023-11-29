@@ -27,6 +27,7 @@ const dataURLtoFile = (dataurl, filename) => {
 };
 
 const Profiles = () => {
+  const { TextArea } = Input;
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
@@ -105,21 +106,12 @@ const Profiles = () => {
     try {
       const response = await axios.postRequest("updateProfile", formData, true);
 
-      console.log("Form submission successful:", response.data);
-      console.log(response);
-      console.log(formData);
-      console.log(profile);
-      console.log("Profile response" + response);
-
       fetchUserProfile();
     } catch (error) {
       console.error("Form submission error:", error);
     }
-    console.log(formData);
-    console.log(profile);
 
     fetchUserProfile();
-    // console.log("Profile response" + response);
   };
 
   const handleInputChange = e => {
@@ -133,7 +125,7 @@ const Profiles = () => {
 
   return (
     <div id="profilePage">
-      <h2>About Me</h2>
+      <h2>Hi, {formData.name}</h2>
       <div className="interestDiv">
         <Upload
           className="userImage"
@@ -209,7 +201,8 @@ const Profiles = () => {
           />
         </Form.Item>
         <Form.Item label="interest">
-          <Input
+          <TextArea
+            rows={6}
             placeholder="Service type"
             name="interest"
             value={formData.interest}

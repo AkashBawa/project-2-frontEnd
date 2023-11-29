@@ -1,14 +1,139 @@
 /* Styling the page responsive  */
-/* #root:has(.dashBoardElder) { */
-/* max-width: 1280px; */
-/* margin: auto; */
-/* } */
 
+
+main:has(.dashBoardElder) {
+  padding: 1rem 5% !important;
+
+  :where(.css-dev-only-do-not-override-1adbn6x).ant-card .ant-card-body {
+    padding: 0 !important;
+  }
+}
 
 
 /* Screen between 1280px and 900px */
 /* #root:has(.dashBoardElder) { */
+@media screen and (max-width: 900px) {
+  .topIcons img {
+    width: 35px;
+    height: 35px;
+  }
 
+  #postsSection img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dashBoardElder h1 {
+    text-align: center;
+  }
+
+  .dashElderNav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    
+  }
+
+  .dashElderEvent {
+    grid-column: span 2;
+    grid-row: 2/3;
+  }
+
+  .tabs .ant-tabs-nav-list {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .tabs .ant-tabs-nav-list .ant-tabs-tab {
+    border: 1px #00756a solid !important;
+  }
+
+  .ant-tabs-tab-btn {
+    display: block !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  #postsSectionNav button {
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+
+  .dashBoardElderHeader {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dashBoardElderHeader h1 {
+    grid-column: span 4;
+    text-align: left;
+  }
+
+  /* Styling for the Elder Dashboard Navigation*/
+  .dashElderNav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 1rem;
+  }
+
+  #postsSection .ant-tabs-tab {
+    display: block !important;
+    text-align: center;
+    margin: auto;
+    font-size: x-large;
+
+  }
+
+  #postsSection .ant-tabs-tab-active div {
+    display: inline;
+    color: #00756A !important;
+    border-bottom: #EB592D 5px solid;
+
+  }
+
+  #postsSectionNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem auto;
+  }
+
+  /* Styling for the Elder Dashboard Posts Section*/
+
+  #postsSection .ant-tabs-tab {
+    color: white !important;
+    background-color: #00756a !important;
+    font-weight: bold !important;
+    flex-grow: 1;
+  }
+
+  #postsSection .ant-tabs-nav-list {
+    flex-grow: 1;
+  }
+
+  #postsSection .ant-tabs-tab-active {
+    background-color: white !important;
+    border: solid 1px #00756a;
+  }
+
+  #postsSection .ant-tabs-tab {
+    display: block !important;
+    text-align: center;
+    margin: auto;
+  }
+
+  #postsSection .ant-tabs-tab-active div {
+    color: #00756a !important;
+  }
+}
 
 /* Styling for the Elder Dashboard Header*/
 h1 {
@@ -28,15 +153,16 @@ nav div {
 }
 
 nav img {
-  margin-right: 0.5rem;
+  // margin-right: 0.5rem;
   padding: 0;
 }
 
 #statusBar {
-  display: block;
+  display: none;
   width: 100%;
   margin: 0 0 3rem 0;
 }
+
 
 #createPost {
   background-color: #eb592d;
@@ -80,7 +206,7 @@ nav img {
 .dashElderUnanswered,
 .dashElderPending {
   border-radius: 0.5rem;
-  margin: 0.5rem;
+  // margin: 2rem 3rem;
   padding: 0.5em;
   border: 2px #00756a solid !important;
   font-size: large;
@@ -93,7 +219,6 @@ nav img {
 .dashElderUnanswered {
   color: grey;
   border-radius: 0.5rem;
-  margin: 0.5rem;
   padding: 0.5em;
   border: 2px grey solid !important;
 }
@@ -101,7 +226,6 @@ nav img {
 .dashElderPending {
   color: #eb592d;
   border-radius: 0.5rem;
-  margin: 0.5rem;
   padding: 0.5em;
   border: 2px#EB592D solid !important;
 }
@@ -110,7 +234,8 @@ nav img {
 .pendingCount {
   max-width: 50%;
   text-align: center;
-  font-size: 3rem;
+  font-size: 5rem;
+  margin-right: 3rem;
   font-weight: bold;
   margin: auto;
 }
@@ -130,147 +255,23 @@ nav img {
   background-color: lightgray;
 }
 
-@media screen and (max-width: 899px) {
-  .topIcons img {
-    width: 35px;
-    height: 35px;
-  }
-
-  #postsSection img {
-    width: 50px;
-    height: 50px;
-  }
-
-  /* .topIcons,
-  .ant-layout-sider,
-  .ant-layout-header {
-    clip: rect(0 0 0 0) !important;
-    clip-path: insert(50%) !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
-  } */
-
-  .dashBoardElder h1 {
-    text-align: center;
-  }
-
-  .dashElderNav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    text-align: center;
-  }
-
-  .dashElderEvent {
-    grid-column: span 2;
-    grid-row: 2/3;
-  }
-
-  .tabs .ant-tabs-nav-list {
-    display: grid !important;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    width: 100%;
-    margin: 1rem;
-  }
-
-  .tabs .ant-tabs-nav-list .ant-tabs-tab {
-    border: 1px #00756a solid !important;
-  }
-
-  .ant-tabs-tab-btn {
-    display: block !important;
-    text-align: center;
-    width: 100%;
-  }
-
-  #postsSectionNav button {
-    display: block;
-    margin: auto;
-    margin-bottom: 1rem;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  nav {
-    /* clip: rect(0 0 0 0); */
-    /* clip-path: insert(50%); */
-    /* height: 1px; */
-    /* overflow: hidden;
-    position: absolute;
-    white-space: nowrap; */
-    /* width: 1px; */
-  }
-
-  .dashBoardElderHeader {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .dashBoardElderHeader h1 {
-    grid-column: span 4;
-    text-align: left;
-  }
-
-  /* Styling for the Elder Dashboard Navigation*/
-  .dashElderNav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-  }
-
-  #postsSection .ant-tabs-tab {
-    display: block !important;
-    text-align: center;
-    margin: auto;
-    font-size: x-large;
-
-  }
-
-  #postsSection .ant-tabs-tab-active div {
-    display: inline;
-    color: #00756A !important;
-    border-bottom: #EB592D 5px solid;
-
-  }
-
-  #postsSectionNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1rem auto;
-  }
-
-  /* Styling for the Elder Dashboard Posts Section*/
-
-  #postsSection .ant-tabs-tab {
-    color: #00756a !important;
-    // background-color: #00756a !important;
-    font-weight: bold !important;
-    // flex-grow: 1;
-    border: none;
-  }
-
-  #postsSection .ant-tabs-nav-list {
-    // flex-grow: 1;
-  }
-
-  #postsSection .ant-tabs-tab-active {
-    background-color: white !important;
-    // border: solid 1px #00756a;
-  }
-
-  #postsSection .ant-tabs-tab {
-    display: block !important;
-    text-align: center;
-    margin: auto;
-  }
-
-  #postsSection .ant-tabs-tab-active div {
-    color: #00756a !important;
-  }
-}
-
 /* ================== */
+
+
+#postsSection .ant-tabs-tab {
+  margin-right: 20px !important;
+}
+
+.rewardPoints {
+  background-color: #f4e0e0;
+}
+
+
+h2.pointsDash {
+  margin: 0;
+  font-size: 1rem;
+}
+
+img.ant-menu-item-icon {
+  width: 30px;
+}

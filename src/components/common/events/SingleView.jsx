@@ -8,9 +8,8 @@ const SingleView = ({ currentEvent, changeScreen }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const joinEvent = async () => {
-    console.log(currentEvent._id)
     const response = await axios.postRequest("joinEvent", { eventId: currentEvent._id }, true);
-    console.log("response ", response)
+    
     if (response && response.success) {
       setIsModalOpen(true)
     }

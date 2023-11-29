@@ -37,7 +37,7 @@ const JoinEvent = () => {
       const response = await axios.getRequest("eventList", true);
       dispatch(setLoader({loader: false}))
       if (response && response.success) {
-        console.log(response)
+
         getDateFormat(response.events);
       }
     } catch (err) {
@@ -47,7 +47,6 @@ const JoinEvent = () => {
   }
 
   const handleClick = (index) => {
-    console.log("index is ", index);
     setSingleView(true);
     setCurrentEvent(activeEvens[index]);
   }

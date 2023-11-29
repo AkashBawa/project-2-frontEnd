@@ -1,10 +1,8 @@
 import { Card, Space, Button } from "antd";
 import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
-
-// import "./../volunteer/css/dashboard.css"
 import { useState } from "react";
-import MyPosts from './../elderly/myPosts';
+import MypostVolunteer from './MyPosts';
 import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
@@ -15,13 +13,19 @@ import iconProfile from './../../images/vicon_profile.png';
 import iconNotification from './../../images/icon_notification.png';
 import iconNavProfile from './../../images/icon_profile_mobile.png';
 import iconNavNotification from './../../images/icon_request_mobile.png';
-import rewards from './../../images/rewards.png';
+// import rewards from './../../images/rewards.png';
+import Bronze from '../../images/image-25.png'
+import Silver from '../../images/image 24.png'
+import Gold from '../../images/image 23.png'
 import rewardIcon from './../../images/rewardIcon.png';
+import apply from './../../images/apply.png';
+
 
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
 
   const [pendingPosts, setPendingRequest] = useState([]);
   const [approvedPosts, setApprovedRequest] = useState([]);
@@ -31,16 +35,67 @@ const Dashboard = () => {
   const [approvedCounter, setApprovedCounter] = useState(0);
   const [completedCounter, setCompletedCounter] = useState(0);
 
-  const dispatch = useDispatch();
+  const [currentPost, setCurrentPost] = useState({});
+
 
   useEffect(() => {
 
     dispatch(setLoader({ loader: true }));
     fetchPost();
     fetchId();
+    fetchVolUserProfile();
+    // fetchMyPosts();
+
   }, []);
 
 
+  const filterPosts = allPosts => {
+    let pendingPosts = [];
+    let approvedPosts = [];
+    let completedPosts = [];
+
+    allPosts.forEach((post, index) => {
+      if (post.status === "PENDING") {
+        pendingPosts.push(post);
+      } else if (post.status === "BOOKED") {
+        approvedPosts.push(post);
+      } else {
+        completedPosts.push(post);
+      }
+    });
+
+    setPendingRequest(pendingPosts);
+    setApprovedRequest(approvedPosts);
+    setCompletedPosts(completedPosts);
+
+    setPendingCounter(pendingPosts.length);
+    setApprovedCounter(approvedPosts.length);
+    setCompletedCounter(completedPosts.length);
+  };
+
+  const [formData, setFormData] = useState({
+    profilePhoto: "",
+    name: "",
+    // lName: "",
+    age: "",
+    gender: "male",
+    contactNumber: "",
+    interest: "",
+    emergencyContact: ""
+  });
+
+
+  const fetchUserProfile = async () => {
+    try {
+      const getProfile = await axios.getRequest("user", true);
+      setFormData(getProfile);
+
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+    }
+  };
+
+  const [volProfile, setVolProfile] = useState({});
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState();
   const [singleView, setSingleView] = useState(false);
@@ -53,10 +108,12 @@ const Dashboard = () => {
   const fetchPost = async () => {
     try {
       const response = await axios.postRequest("fetchpost", {}, true);
+      // const volActivePost = await axios.getRequest("postByVolunteer", true);
+
       dispatch(setLoader({ loader: false }));
-      if (response.success) {
-        console.log(response.posts);
+      if (response && response.success) {
         setPosts(response.posts);
+        setPendingCounter(response.posts.length)
       }
 
     } catch (err) {
@@ -65,13 +122,12 @@ const Dashboard = () => {
     }
   };
 
+
+
   const sendRequest = async (postId, index) => {
     try {
-
       const response = await axios.putRequest("sendInvitation", { postId }, true);
-
       if (response.success == true) {
-
         let newPosts = [...posts];
         newPosts[index].invitations = response.updatePost.invitations;
         setPosts(newPosts);
@@ -79,60 +135,43 @@ const Dashboard = () => {
     } catch (err) {
       console.log(err)
     }
-  }
+  };
 
-
-  const fetchMyPosts = async () => {
+  const fetchVolUserProfile = async () => {
     try {
-      setSingleView(false);
-      const response = await axios.getRequest("getPostByUser", true);
-      if (response.success === true && response.posts) {
-        // filterPosts(response.posts);
-      }
-    } catch (err) {
-      console.log(err)
+      let getVolProfile = await axios.getRequest("user", true);
+      setVolProfile(getVolProfile);
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
-  const changeSingleView = (post) => {
+  const volunteerName = volProfile ? volProfile.name : "Guest";
 
-    console.log("post is ");
-    console.log(post)
-    console.log("change view")
-    setSingleView(!singleView);
-    // setCurrentPost(post);
-  }
 
   return (
-    <>
+    <div id="volunteerDashboard">
       {
         singleView == false && (
           <div className="dashBoardVolunteer">
-            <nav>
-              <img src={statusBar} alt="statusBar" id="statusBar" />
-              <div>
-                <img src={wiseCareLogo} alt="Logo" />
-                <div className="navtopIcons">
-                  <img src={iconNavNotification} alt="iconNavNotification" />
-                  <Link to='/elder/profile'><img src={iconNavProfile} alt="iconNavProfile" /></Link>
-                </div>
-              </div>
-            </nav>
             <div className="dashBoardVolunteerHeader">
-              <h1>Hi, Beant</h1>
+              <div>
+                
+                <h2>Hi, {volProfile ? volProfile.name : ""}</h2>
+              </div>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
-                <h2>Yours Points: 200 </h2>
+                <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
               </div>
-              <div className="topIconsVolunteer">
+              {/* <div className="topIconsVolunteer">
                 <img src={iconNotification} alt="iconNotification" />
-                <Link to='/elder/profile'><img src={iconProfile} alt="iconProfile" /></Link>
-              </div>
+                <Link to='/volunteer/profile'><img src={iconProfile} alt="iconProfile" /></Link>
+              </div> */}
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
                 <h1>All Tasks</h1>
-                <div className="allTasksCount">{approvedCounter}</div>
+                <div className="allTasksCount">{pendingCounter}</div>
               </div>
               <div className="dashVolunteerUnanswered">
                 <h1>Active Tasks</h1>
@@ -140,16 +179,21 @@ const Dashboard = () => {
               </div>
               <div className="dashVolunteerPending">
                 <h1>Rewards</h1>
-                <img src={rewards} alt="Rewards" />
+                {volProfile && (
+                  <>
+                    <img
+                      src={
+                        volProfile.point >= 400
+                          ? Silver
+                          : volProfile.point >= 200
+                            ? Gold
+                            : Bronze
+                      }
+                      alt="Rewards"
+                    />
+                  </>
+                )}
                 <h2>Next Medal:  6 / 15</h2>
-              </div>
-            </div>
-
-            <div className="deletePostConfirmation Visually-hidden ">
-              <div>
-                <h3>Are you sure you want to delete you post?</h3>
-                <button className="deleteNo">No</button>
-                <button className="deleteYes">Yes</button>
               </div>
             </div>
 
@@ -168,17 +212,17 @@ const Dashboard = () => {
 
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: <MypostVolunteer posts={posts} fetchPost={fetchPost} />,
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />,
                     },
                   ]
                 }
@@ -192,11 +236,13 @@ const Dashboard = () => {
       {
         singleView == true && (
           <div>
-            <SinglePostView fetchMyPosts={fetchMyPosts} />
+            <SinglePostView fetchPost={fetchPost} />
+            {/* <SinglePostView currentPost={currentPost} fetchMyPosts={fetchMyPosts} /> */}
+
           </div>
         )
       }
-      <div className="list-posts">
+      {/* <div className="list-posts">
         <Space direction="vertical">
 
           {
@@ -204,28 +250,48 @@ const Dashboard = () => {
               return (
                 <Card
                   key={`card-${index}`}
-                  title={post.serviceTitle}
-                  extra={
-                    post.invitations.map((invite) => invite.user).indexOf(userId) > -1 ?
-                      <Button type="default" disabled>Already send</Button> :
-                      <Button type="default" onClick={() => { sendRequest(post._id, index) }}>Send Request</Button>
-                  }
-                  style={{
-                    width: "100%",
-                  }}
-
                 >
-                  <h1>{post.serviceTitle}</h1>
-                  <h2>{post.address}</h2>
-                  <h2>By: {post?.userId.name}</h2>
-                  <h2>On: {new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()} at: {post.time}</h2>
+                  <div className="volPostCard">
+                    <div className="servicePostDetails">
+                      <div className="seniorProfilePhoto">
+                        <Link to='/elder/profile'><img src={post?.userId.profilePhoto} alt="" /></Link>
+
+                      </div>
+                      <div >
+                        <h1>{post.serviceTitle}</h1>
+                        <Link to='/elder/profile'><h2 className="seniorProfileLink">{post?.userId.name}</h2></Link>
+                        <h2>{post.address}</h2>
+                        <h2>{new Date(post.date).getDate()}/{new Date(post.date).getMonth()}/{new Date(post.date).getFullYear()} at: {post.time}</h2>
+                      </div>
+                    </div>
+                    <div className="responseButton">
+                      {post.invitations.map((invite) => invite.user).indexOf(userId) > -1 ? (
+                        <button type="default" disabled className="reviewButton">
+                          Review</button>
+                      ) : (
+
+                        // apply
+
+                        <button id="applyBtn" type="default"
+                          onClick={() => {
+                            // if (post.status === "PENDING") {
+                              sendRequest(post._id, index);
+                              // post.status = "BOOKED";
+                            // }
+                          }}>
+                          <img src={apply} alt="" />
+                        </button>
+                      )}
+                    </div>
+
+                  </div>
                 </Card>
               )
             })
           }
         </Space>
-      </div>
-    </>
+      </div> */}
+    </div>
 
 
   )

@@ -11,8 +11,8 @@
     }
 
     .vimg {
-        width: 200px;
-        height: 200px;
+        width: 150px !important;
+        height: 150px !important;
         border-radius: 50%;
     }
 
@@ -50,9 +50,15 @@
 
             img {
                 display: block;
-                width: 30px;
+                width: 64px !important;
+                height: 64px !important;
             }
         }
     }
 
+    .noInvitations {
+        font-size: x-large;
+        font-weight: bold;
+        margin: 3rem 1rem;
+    }
 }

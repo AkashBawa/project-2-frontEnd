@@ -21,27 +21,29 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
   const responseInvitation = async (acceptedUserId, status, changeSingleView) => {
     try {
       Swal.fire({
-        title: 'Warning',
-        text: `Do you want to  ${status === 'ACCEPTED' ? 'accept' : 'reject'} the post`,
-        icon: 'warning',
+        title: '',
+        text: `Are you sure you want to  ${status === 'ACCEPTED' ? 'accept' : 'reject'} this service`,
+        // icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes',
         cancelButtonText: "No",
+        confirmButtonText: 'Yes',
       }).then(async (data) => {
-        console.log(data)
+
         if (data.isConfirmed) {
           const postId = currentPost._id;
           const response = await axios.putRequest("responseInvitation", { postId, acceptedUserId, status }, true);
-          console.log(response);
+
           if (response && response.success) {
             Swal.fire({
-              title: "Thanks",
-              text: "The Post status is Accepted",
-              icon: "success"
+              icon: "success",
+              title: "Confirmation  ",
+              text: "You have accepted this service",
+              confirmButtonText: 'ok',
             });
             setIsModalOpen(true)
           }
           fetchMyPosts();
+          // fetchPost();
 
         } else {
           return;
@@ -58,7 +60,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
   };
 
   const viewProfile = (user) => {
-    console.log(user);
+
     setViewUser(user);
     setIsModalOpen(true);
   }
@@ -110,7 +112,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
             </div>
           ) : (
             <div>
-              <span>This post does not have any active invitations</span>
+              <h2 className="noInvitations">This post does not have any active invitations</h2>
             </div>
           )
       }

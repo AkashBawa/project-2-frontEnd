@@ -13,6 +13,7 @@ import UserOld from "./../../images/icon_profile_elderly_m.png";
 import Eventsicon from "./../../images/icon_party_m.png";
 import Logouticon from "./../../images/icon_logout_m.png";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
@@ -54,12 +55,15 @@ const AppHeader = () => {
   };
 
   return (
-    <div className="headerclass">
-      <Layout>
+    <div className="headers">
+
+      {/* <Layout className="layout">
         <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div id="menuLogo">
-            <img src={IconLogo} alt="Logo" />
-          </div>
+          <Link to="/elder/dashboard">
+            <div id="menuLogo">
+              <img src={IconLogo} alt="Logo" />
+            </div>
+          </Link>
 
           <Menu
             className="desktop-menu"
@@ -90,6 +94,7 @@ const AppHeader = () => {
               padding: 0,
               background: colorBgContainer
             }}
+            className="hide-in-small"
           >
             <Button
               type="text"
@@ -111,15 +116,16 @@ const AppHeader = () => {
             }}
           >
             <div className="main-content">
+            {showSlideMenu && (
+              <SlideMenu menuItems={menuItems} onClose={toggleSlideMenu} />
+            )}
               <Outlet />
             </div>
-           
+
           </Content>
         </Layout>
-      </Layout>
-      {showSlideMenu && (
-        <SlideMenu menuItems={menuItems} onClose={toggleSlideMenu} />
-      )}
+      </Layout> */}
+      {/* <Outlet /> */}
     </div>
   );
 };

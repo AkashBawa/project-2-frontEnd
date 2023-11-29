@@ -14,18 +14,13 @@ const Rewards = () => {
 
   
   const getBadge = (points) => {
-    console.log("Points:", points); 
     if (points >= 101 && points <= 200) {
-      console.log("Bronze Badge");
       return 'Bronze Badge';
     } else if (points >= 201 && points <= 300) {
-      console.log("Silver Badge");
       return 'Silver Badge';
     } else if(points >= 300 && points <= 1000){
-      console.log("Gold Badge");
       return 'Gold Badge';
     } else {
-      console.log("No Badge");
       return 'No Badge';
     }
   };
@@ -92,11 +87,11 @@ const Rewards = () => {
       </div>
       <div className='whyBadgeDes'>
         <img src={Gold} alt="" />
-        <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+        <p>This Badge can be yours if you complete at lest 15 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
       <div className='whyBadgeDes'>
         <img src={Silver} alt="" />
-        <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+        <p>This Badge can be yours if you complete at lest 25 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
     </div>
   </div>

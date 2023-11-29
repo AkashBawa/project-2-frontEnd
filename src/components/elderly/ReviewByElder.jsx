@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Form, Input, Button } from "antd";
 import axios from '../../services/axios';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 
 const { TextArea } = Input;
@@ -11,6 +13,7 @@ const ReviewByElder = () => {
     const [rating, setRating] = useState()
     const [review, setReview] = useState()
     let { id } = useParams();
+    const navigate = useNavigate();
 
 
 
@@ -34,21 +37,15 @@ const ReviewByElder = () => {
 
             const response = await axios.postRequest("updateRating", reviewData, true);
       
-      
-            console.log("Form submission successful:", response.data);
-            console.log(response);
+
+            navigate("/elder/dashboard");
+
            
           } catch (error) {
             console.error("Form submission error:", error);
           }
     }
 
-
-
-
-
-    console.log(rating)
-    console.log(review)
 
     return (
         <div>

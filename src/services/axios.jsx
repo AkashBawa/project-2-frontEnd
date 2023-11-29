@@ -26,9 +26,7 @@ const getRequest = async (link, tokenRequired = false) => {
 
 const postRequest = async (link, data, tokenRequired = false) => {
     try {
-        console.log(baseUrl);
         const finalUrl = `${baseUrl}/${link}`;
-        console.log('Final URL:', finalUrl);
 
 
         let config = {};
@@ -50,7 +48,6 @@ const postRequest = async (link, data, tokenRequired = false) => {
 
 const putRequest = async (link, data, tokenRequired = false) => {
     try {
-        console.log(baseUrl);
         const finalUrl = `${baseUrl}/${link}`;
 
         let config = {};

@@ -21,8 +21,6 @@ function Signup() {
   const [userName, setuserName] = useState();
 
   const submit = async () => {
-    console.log(email);
-    console.log(password);
 
     const data = await AxiosService.postRequest('signup', { email, password, role, userName });
     if (data.success) {
@@ -73,6 +71,9 @@ function Signup() {
             </div>
 
           </div>
+          {/* <h2 id="loginUser">Already A User</h2>
+          <Link to="/login"><button className="darkBtn">Login</button></Link> */}
+
         </div>
       </div>
 
