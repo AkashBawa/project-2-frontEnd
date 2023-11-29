@@ -55,7 +55,9 @@ const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
                   post.status == "PENDING" && <>
 
                     { 
-                      checkInvitationSent(post) ? "Invitation sent" :
+                      checkInvitationSent(post) ? <div className="appliedDiv">
+                        <p>Applied</p>
+                      </div> :
                        <div className="deleteEditSection" >
                         <div className="myPostDelete" onClick={() => sendRequest(post._id, postIndex)} >
                           <img src={IconApply} alt="ApplyPost" />

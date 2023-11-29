@@ -138,19 +138,6 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   </div>
                 </div>
 
-                {/* ${isDeleteVisible ? 'Visually-hidden' : ''} */}{/* 
-                      <div id= "myPostDelete" className={`myPostDelete`}>
-                        <img src={DeleteImage} alt="DeleteImage" />
-                        // <img src={DeleteImage} alt="DeleteImage" onClick={handleDeleteClick} />
-                      </div> */}
-
-                {/* <div className="myPostEdit">
-                        <img src={Edit} alt="Edit" />
-                      </div> */}
-                {/* </div> */}
-                {/* </> */}
-
-
                 {
                   post.status == "PENDING" && <>
 
@@ -173,9 +160,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                 {
                   post.status == "BOOKED" && <>
                     <div className="deleteEditSection">
-
-
-
+                      
                       <div className="Review">
                         <>
                           <button className="darkBtn" onClick={showModal}>
@@ -194,7 +179,6 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                                 onChange={(value) => setRating(Math.ceil(value))}
                                 value={rating}
                               />
-                              {/* {rating ? <span>{rating}</span> : ''} */}
                             </Space>
                             <TextArea rows={4} placeholder="Review" maxLength={100} />
                           </Modal>
@@ -204,33 +188,11 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                   </>
                 }
 
-
-                {/* <div className="deleteEditSection" >
-                  <div className="myPostDelete" onClick={() => showDeleteModal(post)} >
-                    <img src={DeleteImage} alt="DeleteImage" />
-                  </div>
-
-                  <div className="myPostEdit" onClick={() => { changeSingleView(post) }}>
-                    <img src={Edit} alt="Edit" />
-                  </div>
-                </div> */}
-
               </div>
             </Card>
           )
         })
       }
-
-
-      {/* Delete Confirmation Modal */}
-      {/* <Modal
-        title="Delete Post"
-        open={isDeleteModalVisible}
-        onOk={handleDelete}
-        onCancel={handleCancelDelete}
-      >
-        <p>Are you sure you want to delete this post?</p>
-      </Modal> */}
 
     </div>
   )
