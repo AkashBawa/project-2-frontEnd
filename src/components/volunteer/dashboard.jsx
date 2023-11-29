@@ -23,6 +23,7 @@ import apply from './../../images/apply.png';
 
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -126,13 +127,29 @@ const Dashboard = () => {
 
   const sendRequest = async (postId, index) => {
     try {
-      const response = await axios.putRequest("sendInvitation", { postId }, true);
-      if (response.success == true) {
-        let newPosts = [...posts];
-        newPosts[index].invitations = response.updatePost.invitations;
-        setPosts(newPosts);
-      }
+
+      Swal.fire({
+        title: "Please confit",
+        text: "Do you want to send the invitation"
+        
+      }).then( async (data) => {
+
+        if(data.isConfirmed) {
+          dispatch(setLoader({ loader: true }));
+          const response = await axios.putRequest("sendInvitation", { postId }, true);
+          dispatch(setLoader({ loader: false }));
+
+          if (response.success == true) {
+            let newPosts = [...posts];
+            newPosts[index].invitations = response.updatePost.invitations;
+            setPosts(newPosts);
+          }
+        }
+        
+      })
+      
     } catch (err) {
+      dispatch(setLoader({ loader: false }));
       console.log(err)
     }
   };
@@ -163,10 +180,6 @@ const Dashboard = () => {
                 <img src={rewardIcon} alt="reward" />
                 <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
               </div>
-              {/* <div className="topIconsVolunteer">
-                <img src={iconNotification} alt="iconNotification" />
-                <Link to='/volunteer/profile'><img src={iconProfile} alt="iconProfile" /></Link>
-              </div> */}
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
@@ -212,7 +225,7 @@ const Dashboard = () => {
 
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MypostVolunteer posts={posts} fetchPost={fetchPost} />,
+                      children: <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />,
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,

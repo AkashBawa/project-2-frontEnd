@@ -6,67 +6,26 @@ import Edit from './../../images/edit.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import localStorage from "../../services/localStorage";
 
+const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
 
-// import { Modal } from "antd";
-
-
-const MyPostVolunteer = ({ posts, fetchMyPosts }) => {
-  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
-  const [postToDelete, setPostToDelete] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const showModal = () => {
-    setOpen(true);
-  };
-
-  const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
-  const [rating, setRating] = useState()
-  let { id } = useParams();
   const navigate = useNavigate();
-
-  const { TextArea } = Input;
-
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
   useEffect(() => {
   }, []);
 
-
-  const handleOk = (postIndex) => {
-    handleSubmit(postIndex)
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000);
-  };
-  const handleCancel = () => {
-    setOpen(false);
-  };
-
-
-  const handleSubmit = async (postIndex) => {
-    try {
-      const currentPost = posts[postIndex];
-      const reviewData = {
-        rating: rating,
-        id: currentPost._id
-
+  const checkInvitationSent = (post) => {
+    if(post.invitations && post.invitations.length > 0) {
+      const index = post.invitations.map((invi) => invi.user).indexOf(userId);
+      if(index > -1) {
+        return true;
+      } else {
+        return false;
       }
-
-      const response = await axios.postRequest("updateRating" , reviewData, true);
-
-      navigate("/elder/dashboard");
-
-
-    } catch (error) {
-      console.error("Form submission error:", error);
     }
   }
-
-
 
 
   return (
@@ -95,19 +54,17 @@ const MyPostVolunteer = ({ posts, fetchMyPosts }) => {
                 {
                   post.status == "PENDING" && <>
 
-                    <div className="deleteEditSection" >
-                      <div className="myPostDelete" onClick={() => (post)} >
-                        <img src={IconApply} alt="DeleteImage" />
+                    { 
+                      checkInvitationSent(post) ? "Invitation sent" :
+                       <div className="deleteEditSection" >
+                        <div className="myPostDelete" onClick={() => sendRequest(post._id, postIndex)} >
+                          <img src={IconApply} alt="ApplyPost" />
+                        </div>
                       </div>
-                    </div>
-
-
-
+                    }
                   </>
                 }
-
-
-                {
+                {/* {
                   post.status == "BOOKED" && <>
                     <div className="deleteEditSection">
 
@@ -131,7 +88,6 @@ const MyPostVolunteer = ({ posts, fetchMyPosts }) => {
                                 onChange={(value) => setRating(Math.ceil(value))}
                                 value={rating}
                               />
-                              {/* {rating ? <span>{rating}</span> : ''} */}
                             </Space>
                             <TextArea rows={4} placeholder="Review" maxLength={100} />
                           </Modal>
@@ -139,7 +95,7 @@ const MyPostVolunteer = ({ posts, fetchMyPosts }) => {
                       </div>
                     </div>
                   </>
-                }
+                } */}
 
               </div>
             </Card>

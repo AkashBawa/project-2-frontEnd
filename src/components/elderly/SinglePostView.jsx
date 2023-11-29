@@ -36,14 +36,13 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
           if (response && response.success) {
             Swal.fire({
               icon: "success",
-              title: "Confirmation  ",
+              title: "Confirmation",
               text: "You have accepted this service",
               confirmButtonText: 'ok',
             });
             setIsModalOpen(true)
           }
           fetchMyPosts();
-          // fetchPost();
 
         } else {
           return;
@@ -95,7 +94,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                     <div className="requestList" key={"invitation-" + invitationIndex}>
                       <img src={invite.user.profilePhoto} alt="Volunteer Image" className="vimg" />
                       <div className="vsummary">
-                        <h1>Volunteer Name: {invite.user.name ? invite.user.name : invite.user.email} </h1>
+                        <h1>{invite.user.name ? invite.user.name : invite.user.email} </h1>
                         <h2>Rating:</h2>
                       </div>
 

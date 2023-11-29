@@ -14,9 +14,7 @@ const ReviewByElder = () => {
     const [review, setReview] = useState()
     let { id } = useParams();
     const navigate = useNavigate();
-
-
-
+    
     const handleRatingChange = (e) => {
         setRating(e.target.value);
     };
@@ -37,7 +35,7 @@ const ReviewByElder = () => {
 
             const response = await axios.postRequest("updateRating", reviewData, true);
       
-
+            
             navigate("/elder/dashboard");
 
            
@@ -61,9 +59,9 @@ const ReviewByElder = () => {
                 <Form.Item label="Rating">
                     <TextArea rows={4} placeholder="maxLength is 6" maxLength={50} name='review' value={review} onChange={handleReviewChange} />
                 </Form.Item>
-                <Button onClick={handleSubmit} type="primary">
+                <button onClick={handleSubmit} className="darkBtn">
                     Submit
-                </Button>
+                </button>
 
             </Form>
         </div>

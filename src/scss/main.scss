@@ -81,6 +81,15 @@ button {
   @include submitButton;
 }
 
+button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-primary:hover {
+  background-color: #EB592D !important;
+}
+
+button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-default {
+  color: inherit !important;
+    border-color: inherit !important;
+}
+
 
 .darkBtn:hover {
   background-color: $btnDark;

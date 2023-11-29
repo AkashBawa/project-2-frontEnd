@@ -23,7 +23,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
     setOpen(true);
   };
 
-  const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+  const desc = ['Terrible', 'Bad', 'Normal', 'Good', 'Wonderful'];
   const [rating, setRating] = useState()
   let { id } = useParams();
   const navigate = useNavigate();
@@ -104,8 +104,8 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
       const response = await axios.postRequest("updateRating" , reviewData, true);
 
-      navigate("/elder/dashboard");
-
+      // navigate("/elder/dashboard");
+      fetchMyPosts();
 
     } catch (error) {
       console.error("Form submission error:", error);
@@ -178,11 +178,11 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
                       <div className="Review">
                         <>
-                          <Button type="primary" onClick={showModal}>
+                          <button className="darkBtn" onClick={showModal}>
                             Review
-                          </Button>
+                          </button>
                           <Modal
-                            title="How Somchai did it?"
+                            title="How do you like the service ?"
                             open={open}
                             onOk={ () => {handleOk (postIndex)}}
                             confirmLoading={confirmLoading}

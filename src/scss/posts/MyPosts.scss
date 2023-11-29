@@ -115,7 +115,8 @@
     .deleteEditSection {
         display: flex;
         flex-flow: row;
-        justify-content: space-around;
+        justify-content: right;
+        gap: 1rem;
     }
 
 }
