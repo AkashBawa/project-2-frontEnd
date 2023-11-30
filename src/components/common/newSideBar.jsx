@@ -1,4 +1,5 @@
 import UserOld from "./../../images/Sen_icon.png";
+import UserVolunteer from "./../../images/Vol_icon.png";
 import Eventsicon from "./../../images/icon_party.png";
 import rewardsIcon from "./../../images/icon_rewards.png";
 import Logouticon from "./../../images/icon_logout_m.png";
@@ -33,13 +34,12 @@ const NewSideBar = () => {
 
                     <ul className="menu__box">
                         <li className="logo">
-                            <img src={IconLogo} alt="Wisecare logo" />
+                            <Link className="menu__item" to="dashboard"><img src={IconLogo} alt="Wisecare logo" /></Link>
                         </li>
                         {
                             currentURL == "elder" ? <>
                                 <li className="sideBarIcons">
-                                    {/* <img src={UserOld} alt="Dashboard Icon" /> */}
-                                    <img src={Eventsicon} alt="Dashboard Icon" />
+                                    <img src={UserOld} alt="Dashboard Icon" />
                                     <Link className="menu__item" to="dashboard">Dashboard</Link>
                                 </li>
                                 <li className="sideBarIcons">
@@ -53,13 +53,9 @@ const NewSideBar = () => {
                             </> : <>
 
                                 <li className="sideBarIcons">
-                                    <img src={Eventsicon} alt="Dashboard Icon" />
+                                    <img src={UserVolunteer} alt="Dashboard Icon" />
                                     <Link className="menu__item" to="dashboard">Dashboard</Link>
                                 </li>
-                                {/* <li className="sideBarIcons">
-                                    <img src={IconLogo} alt="Wisecare logo" />
-                                    <Link className="menu__item" to={"profile"}>  Profile</Link>
-                                </li> */}
                                 <li className="sideBarIcons">
                                     <img src={Eventsicon} alt="Events Icon" />
                                     <Link className="menu__item" to={"event"}> Events</Link>
