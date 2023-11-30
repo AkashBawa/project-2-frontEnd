@@ -124,10 +124,10 @@ const Dashboard = () => {
       Swal.fire({
         title: "Please confit",
         text: "Do you want to send the invitation"
-        
-      }).then( async (data) => {
 
-        if(data.isConfirmed) {
+      }).then(async (data) => {
+
+        if (data.isConfirmed) {
           dispatch(setLoader({ loader: true }));
           const response = await axios.putRequest("sendInvitation", { postId }, true);
           dispatch(setLoader({ loader: false }));
@@ -138,9 +138,9 @@ const Dashboard = () => {
             setPosts(newPosts);
           }
         }
-        
+
       })
-      
+
     } catch (err) {
       dispatch(setLoader({ loader: false }));
       console.log(err)
@@ -166,14 +166,14 @@ const Dashboard = () => {
           <div className="dashBoardVolunteer">
             <div className="dashBoardVolunteerHeader">
               <div>
-                
+
                 <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
               </div>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
                 <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
               </div>
-              
+
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
@@ -200,7 +200,8 @@ const Dashboard = () => {
                     />
                   </>
                 )}
-                <h2>Next Medal:  6 / 15</h2>
+           <h2>Next Medal: {volProfile ? `${volProfile.point} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
+
               </div>
             </div>
 
