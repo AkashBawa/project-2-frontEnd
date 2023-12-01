@@ -2,14 +2,9 @@ import { Outlet, Link } from "react-router-dom"
 import { Radio, Tabs } from 'antd';
 import MyPosts from './myPosts';
 import SinglePostView from "./SinglePostView";
-
 import React, { useEffect, useState } from 'react';
-import wiseCareLogo from './../../images/wiseCareLogo.png';
-import iconProfile from './../../images/icon_profile.png';
-import statusBar from './../../images/statusBar.png';
 import axios from "../../services/axios";
 import { useNavigate } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
 
@@ -32,7 +27,7 @@ const Dashboard = () => {
     dispatch(setLoader({ loader: true }))
     fetchMyPosts();
     fetchUserProfile()
-    
+
   }, []);
 
   const filterPosts = allPosts => {
@@ -74,8 +69,10 @@ const Dashboard = () => {
   const fetchUserProfile = async () => {
     try {
       const getProfile = await axios.getRequest("user", true);
-      setFormData(getProfile);
-     
+      if(getProfile) {
+        setFormData(getProfile);
+      }
+
     } catch (error) {
       console.error("Error fetching user profile:", error);
     }
@@ -84,9 +81,10 @@ const Dashboard = () => {
   const fetchMyPosts = async () => {
     try {
       setSingleView(false);
+      dispatch(setLoader({ loader: true }))
       const response = await axios.getRequest("getPostByUser", true);
       dispatch(setLoader({ loader: false }))
-      if (response.success === true && response.posts) {
+      if (response.success === true && response.posts && response.posts.length > 0) {
         filterPosts(response.posts);
       }
     } catch (err) {
@@ -106,7 +104,7 @@ const Dashboard = () => {
       {
         singleView == false && (
           <div className="dashBoardElder">
-            
+
             <div className="dashBoardElderHeader">
               <h1>Hi, {formData.name}</h1>
               <div className="topIcons">
@@ -121,20 +119,12 @@ const Dashboard = () => {
 
               </div>
               <div className="dashElderUnanswered">
-                <h3>Active Posts</h3>
+                <h2>Active Posts</h2>
                 <div className="unansCount">{approvedCounter}</div>
               </div>
               <div className="dashElderPending">
-                <h3>All Posts</h3>
+                <h2>All Posts</h2>
                 <div className="pendingCount">{pendingCounter}</div>
-              </div>
-            </div>
-
-            <div className="deletePostConfirmation Visually-hidden">
-              <div>
-                <h3>Are you sure you want to delete you post?</h3>
-                <button className="deleteNo">No</button>
-                <button className="deleteYes">Yes</button>
               </div>
             </div>
 

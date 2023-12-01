@@ -66,6 +66,20 @@ const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
                     }
                   </>
                 }
+                {
+                  post.status == "BOOKED" && <>
+                    <div className="appliedDiv">
+                      <p>Booked</p>
+                    </div>
+                  </>
+                }
+                {
+                  post.status == "COMPLETED" && <>
+                    <div className="appliedDiv">
+                      <p>COMPLETED</p>
+                    </div>
+                  </>
+                }
                 {/* {
                   post.status == "BOOKED" && <>
                     <div className="deleteEditSection">

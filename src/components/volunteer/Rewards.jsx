@@ -97,14 +97,14 @@ const Rewards = () => {
   </div>
   
 
-      {volProfile ? (
+      {/* {volProfile ? (
         <div>
           <p>My Points: {volProfile.point}</p>
           <p>Badge: {getBadge(volProfile.point)}</p>
         </div>
       ) : (
         <p>Loading...</p>
-      )}
+      )} */}
     </div>
   );
 };

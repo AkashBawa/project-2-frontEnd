@@ -1,6 +1,9 @@
 /* Styling MyPost Area  */
 
 #mypostID {
+    .darkBtn {
+        font-size: 1rem;
+    }
 
     .cardBody {
         display: grid;
@@ -10,7 +13,7 @@
     #myPostsCard {
         background-color: #F5F5F5;
         margin: 1rem;
-        padding: 0;
+        padding: 1rem;
         border-radius: 20px;
     }
 
@@ -139,18 +142,18 @@
     margin-top: 12px;
 }
 
-.ant-modal-content{
+.ant-modal-content {
     display: grid;
-    
+
 }
 
-.ant-modal-title{
+.ant-modal-title {
     text-align: center;
     color: #00756A !important;
     font-size: 1.5rem !important;
 }
 
-.ant-space.css-dev-only-do-not-override-1adbn6x.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small{
+.ant-space.css-dev-only-do-not-override-1adbn6x.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
     margin: 0 0 30px 0;
     text-align: center;
 }
@@ -168,6 +171,6 @@
     background-color: #EB592D;
 }
 
-.ant-modal.css-dev-only-do-not-override-1adbn6x{
+.ant-modal.css-dev-only-do-not-override-1adbn6x {
     width: 600px !important;
 }

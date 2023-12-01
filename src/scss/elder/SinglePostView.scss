@@ -61,4 +61,19 @@
         font-weight: bold;
         margin: 3rem 1rem;
     }
+
+    button {
+        font-size: 1.5rem;
+        padding: .5rem 1rem;
+    }
+
+    .blackH1 {
+        color: #000 !important;
+    }
+
+    .inlineText {
+        display: inline;
+        text-align: left;
+        color: aqua !important;
+    }
 }

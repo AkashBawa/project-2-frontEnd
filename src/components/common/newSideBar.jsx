@@ -1,7 +1,11 @@
-import UserOld from "./../../images/icon_profile_elderly_m.png";
-import Eventsicon from "./../../images/icon_party_m.png";
+import UserOld from "./../../images/Sen_icon.png";
+import UserVolunteer from "./../../images/Vol_icon.png";
+import Eventsicon from "./../../images/icon_party.png";
+import rewardsIcon from "./../../images/icon_rewards.png";
 import Logouticon from "./../../images/icon_logout_m.png";
 import IconLogo from "./../../images/logo.png";
+
+// icon_fav_volunteers    
 
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -30,39 +34,43 @@ const NewSideBar = () => {
 
                     <ul className="menu__box">
                         <li className="logo">
-                            <img src={IconLogo} alt="Wisecare logo" />
+                            <Link className="menu__item" to="dashboard"><img src={IconLogo} alt="Wisecare logo" /></Link>
                         </li>
                         {
                             currentURL == "elder" ? <>
-                                    <li>
-                                        <Link className="menu__item" to="dashboard">Dashboard</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="menu__item" to={"event"}>  Events</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="menu__item" to={"logout"}> Logout</Link>
-                                    </li>
-                                </> : <>
+                                <li className="sideBarIcons">
+                                    <img src={UserOld} alt="Dashboard Icon" />
+                                    <Link className="menu__item" to="dashboard">Dashboard</Link>
+                                </li>
+                                <li className="sideBarIcons">
+                                    <img src={Eventsicon} alt="Events Icon" />
+                                    <Link className="menu__item" to={"event"}>  Events</Link>
+                                </li>
+                                <li className="sideBarIcons">
+                                    <img src={Logouticon} alt="Logout icon" />
+                                    <Link className="menu__item" to={"logout"}> Logout</Link>
+                                </li>
+                            </> : <>
 
-                                    <li>
-                                        <Link className="menu__item" to="dashboard">Dashboard</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="menu__item" to={"profile"}>  Profile</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="menu__item" to={"event"}> Events</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="menu__item" to={"rewards"}> Rewards</Link>
-                                    </li>
-                                    <li>
-                                        <Link className="menu__item" to={"logout"}> Logout</Link>
-                                    </li>
+                                <li className="sideBarIcons">
+                                    <img src={UserVolunteer} alt="Dashboard Icon" />
+                                    <Link className="menu__item" to="dashboard">Dashboard</Link>
+                                </li>
+                                <li className="sideBarIcons">
+                                    <img src={Eventsicon} alt="Events Icon" />
+                                    <Link className="menu__item" to={"event"}> Events</Link>
+                                </li>
+                                <li className="sideBarIcons">
+                                    <img src={rewardsIcon} alt="Rewards Icon" />
+                                    <Link className="menu__item" to={"rewards"}> Rewards</Link>
+                                </li>
+                                <li className="sideBarIcons">
+                                    <img src={Logouticon} alt="Logout icon" />
+                                    <Link className="menu__item" to={"logout"}> Logout</Link>
+                                </li>
 
-                                </>
-                            
+                            </>
+
                         }
 
                     </ul>

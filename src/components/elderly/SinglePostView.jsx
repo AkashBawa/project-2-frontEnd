@@ -5,7 +5,6 @@ import axios from "../../services/axios";
 import { Modal } from "antd";
 import { Button, notification } from 'antd';
 import Swal from 'sweetalert2'
-// import React, { useState } from 'react';
 import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
@@ -78,9 +77,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
       <h1>{currentPost.serviceTitle}</h1>
       <h2>{currentPost.serviceType}</h2>
       <h2>{currentPost.time ? currentPost.time : currentPost.startTime} - {currentPost.endTime}  </h2>
-      {/* <h2>{currentPost.time} </h2> */}
       <h2>{currentPost.address}</h2>
-
       {
         (currentPost?.invitations && currentPost.invitations.length > 0) ?
           (
@@ -94,8 +91,14 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                     <div className="requestList" key={"invitation-" + invitationIndex}>
                       <img src={invite.user.profilePhoto} alt="Volunteer Image" className="vimg" />
                       <div className="vsummary">
-                        <h1>{invite.user.name ? invite.user.name : invite.user.email} </h1>
-                        <h2>Rating:</h2>
+                        <div className="inlineText">
+                          <h1>Volunteer Name:</h1>
+                          <h1 className="blackH1">{invite.user.name ? invite.user.name : invite.user.email}</h1>
+                        </div>
+                        <div className="inlineText">
+                          <h1>Volunteer Rating:</h1>
+                          <h1 className="blackH1">{invite.user.rating ? invite.user.rating : "No Current Volunteer Rating"}</h1>
+                        </div>
                       </div>
 
                       <div className="decisionButtons">
@@ -116,10 +119,10 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
           )
       }
 
-      <button className="lightBtn" onClick={() => changeSingleView({})}>Cancel</button>
+      <button className="darkBtn" onClick={() => changeSingleView({})}>Cancel</button>
 
 
-    </div>
+    </div >
   )
 }
 
