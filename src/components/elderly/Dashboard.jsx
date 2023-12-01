@@ -69,7 +69,9 @@ const Dashboard = () => {
   const fetchUserProfile = async () => {
     try {
       const getProfile = await axios.getRequest("user", true);
-      setFormData(getProfile);
+      if(getProfile) {
+        setFormData(getProfile);
+      }
 
     } catch (error) {
       console.error("Error fetching user profile:", error);
@@ -79,9 +81,10 @@ const Dashboard = () => {
   const fetchMyPosts = async () => {
     try {
       setSingleView(false);
+      dispatch(setLoader({ loader: true }))
       const response = await axios.getRequest("getPostByUser", true);
       dispatch(setLoader({ loader: false }))
-      if (response.success === true && response.posts) {
+      if (response.success === true && response.posts && response.posts.length > 0) {
         filterPosts(response.posts);
       }
     } catch (err) {

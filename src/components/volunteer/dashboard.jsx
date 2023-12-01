@@ -7,9 +7,9 @@ import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
-import Bronze from '../../images/image-25.png'
-import Silver from '../../images/image 24.png'
-import Gold from '../../images/image 23.png'
+import Bronze from '../../images/image-25.png';
+import Silver from '../../images/image 24.png';
+import Gold from '../../images/image 23.png';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
 
@@ -30,42 +30,19 @@ const Dashboard = () => {
   const [completedCounter, setCompletedCounter] = useState(0);
 
   const [currentPost, setCurrentPost] = useState({});
-
+  const [volProfile, setVolProfile] = useState({});
+  const [posts, setPosts] = useState([]);
+  const [userId, setUserId] = useState();
+  const [singleView, setSingleView] = useState(false);
 
   useEffect(() => {
 
     dispatch(setLoader({ loader: true }));
-    fetchPost();
     fetchId();
-    fetchVolUserProfile();
+
     // fetchMyPosts();
 
   }, []);
-
-
-  const filterPosts = allPosts => {
-    let pendingPosts = [];
-    let approvedPosts = [];
-    let completedPosts = [];
-
-    allPosts.forEach((post, index) => {
-      if (post.status === "PENDING") {
-        pendingPosts.push(post);
-      } else if (post.status === "BOOKED") {
-        approvedPosts.push(post);
-      } else {
-        completedPosts.push(post);
-      }
-    });
-
-    setPendingRequest(pendingPosts);
-    setApprovedRequest(approvedPosts);
-    setCompletedPosts(completedPosts);
-
-    setPendingCounter(pendingPosts.length);
-    setApprovedCounter(approvedPosts.length);
-    setCompletedCounter(completedPosts.length);
-  };
 
   const [formData, setFormData] = useState({
     profilePhoto: "",
@@ -89,25 +66,46 @@ const Dashboard = () => {
     }
   };
 
-  const [volProfile, setVolProfile] = useState({});
-  const [posts, setPosts] = useState([]);
-  const [userId, setUserId] = useState();
-  const [singleView, setSingleView] = useState(false);
+
 
   const fetchId = () => {
     const userId = localStorage.getItem('userId');
     setUserId(userId);
+    fetchPost();
+    fetchVolUserProfile();
   }
+
+  const filterPosts = (allPosts) => {
+    const userId = localStorage.getItem('userId');
+    let approvedPosts = [];
+    let completedRequest = [];
+    allPosts.forEach((post, index) => {
+      if (post.acceptedVolunteerId == userId && post.status == "COMPLETED" ) {
+        completedRequest.push(post);
+      } else if ( post.acceptedVolunteerId == userId && post.status == "BOOKED" ) {
+        approvedPosts.push(post);
+      }
+    });
+
+    setApprovedRequest(approvedPosts);
+    setCompletedPosts(completedRequest);
+    setApprovedCounter(approvedPosts.length);
+    setCompletedCounter(completedRequest.length);
+  }
+
 
   const fetchPost = async () => {
     try {
       const response = await axios.postRequest("fetchpost", {}, true);
-      // const volActivePost = await axios.getRequest("postByVolunteer", true);
+      const volActivePost = await axios.getRequest("volunteerPosts", true);
 
       dispatch(setLoader({ loader: false }));
       if (response && response.success) {
         setPosts(response.posts);
         setPendingCounter(response.posts.length)
+      }
+      if(volActivePost && volActivePost.success) {
+        filterPosts(volActivePost.data);
       }
 
     } catch (err) {
@@ -122,7 +120,7 @@ const Dashboard = () => {
     try {
 
       Swal.fire({
-        title: "Please confit",
+        title: "Please confirm",
         text: "Do you want to send the invitation"
 
       }).then(async (data) => {
@@ -138,7 +136,6 @@ const Dashboard = () => {
             setPosts(newPosts);
           }
         }
-
       })
 
     } catch (err) {
@@ -150,7 +147,9 @@ const Dashboard = () => {
   const fetchVolUserProfile = async () => {
     try {
       let getVolProfile = await axios.getRequest("user", true);
-      setVolProfile(getVolProfile);
+      if(getVolProfile) {
+        setVolProfile(getVolProfile);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -225,7 +224,7 @@ const Dashboard = () => {
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
+                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost}  />,
                     },
                     {
                       label: `History(${completedCounter})`,

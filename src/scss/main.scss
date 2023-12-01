@@ -81,6 +81,29 @@ button {
   @include submitButton;
 }
 
+//  .ant-input {
+//   :focus, :hover, :focus-within {
+//     border-color: $btnDark !important;
+//     box-shadow: none !important;
+//   }
+// }
+
+.ant-input:hover {
+    border-color: $btnDark !important;
+    box-shadow: none !important; 
+}
+
+.ant-input:focus {
+  border-color: $btnDark !important;
+  box-shadow: none !important; 
+}
+
+
+.ant-input:focus-within {
+  border-color: $btnDark !important;
+  box-shadow: none !important; 
+}
+
 button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-primary:hover {
   background-color: #EB592D !important;
 }
