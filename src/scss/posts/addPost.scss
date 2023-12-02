@@ -1,27 +1,48 @@
+div:has(#addPost) {
+  padding: 0.5rem 1% !important;
+}
+
 #addPost {
   h2 {
     color: darkgreen;
   }
+
   form {
     max-width: 100% !important;
   }
+
   input {
     border: 1px solid #292929;
     width: 100%;
     padding: 1rem 0.5rem;
+    margin-right: .5rem;
+    border-radius: 5px;
+  }
+
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .bottomPart input {
+    width: 95% !important;
+
   }
 
   .bottomPart {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+
     @media only screen and (max-width: 600px) {
       grid-template-columns: 1fr;
     }
   }
+
   .mapDiv {
     border-radius: 8px;
   }
+
   .mapbox {
     label {
       padding: 0 0 8px;
@@ -30,5 +51,21 @@
       text-align: left;
       display: block;
     }
+  }
+
+
+  .addPostSubmit {
+    grid-column: span 2;
+      text-align: center;
+    justify-content: center;
+  }
+  
+  .addPostSubmit button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .5rem 3rem;
+    margin-top: 3rem;
+    text-align: center;
+    justify-content: center;
   }
 }

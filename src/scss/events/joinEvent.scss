@@ -40,7 +40,15 @@
     }
 }
 
+#singleEvent {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
 @media only screen and (max-width: 600px) {
+
+
     #joinevent {
         width: 400px;
 
@@ -66,7 +74,7 @@
 }
 
 #singleEvent {
-    width: 700px;
+    // width: 700px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: $lightGreen;   

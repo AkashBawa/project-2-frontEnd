@@ -35,3 +35,19 @@
 img.volProfile {
   border-radius: 20px;
 }
+
+.ratingDivv {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.volrate {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.displayProfile p{
+  text-align: center;
+}

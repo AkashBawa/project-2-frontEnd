@@ -204,6 +204,7 @@ nav img {
   width: 180px;
   border: #eb592d solid 1px;
   font-size: large;
+  font-weight: bold;
 }
 
 #createPost a {
@@ -226,6 +227,7 @@ nav img {
 .topIcons img {
   width: 75px;
   height: 75px;
+  
 }
 
 /* ============================================= */
@@ -311,3 +313,36 @@ h2.pointsDash {
 img.ant-menu-item-icon {
   width: 30px;
 }
+
+
+.ant-rate {
+  
+  color: orangered;
+  font-size: 2.5rem;
+  
+  
+}
+
+
+
+#myPostId {
+  .ant-modal .ant-modal-footer{
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+}
+
+.ant-modal-footer {
+  text-align: center;
+}
+
+.ant-btn-primary {
+  background-color: #EB593F;
+}
+
+.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  color: #fff;
+  background-color: #EB593F;
+}
+  
