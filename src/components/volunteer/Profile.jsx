@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../services/axios";
 import { Input, Select, Form } from "antd";
+import { Rate } from 'antd';
+
 
 const Profile = () => {
 
@@ -124,9 +126,9 @@ const Profile = () => {
 
   return (
     <div>
-
-      <>
-        <h1>Hi, {volProfile.name}</h1>
+<h1>Hi, {volProfile.name}</h1>
+      <div className="volrate">
+        
         {
           selectedImage == null && (
             <div className="take-image">
@@ -148,9 +150,25 @@ const Profile = () => {
               <br />
               <button onClick={() => setSelectedImage(null)}>Remove</button>
             </div>
+            
+            
           )
         }
-      </>
+
+        <div className="ratingDivv">
+        <div className="displayProfile">
+        {volProfile ? (
+          <div>
+        
+      <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p> 
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+          <Rate allowHalf value={rating ? parseFloat(rating.toFixed(2)) : 0} /></div>
+          
+      </div>
       {/* <h1>Volenteer Profile</h1> */}
 
 <br />
@@ -253,7 +271,7 @@ const Profile = () => {
       {/* </form> */}
 
 
-      <div className="displayProfile">
+      {/* <div className="displayProfile">
         {volProfile ? (
           <div>
         
@@ -263,6 +281,8 @@ const Profile = () => {
           <p>Loading...</p>
         )}
       </div>
+
+      <Rate allowHalf value={rating ? parseFloat(rating.toFixed(2)) : 0} /> */}
 
     </div>
   );

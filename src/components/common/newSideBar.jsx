@@ -64,6 +64,10 @@ const NewSideBar = () => {
                                     <img src={rewardsIcon} alt="Rewards Icon" />
                                     <Link className="menu__item" to={"rewards"}> Rewards</Link>
                                 </li>
+                                 <li className="sideBarIcons">
+                                    <img src={UserVolunteer} alt="Logout icon" />
+                                    <Link className="menu__item" to={"profile"}> Profile</Link>
+                                </li>
                                 <li className="sideBarIcons">
                                     <img src={Logouticon} alt="Logout icon" />
                                     <Link className="menu__item" to={"logout"}> Logout</Link>

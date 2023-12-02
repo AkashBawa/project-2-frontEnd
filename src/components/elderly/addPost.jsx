@@ -35,15 +35,15 @@ const AddPost = (userName) => {
       duration: 1
     });
   };
-  
-  const updateLocationAnsCoordinates = ( location, coordinates) => {
-   
+
+  const updateLocationAnsCoordinates = (location, coordinates) => {
+
     setLocation(location);
     setCoordinates(coordinates);
   }
 
   const submit = async () => {
-   
+
     const payload = {
       date,
       // startTime,
@@ -51,9 +51,9 @@ const AddPost = (userName) => {
       endTime,
       serviceTitle,
       serviceType,
-      address: location,
+      address: location ? location : "Langara Court, Coquitlam BC V3C 6B4",
       location: {
-        coordinates: coordinates
+        coordinates: coordinates ? coordinates : [-122.7779326, 49.1548582]
       }
     };
 
@@ -78,14 +78,14 @@ const AddPost = (userName) => {
         dispatch(setLoader({ loader: false }));
       }
 
-      
+
     } else {
       openNotification("Fill all the details");
     }
   };
   return (
     <div id="addPost">
-      <h2>Add post</h2>
+      <h1>Add post</h1>
       <div className="addpost">
         <Form
           name="trigger"
@@ -153,10 +153,12 @@ const AddPost = (userName) => {
             <div className="mapbox">
               <TomTomAutoComplete updateLocationAnsCoordinates={updateLocationAnsCoordinates} />
             </div>
+          </div >
+          <div className="addPostSubmit">
+            <button type="primary" className="darkBtn" onClick={submit}>
+              Submit
+            </button>
           </div>
-          <button type="primary" className="darkBtn" onClick={submit}>
-            Submit
-          </button>
         </Form>
       </div>
     </div>

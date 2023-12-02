@@ -16,9 +16,14 @@ div:has(#addPost) {
     width: 100%;
     padding: 1rem 0.5rem;
     margin-right: .5rem;
+    border-radius: 5px;
   }
 
-  
+  label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
   .bottomPart input {
     width: 95% !important;
 
@@ -46,5 +51,21 @@ div:has(#addPost) {
       text-align: left;
       display: block;
     }
+  }
+
+
+  .addPostSubmit {
+    grid-column: span 2;
+      text-align: center;
+    justify-content: center;
+  }
+  
+  .addPostSubmit button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .5rem 3rem;
+    margin-top: 3rem;
+    text-align: center;
+    justify-content: center;
   }
 }
