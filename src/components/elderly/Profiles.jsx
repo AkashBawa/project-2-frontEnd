@@ -178,7 +178,7 @@ const Profiles = () => {
       >
         <Form.Item label="Name">
           <Input
-            placeholder="Service title"
+            placeholder="NAME"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
@@ -186,7 +186,7 @@ const Profiles = () => {
         </Form.Item>
         <Form.Item label="Age">
           <Input
-            placeholder="Service type"
+            placeholder="Age"
             name="age"
             value={formData.age}
             onChange={handleInputChange}
@@ -194,7 +194,7 @@ const Profiles = () => {
         </Form.Item>
         <Form.Item label="Contact Number">
           <Input
-            placeholder="Service type"
+            placeholder="Contact Number"
             name="contactNumber"
             value={formData.contactNumber}
             onChange={handleInputChange}
@@ -203,7 +203,7 @@ const Profiles = () => {
         <Form.Item label="interest">
           <TextArea
             rows={6}
-            placeholder="Service type"
+            placeholder="Interest"
             name="interest"
             value={formData.interest}
             onChange={handleInputChange}

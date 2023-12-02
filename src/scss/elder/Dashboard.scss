@@ -227,6 +227,7 @@ nav img {
 .topIcons img {
   width: 75px;
   height: 75px;
+  
 }
 
 /* ============================================= */
@@ -314,7 +315,7 @@ img.ant-menu-item-icon {
 }
 
 
-:where(.css-dev-only-do-not-override-2q8sxy).ant-rate {
+.ant-rate {
   
   color: orangered;
   font-size: 2.5rem;
@@ -322,21 +323,25 @@ img.ant-menu-item-icon {
   
 }
 
-.ant-space.css-dev-only-do-not-override-2q8sxy.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
+
+
+#myPostId {
+  .ant-modal .ant-modal-footer{
   margin: 0;
   margin-bottom: 1rem;
   text-align: center;
 }
+}
 
-:where(.css-dev-only-do-not-override-2q8sxy).ant-modal .ant-modal-footer {
+.ant-modal-footer {
   text-align: center;
 }
 
-:where(.css-dev-only-do-not-override-2q8sxy).ant-btn-primary {
+.ant-btn-primary {
   background-color: #EB593F;
 }
 
-:where(.css-dev-only-do-not-override-2q8sxy).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
   color: #fff;
   background-color: #EB593F;
 }

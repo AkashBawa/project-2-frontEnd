@@ -45,13 +45,15 @@
 .main {
 
     display: grid;
-    grid-template-columns: .5fr .3fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     justify-content: center;
     padding: 3rem;
 
     img {
         border-radius: 50%;
+        width: 100%;
+        height: auto;
     }
 
 }
@@ -73,7 +75,7 @@
 
 
 .signupForm {
-    h2{
+    h2 {
         font-size: 2rem;
         color: #00756a;
     }
@@ -92,11 +94,13 @@
         align-items: center;
         justify-content: center;
 
-        
+
 
     }
 
-    .signupImg{
+    .signupImg {
         display: none;
+        max-width: 100%;
+        height: auto;
     }
 }
