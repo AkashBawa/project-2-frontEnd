@@ -98,9 +98,7 @@ const CreateEvent = () => {
             />
             <Form
                 name="trigger"
-                style={{
-                    maxWidth: 400,
-                }}
+                className="input-form"
                 layout="vertical"
                 autoComplete="off"
             >
@@ -123,17 +121,17 @@ const CreateEvent = () => {
                         <h2>Details</h2>
                         <div className="left-side">
                             <Form.Item label="Location" >
-                                <Input placeholder="Location" value={location} onChange={(e) => { setLocation(e.target.value) }} />
+                                <Input placeholder="Location" className="event-input"  value={location} onChange={(e) => { setLocation(e.target.value) }} />
                             </Form.Item>
                             <Form.Item label="Date">
-                                <input type="date" value={date} onChange={(e) => { setDate(e.target.value) }} />
+                                <input type="date" value={date} className="event-input" onChange={(e) => { setDate(e.target.value) }} />
                             </Form.Item>
                             <Form.Item label="Select Start time">
-                                <input type="time" value={startTime} onChange={(e) => { setStartTime(e.target.value) }} required />
+                                <input type="time" value={startTime} className="event-input" onChange={(e) => { setStartTime(e.target.value) }} required />
                             </Form.Item>
 
                             <Form.Item label="Select End time">
-                                <input type="time" value={endTime} onChange={(e) => { setEndTime(e.target.value) }} required />
+                                <input type="time" value={endTime} className="event-input" onChange={(e) => { setEndTime(e.target.value) }} required />
                             </Form.Item>
                         </div>
 

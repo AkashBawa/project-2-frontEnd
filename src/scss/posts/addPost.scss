@@ -1,27 +1,43 @@
+div:has(#addPost) {
+  padding: 0.5rem 1% !important;
+}
+
 #addPost {
   h2 {
     color: darkgreen;
   }
+
   form {
     max-width: 100% !important;
   }
+
   input {
     border: 1px solid #292929;
     width: 100%;
     padding: 1rem 0.5rem;
+    margin-right: .5rem;
+  }
+
+  
+  .bottomPart input {
+    width: 95% !important;
+
   }
 
   .bottomPart {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+
     @media only screen and (max-width: 600px) {
       grid-template-columns: 1fr;
     }
   }
+
   .mapDiv {
     border-radius: 8px;
   }
+
   .mapbox {
     label {
       padding: 0 0 8px;

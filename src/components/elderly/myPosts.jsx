@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
-import DeleteImage from './../../images/deletePost.png';
+import DeleteImage from './../../images/delete.png';
 import Edit from './../../images/edit.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';

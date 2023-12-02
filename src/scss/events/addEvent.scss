@@ -58,4 +58,50 @@
     .ant-tabs-tab-btn {
         font-size: 20px;
     }
+
+    .event-input {
+        height: 31px;
+        width: 200px;
+        background-color: #ffffff;
+        background-image: none;
+        border-width: 1px;
+        border-style: solid;
+        background-color: #ffffff;
+        background-image: none;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #D9D9DB;
+        border-radius: 6px;
+        padding: 0 0.6rem;
+    }
+    .right-side {
+        margin-left: 2rem;
+        label {
+            display: block;
+        }
+
+        textarea {
+            background-color: #ffffff;
+            background-image: none;
+            border-width: 1px;
+            border-style: solid;
+            background-color: #ffffff;
+            background-image: none;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #D9D9DB;
+            border-radius: 6px;
+            width: 300px;
+        };
+    }
+
+    .input-form {
+        max-width: 600px;
+    }
+
+    @media screen and (min-width: $breakPoint) {
+        .input-form {
+            max-width: 550px;
+        }
+    }
 }
