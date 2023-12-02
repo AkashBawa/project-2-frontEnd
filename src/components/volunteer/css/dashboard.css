@@ -3,6 +3,7 @@
     width: 80%;
 }
 
+
 .list-posts {
     display: flex;
     justify-content: center;
@@ -13,6 +14,7 @@
 }
 
 /* Styling the page responsive  */
+
 #root:has(.dashBoardVolunteer) {
     /* max-width: 1280px;
     margin: auto; */
