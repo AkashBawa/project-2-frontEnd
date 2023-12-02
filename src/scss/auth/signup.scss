@@ -45,13 +45,15 @@
 .main {
 
     display: grid;
-    grid-template-columns: .5fr .3fr;
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
     justify-content: center;
     padding: 3rem;
 
     img {
         border-radius: 50%;
+        width: 100%;
+        height: auto;
     }
 
 }
