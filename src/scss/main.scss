@@ -202,3 +202,11 @@ div:where(.swal2-icon).swal2-success {
   border: #eb592d solid 1px;
   font-size: large;
 }
+
+.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: $btnDark !important
+}
+
+.ant-tabs .ant-tabs-tab:hover {
+  color: inherit !important;
+}
