@@ -51,9 +51,9 @@ const AddPost = (userName) => {
       endTime,
       serviceTitle,
       serviceType,
-      address: location,
+      address: location ? location : "Langara Court, Coquitlam BC V3C 6B4",
       location: {
-        coordinates: coordinates
+        coordinates: coordinates ? coordinates : [-122.7779326, 49.1548582]
       }
     };
 
