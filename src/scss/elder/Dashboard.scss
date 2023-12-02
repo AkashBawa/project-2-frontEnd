@@ -311,3 +311,32 @@ h2.pointsDash {
 img.ant-menu-item-icon {
   width: 30px;
 }
+
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-rate {
+  
+  color: orangered;
+  font-size: 2.5rem;
+  
+  
+}
+
+.ant-space.css-dev-only-do-not-override-2q8sxy.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-modal .ant-modal-footer {
+  text-align: center;
+}
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-btn-primary {
+  background-color: #EB593F;
+}
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  color: #fff;
+  background-color: #EB593F;
+}
+  
