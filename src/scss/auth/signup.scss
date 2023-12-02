@@ -73,7 +73,7 @@
 
 
 .signupForm {
-    h2{
+    h2 {
         font-size: 2rem;
         color: #00756a;
     }
@@ -92,11 +92,13 @@
         align-items: center;
         justify-content: center;
 
-        
+
 
     }
 
-    .signupImg{
+    .signupImg {
         display: none;
+        max-width: 100%;
+        height: auto;
     }
 }
