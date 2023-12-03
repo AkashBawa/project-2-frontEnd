@@ -170,7 +170,7 @@ const Dashboard = () => {
               </div>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
-                <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
+                <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
               </div>
 
             </div>
@@ -199,7 +199,7 @@ const Dashboard = () => {
                     />
                   </>
                 )}
-           <h2>Next Medal: {volProfile ? `${volProfile.point} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
+           <h2>Next Medal: {volProfile ? `${volProfile.point ?? 0} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
 
               </div>
             </div>
