@@ -85,7 +85,7 @@ const AddPost = (userName) => {
   };
   return (
     <div id="addPost">
-      <h1>Add post</h1>
+      <h1>How can we help you?</h1>
       <div className="addpost">
         <Form
           name="trigger"

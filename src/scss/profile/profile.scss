@@ -1,15 +1,20 @@
 #profilePage {
+  padding: .5rem 1%;
+
   button {
     @include submitButton;
   }
+
   h2 {
     color: $primaryGreen;
     font-size: 2rem;
   }
+
   .userImage {
     .ant-upload-list-item {
       border-radius: 10px !important;
     }
+
     .ant-upload-list-item-container {
       width: 200px;
       height: 200px;
@@ -20,6 +25,7 @@
     @media screen and (min-width: 768px) {
       width: 50%;
     }
+
     p {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -48,6 +54,6 @@ img.volProfile {
   flex-wrap: wrap;
 }
 
-.displayProfile p{
+.displayProfile p {
   text-align: center;
 }

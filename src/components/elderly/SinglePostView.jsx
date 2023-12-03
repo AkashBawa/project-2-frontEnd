@@ -89,15 +89,15 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                     // invite.status == "PENDING" &&
                     // (
                     <div className="requestList" key={"invitation-" + invitationIndex}>
-                      <img src={invite.user.profilePhoto} alt="Volunteer Image" className="vimg" />
-                      <div className="vsummary">
-                        <div className="inlineText">
-                          <h1>Volunteer Name:</h1>
-                          <h1 className="blackH1">{invite.user.name ? invite.user.name : invite.user.email}</h1>
+                      <img src={invite.user.profilePhoto ? invite.user.profilePhoto : ProfileImage} alt="Volunteer Image" className="vimg" />
+                      <div className="vsummary" id="volInlineText">
+                        <div>
+                          <h2>Volunteer Name:</h2>
+                          <h2>{invite.user.name ? invite.user.name : invite.user.email}</h2>
                         </div>
-                        <div className="inlineText">
-                          <h1>Volunteer Rating:</h1>
-                          <h1 className="blackH1">{invite.user.rating ? invite.user.rating : "No Current Volunteer Rating"}</h1>
+                        <div>
+                          <h2>Volunteer Rating:</h2>
+                          <h2>{invite.user.rating ? invite.user.rating : "No Current Rating"}</h2>
                         </div>
                       </div>
 
