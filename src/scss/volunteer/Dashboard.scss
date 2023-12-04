@@ -64,7 +64,7 @@ div:has(.dashBoardVolunteer) {
     // grid-row: 2/3;
   }
 
-  .dashVolunteerPending{
+  .dashVolunteerPending {
     grid-column: span 2;
   }
 
@@ -132,8 +132,8 @@ div:has(.dashBoardVolunteer) {
 
 
   #postsSection .ant-tabs-tab {
-    color: white !important;
-    background-color: #00756A !important;
+    color: black !important;
+    background-color: white !important;
     font-weight: bold !important;
     flex-grow: 1;
 
@@ -145,10 +145,11 @@ div:has(.dashBoardVolunteer) {
 
   #postsSection .ant-tabs-tab-active {
     background-color: white !important;
-    border: solid 1px #00756A;
+    border: none !important;
   }
 
   #postsSection .ant-tabs-tab {
+    border: none !important;
     display: block !important;
     text-align: center;
     margin: auto;

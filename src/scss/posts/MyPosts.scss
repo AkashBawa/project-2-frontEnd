@@ -1,7 +1,7 @@
 /* Styling MyPost Area  */
 
 #mypostID {
-   
+
 
     .darkBtn {
         font-size: 1rem;
@@ -13,10 +13,15 @@
     }
 
     #myPostsCard {
-        background-color: #F7F7F7;
-        margin: 1rem;
-        padding: 1rem;
-        border-radius: 20px;
+        background-color: #FAFAFA;
+        margin: .5rem;
+        padding: 0;
+        border-radius: 15px;
+        height: 150px !important;
+
+        .ant-card-body {
+            padding: 15px 30px !important;
+        }
     }
 
     .dashBoardElder .cardBody {
@@ -183,20 +188,19 @@
     padding: 3rem;
 }
 
-.eventDetails h1{
-    margin-bottom: 0;
+.eventDetails h1 {
+    margin: 0;
+    color: #000 !important;
+    font-size: 25px;
 }
 
-.eventDetails p{
-    font-size: 1.2rem;
+.eventDetails p {
+    font-size: 20px;
     margin-top: 0;
 }
 
-.eventDetails .pEvent{
-    margin-top: 18px;
-    // margin-bottom: 30px;
-}
-.myPostDT{
+
+.myPostDT {
     display: flex;
     gap: 2rem;
 }
