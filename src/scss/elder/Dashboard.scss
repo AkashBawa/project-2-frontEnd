@@ -56,8 +56,8 @@ div:has(.dashBoardElder) {
   }
 
   #postsSection .ant-tabs-tab {
-    color: white !important;
-    background-color: #00756a !important;
+    color: black !important;
+    background-color: white !important;
     font-weight: bold !important;
     flex-grow: 1;
   }
@@ -68,7 +68,6 @@ div:has(.dashBoardElder) {
 
   #postsSection .ant-tabs-tab-active {
     background-color: white !important;
-    border: solid 1px #00756a;
   }
 
   #postsSection .ant-tabs-tab {
@@ -79,7 +78,7 @@ div:has(.dashBoardElder) {
   }
 
   #postsSection .ant-tabs-tab-active div {
-    color: #00756a !important;
+    color: white !important;
     display: inline !important;
     border-bottom: #EB592D 5px solid;
   }
@@ -102,6 +101,7 @@ div:has(.dashBoardElder) {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+
   }
 
   .dashBoardElderHeader h1 {
@@ -127,7 +127,7 @@ div:has(.dashBoardElder) {
 
   #postsSection .ant-tabs-tab-active div {
     display: inline;
-    color: #00756A !important;
+    color: black !important;
     border-bottom: #EB592D 5px solid;
 
   }
@@ -137,14 +137,13 @@ div:has(.dashBoardElder) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem auto;
+    margin: 3rem auto;
   }
 
   /* Styling for the Elder Dashboard Posts Section*/
 
   #postsSection .ant-tabs-tab {
-    color: white !important;
-    background-color: #00756a !important;
+    color: black !important;
     font-weight: bold !important;
     flex-grow: 1;
   }
@@ -155,7 +154,6 @@ div:has(.dashBoardElder) {
 
   #postsSection .ant-tabs-tab-active {
     background-color: white !important;
-    border: solid 1px #00756a;
   }
 
   #postsSection .ant-tabs-tab {
@@ -165,13 +163,17 @@ div:has(.dashBoardElder) {
   }
 
   #postsSection .ant-tabs-tab-active div {
-    color: #00756a !important;
+    color: black !important;
   }
 }
 
 /* Styling for the Elder Dashboard Header*/
 h1 {
   color: #00756a;
+}
+
+.postsSectionNav h1:nth-of-type(1) {
+  font-size: 32px;
 }
 
 .dashNav {
@@ -201,10 +203,10 @@ nav img {
 #createPost {
   background-color: #eb592d;
   border-radius: 15px;
-  height: 55px;
+  height: 54px;
   width: 180px;
   border: #eb592d solid 1px;
-  font-size: large;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -217,6 +219,10 @@ nav img {
   text-align: center;
 }
 
+.dashBoardElderHeader h1 {
+  font-size: 36px;
+}
+
 .topIcons {
   display: flex;
   justify-content: right;
@@ -224,12 +230,6 @@ nav img {
   gap: 1rem;
 }
 
-.navtopIcons img,
-.topIcons img {
-  width: 46px;
-  height: 46px;
-  
-}
 
 /* ============================================= */
 
@@ -239,18 +239,19 @@ nav img {
   min-height: 50px;
 }
 
-.dashElderEvent,
-.dashElderUnanswered,
-.dashElderPending {
+.dashElderEvent {
   border-radius: 0.5rem;
-  // margin: 2rem 3rem;
   padding: 0.5em;
   border: 2px #00756a solid !important;
-  font-size: large;
+  font-size: 25px !important;
+  font-weight: bold;
+  color: #00756a;
+
 }
 
-.dashElderEvent h2 {
-  color: #00756a;
+.dashElderEvent h4 {
+  font-weight: 200;
+
 }
 
 .dashElderUnanswered {
@@ -260,6 +261,12 @@ nav img {
   border: 2px grey solid !important;
 }
 
+.dashElderUnanswered h2,
+.dashElderPending h2,
+.dashElderEvent h2 {
+  font-size: 25px !important;
+}
+
 .dashElderPending {
   color: #eb592d;
   border-radius: 0.5rem;
@@ -267,11 +274,12 @@ nav img {
   border: 2px#EB592D solid !important;
 }
 
+
 .unansCount,
 .pendingCount {
   max-width: 50%;
   text-align: center;
-  font-size: 5rem;
+  font-size: 80px;
   margin-right: 3rem;
   font-weight: bold;
   margin: auto;
@@ -280,10 +288,13 @@ nav img {
 .eventMore {
   color: white;
   background-color: #00756a;
-  border-radius: 0.5rem;
+  border-radius: 15px;
   padding: 0.5rem 1.5rem;
   border: 1px solid #00756a;
-  font-size: x-large;
+  font-size: 20px;
+  font-weight: bold;
+  width: 180px;
+  height: 54px;
 }
 
 /* ==================================== */
@@ -317,21 +328,21 @@ img.ant-menu-item-icon {
 
 
 .ant-rate {
-  
+
   color: orangered;
   font-size: 2.5rem;
-  
-  
+
+
 }
 
 
 
 #myPostId {
-  .ant-modal .ant-modal-footer{
-  margin: 0;
-  margin-bottom: 1rem;
-  text-align: center;
-}
+  .ant-modal .ant-modal-footer {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 }
 
 .ant-modal .ant-modal-footer {
@@ -350,14 +361,13 @@ img.ant-menu-item-icon {
 .ant-space {
   display: block;
   width: 100%;
-   margin:0;
+  margin: 0;
   text-align: center;
   margin-bottom: 1rem;
 }
 
 
 .ant-tabs-content-holder {
-  border: 1px solid #00756A;
+  // border: 1px solid #00756A;
 }
- 
-  
+
