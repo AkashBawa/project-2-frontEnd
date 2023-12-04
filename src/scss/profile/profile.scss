@@ -1,9 +1,10 @@
 #profilePage {
   padding: .5rem 2%;
 
-  button {
-    @include submitButton;
-  }
+  // button {
+  //   // @include submitButton;
+  //   padding: 10px;
+  // }
 
   h2 {
     color: $primaryGreen;

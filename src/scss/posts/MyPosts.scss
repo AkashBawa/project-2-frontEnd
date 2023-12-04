@@ -182,3 +182,21 @@
     border-radius: 5px;
     padding: 3rem;
 }
+
+.eventDetails h1{
+    margin-bottom: 0;
+}
+
+.eventDetails p{
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.eventDetails .pEvent{
+    margin-top: 18px;
+    // margin-bottom: 30px;
+}
+.myPostDT{
+    display: flex;
+    gap: 2rem;
+}

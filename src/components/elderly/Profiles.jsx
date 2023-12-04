@@ -270,7 +270,7 @@ const Profiles = () => {
           />
         </Form.Item>
 
-        <Button type="primary" onClick={handleSubmit}>
+        <Button className="darkBtn" type="primary" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>

@@ -67,7 +67,7 @@ const Profile = () => {
 
   const content = (
     <div>
-      <p>this is a averageRating out of 5</p>
+      <p>This is a Average Rating out of 5</p>
     </div>
   );
 
@@ -157,7 +157,7 @@ const Profile = () => {
     try {
 
       const responsee = await axios.postRequest("updateProfile", formDataVol, true);
-      fetchVolUserProfile();
+      // fetchVolUserProfile();
 
 
 
@@ -186,7 +186,6 @@ const Profile = () => {
     } catch (error) {
       console.error("Form submission error:", error);
     }
-    fetchVolUserProfile();
   };
 
   const handleInputChange = (e) => {

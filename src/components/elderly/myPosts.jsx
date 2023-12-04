@@ -174,12 +174,16 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                 <div className="eventDetails">
                   <h1>{post.serviceTitle}</h1>
 
-                  <h2>{post.address}</h2>
+                  <p className="pEvent">{post.address}</p>
 
                   <div className="myPostDT">
-                    <h2>
-                      {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
-                    </h2>
+                    <p>
+                      {moment(post.date).format("D MMMM")}
+                    </p>
+
+                    <p>
+                    {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
+                    </p>
                   </div>
                 </div>
 

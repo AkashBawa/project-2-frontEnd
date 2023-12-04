@@ -8,8 +8,8 @@ import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
 import Bronze from '../../images/image-25.png';
-import Silver from '../../images/image 24.png';
-import Gold from '../../images/image 23.png';
+import Silver from '../../images/silver.jpeg';
+import Gold from '../../images/gold.jpeg';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
 
@@ -199,7 +199,10 @@ const Dashboard = () => {
                     />
                   </>
                 )}
-                <h2>Next Medal: {volProfile ? `${volProfile.point ?? 0} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
+                <h2>
+                  Next Medal: {volProfile ? `${volProfile.point ?? 0} / ${volProfile.point <= 200 ? 200 : volProfile.point <= 400 ? 400 : 600}` : ''}
+                </h2>
+
 
               </div>
             </div>
