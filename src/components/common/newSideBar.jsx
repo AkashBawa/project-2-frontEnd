@@ -34,7 +34,7 @@ const NewSideBar = () => {
 
                     <ul className="menu__box">
                         <li className="logo">
-                            <Link className="menu__item" to="dashboard"><img src={IconLogo} alt="Wisecare logo" /></Link>
+                            <Link className="amenu.item menu__item" to="dashboard"><img src={IconLogo} alt="Wisecare logo" /></Link>
                         </li>
                         {
                             currentURL == "elder" ? <>

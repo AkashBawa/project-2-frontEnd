@@ -14,8 +14,8 @@ div:has(.dashBoardElder) {
 /* #root:has(.dashBoardElder) { */
 @media screen and (max-width: 900px) {
   .topIcons img {
-    width: 75px;
-    height: 75px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
   }
 
@@ -98,8 +98,9 @@ div:has(.dashBoardElder) {
 @media screen and (min-width: 900px) {
 
   .dashBoardElderHeader {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1rem;
   }
 
@@ -225,8 +226,8 @@ nav img {
 
 .navtopIcons img,
 .topIcons img {
-  width: 75px;
-  height: 75px;
+  width: 46px;
+  height: 46px;
   
 }
 
@@ -301,7 +302,7 @@ nav img {
 }
 
 .rewardPoints {
-  background-color: #f4e0e0;
+  background-color: #f7f7f7;
 }
 
 
@@ -354,5 +355,9 @@ img.ant-menu-item-icon {
   margin-bottom: 1rem;
 }
 
+
+.ant-tabs-content-holder {
+  border: 1px solid #00756A;
+}
  
   

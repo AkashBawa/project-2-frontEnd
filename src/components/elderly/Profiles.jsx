@@ -134,22 +134,24 @@ const Profiles = () => {
           beforeUpload={file => {
             return false;
           }}
-          listType="picture-circle"
+          listType="picture-card"
           fileList={fileList}
           onPreview={handlePreview}
           onChange={handleChange}
         >
           {fileList.length >= 1 ? null : uploadButton}
         </Upload>
-        <Form.Item label="interest">
+        
+        <Form.Item className="intesrestForm">
           <TextArea
-            rows={6}
+            rows={4}
             placeholder="Interest"
             name="interest"
             value={formData.interest}
             onChange={handleInputChange}
           />
         </Form.Item>
+      
       </div>
 
       <Modal

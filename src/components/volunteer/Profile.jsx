@@ -1,16 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../services/axios";
-import { Input, Select, Form } from "antd";
+import { Input, Select, Form, Upload, Button, Popover} from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import { Rate } from 'antd';
+import Edit from "../../images/danger.png"
+
+
+const getBase64 = file =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+
+const dataURLtoFile = (dataurl, filename) => {
+  var arr = dataurl.split(","),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[arr.length - 1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, { type: mime });
+};
+
 
 
 const Profile = () => {
 
   const { TextArea } = Input;
-
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState("");
+  const [previewTitle, setPreviewTitle] = useState("");
+  const [fileList, setFileList] = useState([]);
+  const [myPhoto, setPhoto] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [formDataVol, setFormDataVol] = useState({
+    profilePhoto: "",
     name: "",
     lName: "",
     age: "",
@@ -24,6 +53,43 @@ const Profile = () => {
   const [rating, setRating] = useState()
   const [points, setPoints] = useState([])
 
+  const handleCancel = () => setPreviewOpen(false);
+  const handlePreview = async file => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreviewImage(file.url || file.preview);
+    setPreviewOpen(true);
+    setPreviewTitle(
+      file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
+    );
+  };
+
+  const content = (
+    <div>
+      <p>this is a averageRating out of 5</p>
+    </div>
+  );
+
+  const handleChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+  };
+
+  const uploadButton = (
+    <div>
+      <PlusOutlined />
+      <div
+        style={{
+          marginTop: 8
+        }}
+      >
+        Upload
+      </div>
+    </div>
+  );
+
+  const [profile, setProfile] = useState({});
+
   const fetchRating = async () => {
     try {
       let getrating = await axios.getRequest("averageRating", true);
@@ -33,6 +99,8 @@ const Profile = () => {
       console.log(error);
     }
   }
+
+
 
   const fetchReview = async () => {
     try {
@@ -56,7 +124,10 @@ const Profile = () => {
       setVolProfile(getVolProfile);
       setFormDataVol(getVolProfile);
       if (getVolProfile.profilePhoto) {
-        setSelectedImage(getVolProfile.profilePhoto)
+        var file = dataURLtoFile(getVolProfile.profilePhoto, "photo")
+        file.originFileObj = file
+
+        setFileList([file])
       }
     } catch (error) {
       console.log(error);
@@ -71,17 +142,24 @@ const Profile = () => {
   }, []);
 
 
-  const toBase64 = (file) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-  });
+  // const toBase64 = (file) => new Promise((resolve, reject) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onload = () => resolve(reader.result);
+  //   reader.onerror = reject;
+  // });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if (fileList && fileList.length) {
+      formDataVol.profilePhoto = await getBase64(fileList[0].originFileObj);
+    }
     try {
+
+      const responsee = await axios.postRequest("updateProfile", formDataVol, true);
+      fetchVolUserProfile();
+
+
 
       let obj = { ...formDataVol };
       if (selectedImage) {
@@ -108,6 +186,7 @@ const Profile = () => {
     } catch (error) {
       console.error("Form submission error:", error);
     }
+    fetchVolUserProfile();
   };
 
   const handleInputChange = (e) => {
@@ -119,17 +198,52 @@ const Profile = () => {
     });
   };
 
-  const imageChange = async (img) => {
-    const base64I = await toBase64(img);
-    setSelectedImage(base64I);
-  }
+  // const imageChange = async (img) => {
+  //   const base64I = await toBase64(img);
+  //   setSelectedImage(base64I);
+  // }
 
   return (
-    <div>
-<h1>Hi, {volProfile.name}</h1>
+    <div id="profilePage">
+      <h2>Hi, {volProfile.name}</h2>
+      <div className="interestDiv">
+        <Upload
+          className="userImage"
+          beforeUpload={file => {
+            return false;
+          }}
+          listType="picture-card"
+          fileList={fileList}
+          onPreview={handlePreview}
+          onChange={handleChange}
+        >
+          {fileList.length >= 1 ? null : uploadButton}
+        </Upload>
+        <div>
+          <Form.Item className="intesrestForm">
+
+            <TextArea rows={5}
+              id="interest"
+              type="text"
+              name="interest"
+              value={formDataVol.interest}
+              onChange={handleInputChange}
+            />
+          </Form.Item>
+
+          <div className="rateClass">
+           
+            <Rate allowHalf value={rating ? parseFloat(rating.toFixed(2)) : 0} />
+          <Popover content={content} title="Rating" trigger="hover">
+            <img className="excla" src={Edit} alt="" />
+          </Popover>
+          </div>
+        </div>
+      </div>
+
       <div className="volrate">
-        
-        {
+
+        {/* {
           selectedImage == null && (
             <div className="take-image">
               <input type="file" name="eventImage" onChange={(e) => {
@@ -137,8 +251,8 @@ const Profile = () => {
               }} />
             </div>
           )
-        }
-        {
+        } */}
+        {/* {
           selectedImage && (
             <div>
               <img
@@ -153,25 +267,25 @@ const Profile = () => {
             
             
           )
-        }
+        } */}
 
-        <div className="ratingDivv">
-        <div className="displayProfile">
-        {volProfile ? (
-          <div>
-        
-      <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p> 
+        {/* <div className="ratingDivv">
+          <div className="displayProfile">
+            {volProfile ? (
+              <div>
+
+                <p>Rating: {rating ? rating.toFixed(2) : 'N/A'}</p>
+              </div>
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-          <Rate allowHalf value={rating ? parseFloat(rating.toFixed(2)) : 0} /></div>
-          
+          <Rate allowHalf value={rating ? parseFloat(rating.toFixed(2)) : 0} /></div> */}
+
       </div>
       {/* <h1>Volenteer Profile</h1> */}
 
-<br />
+      <br />
 
       <Form
         name="trigger"
@@ -180,7 +294,7 @@ const Profile = () => {
         }}
         layout="vertical"
         autoComplete="off"
-        onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       >
         <Form.Item label="Name">
           {/* <label htmlFor="name">Name</label> */}
@@ -229,7 +343,7 @@ const Profile = () => {
             ]}
           />
         </Form.Item>
-{/* 
+        {/* 
         <label htmlFor="gender">Gender</label>
         <select
           id="gender"
@@ -253,16 +367,16 @@ const Profile = () => {
           />
         </Form.Item>
 
-        <Form.Item>
+        {/* <Form.Item>
           <label htmlFor="interest">Interest</label>
-          <TextArea  rows={7}
+          <TextArea rows={7}
             id="interest"
             type="text"
             name="interest"
             value={formDataVol.interest}
             onChange={handleInputChange}
           />
-        </Form.Item>
+        </Form.Item> */}
 
         <input className="darkBtn" type="submit" value="Submit" onClick={handleSubmit} />
       </Form>

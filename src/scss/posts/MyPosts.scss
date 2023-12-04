@@ -1,6 +1,8 @@
 /* Styling MyPost Area  */
 
 #mypostID {
+   
+
     .darkBtn {
         font-size: 1rem;
     }
@@ -11,7 +13,7 @@
     }
 
     #myPostsCard {
-        background-color: #F5F5F5;
+        background-color: #F7F7F7;
         margin: 1rem;
         padding: 1rem;
         border-radius: 20px;
@@ -173,4 +175,10 @@
 
 .ant-modal.css-dev-only-do-not-override-1adbn6x {
     width: 600px !important;
+}
+
+.noInvitations {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 3rem;
 }

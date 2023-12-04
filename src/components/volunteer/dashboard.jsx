@@ -80,9 +80,9 @@ const Dashboard = () => {
     let approvedPosts = [];
     let completedRequest = [];
     allPosts.forEach((post, index) => {
-      if (post.acceptedVolunteerId == userId && post.status == "COMPLETED" ) {
+      if (post.acceptedVolunteerId == userId && post.status == "COMPLETED") {
         completedRequest.push(post);
-      } else if ( post.acceptedVolunteerId == userId && post.status == "BOOKED" ) {
+      } else if (post.acceptedVolunteerId == userId && post.status == "BOOKED") {
         approvedPosts.push(post);
       }
     });
@@ -104,7 +104,7 @@ const Dashboard = () => {
         setPosts(response.posts);
         setPendingCounter(response.posts.length)
       }
-      if(volActivePost && volActivePost.success) {
+      if (volActivePost && volActivePost.success) {
         filterPosts(volActivePost.data);
       }
 
@@ -147,7 +147,7 @@ const Dashboard = () => {
   const fetchVolUserProfile = async () => {
     try {
       let getVolProfile = await axios.getRequest("user", true);
-      if(getVolProfile) {
+      if (getVolProfile) {
         setVolProfile(getVolProfile);
       }
     } catch (error) {
@@ -199,7 +199,7 @@ const Dashboard = () => {
                     />
                   </>
                 )}
-           <h2>Next Medal: {volProfile ? `${volProfile.point ?? 0} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
+                <h2>Next Medal: {volProfile ? `${volProfile.point ?? 0} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
 
               </div>
             </div>
@@ -224,7 +224,7 @@ const Dashboard = () => {
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost}  />,
+                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
                     },
                     {
                       label: `History(${completedCounter})`,
