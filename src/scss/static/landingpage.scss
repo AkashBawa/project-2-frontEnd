@@ -1,16 +1,28 @@
 #landingpage {
+  span {
+    font-weight: bold !important;
+  }
+
   header {
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 780px) {
       .logsignup {
         display: none;
       }
+
       ul.main-menu {
         display: none !important;
       }
+    }
+
+    @media only screen and (min-width: 780px) {
       .landingpage-hm {
-        @media only screen and (min-width: 700px) {
-          display: none;
-        }
+        display: none;
+      }
+
+      .logsignup {
+        display: flex;
+        margin: 0 auto;
+        flex-flow: row nowrap;
       }
     }
   }
@@ -32,36 +44,46 @@
       flex-flow: column nowrap;
       gap: 1rem;
     }
+
     .logsignup {
       margin: 0 auto;
+      flex-flow: row nowrap;
     }
   }
+
   .hambergurmenu-cont.open {
-    right: 0; /* Slide in when the menu is open */
+    right: 0;
+    /* Slide in when the menu is open */
     z-index: 1;
   }
 
   h2 {
     color: #00756a;
   }
+
   .sectionimg {
     overflow: hidden;
+
     img {
       display: block;
       width: 100%;
       height: 100%;
     }
   }
+
   section {
     .containercont:nth-child(odd) .sectioncont {
       order: 1;
     }
+
     .containercont:nth-child(even) .sectioncont {
       order: 2;
     }
+
     .containercont:nth-child(odd) .sectionimg {
       order: 2;
     }
+
     .containercont:nth-child(even) .sectionimg {
       order: 1;
     }
@@ -74,55 +96,150 @@
     padding: 0.5rem 1rem;
     color: $btnDark;
   }
+
   .orgbut {
     @include submitButton;
   }
+
   a {
     text-decoration: none;
     color: #fff;
   }
+
   li {
     list-style: none;
   }
+
   ul {
     padding: 0;
     margin: 0;
     display: flex;
     flex-flow: row nowrap;
     gap: 1rem;
+    flex-grow: 1;
+    justify-content: space-around;
   }
+
   .container {
     max-width: 90%;
     margin: 0 auto;
     padding: 0 1rem;
   }
+
   .containercont {
     max-width: 80%;
     margin: 0 auto;
     padding: 0 1rem;
-    @media only screen and (min-width: 700px) {
+
+    @media only screen and (min-width: 780px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
       justify-content: space-between;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 10rem;
+      margin-bottom: 15rem;
     }
   }
+
   header {
+    height: 88px !important;
     background-color: $primaryGreen;
     padding: 1rem 0;
     color: #fff;
     margin-bottom: 1.5rem;
 
+    .logsignup a {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .main-menu {
+      font-size: 22px !important;
+    }
+
     .container {
       display: flex;
       gap: 2rem;
-      flex-flow: row wrap;
-      justify-content: space-between; /* Distribute space between items */
-      align-items: center; /* Center items vertically */
+      flex-flow: row nowrap;
+      justify-content: space-between !important;
+      /* Distribute space between items */
+      align-items: center;
+      /* Center items vertically */
       padding: 1.5rem 0;
     }
+  }
+
+  .lightH1 {
+    font-size: 25px !important;
+    font-weight: 600 !important;
+  }
+
+  .HeavyH2 {
+    font-size: 36px !important;
+  }
+
+  .sectioncont p {
+    font-size: 20px !important;
+
+  }
+
+  .contbox-right {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    gap: .5erm;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 35px;
+      height: auto;
+      align-items: start;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 25px;
+    }
+
+  }
+
+  .inlineLanding {
+    display: inline;
+
+    img {
+      margin-right: 1rem;
+      width: 36px;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    p {
+      display: inline;
+      margin-right: .25rem;
+    }
+  }
+
+  #space {
+    margin: 3rem 0;
+  }
+
+  #homeLink {
+
+    margin-bottom: 5rem !important;
+    padding-bottom: 5rem;
+    text-align: center;
+  }
+
+  #homeLink a {
+    color: #00756a;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
   }
 }
 
@@ -132,6 +249,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for darkness */
+  background: rgba(0, 0, 0, 0.5);
+  /* Adjust the alpha value for darkness */
   z-index: 1;
 }
