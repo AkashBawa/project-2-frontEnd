@@ -85,16 +85,18 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
         <p>Thank you for reviewing my profile</p>
         <button type="primary" className="darkBtn" onClick={handleOk}>Close</button>
       </Modal>
-
-      <h1>{currentPost.serviceTitle}</h1>
-      <h2>{currentPost.serviceType}</h2>
-      <h2>{currentPost.time ? currentPost.time : currentPost.startTime} - {currentPost.endTime}  </h2>
-      <h2>{currentPost.address}</h2>
+      <h1>Post Summary</h1>
+      <div className="singlePostSummary">
+        <p>{currentPost.serviceTitle}</p>
+        <p>{currentPost.serviceType}</p>
+        <p>{currentPost.time ? currentPost.time : currentPost.startTime} - {currentPost.endTime}</p>
+        <p>{currentPost.address}</p>
+      </div>
       {
         (currentPost?.invitations && currentPost.invitations.length > 0) ?
           (
             <div className="invitations">
-              <h3> Invitations </h3>
+              <h1>Post Invitations</h1>
               {
                 currentPost?.invitations.map((invite, invitationIndex) => {
                   return (
@@ -103,13 +105,9 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                     <div className="requestList" key={"invitation-" + invitationIndex}>
                       <img src={invite.user.profilePhoto ? invite.user.profilePhoto : ProfileImage} alt="Volunteer Image" className="vimg" />
                       <div className="vsummary" id="volInlineText">
-                        <div>
-                          <h2>Volunteer Name:</h2>
-                          <h2>{invite.user.name ? invite.user.name : invite.user.email}</h2>
-                        </div>
+                        <p>Volunteer Name: {invite.user.name ? invite.user.name : invite.user.email}</p>
                         <div className="inlineText">
-                          <h1>Volunteer Rating:</h1>
-                          <h1>{rating ? parseFloat(rating.toFixed(2)) : 0}</h1>
+                          <p>Volunteer Rating: {rating ? parseFloat(rating.toFixed(2)) : 0}</p>
                           {/* <h1 className="blackH1">{invite.user.rating ? invite.user.rating : "No Current Volunteer Rating"}</h1> */}
                         </div>
                       </div>

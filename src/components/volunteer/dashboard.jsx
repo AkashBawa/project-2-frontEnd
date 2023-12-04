@@ -12,6 +12,7 @@ import Bronze from '../../images/gold.jpeg';
 import Gold from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
+import notIcon from "./../../images/icon_notification.png";
 
 
 import { useDispatch } from "react-redux";
@@ -169,6 +170,8 @@ const Dashboard = () => {
                 <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
               </div>
               <div className="rewardPoints">
+              {/* <img src={notIcon} alt="notification icon" />
+                <Link to='/volunteer/profile'><img src={formData.profilePhoto} alt="iconProfile" /></Link> */}
                 <img src={rewardIcon} alt="reward" />
                 <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
               </div>

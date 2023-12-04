@@ -89,19 +89,19 @@ button {
 // }
 
 .ant-input:hover {
-    border-color: $btnDark !important;
-    box-shadow: none !important; 
+  border-color: $btnDark !important;
+  box-shadow: none !important;
 }
 
 .ant-input:focus {
   border-color: $btnDark !important;
-  box-shadow: none !important; 
+  box-shadow: none !important;
 }
 
 
 .ant-input:focus-within {
   border-color: $btnDark !important;
-  box-shadow: none !important; 
+  box-shadow: none !important;
 }
 
 button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-primary:hover {
@@ -110,7 +110,7 @@ button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-primary:hover {
 
 button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-default {
   color: inherit !important;
-    border-color: inherit !important;
+  border-color: inherit !important;
 }
 
 
@@ -168,6 +168,8 @@ div:where(.swal2-container).swal2-noanimation {
 }
 
 div:where(.swal2-container) div:where(.swal2-popup) {
+  height: 215px !important;
+  width: 540px !important;
   color: #000 !important;
   border-radius: 15px !important;
 }
@@ -179,7 +181,7 @@ div:where(.swal2-icon).swal2-success {
 
 .swal2-html-container {
   color: #000;
-  font-size: xx-large !important;
+  font-size: 25px !important;
   font-weight: bold !important;
   border-radius: 15px;
 }
@@ -190,7 +192,9 @@ div:where(.swal2-icon).swal2-success {
   height: 55px;
   width: 180px;
   border: #eb592d solid 1px;
-  font-size: large;
+  font-size: 20px;
+  font-weight: bold;
+
 }
 
 .swal2-actions .swal2-cancel {
@@ -200,7 +204,8 @@ div:where(.swal2-icon).swal2-success {
   height: 55px;
   width: 180px;
   border: #eb592d solid 1px;
-  font-size: large;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {

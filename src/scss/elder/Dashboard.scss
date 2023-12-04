@@ -371,3 +371,16 @@ img.ant-menu-item-icon {
   // border: 1px solid #00756A;
 }
 
+.noPost {
+  background-color: #FAFAFA;
+  margin: .5rem;
+  padding: 0;
+  border-radius: 15px;
+  height: 150px !important;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}

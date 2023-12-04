@@ -144,18 +144,38 @@ const Dashboard = () => {
                     {
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: (
+                        <>
+                          <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {pendingPosts.length === 0 && <div className="noPost">No Posts To Show</div>}
+                        </>
+                      )
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+
+                      children: (
+                        <>
+                          <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {approvedPosts.length === 0 && <div className="noPost">No Active Posts</div>}
+                        </>
+                      )
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
-                    },
+                      // children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+
+                      children: (
+                        <>
+                          <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {pendingPosts.length === 0 && <div className="noPost">No History Posts</div>}
+                        </>
+                      ),
+                    }
                   ]
                 }
               />
