@@ -12,9 +12,33 @@ const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
 
   const navigate = useNavigate();
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
+  const [formDataVol, setFormDataVol] = useState({
+    profilePhoto: "",
+    name: "",
+    lName: "",
+    age: "",
+    gender: "male",
+    contactNumber: "",
+    interest: "",
+    eContact: "",
+  });
 
   useEffect(() => {
+    fetchVolUserProfile()
   }, []);
+
+
+  const fetchVolUserProfile = async () => {
+    try {
+      let getVolProfile = await axios.getRequest("user", true);
+
+      setFormDataVol(getVolProfile);
+     
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
 
   const checkInvitationSent = (post) => {
     if(post.invitations && post.invitations.length > 0) {

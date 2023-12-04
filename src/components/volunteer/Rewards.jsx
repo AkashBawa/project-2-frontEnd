@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import iconProfile from './../../images/icon_profile.png';
 import Certificate from '../../images/certificate 1.png'
 import Bronze from '../../images/image-25.png'
-import Silver from '../../images/image 24.png'
-import Gold from '../../images/image 23.png'
+import Silver from '../../images/silver.jpeg'
+import Gold from '../../images/gold.jpeg'
 
 const Rewards = () => {
   const [volProfile, setVolProfile] = useState(null);

@@ -14,7 +14,19 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewUser, setViewUser] = useState(null);
+  const [rating, setRating] = useState()
   // const [resolution, setResolution] = useState(null);
+
+
+  const fetchRating = async () => {
+    try {
+      let getrating = await axios.getRequest("averageRating", true);
+      setRating(getrating[0].ratingAvg);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   const responseInvitation = async (acceptedUserId, status, changeSingleView) => {
@@ -89,15 +101,16 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                     // invite.status == "PENDING" &&
                     // (
                     <div className="requestList" key={"invitation-" + invitationIndex}>
-                      <img src={invite.user.profilePhoto} alt="Volunteer Image" className="vimg" />
-                      <div className="vsummary">
-                        <div className="inlineText">
-                          <h1>Volunteer Name:</h1>
-                          <h1 className="blackH1">{invite.user.name ? invite.user.name : invite.user.email}</h1>
+                      <img src={invite.user.profilePhoto ? invite.user.profilePhoto : ProfileImage} alt="Volunteer Image" className="vimg" />
+                      <div className="vsummary" id="volInlineText">
+                        <div>
+                          <h2>Volunteer Name:</h2>
+                          <h2>{invite.user.name ? invite.user.name : invite.user.email}</h2>
                         </div>
                         <div className="inlineText">
                           <h1>Volunteer Rating:</h1>
-                          <h1 className="blackH1">{invite.user.rating ? invite.user.rating : "No Current Volunteer Rating"}</h1>
+                          <h1>{rating ? parseFloat(rating.toFixed(2)) : 0}</h1>
+                          {/* <h1 className="blackH1">{invite.user.rating ? invite.user.rating : "No Current Volunteer Rating"}</h1> */}
                         </div>
                       </div>
 

@@ -1,4 +1,7 @@
 const ViewProfile = ( {user }) => {
+
+    
+
   return (
     <div id="viewProfile">
         <h1>{user.name}</h1>

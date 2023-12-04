@@ -92,6 +92,8 @@ const Profiles = () => {
     }
   };
 
+  
+
   useEffect(() => {
     fetchUserProfile();
   }, []);
@@ -132,14 +134,24 @@ const Profiles = () => {
           beforeUpload={file => {
             return false;
           }}
-          listType="picture-circle"
+          listType="picture-card"
           fileList={fileList}
           onPreview={handlePreview}
           onChange={handleChange}
         >
           {fileList.length >= 1 ? null : uploadButton}
         </Upload>
-        {/* <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea doloremque eveniet unde fugiat velit sunt nihil architecto dignissimos aspernatur quibusdam dolore cum sit nobis praesentium, totam repellendus ducimus incidunt optio!</p> */}
+        
+        <Form.Item className="intesrestForm">
+          <TextArea
+            rows={4}
+            placeholder="Interest"
+            name="interest"
+            value={formData.interest}
+            onChange={handleInputChange}
+          />
+        </Form.Item>
+      
       </div>
 
       <Modal
@@ -200,7 +212,7 @@ const Profiles = () => {
             onChange={handleInputChange}
           />
         </Form.Item>
-        <Form.Item label="interest">
+        {/* <Form.Item label="interest">
           <TextArea
             rows={6}
             placeholder="Interest"
@@ -208,7 +220,7 @@ const Profiles = () => {
             value={formData.interest}
             onChange={handleInputChange}
           />
-        </Form.Item>
+        </Form.Item> */}
 
 
         <Form.Item label="Gender">
@@ -258,7 +270,7 @@ const Profiles = () => {
           />
         </Form.Item>
 
-        <Button type="primary" onClick={handleSubmit}>
+        <Button className="darkBtn" type="primary" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>

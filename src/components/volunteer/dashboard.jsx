@@ -7,9 +7,9 @@ import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
-import Bronze from '../../images/image-25.png';
-import Silver from '../../images/image 24.png';
-import Gold from '../../images/image 23.png';
+import Silver from '../../images/silver.jpeg';
+import Bronze from '../../images/gold.jpeg';
+import Gold from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
 
@@ -80,9 +80,9 @@ const Dashboard = () => {
     let approvedPosts = [];
     let completedRequest = [];
     allPosts.forEach((post, index) => {
-      if (post.acceptedVolunteerId == userId && post.status == "COMPLETED" ) {
+      if (post.acceptedVolunteerId == userId && post.status == "COMPLETED") {
         completedRequest.push(post);
-      } else if ( post.acceptedVolunteerId == userId && post.status == "BOOKED" ) {
+      } else if (post.acceptedVolunteerId == userId && post.status == "BOOKED") {
         approvedPosts.push(post);
       }
     });
@@ -104,7 +104,7 @@ const Dashboard = () => {
         setPosts(response.posts);
         setPendingCounter(response.posts.length)
       }
-      if(volActivePost && volActivePost.success) {
+      if (volActivePost && volActivePost.success) {
         filterPosts(volActivePost.data);
       }
 
@@ -147,7 +147,7 @@ const Dashboard = () => {
   const fetchVolUserProfile = async () => {
     try {
       let getVolProfile = await axios.getRequest("user", true);
-      if(getVolProfile) {
+      if (getVolProfile) {
         setVolProfile(getVolProfile);
       }
     } catch (error) {
@@ -170,7 +170,7 @@ const Dashboard = () => {
               </div>
               <div className="rewardPoints">
                 <img src={rewardIcon} alt="reward" />
-                <h2 className="pointsDash">Your Points: {volProfile?.point}</h2>
+                <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
               </div>
 
             </div>
@@ -199,7 +199,10 @@ const Dashboard = () => {
                     />
                   </>
                 )}
-           <h2>Next Medal: {volProfile ? `${volProfile.point} / ${volProfile.point <= 200 ? 200 : 400}` : ''}</h2>
+                <h2>
+                  Next Medal: {volProfile ? `${volProfile.point ?? 0} / ${volProfile.point <= 200 ? 200 : volProfile.point <= 400 ? 400 : 600}` : ''}
+                </h2>
+
 
               </div>
             </div>
@@ -224,7 +227,7 @@ const Dashboard = () => {
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost}  />,
+                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
                     },
                     {
                       label: `History(${completedCounter})`,

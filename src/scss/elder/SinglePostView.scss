@@ -1,5 +1,5 @@
 #ElderSinglePost {
-
+    padding: .5rem 1% !important;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -11,9 +11,9 @@
     }
 
     .vimg {
-        width: 150px !important;
-        height: 150px !important;
-        border-radius: 50%;
+        width: 100px !important;
+        height: 100px !important;
+        border-radius: 5px;
     }
 
     .vsummary {
@@ -22,12 +22,12 @@
     }
 
     .requestList {
-        background-color: #F5F5F5;
+        background-color: #F7F7F7;
         margin: 1rem;
         padding: 1rem;
         border-radius: 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         font-weight: bold;
     }
@@ -71,9 +71,21 @@
         color: #000 !important;
     }
 
-    .inlineText {
+    #volInlineText {
+        text-align: left;
+    }
+
+    #volInlineText h2:nth-of-type(1) {
         display: inline;
         text-align: left;
-        color: aqua !important;
+        color: #00756a !important;
+        margin-right: 1rem;
+
+    }
+
+    #volInlineText h2:nth-of-type(2) {
+        display: inline;
+        text-align: left;
+        color: black !important;
     }
 }
