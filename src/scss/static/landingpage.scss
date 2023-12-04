@@ -137,7 +137,7 @@
       justify-content: space-between;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 10rem;
+      margin-bottom: 15rem;
     }
   }
 
@@ -226,6 +226,20 @@
 
   #space {
     margin: 3rem 0;
+  }
+
+  #homeLink {
+
+    margin-bottom: 5rem !important;
+    padding-bottom: 5rem;
+    text-align: center;
+  }
+
+  #homeLink a {
+    color: #00756a;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
   }
 }
 

@@ -232,6 +232,9 @@ const LandingPage = () => {
                 <img src={Seniorslan5} alt="Description of the image" />
               </div>
             </div>
+            <div id="homeLink">
+              <a href="#landingpage" >Home Page</a>
+            </div>
           </section>
         </main>
       </body>
