@@ -7,9 +7,9 @@ import SinglePostView from "./../elderly/SinglePostView";
 import axios from "../../services/axios";
 import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
-import Bronze from '../../images/image-25.png';
 import Silver from '../../images/silver.jpeg';
-import Gold from '../../images/gold.jpeg';
+import Bronze from '../../images/gold.jpeg';
+import Gold from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
 
