@@ -3,6 +3,7 @@ import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
 import DeleteImage from './../../images/delete.png';
 import Edit from './../../images/edit.png';
+import ratingDone from './../../images/icon_rating.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
@@ -246,9 +247,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                 {
                   post.status !== "BOOKED" && post.status !== "PENDING" && <>
                     <div className="historySection">
-                      <>
-                        <p>Completed</p>
-                      </>
+                      <img src={ratingDone} alt="rating Done" />
                     </div>
                   </>
                 }

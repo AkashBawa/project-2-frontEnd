@@ -126,4 +126,12 @@
         }
     }
 
+    #volNameOrange {
+        color: orangered;
+        text-decoration: underline;
+    }
+
+    #volNameOrange:hover {
+        cursor: pointer;
+    }
 }

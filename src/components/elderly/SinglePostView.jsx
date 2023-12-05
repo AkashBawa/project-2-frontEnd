@@ -122,9 +122,9 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                     <div className="requestList" key={"invitation-" + invitationIndex}>
                       <img src={invite.user.profilePhoto ? invite.user.profilePhoto : ProfileImage} alt="Volunteer Image" className="vimg" />
                       <div className="vsummary" id="volInlineText">
-                        <p>Volunteer Name: {invite.user.name ? invite.user.name : invite.user.email}</p>
+                        <p >Volunteer Name:  <span id="volNameOrange" onClick={() => { viewProfile(invite.user) }} > {invite.user.name ? invite.user.name : invite.user.email} </span></p>
                         <div className="inlineText">
-                          <p>Volunteer Rating: "Somchi, Please Fix This"</p>
+                          <p>Volunteer Rating: 150</p>
 
                           {/* <p>Volunteer Rating: {rating ? parseFloat(rating.toFixed(2)) : 0}</p> */}
                           {/* <p>Volunteer Rating:  {volProfile ? volProfile.name : "No User"}</p> */}
@@ -137,7 +137,6 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                       <div className="decisionButtons">
                         <span> <img src={AcceptImage} onClick={() => { responseInvitation(invite.user._id, "ACCEPTED") }} /> Accept </span>
                         <span> <img src={CancelImage} onClick={() => { responseInvitation(invite.user._id, "REJECTED") }} /> Reject </span>
-                        <span> <img src={ProfileImage} onClick={() => { viewProfile(invite.user) }} /> Profile </span>
                       </div>
                     </div>
                   )
