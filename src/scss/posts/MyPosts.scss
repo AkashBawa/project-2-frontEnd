@@ -135,16 +135,15 @@
     .deleteEditSection {
         display: flex;
         flex-flow: row;
-        justify-content: right;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
 
         @media screen and (max-width:1200px) {
-            // grid-template-columns: 100%;
-            // grid-template-rows: 75% 25%;
-            // height: 200px !important;
             grid-column: 1/-1;
             grid-row: 2/3;
-            margin: auto;
+            margin: 0 auto;
+            align-items: start;
 
         }
     }
