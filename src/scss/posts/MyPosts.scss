@@ -1,15 +1,16 @@
 /* Styling MyPost Area  */
 
 #mypostID {
-
-
-    .darkBtn {
-        font-size: 1rem;
-    }
-
     .cardBody {
         display: grid;
         grid-template-columns: 75% 25%;
+
+        @media screen and (max-width:1200px) {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 60% 40%;
+            height: 250px !important;
+        }
     }
 
     #myPostsCard {
@@ -19,9 +20,14 @@
         border-radius: 15px;
         height: 150px !important;
 
-        .ant-card-body {
-            padding: 15px 30px !important;
+        @media screen and (max-width:1200px) {
+            height: 250px !important;
         }
+
+        .ant-card-body {
+            padding: 10px 15px !important;
+        }
+
     }
 
     .dashBoardElder .cardBody {
@@ -36,6 +42,10 @@
     .eventDetails {
         grid-column: 1/2;
         text-align: left;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: start;
     }
 
     .eventDetails h1 {
@@ -53,8 +63,8 @@
 
     .myPostDelete,
     .myPostEdit {
-        width: 50px;
-        height: 65px;
+        width: 48px;
+        height: 48px;
     }
 
     .myPostDelete:hover,
@@ -127,11 +137,44 @@
         flex-flow: row;
         justify-content: right;
         gap: 1rem;
+
+        @media screen and (max-width:1200px) {
+            // grid-template-columns: 100%;
+            // grid-template-rows: 75% 25%;
+            // height: 200px !important;
+            grid-column: 1/-1;
+            grid-row: 2/3;
+            margin: auto;
+
+        }
+    }
+
+    .historySection {
+        width: 180px;
+        margin: auto;
+        display: flex;
+        flex-flow: column;
+        flex-grow: 1 !important;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            margin: 0;
+            text-align: center;
+            border: 1px solid $btnDark;
+            border-radius: 5px;
+            color: $btnLight !important;
+            padding: 5px 15px;
+            background-color: $btnDark;
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
 
 }
 
 #mypostID img {
+    margin: auto;
     width: auto !important;
     height: auto !important;
 }
@@ -156,8 +199,8 @@
 
 .ant-modal-title {
     text-align: center;
-    color: #00756A !important;
-    font-size: 1.5rem !important;
+    color: black !important;
+    font-size: 32px !important;
 }
 
 .ant-space.css-dev-only-do-not-override-1adbn6x.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
@@ -196,11 +239,29 @@
 
 .eventDetails p {
     font-size: 20px;
-    margin-top: 0;
+    margin: 0;
 }
 
 
 .myPostDT {
     display: flex;
     gap: 2rem;
+}
+
+.applySection {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    p {
+        font-size: 20px;
+    }
+
+}
+
+.applySection:hover {
+    p {
+        text-decoration: underline;
+    }
 }

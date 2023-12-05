@@ -13,7 +13,8 @@
     .vimg {
         width: 100px !important;
         height: 100px !important;
-        border-radius: 5px;
+        border-radius: 50%;
+        border: none !important;
     }
 
     .vsummary {
@@ -22,14 +23,28 @@
     }
 
     .requestList {
-        background-color: #F7F7F7;
+        background-color: #FAFAFA;
         margin: 1rem;
         padding: 1rem;
-        border-radius: 20px;
+        border-radius: 15px;
+        height: 150px !important;
+        font-size: 20px;
         display: flex;
-        justify-content: space-around;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         align-items: center;
-        font-weight: bold;
+
+        @media screen and (max-width:1200px) {
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 250px !important;
+        }
+
+        @media screen and (max-width:900px) {
+            height: 325px !important;
+
+        }
     }
 
     .invitations {
@@ -39,19 +54,27 @@
 
     .decisionButtons {
         display: flex;
+        justify-content: center;
 
         span {
+            display: flex;
+            flex-grow: 1;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
 
-            :hover {
+            img:hover {
                 cursor: pointer;
+                text-decoration: underline;
             }
 
             margin-left: 1rem;
 
             img {
                 display: block;
-                width: 64px !important;
-                height: 64px !important;
+                margin: auto;
+                width: 48px !important;
+                height: 48px !important;
             }
         }
     }
@@ -63,8 +86,11 @@
     }
 
     button {
-        font-size: 1.5rem;
+        width: 150px;
+        font-size: 20px;
+        font-weight: bold;
         padding: .5rem 1rem;
+        margin-top: 1rem;
     }
 
     .blackH1 {
@@ -72,20 +98,32 @@
     }
 
     #volInlineText {
-        text-align: left;
+        text-align: left !important;
     }
 
-    #volInlineText h2:nth-of-type(1) {
-        display: inline;
-        text-align: left;
-        color: #00756a !important;
-        margin-right: 1rem;
 
+    .singlePostSummary {
+        background-color: #FAFAFA;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 15px;
+        height: 150px !important;
+        font-size: 18px;
+        font-weight: bold;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: start;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        p:nth-of-type(1) {
+            color: #00756a;
+            text-transform: uppercase;
+        }
     }
 
-    #volInlineText h2:nth-of-type(2) {
-        display: inline;
-        text-align: left;
-        color: black !important;
-    }
 }
