@@ -11,9 +11,6 @@ import UserVolunteerDark from "./../../images/icon_volunteer_dark.png";
 import rewardsIconDark from "./../../images/icon_rewards_dark.png";
 
 
-
-// icon_fav_volunteers    
-
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
