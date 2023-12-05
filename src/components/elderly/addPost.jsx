@@ -6,6 +6,7 @@ import TomTomAutoComplete from "../map/TomTomAutoComplete";
 import { useDispatch } from "react-redux";
 import { setLoader } from './../../redux/user';
 import Swal from 'sweetalert2'
+import successIcon from "./../../images/icon_successful.png";
 
 const AddPost = (userName) => {
 
@@ -69,8 +70,8 @@ const AddPost = (userName) => {
         if (response && response.success) {
           resetForm();
           Swal.fire({
-            title: "Thanks",
-            text: "Your post has successfully created",
+            title: "Confirmation",
+            text: "Your request has been received, we will get back to you soon",
             icon: "success"
           });
         }

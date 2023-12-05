@@ -8,31 +8,49 @@ import Swal from 'sweetalert2'
 import AcceptImage from './../../public/icons/icon_accept.png';
 import CancelImage from './../../public/icons/icon_cancel.png';
 import ProfileImage from "./../../public/icons/profile.png";
+import { useEffect } from "react";
 
 const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewUser, setViewUser] = useState(null);
-  const [rating, setRating] = useState()
+  // const [rating, setRating] = useState();
+  // const [volProfile, setVolProfile] = useState({});
+
   // const [resolution, setResolution] = useState(null);
 
+  // useEffect(() => {
+  //   fetchRating();
+  // }, []);
 
-  const fetchRating = async () => {
+
+  // const fetchRating = async () => {
+  //   try {
+  //     let getrating = await axios.getRequest("averageRating", true);
+  //     setRating(getrating[0].ratingAvg);
+  //     console.log("Hello Rating: " + getrating);
+  //   } catch (error) {
+  //     console.log(error);
+  //     console.log(" Rating error ");
+  //   }
+  // }
+
+  const fetchVolUserProfile = async () => {
     try {
-      let getrating = await axios.getRequest("averageRating", true);
-      setRating(getrating[0].ratingAvg);
-
+      let getVolProfile = await axios.getRequest("user", true);
+      if (getVolProfile) {
+        // setVolProfile(getVolProfile);
+      }
     } catch (error) {
       console.log(error);
     }
-  }
-
+  };
 
   const responseInvitation = async (acceptedUserId, status, changeSingleView) => {
     try {
       Swal.fire({
-        title: '',
+        title: 'Confirmation',
         text: `Are you sure you want to  ${status === 'ACCEPTED' ? 'accept' : 'reject'} this service`,
         // icon: 'warning',
         showCancelButton: true,
@@ -80,7 +98,6 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
     <div className="ElderSinglePost" id="ElderSinglePost">
       <Modal className="textAlignCenter" open={isModalOpen} footer={[]} >
         <ViewProfile user={viewUser} />
-        <Link to='/elder/profile'><img src={AcceptImage} alt="iconProfile" /></Link>
         <h2 className="textAlignCenter textCapital">{currentPost.name}</h2>
         <p>Thank you for reviewing my profile</p>
         <button type="primary" className="darkBtn" onClick={handleOk}>Close</button>
@@ -107,7 +124,12 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                       <div className="vsummary" id="volInlineText">
                         <p>Volunteer Name: {invite.user.name ? invite.user.name : invite.user.email}</p>
                         <div className="inlineText">
-                          <p>Volunteer Rating: {rating ? parseFloat(rating.toFixed(2)) : 0}</p>
+                          <p>Volunteer Rating: "Somchi, Please Fix This"</p>
+
+                          {/* <p>Volunteer Rating: {rating ? parseFloat(rating.toFixed(2)) : 0}</p> */}
+                          {/* <p>Volunteer Rating:  {volProfile ? volProfile.name : "No User"}</p> */}
+
+
                           {/* <h1 className="blackH1">{invite.user.rating ? invite.user.rating : "No Current Volunteer Rating"}</h1> */}
                         </div>
                       </div>

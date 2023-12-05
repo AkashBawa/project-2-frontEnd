@@ -121,7 +121,7 @@ const Dashboard = () => {
     try {
 
       Swal.fire({
-        title: "Please confirm",
+        title: "Confirmation",
         text: "Do you want to send the invitation"
 
       }).then(async (data) => {
@@ -165,17 +165,17 @@ const Dashboard = () => {
         singleView == false && (
           <div className="dashBoardVolunteer">
             <div className="dashBoardVolunteerHeader">
-              <div>
-
-                <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
+              <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
+              <div id="volHeader">
+                <div className="rewardPoints">
+                  <img src={rewardIcon} alt="reward" />
+                  <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
+                </div>
+                <img src={notIcon} alt="notification icon" />
+                <Link to='/volunteer/profile' id="volProfile">
+                  <p>{volProfile && volProfile.name ? volProfile.name.charAt(0) : ""}</p>
+                </Link>
               </div>
-              <div className="rewardPoints">
-              {/* <img src={notIcon} alt="notification icon" />
-                <Link to='/volunteer/profile'><img src={formData.profilePhoto} alt="iconProfile" /></Link> */}
-                <img src={rewardIcon} alt="reward" />
-                <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
-              </div>
-
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
@@ -225,17 +225,35 @@ const Dashboard = () => {
 
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />,
+                      // children: <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />,
+                      children: (
+                        <>
+                          <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />
+                          {posts.length === 0 && <div className="noPost">No Posts To Show</div>}
+                        </>
+                      ),
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
+                      // children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
+                      children: (
+                        <>
+                          <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />
+                          {approvedPosts.length === 0 && <div className="noPost">No Active Posts</div>}
+                        </>
+                      ),
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />,
+                      // children: <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />,
+                      children: (
+                        <>
+                          <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />
+                          {completedPosts.length === 0 && <div className="noPost">No History Posts</div>}
+                        </>
+                      ),
                     },
                   ]
                 }
@@ -245,6 +263,7 @@ const Dashboard = () => {
           </div>
         )
       }
+
 
       {
         singleView == true && (

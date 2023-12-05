@@ -72,12 +72,13 @@ button {
 }
 
 .darkBtn {
-  // border: 1px solid $btnDark;
-  // color: $btnLight !important;
-  // padding: 5px 15px;
-  // background-color: $btnDark;
-  // width: 100px;
-  // font-weight: bold;
+  border: 1px solid $btnDark;
+  color: $btnLight !important;
+  padding: 5px 15px;
+  background-color: $btnDark;
+  width: 180px;
+  font-size: 20px;
+  font-weight: bold;
   @include submitButton;
 }
 
@@ -168,9 +169,15 @@ div:where(.swal2-container).swal2-noanimation {
 }
 
 div:where(.swal2-container) div:where(.swal2-popup) {
-  height: 215px !important;
-  width: 540px !important;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 370px !important;
+  width: 700px !important;
   color: #000 !important;
+  font-size: 36px;
+  font-weight: bold;
   border-radius: 15px !important;
 }
 
@@ -181,8 +188,8 @@ div:where(.swal2-icon).swal2-success {
 
 .swal2-html-container {
   color: #000;
-  font-size: 25px !important;
-  font-weight: bold !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
   border-radius: 15px;
 }
 

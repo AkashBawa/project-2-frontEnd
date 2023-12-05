@@ -151,8 +151,13 @@
     .logsignup a {
       font-size: 20px;
       font-weight: bold;
+      width: 180px !important;
+      align-content: center;
+      text-align: center;
     }
-
+    .logsignup  {
+      align-content: center;
+    }
     .main-menu {
       font-size: 22px !important;
     }

@@ -78,7 +78,8 @@ div:has(.dashBoardElder) {
   }
 
   #postsSection .ant-tabs-tab-active div {
-    color: white !important;
+    color: black !important;
+    font-size: 20px !important;
     display: inline !important;
     border-bottom: #EB592D 5px solid;
   }
@@ -351,6 +352,10 @@ img.ant-menu-item-icon {
 
 .ant-btn-primary {
   background-color: #EB593F;
+  width: 180px;
+  height: 55px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {

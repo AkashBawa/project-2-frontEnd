@@ -171,8 +171,8 @@ const Dashboard = () => {
 
                       children: (
                         <>
-                          <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
-                          {pendingPosts.length === 0 && <div className="noPost">No History Posts</div>}
+                          <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {completedPosts.length === 0 && <div className="noPost">No History Posts</div>}
                         </>
                       ),
                     }
