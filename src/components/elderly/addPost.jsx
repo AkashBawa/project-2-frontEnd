@@ -1,5 +1,6 @@
 import { Alert, Form, Input, DatePicker, TimePicker, notification } from "antd";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
@@ -11,6 +12,7 @@ import successIcon from "./../../images/icon_successful.png";
 const AddPost = (userName) => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [api, contextHolder] = notification.useNotification();
   const [startTime, setStartTime] = useState();
@@ -73,6 +75,8 @@ const AddPost = (userName) => {
             title: "Confirmation",
             text: "Your request has been received, we will get back to you soon",
             icon: "success"
+          }).finally(() => {
+              navigate("/elder/dashboard")
           });
         }
       } catch (err) {
