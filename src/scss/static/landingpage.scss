@@ -5,6 +5,8 @@
 
   header {
     @media only screen and (max-width: 780px) {
+
+      
       .logsignup {
         display: none;
       }
@@ -117,7 +119,7 @@
     flex-flow: row nowrap;
     gap: 1rem;
     flex-grow: 1;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .container {
@@ -151,7 +153,7 @@
     .logsignup a {
       font-size: 20px;
       font-weight: bold;
-      width: 180px !important;
+      width: 100px !important;
       align-content: center;
       text-align: center;
     }

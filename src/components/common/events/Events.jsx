@@ -15,11 +15,11 @@ const Events = () => {
         <div className="events">
             <div className="eventHeader">
                 <h1>Join an Event</h1>
-                <div className="topIcons">
+                {/* <div className="topIcons">
                     <img src={ringIcon} alt="notification icon" />
                     <img src={settingIcon} alt="Setting icon" />
                     <Link to='/elder/profile'><img src={profileIcon} alt="Setting icon" /></Link>
-                </div>
+                </div> */}
             </div>
             <Tabs
                 defaultActiveKey="1"

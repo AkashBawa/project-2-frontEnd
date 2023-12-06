@@ -62,16 +62,16 @@ const LandingPage = () => {
         <div className={`hambergurmenu-cont ${isMenuOpen ? "open" : ""}`}>
           <ul>
             <li>
-              <a href="#">Seniors</a>
+              <a href="#land-seniors">Seniors</a>
             </li>
             <li>
-              <a href="#">Volunteers</a>
+              <a href="#land-volunteer">Volunteers</a>
             </li>
             <li>
-              <a href="#">Events</a>
+              <a href="#land-events">Events</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="#homeLink">Contact</a>
             </li>
           </ul>
           <div className="logsignup">
@@ -88,7 +88,7 @@ const LandingPage = () => {
         <main>
           <section>
             <div className="containercont">
-              <div className="sectioncont">
+              <div className="sectioncont" id="land-seniors">
                 <h1 className="lightH1">Seniors do you like some </h1>
                 <h2 className="HeavyH2">extra help?</h2>
                 <p>
@@ -150,7 +150,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="containercont">
+            <div className="containercont" id="land-volunteer">
               <div className="sectioncont">
                 <div className="inlineLanding">
                   <img src={iconVolunteer} alt="Icon Volunteer" />
@@ -177,7 +177,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="containercont">
+            <div className="containercont" id="land-rewards">
               <div className="sectioncont">
                 <h2 className="HeavyH2">Volunteer Reward Program</h2>
                 <div className="contbox">
@@ -206,7 +206,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="containercont">
+            <div className="containercont" id="land-events">
               <div className="sectioncont">
                 <div className="inlineLanding">
                   <img src={iconCommunity} alt="Icon Community" />
