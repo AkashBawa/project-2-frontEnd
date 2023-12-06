@@ -119,7 +119,7 @@ const TomTomAutoComplete = ( {updateLocationAnsCoordinates} ) => {
 
   return (
     <div>
-      <form>
+      <form className="mapAddress">
         <label htmlFor="address">Address</label>
         <input
           type="text"
@@ -139,10 +139,7 @@ const TomTomAutoComplete = ( {updateLocationAnsCoordinates} ) => {
           </li>
         ))}
       </ul>
-      {/* {selectedSuggestion && (
-        <p>Selected: {selectedSuggestion.address.freeformAddress}</p>
-      )} */}
-
+     
       <div ref={mapElement} className="mapDiv"></div>
     </div>
   );

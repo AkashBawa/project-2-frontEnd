@@ -1,15 +1,21 @@
 #profilePage {
-  button {
-    @include submitButton;
-  }
+  padding: .5rem 2%;
+
+  // button {
+  //   // @include submitButton;
+  //   padding: 10px;
+  // }
+
   h2 {
     color: $primaryGreen;
     font-size: 2rem;
   }
+
   .userImage {
     .ant-upload-list-item {
       border-radius: 10px !important;
     }
+
     .ant-upload-list-item-container {
       width: 200px;
       height: 200px;
@@ -20,6 +26,7 @@
     @media screen and (min-width: 768px) {
       width: 50%;
     }
+
     p {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -45,8 +52,66 @@ img.volProfile {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.displayProfile p{
-  text-align: center;
+// .displayProfile p {
+//   text-align: center;
+// }
+
+.interestDiv {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+#profilePage {
+  textarea.ant-input{
+    width: 70%;
+  }
+
+  .ant-upload-list-item.ant-upload-list-item-undefined{
+    border: none;
+    padding: 0;
+  }
+
+  h2{
+    margin-bottom: 3rem;
+  }
+
+
+  .interestDiv{
+    margin-bottom: 2rem;
+  }
+
+  .ant-row.ant-form-item-row {
+    display: grid;
+    grid-template-columns: .25fr 1fr;
+    gap: 2rem;
+}
+
+.intesrestForm .ant-row.ant-form-item-row{
+  display: block !important;
+}
+
+ul.ant-rate{
+  
+  font-size: 1.5rem;
+}
+
+
+label{
+  font-weight: bold;
+}
+
+.excla{
+  width: 20px;
+  height: 20px;
+}
+.rateClass{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
 }

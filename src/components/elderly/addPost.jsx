@@ -1,15 +1,18 @@
 import { Alert, Form, Input, DatePicker, TimePicker, notification } from "antd";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import axios from "../../services/axios";
 import TomTomAutoComplete from "../map/TomTomAutoComplete";
 import { useDispatch } from "react-redux";
 import { setLoader } from './../../redux/user';
 import Swal from 'sweetalert2'
+import successIcon from "./../../images/icon_successful.png";
 
 const AddPost = (userName) => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [api, contextHolder] = notification.useNotification();
   const [startTime, setStartTime] = useState();
@@ -69,9 +72,11 @@ const AddPost = (userName) => {
         if (response && response.success) {
           resetForm();
           Swal.fire({
-            title: "Thanks",
-            text: "Your post has successfully created",
+            title: "Confirmation",
+            text: "Your request has been received, we will get back to you soon",
             icon: "success"
+          }).finally(() => {
+              navigate("/elder/dashboard")
           });
         }
       } catch (err) {
@@ -85,7 +90,7 @@ const AddPost = (userName) => {
   };
   return (
     <div id="addPost">
-      <h1>Add post</h1>
+      <h1>How can we help you?</h1>
       <div className="addpost">
         <Form
           name="trigger"

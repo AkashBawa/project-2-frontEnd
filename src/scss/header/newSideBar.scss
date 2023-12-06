@@ -89,9 +89,20 @@
   }
 
   .sideBarIcons:hover {
-    background-color: #CFD8DC;
-    border-radius: 40px;
+    background-color: #ffff;
+    color: #00756A;
+    // border-radius: 5px;
+    margin: auto -6px;
+
+    a {
+      color: #00756A;
+    }
   }
+
+  .sideBarIcons a:hover {
+    color: #00756A;
+  }
+
 }
 
 @media screen and (min-width: $breakPoint) {
@@ -115,8 +126,9 @@
   text-align: left;
   justify-content: center;
   align-items: center;
-  margin: 1rem 10%;
+  margin: 1rem 0;
   padding: 0 1rem;
+  // width: 100%;
 }
 
 .sideBarIcons img {
@@ -128,4 +140,8 @@
   text-align: left !important;
   margin-left: .5rem;
   padding-left: 0 !important;
+}
+
+#newSideBar a.amenu\.item.menu__item {
+  padding: 0;
 }

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Form, Input, Button, Steps, Modal } from "antd";
 import axios from "../../../services/axios";
-
+import calendar from "./../../../images/calendar.png";
 
 const CreateEvent = () => {
 
@@ -53,7 +53,7 @@ const CreateEvent = () => {
             if (response && response.success) {
                 // alert("Event added successfully");
                 setIsModalOpen(true);
-               
+
             }
 
         } catch (err) {
@@ -70,6 +70,7 @@ const CreateEvent = () => {
 
     return (
         <div className="addEvents" id="addEvent">
+            <h1>Your Event</h1>
             <Modal title="" open={isModalOpen} footer={[]}>
                 <h2>Event Sent</h2>
                 <p>Your event has been received, we will get back to you as soon as possible</p>
@@ -79,19 +80,19 @@ const CreateEvent = () => {
                 current={currentStep}
                 items={[
                     {
-                        title: 'Name',
+                        title: '',
                         description: "",
                     },
                     {
-                        title: 'Enter Details',
+                        title: '',
                         description: "",
                     },
                     {
-                        title: 'Event Media',
+                        title: "",
                         description: "",
                     },
                     {
-                        title: 'Summery',
+                        title: '',
                         description: "",
                     },
                 ]}
@@ -106,11 +107,11 @@ const CreateEvent = () => {
                 {
 
                     currentStep === 0 &&
-                    <div>
+                    <div id="event1">
                         <h2>Event Name</h2>
-
+                        <img src={calendar} alt="calendar" />
                         <Form.Item label="What name would you give your event?">
-                            <Input placeholder="name" value={name} onChange={(e) => { setName(e.target.value) }} />
+                            <Input placeholder="Hiking at Deep Cove" value={name} onChange={(e) => { setName(e.target.value) }} />
                         </Form.Item>
                     </div>
                 }
@@ -121,7 +122,7 @@ const CreateEvent = () => {
                         <h2>Details</h2>
                         <div className="left-side">
                             <Form.Item label="Location" >
-                                <Input placeholder="Location" className="event-input"  value={location} onChange={(e) => { setLocation(e.target.value) }} />
+                                <Input placeholder="Location" className="event-input" value={location} onChange={(e) => { setLocation(e.target.value) }} />
                             </Form.Item>
                             <Form.Item label="Date">
                                 <input type="date" value={date} className="event-input" onChange={(e) => { setDate(e.target.value) }} />
@@ -193,13 +194,14 @@ const CreateEvent = () => {
                 }
 
                 <div className="button-bottom">
-                    <button type="" className="lightBtn" onClick={() => setCurrentStep(currentStep - 1)} disabled={currentStep == 0}>Previous</button>
+                    {currentStep > 0 && (
+                        <button type="" className="lightBtn" onClick={() => setCurrentStep(currentStep - 1)} disabled={currentStep == 0}>Previous</button>)}
                     {
-                        currentStep < 3 && <button className="darkBtn"  onClick={() => { setCurrentStep(currentStep + 1) }} disabled={currentStep == 3} >Next</button>
+                        currentStep < 3 && <button className="darkBtn" onClick={() => { setCurrentStep(currentStep + 1) }} disabled={currentStep == 3} >Next</button>
                     }
                     {
                         currentStep == 3 && <button className="darkBtn" onClick={submit}>Submit</button>
-                    }
+                         }
                 </div>
 
 

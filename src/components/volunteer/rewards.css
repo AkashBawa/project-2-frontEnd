@@ -1,6 +1,7 @@
 .rewardsTop{
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .earn-rewards{
@@ -9,27 +10,27 @@
     justify-content: center;
     background-color: #F5FAF6;
     padding: 3rem;
-    gap: 3rem;
+    gap: 8rem;
 }
 
 .earn-rewards h2{
     font-size: 2rem;
-    width: 240px;
+    width: 256px;
     color: #EB592D;
 }
 
 .earn-rewards img {
-    width: 20%;
+    width: 30%;
 }
 
 .certificate {
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
     justify-content: center;
     align-items: center;
 }
 .certificate img {
-    width: 30%;
+    width: 15%;
     justify-self: center; 
 }
 
@@ -47,6 +48,7 @@
 
 .certificate-section h2{
     color: #00756A;
+    margin-bottom: 2rem;
 }
 
 .certificate-description{
@@ -95,6 +97,11 @@
 
 
 @media only screen and (max-width: 600px) {
+
+    .earn-rewards{
+        gap: 3rem;
+    }
+
     .whyBadgeDes {
         display: flex;
         flex-direction: column;
@@ -120,4 +127,8 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+.whyBadgeDes img{
+    width: 187px;
 }

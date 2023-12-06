@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../services/axios';
 import '../volunteer/rewards.css'
-import rewards from './Images/5558132.png'
+import rewards from '../../images/image 38.png'
 import { Link } from 'react-router-dom';
 import iconProfile from './../../images/icon_profile.png';
-import Certificate from '../../images/certificate 1.png'
-import Bronze from '../../images/image-25.png'
-import Silver from '../../images/image 24.png'
-import Gold from '../../images/image 23.png'
+import Certificate from '../../images/Certificate.jpeg'
+import Bronze from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg'
+import Silver from '../../images/silver.jpeg'
+import Gold from '../../images/gold.jpeg'
+
 
 const Rewards = () => {
   const [volProfile, setVolProfile] = useState(null);
@@ -82,15 +83,15 @@ const Rewards = () => {
     <h2>Why Badged</h2>
     <div className='bagdeDesDiv'>
       <div className='whyBadgeDes'>
-        <img src={Bronze} alt="" />
+        <img src={Gold} alt="" />
         <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
       <div className='whyBadgeDes'>
-        <img src={Gold} alt="" />
+        <img src={Silver} alt="" />
         <p>This Badge can be yours if you complete at lest 15 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
       <div className='whyBadgeDes'>
-        <img src={Silver} alt="" />
+        <img src={Bronze} alt="" />
         <p>This Badge can be yours if you complete at lest 25 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
     </div>

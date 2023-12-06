@@ -59,9 +59,8 @@ div:has(.dashBoardVolunteer) {
     margin: 1rem;
   }
 
-  .dashVolunteerEvent {
+  .dashVolunteerPending {
     grid-column: span 2;
-    grid-row: 2/3;
   }
 
   .tabs .ant-tabs-nav-list {
@@ -73,13 +72,20 @@ div:has(.dashBoardVolunteer) {
   }
 
   .tabs .ant-tabs-nav-list .ant-tabs-tab {
-    border: 1px #00756A solid !important;
+    border: none !important;
+    font-size: 24px !important;
+
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active {
+    font-size: 24px !important;
   }
 
   .ant-tabs-tab-btn {
     display: block !important;
     text-align: center;
     width: 100%;
+    color: #000;
   }
 
   #postsSectionNav button {
@@ -128,8 +134,8 @@ div:has(.dashBoardVolunteer) {
 
 
   #postsSection .ant-tabs-tab {
-    color: white !important;
-    background-color: #00756A !important;
+    color: black !important;
+    background-color: white !important;
     font-weight: bold !important;
     flex-grow: 1;
 
@@ -141,10 +147,11 @@ div:has(.dashBoardVolunteer) {
 
   #postsSection .ant-tabs-tab-active {
     background-color: white !important;
-    border: solid 1px #00756A;
+    border: none !important;
   }
 
   #postsSection .ant-tabs-tab {
+    border: none !important;
     display: block !important;
     text-align: center;
     margin: auto;
@@ -188,13 +195,19 @@ nav img {
 }
 
 .rewardPoints {
-  grid-column: 4/5;
+  width: 250px;
+  height: 56px;
   border-radius: 20px;
   border: 1px solid #EB592D;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 0;
+  margin-right: 1rem;
+
+  h2 {
+    font-size: 20px;
+  }
 }
 
 .pointsDash {
@@ -204,9 +217,9 @@ nav img {
 }
 
 .rewardPoints img {
-  margin-right: 2rem;
-  width: 50px;
-  height: 50px;
+  margin-right: 1rem;
+  width: 30px;
+  height: 30px;
 }
 
 .topIconsVolunteer {
@@ -234,6 +247,9 @@ nav img {
   text-align: center;
 }
 
+.dashBoardVolunteerHeader div img {
+  margin-right: 1rem;
+}
 
 .navtopIcons img,
 .topIcons img {
@@ -248,7 +264,30 @@ nav img {
 
 
 /* Styling for the Volunteer Dashboard Navigation*/
+#volHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
 
+#volProfile {
+  text-decoration: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+}
 
 .dashVolunteerNav div {
   min-height: 50px;
@@ -407,9 +446,23 @@ nav img {
 
   .dashBoardVolunteerHeader {
     display: flex;
+    flex-grow: 1;
     justify-content: space-between;
     margin: 1rem;
     align-items: center;
     margin-bottom: 2rem;
+
+    @media screen and (max-width:1200px) {
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        flex-grow: 1;
+        width: 100%;
+        text-align: center;
+      }
+
+    }
   }
 }

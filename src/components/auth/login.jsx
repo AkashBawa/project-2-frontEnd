@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import IconLogo from "./../../images/logo.png";
 import localStorage from "../../services/localStorage";
 import axios from "../../services/axios";
-import SignupImg from '../../images/group-seniors-park 1.png'
+import SignupImg from '../../images/Mask group.png'
 import { Link } from "react-router-dom";
 import { setLoader } from '../../redux/user';
 
@@ -59,7 +59,7 @@ function Login() {
         <img className="signupImg" src={SignupImg} alt="" />
         <div className="signupForm">
           <h2>Login</h2>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email Address</label>
           <Input
             id="email"
             placeholder="email"
@@ -76,7 +76,7 @@ function Login() {
             placeholder="Password"
             type="password"
           />
-          <button className="darkBtn" type="default" onClick={submit}>
+          <button className="darkBtn loginBtn" type="default" onClick={submit}>
             Login
           </button>
         </div>

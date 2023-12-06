@@ -3,6 +3,7 @@ import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
 import DeleteImage from './../../images/delete.png';
 import Edit from './../../images/edit.png';
+import ratingDone from './../../images/icon_rating.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
@@ -18,6 +19,18 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  const [fileList, setFileList] = useState([]);
+  const [formDataVol, setFormDataVol] = useState({
+    profilePhoto: "",
+    name: "",
+    lName: "",
+    age: "",
+    gender: "male",
+    contactNumber: "",
+    interest: "",
+    eContact: "",
+  });
+  const [volProfile, setVolProfile] = useState({});
   // const [modalText, setModalText] = useState('Content of the modal');
   const showModal = () => {
     setOpen(true);
@@ -31,8 +44,40 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   const { TextArea } = Input;
 
 
+  const dataURLtoFile = (dataurl, filename) => {
+    var arr = dataurl.split(","),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[arr.length - 1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
+  };
+
   useEffect(() => {
+    fetchVolUserProfile()
   }, []);
+
+
+  const fetchVolUserProfile = async () => {
+    try {
+      let getVolProfile = await axios.getRequest("user", true);
+      setVolProfile(getVolProfile);
+      setFormDataVol(getVolProfile);
+      if (getVolProfile.profilePhoto) {
+        var file = dataURLtoFile(getVolProfile.profilePhoto, "photo")
+        file.originFileObj = file
+
+        setFileList([file])
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
 
 
   const handleOk = (postIndex) => {
@@ -102,7 +147,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
       }
 
-      const response = await axios.postRequest("updateRating" , reviewData, true);
+      const response = await axios.postRequest("updateRating", reviewData, true);
 
       // navigate("/elder/dashboard");
       fetchMyPosts();
@@ -129,12 +174,17 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
 
                 <div className="eventDetails">
                   <h1>{post.serviceTitle}</h1>
-                  <h2>{post.address}</h2>
+
+                  <p className="pEvent">{post.address}</p>
 
                   <div className="myPostDT">
-                    <h2>
-                      {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
-                    </h2>
+                    <p>
+                      {moment(post.date).format("D MMMM")}
+                    </p>
+
+                    <p>
+                      {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
+                    </p>
                   </div>
                 </div>
 
@@ -160,7 +210,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                 {
                   post.status == "BOOKED" && <>
                     <div className="deleteEditSection">
-                      
+
                       <div className="Review">
                         <>
                           <button className="darkBtn" onClick={showModal}>
@@ -168,10 +218,16 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                           </button>
                           <Modal
                             title="How do you like the service ?"
+                            // title={`How did ${setVolProfile.name} do it?`}
                             open={open}
-                            onOk={ () => {handleOk (postIndex)}}
+                            // onOk={() => { handleOk(postIndex) }}
                             confirmLoading={confirmLoading}
                             onCancel={handleCancel}
+                            footer={[
+                              <Button key="rate" type="primary" onClick={() => { handleOk(postIndex) }}>
+                                Rate
+                              </Button>,
+                            ]}
                           >
                             <Space>
                               <Rate
@@ -184,6 +240,14 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                           </Modal>
                         </>
                       </div>
+                    </div>
+                  </>
+                }
+
+                {
+                  post.status !== "BOOKED" && post.status !== "PENDING" && <>
+                    <div className="historySection">
+                      <img src={ratingDone} alt="rating Done" />
                     </div>
                   </>
                 }

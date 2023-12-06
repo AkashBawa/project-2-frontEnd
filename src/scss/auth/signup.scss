@@ -37,30 +37,31 @@
         text-decoration: none;
         color: white;
     }
-
-
 }
 
 
 .main {
-
     display: grid;
-    grid-template-columns: .5fr .3fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     justify-content: center;
     padding: 3rem;
-
-    img {
-        border-radius: 50%;
-    }
-
+    align-items: center;
 }
 
+.signupImg {
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
 
 .signupForm {
     display: flex;
     flex-flow: column;
-    // justify-content: center;
+    justify-content: center;
     gap: 10px;
     max-width: 300px;
 
@@ -71,10 +72,24 @@
     }
 }
 
+.loginBtn {
+    width: 180px !important;
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.signupForm label {
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 20px;
+}
+
 
 .signupForm {
-    h2{
-        font-size: 2rem;
+    h2 {
+        font-size: 36px;
         color: #00756a;
     }
 }
@@ -92,11 +107,13 @@
         align-items: center;
         justify-content: center;
 
-        
+
 
     }
 
-    .signupImg{
+    .signupImg {
         display: none;
+        max-width: 620px;
+        height: auto;
     }
 }
