@@ -90,8 +90,13 @@
 
   .sideBarIcons:hover {
     background-color: #ffff;
+    color: #00756A;
     // border-radius: 5px;
     margin: auto -6px;
+
+    a {
+      color: #00756A;
+    }
   }
 
   .sideBarIcons a:hover {
