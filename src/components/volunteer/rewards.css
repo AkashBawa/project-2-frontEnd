@@ -119,6 +119,12 @@
     .certificate p{
         width: 300px;
     }
+
+    .whyBadgeP{
+        width: 90%;
+        text-align: center;
+    }
+
   }
 
   .bagdeDesDiv{
