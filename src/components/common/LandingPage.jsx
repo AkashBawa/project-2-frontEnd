@@ -37,7 +37,7 @@ const LandingPage = () => {
                 <a href="#">Events</a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <Link to={"/contact"}><a href="#">Contact</a></Link>
               </li>
             </ul>
             <div className="logsignup">
