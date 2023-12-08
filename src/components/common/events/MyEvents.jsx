@@ -47,12 +47,15 @@ const MyEvents = () => {
               <div className="event">
                 <div className="img"> <img src={event.image} /> </div>
                 <h1>{formattedDate}</h1>;
-                <div className="eventDetails">
-                  <h2>{event.name}</h2>
-                  <p>{formattedDateRange}</p>
-                  <p>{event.location}</p>
+                <div className="event-wrap">
+                  <div className="eventDetails">
+                    <h2>{event.name}</h2>
+                    <p>{formattedDateRange}</p>
+                    <p>{event.location}</p>
+                  </div>
+                  <img src={arrowIcon} alt="arrow Icon" />
                 </div>
-                <img src={arrowIcon} alt="arrow Icon" />
+
               </div>
             )
           })

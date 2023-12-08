@@ -2,6 +2,8 @@ import { useState } from "react"
 import { Form, Input, Button, Steps, Modal } from "antd";
 import axios from "../../../services/axios";
 import calendar from "./../../../images/calendar.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const CreateEvent = () => {
 
@@ -19,8 +21,8 @@ const CreateEvent = () => {
         setName("");
         setLocation("");
         setDate("");
-        setStartTime("");
-        setEndTime("");
+        setStartTime("12:00");
+        setEndTime("13:00");
         setSpecialNote("");
         setSelectedImage(null);
         setCurrentStep(0)
@@ -71,10 +73,10 @@ const CreateEvent = () => {
     return (
         <div className="addEvents" id="addEvent">
             <h1>Your Event</h1>
-            <Modal title="" open={isModalOpen} footer={[]}>
+            <Modal title="" className="confirmation" open={isModalOpen} footer={[]}>
                 <h2>Event Sent</h2>
                 <p>Your event has been received, we will get back to you as soon as possible</p>
-                <Button type="primary" onClick={handleOk}>Submit</Button>
+                <button className="darkBtn" onClick={handleOk}>Submit</button>
             </Modal>
             <Steps
                 current={currentStep}
@@ -128,11 +130,11 @@ const CreateEvent = () => {
                                 <input type="date" value={date} className="event-input" onChange={(e) => { setDate(e.target.value) }} />
                             </Form.Item>
                             <Form.Item label="Select Start time">
-                                <input type="time" value={startTime} className="event-input" onChange={(e) => { setStartTime(e.target.value) }} required />
+                                <input type="time" defaultValue="12:00"  className="event-input" onChange={(e) => { setStartTime(e.target.value) }} required />
                             </Form.Item>
 
                             <Form.Item label="Select End time">
-                                <input type="time" value={endTime} className="event-input" onChange={(e) => { setEndTime(e.target.value) }} required />
+                                <input type="time" defaultValue="13:00" className="event-input" onChange={(e) => { setEndTime(e.target.value) }} required />
                             </Form.Item>
                         </div>
 
@@ -150,9 +152,23 @@ const CreateEvent = () => {
                         {
                             selectedImage == null && (
                                 <div className="take-image">
-                                    <input type="file" name="eventImage" onChange={(e) => {
+                                    {/* <input type="file" name="eventImage" onChange={(e) => {
                                         setSelectedImage(e.target.files[0])
-                                    }} />
+                                    }} /> */}
+
+                                    <label htmlFor="eventImage" className="upload-icon-label">
+                                        <input
+                                            type="file"
+                                            id="eventImage"
+                                            name="eventImage"
+                                            style={{ display: 'none' }}
+                                            onChange={(e) => {
+                                                setSelectedImage(e.target.files[0]);
+                                            }}
+                                        />
+                                        <FontAwesomeIcon icon={faCloudUploadAlt} className="upload-icon" />
+                                        Upload Image
+                                    </label>
                                 </div>
                             )
                         }
@@ -201,7 +217,7 @@ const CreateEvent = () => {
                     }
                     {
                         currentStep == 3 && <button className="darkBtn" onClick={submit}>Submit</button>
-                         }
+                    }
                 </div>
 
 

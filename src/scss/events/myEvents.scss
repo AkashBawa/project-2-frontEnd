@@ -54,6 +54,10 @@
             }
         }
     }
+
+    .confirmation {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -77,6 +81,16 @@
             }
         }
 
+        .event-wrap {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            align-items: center;
+
+            img {
+                height: 60px;
+            }
+        }
 
     }
 }

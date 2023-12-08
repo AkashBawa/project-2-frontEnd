@@ -77,10 +77,11 @@ button {
   color: $btnLight !important;
   padding: 5px 15px;
   background-color: $btnDark;
-  width: 180px;
-  font-size: 20px;
+  width: 100px;
   font-weight: bold;
   @include submitButton;
+
+
 }
 
 //  .ant-input {
