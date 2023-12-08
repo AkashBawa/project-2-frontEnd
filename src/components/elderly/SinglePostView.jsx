@@ -124,7 +124,7 @@ const SinglePostView = ({ currentPost, fetchMyPosts, changeSingleView }) => {
                       <div className="vsummary" id="volInlineText">
                         <p >Volunteer Name:  <span id="volNameOrange" onClick={() => { viewProfile(invite.user) }} > {invite.user.name ? invite.user.name : invite.user.email} </span></p>
                         <div className="inlineText">
-                          <p>Volunteer Rating: 150</p>
+                          <p>Volunteer Rating: {invite.user.point}</p>
 
                           {/* <p>Volunteer Rating: {rating ? parseFloat(rating.toFixed(2)) : 0}</p> */}
                           {/* <p>Volunteer Rating:  {volProfile ? volProfile.name : "No User"}</p> */}
