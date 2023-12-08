@@ -5,7 +5,7 @@ import rewards from '../../images/image 38.png'
 import { Link } from 'react-router-dom';
 import iconProfile from './../../images/icon_profile.png';
 import Certificate from '../../images/Certificate.jpeg'
-import Bronze from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg'
+import Bronze from '../../images/goldNew.jpeg'
 import Silver from '../../images/silver.jpeg'
 import Gold from '../../images/gold.jpeg'
 
@@ -84,15 +84,15 @@ const Rewards = () => {
     <div className='bagdeDesDiv'>
       <div className='whyBadgeDes'>
         <img src={Gold} alt="" />
-        <p>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+        <p className='whyBadgeP'>This Badge can be yours if you complete at lest 5 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
       <div className='whyBadgeDes'>
         <img src={Silver} alt="" />
-        <p>This Badge can be yours if you complete at lest 15 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+        <p className='whyBadgeP'>This Badge can be yours if you complete at lest 15 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
       <div className='whyBadgeDes'>
         <img src={Bronze} alt="" />
-        <p>This Badge can be yours if you complete at lest 25 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
+        <p className='whyBadgeP'>This Badge can be yours if you complete at lest 25 tasks by helping seniors as a volunteer. This  Badge will put positive impact on your profile and Make seniors ensure that you are more reliable person for them.</p>
       </div>
     </div>
   </div>

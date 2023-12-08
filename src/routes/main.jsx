@@ -26,11 +26,16 @@ import VolunteerHistory from "./../components/volunteer/history/History";
 import ReviewByElder from "../components/elderly/ReviewByElder";
 import Rewards from "../components/volunteer/Rewards";
 import NewSideBar from "../components/common/newSideBar";
+import Contact from "../components/common/Contact";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
   },
   {
     path: "/login",
@@ -40,6 +45,7 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup />
   },
+  
   {
     path: "/elder",
     element: <NewSideBar/>,
