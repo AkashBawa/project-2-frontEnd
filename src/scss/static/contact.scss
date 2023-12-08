@@ -1,0 +1,77 @@
+.team{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 700px;
+    margin: auto;
+    height: auto;
+    margin-top: 5rem;
+}
+
+.teamMember img{
+    border-radius: 10px;
+}
+
+.teamMember{
+    justify-content: center;
+    display: grid;
+}
+
+.memberDes{
+    text-align: center;
+}
+
+.contactUs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 6rem;
+    margin-bottom: 20rem;
+    
+}
+
+.contactUs img{
+    border-radius: 30px;
+    width: 500px;
+}
+
+.contactTitle{
+    text-align: center;
+}
+
+.green{
+    width: 100px;
+    border-radius: 50%;
+    background-color: #35B9BE;
+}
+
+
+@media only screen and (max-width: 600px) {
+ 
+    .team{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .teamMember{
+        padding: 1rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .contactUs img {
+        border-radius: 30px;
+        width: 100%;
+    }
+
+    .contactUs{
+        display: flex;
+        flex-flow: column;
+        padding: 2rem;
+    }
+
+    
+
+  }

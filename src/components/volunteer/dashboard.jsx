@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
 import Silver from '../../images/silver.jpeg';
 import Bronze from '../../images/gold.jpeg';
-import Gold from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg';
+import Gold from '../../images/goldNew.jpeg';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
 import notIcon from "./../../images/icon_notification.png";
@@ -193,9 +193,9 @@ const Dashboard = () => {
                     <img
                       src={
                         volProfile.point >= 400
-                          ? Silver
+                          ? Gold
                           : volProfile.point >= 200
-                            ? Gold
+                            ? Silver
                             : Bronze
                       }
                       alt="Rewards"
