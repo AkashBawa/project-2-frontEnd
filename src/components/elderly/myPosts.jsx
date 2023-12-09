@@ -7,6 +7,7 @@ import ratingDone from './../../images/icon_rating.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert2";
 // import { Link } from "react-router-dom";
 
 
@@ -93,21 +94,33 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   };
 
   const showDeleteModal = (post) => {
-    setPostToDelete(post);
-    setIsDeleteModalVisible(true);
+    console.log("clicked")
+    swal.fire({
+      title: "",
+      text: "Do you want to delete the post ?",
+      icon: "waring",
+      showCloseButton: true,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Yes",
+      icon: "question"
+
+  }).then((response) => {
+    console.log(response);
+    if(response.isConfirmed) {
+      handleDelete(post);
+    }
+  })
+    
   };
 
-  const handleDelete = async (postIndex) => {
+  const handleDelete = async (post) => {
     try {
-      if (postToDelete) {
-        const postId = String(postToDelete._id);
-        // await axios.deleteRequest(`/deletePost/${postId}`);
 
-        await axios.deleteRequest("deletePost", postId, true);
-
-        fetchMyPosts();
-        setIsDeleteModalVisible(false);
-      }
+      const postId = post._id;
+      await axios.deleteRequest(`deletePost/${postId}`, true);
+      fetchMyPosts();
+      
     } catch (error) {
       console.error("Error deleting post:", error);
     }
