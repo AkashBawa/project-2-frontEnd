@@ -226,3 +226,11 @@ div:where(.swal2-icon).swal2-success {
 .ant-tabs .ant-tabs-tab:hover {
   color: inherit !important;
 }
+
+.ant-tabs-nav-more {
+  display: none !important;
+}
+
+:where(.css-dev-only-do-not-override-2q8sxy).ant-tabs-top >.ant-tabs-nav::before, :where(.css-dev-only-do-not-override-2q8sxy).ant-tabs-bottom >.ant-tabs-nav::before, :where(.css-dev-only-do-not-override-2q8sxy).ant-tabs-top >div>.ant-tabs-nav::before, :where(.css-dev-only-do-not-override-2q8sxy).ant-tabs-bottom >div>.ant-tabs-nav::before {
+  border-bottom: none !important;
+}

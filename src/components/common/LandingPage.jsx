@@ -73,6 +73,10 @@ const LandingPage = () => {
             <li>
               <a href="#homeLink">Contact</a>
             </li>
+            <Link to={"/login"} className="darkBtn">
+                            {" "}
+                            Login{" "}
+                        </Link>
           </ul>
           <div className="logsignup">
             <Link to={"/login"} className="lightBtn">
