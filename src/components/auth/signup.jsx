@@ -9,6 +9,7 @@ import React from 'react';
 import { Input } from 'antd';
 import { Select } from 'antd';
 import { Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 
 function Signup() {
@@ -19,6 +20,11 @@ function Signup() {
   const [password, setPassWord] = useState();
   const [role, setRole] = useState();
   const [userName, setuserName] = useState();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen);
+    };
 
   const submit = async () => {
 
@@ -37,9 +43,78 @@ function Signup() {
   }
 
   return (
-    <div className="Signup">
+    <div className="Signup" id="landingpage">
 
-      <nav>
+<header className="">
+                <div className="container">
+                    <a href="#" className="branding">
+                        <img src={IconLogo} alt="Description of the image" />
+                    </a>
+                    {/* <ul className="main-menu">
+                        <li>
+                            <a href="#">Seniors</a>
+                        </li>
+                        <li>
+                            <a href="#">Volunteers</a>
+                        </li>
+                        <li>
+                            <a href="#">Events</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul> */}
+                    <div className="logsignup">
+                        <Link to={"/login"} className="lightBtn">
+                            {" "}
+                            Login{" "}
+                        </Link>
+                        <Link to={"/signup"} className="darkBtn">
+                            {" "}
+                            Signup{" "}
+                        </Link>
+                    </div>
+                    <a href="#" className="landingpage-hm" onClick={toggleMenu}>
+                        <i>
+                            <FaBars size={30} color="#fff" />
+                        </i>
+                    </a>
+                </div>
+            </header>
+            {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+
+            <div className={`hambergurmenu-cont ${isMenuOpen ? "open" : ""}`}>
+                <ul>
+                    <li>
+                        <a href="#land-seniors">Seniors</a>
+                    </li>
+                    <li>
+                        <a href="#land-volunteer">Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#land-events">Events</a>
+                    </li>
+                    <li>
+                        <a href="#homeLink">Contact</a>
+                    </li>
+                    <Link to={"/login"} className="darkBtn">
+                            {" "}
+                            Login{" "}
+                        </Link>
+                </ul>
+                <div className="logsignup">
+                    <Link to={"/login"} className="lightBtn">
+                        {" "}
+                        Login{" "}
+                    </Link>
+                    <Link to={"/signup"} className="darkBtn">
+                        {" "}
+                        Signup{" "}
+                    </Link>
+                </div>
+            </div>
+
+      {/* <nav>
         <div className="signupHeader">
           <img src={IconLogo} alt="" />
           <div className="headerLinks">
@@ -47,7 +122,7 @@ function Signup() {
             <Link to="/login"><button className="darkBtn">Login</button></Link>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
 
       <div className="main">
@@ -61,9 +136,14 @@ function Signup() {
             <Input id="email" placeholder="email" onKeyUp={(e) => { setEmail(e.target.value) }} />
             <label htmlFor="Password">Password</label>
             <Input type="password" onKeyUp={(e) => { setPassWord(e.target.value) }} id="Password" placeholder="Password" />
-            <label htmlFor="role">role</label>
-            <Input onKeyUp={(e) => { setRole(e.target.value) }} id="role" placeholder="role" />
-            <label htmlFor="userName">userName</label>
+            <label htmlFor="role">Role</label>
+            <select id="role" onChange={(e) => { setRole(e.target.value) }}>
+              <option disabled selected> Choose one</option>
+              <option value="elder">Elder</option>
+              <option value="volunteer"> Volunteer</option>
+            </select>
+            {/* <Input onKeyUp={(e) => { setRole(e.target.value) }} id="role" placeholder="role" /> */}
+            <label htmlFor="userName">User Name</label>
             <Input onKeyUp={(e) => { setuserName(e.target.value) }} id="userName" placeholder="userName" />
             <div className="btnDivSignUp">
               <button className="darkBtn" onClick={submit}>Submit</button>

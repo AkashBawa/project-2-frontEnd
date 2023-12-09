@@ -90,10 +90,16 @@
 
   .sideBarIcons:hover {
     background-color: #ffff;
-    border-radius: 5px;
+    color: #00756A;
+    // border-radius: 5px;
+    margin: auto -6px;
+
+    a {
+      color: #00756A;
+    }
   }
 
-  .sideBarIcons a:hover{
+  .sideBarIcons a:hover {
     color: #00756A;
   }
 
@@ -136,6 +142,6 @@
   padding-left: 0 !important;
 }
 
-#newSideBar a.amenu\.item.menu__item{
+#newSideBar a.amenu\.item.menu__item {
   padding: 0;
 }

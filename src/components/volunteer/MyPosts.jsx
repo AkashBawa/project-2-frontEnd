@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
-import IconApply from './../../images/icon_accept.png';
+import IconApply from './../../images/apply.png';
 import Edit from './../../images/edit.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
@@ -33,7 +33,7 @@ const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
       let getVolProfile = await axios.getRequest("user", true);
 
       setFormDataVol(getVolProfile);
-     
+
     } catch (error) {
       console.log(error);
     }
@@ -41,9 +41,9 @@ const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
   };
 
   const checkInvitationSent = (post) => {
-    if(post.invitations && post.invitations.length > 0) {
+    if (post.invitations && post.invitations.length > 0) {
       const index = post.invitations.map((invi) => invi.user).indexOf(userId);
-      if(index > -1) {
+      if (index > -1) {
         return true;
       } else {
         return false;
@@ -57,36 +57,33 @@ const MyPostVolunteer = ({ posts, fetchMyPosts, sendRequest }) => {
       {
         posts.map((post, postIndex) => {
           return (
-
             <Card
               key={`card-${postIndex}`}
               id="myPostsCard"
             >
               <div className="cardBody" >
-
                 <div className="eventDetails">
                   <h1>{post.serviceTitle}</h1>
-                  <h2>{post.address}</h2>
-
+                  <p>{post.address}</p>
                   <div className="myPostDT">
-                    <h2>
+                    <p>
                       {moment(post.date).format("D MMMM")} {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
-                    </h2>
+                    </p>
                   </div>
                 </div>
 
                 {
                   post.status == "PENDING" && <>
 
-                    { 
+                    {
                       checkInvitationSent(post) ? <div className="appliedDiv">
                         <p>Applied</p>
                       </div> :
-                       <div className="deleteEditSection" >
-                        <div className="myPostDelete" onClick={() => sendRequest(post._id, postIndex)} >
-                          <img src={IconApply} alt="ApplyPost" />
+                        <div className="deleteEditSection" >
+                          <div className="applySection" onClick={() => sendRequest(post._id, postIndex)} >
+                            <img src={IconApply} alt="ApplyPost" />
+                          </div>
                         </div>
-                      </div>
                     }
                   </>
                 }

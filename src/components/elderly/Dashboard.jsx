@@ -7,6 +7,7 @@ import axios from "../../services/axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLoader } from '../../redux/user';
+import notIcon from "./../../images/icon_notification.png";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ const Dashboard = () => {
   const fetchUserProfile = async () => {
     try {
       const getProfile = await axios.getRequest("user", true);
-      if(getProfile) {
+      if (getProfile) {
         setFormData(getProfile);
       }
 
@@ -108,6 +109,7 @@ const Dashboard = () => {
             <div className="dashBoardElderHeader">
               <h1>Hi, {formData.name}</h1>
               <div className="topIcons">
+                <img src={notIcon} alt="notification icon" />
                 <Link to='/elder/profile'><img src={formData.profilePhoto} alt="iconProfile" /></Link>
               </div>
             </div>
@@ -142,18 +144,38 @@ const Dashboard = () => {
                     {
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      children: (
+                        <>
+                          <MyPosts posts={pendingPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {pendingPosts.length === 0 && <div className="noPost">No Posts To Show</div>}
+                        </>
+                      )
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+                      // children: <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+
+                      children: (
+                        <>
+                          <MyPosts posts={approvedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {approvedPosts.length === 0 && <div className="noPost">No Active Posts</div>}
+                        </>
+                      )
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
-                    },
+                      // children: <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />,
+
+                      children: (
+                        <>
+                          <MyPosts posts={completedPosts} changeSingleView={changeSingleView} fetchMyPosts={fetchMyPosts} />
+                          {completedPosts.length === 0 && <div className="noPost">No History Posts</div>}
+                        </>
+                      ),
+                    }
                   ]
                 }
               />

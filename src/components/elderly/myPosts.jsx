@@ -3,9 +3,11 @@ import { Card, Space, Button, Modal, Rate, Input } from "antd";
 import axios from "../../services/axios";
 import DeleteImage from './../../images/delete.png';
 import Edit from './../../images/edit.png';
+import ratingDone from './../../images/icon_rating.png';
 import moment from "moment";
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert2";
 // import { Link } from "react-router-dom";
 
 
@@ -92,21 +94,33 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
   };
 
   const showDeleteModal = (post) => {
-    setPostToDelete(post);
-    setIsDeleteModalVisible(true);
+    console.log("clicked")
+    swal.fire({
+      title: "",
+      text: "Do you want to delete the post ?",
+      icon: "waring",
+      showCloseButton: true,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Yes",
+      icon: "question"
+
+  }).then((response) => {
+    console.log(response);
+    if(response.isConfirmed) {
+      handleDelete(post);
+    }
+  })
+    
   };
 
-  const handleDelete = async (postIndex) => {
+  const handleDelete = async (post) => {
     try {
-      if (postToDelete) {
-        const postId = String(postToDelete._id);
-        // await axios.deleteRequest(`/deletePost/${postId}`);
 
-        await axios.deleteRequest("deletePost", postId, true);
-
-        fetchMyPosts();
-        setIsDeleteModalVisible(false);
-      }
+      const postId = post._id;
+      await axios.deleteRequest(`deletePost/${postId}`, true);
+      fetchMyPosts();
+      
     } catch (error) {
       console.error("Error deleting post:", error);
     }
@@ -170,7 +184,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
               id="myPostsCard"
             >
               <div className="cardBody" >
-                  
+
                 <div className="eventDetails">
                   <h1>{post.serviceTitle}</h1>
 
@@ -182,7 +196,7 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                     </p>
 
                     <p>
-                    {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
+                      {moment(post.time, "HH:mm").format("h:mm A")} - {moment(post.endTime, "HH:mm").format("h:mm A")}
                     </p>
                   </div>
                 </div>
@@ -217,10 +231,16 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                           </button>
                           <Modal
                             title="How do you like the service ?"
+                            // title={`How did ${setVolProfile.name} do it?`}
                             open={open}
-                            onOk={() => { handleOk(postIndex) }}
+                            // onOk={() => { handleOk(postIndex) }}
                             confirmLoading={confirmLoading}
                             onCancel={handleCancel}
+                            footer={[
+                              <Button key="rate" type="primary" onClick={() => { handleOk(postIndex) }}>
+                                Rate
+                              </Button>,
+                            ]}
                           >
                             <Space>
                               <Rate
@@ -233,6 +253,14 @@ const MyPosts = ({ posts, fetchMyPosts, changeSingleView }) => {
                           </Modal>
                         </>
                       </div>
+                    </div>
+                  </>
+                }
+
+                {
+                  post.status !== "BOOKED" && post.status !== "PENDING" && <>
+                    <div className="historySection">
+                      <img src={ratingDone} alt="rating Done" />
                     </div>
                   </>
                 }

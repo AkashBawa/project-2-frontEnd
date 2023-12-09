@@ -1,15 +1,69 @@
 .events {
     padding: .5rem 5% !important;
+
+    .ant-steps.ant-steps-vertical {
+        flex-direction: row !important;
+    }
+
+    :where(.css-dev-only-do-not-override-2q8sxy).ant-tabs-card>.ant-tabs-nav .ant-tabs-tab {
+        background-color: #fff !important;
+        border: none !important;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ant-tabs .ant-tabs-tab-btn {
+        background-color: #fff !important;
+        border: none !important;
+        color: #000 !important;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        border: none !important;
+        color: #000 !important;
+        font-size: 24px;
+        font-weight: bold;
+        border-bottom: #EB592D 5px solid !important;
+    }
+
+    .upload-icon-label {
+        font-size: 18px;
+
+        svg {
+
+            font-size: 30px;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+    }
 }
 
+.eventHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font-size: 36px;
+        color: #00756A !important;
+        font-weight: bold;
+    }
+}
+
+
 #addEvent {
-    width: 700px;
     margin: 2rem auto;
-    padding: 2rem;
-    background-color: $lightGreen;
+    padding: 2rem 20%;
+    background-color: #F7F7F7;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px;
 
     .detail-section {
         display: grid;
@@ -102,7 +156,44 @@
             width: 300px;
         }
 
-        ;
+    }
+
+    #event1 {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        h2 {
+            color: #00756A;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        img {
+            width: 90px;
+            height: 90px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ant-row .ant-form-item-row .css-dev-only-do-not-override-2q8sxy {
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        input {
+            font-size: 20px;
+            border-radius: 15px;
+            height: 55px;
+            width: 100%;
+        }
     }
 
     .input-form {
@@ -112,6 +203,16 @@
     @media screen and (min-width: $breakPoint) {
         .input-form {
             max-width: 550px;
+        }
+    }
+
+    @media screen and (max-width:900px) {
+        .detail-section {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
         }
     }
 }

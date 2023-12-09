@@ -9,9 +9,10 @@ import { useEffect } from "react";
 import localStorage from "../../services/localStorage";
 import Silver from '../../images/silver.jpeg';
 import Bronze from '../../images/gold.jpeg';
-import Gold from '../../images/WhatsApp Image 2023-12-03 at 10.21.19 PM.jpeg';
+import Gold from '../../images/goldNew.jpeg';
 import rewardIcon from './../../images/rewardIcon.png';
 import apply from './../../images/apply.png';
+import notIcon from "./../../images/icon_notification.png";
 
 
 import { useDispatch } from "react-redux";
@@ -120,7 +121,7 @@ const Dashboard = () => {
     try {
 
       Swal.fire({
-        title: "Please confirm",
+        title: "Confirmation",
         text: "Do you want to send the invitation"
 
       }).then(async (data) => {
@@ -164,15 +165,17 @@ const Dashboard = () => {
         singleView == false && (
           <div className="dashBoardVolunteer">
             <div className="dashBoardVolunteerHeader">
-              <div>
-
-                <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
+              <h1>Hi, {volProfile ? volProfile.name : ""}</h1>
+              <div id="volHeader">
+                <div className="rewardPoints">
+                  <img src={rewardIcon} alt="reward" />
+                  <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
+                </div>
+                {/* <img src={notIcon} alt="notification icon" />
+                <Link to='/volunteer/profile' id="volProfile">
+                  <p>{volProfile && volProfile.name ? volProfile.name.charAt(0) : ""}</p>
+                </Link> */}
               </div>
-              <div className="rewardPoints">
-                <img src={rewardIcon} alt="reward" />
-                <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
-              </div>
-
             </div>
             <div className="dashVolunteerNav">
               <div className="dashVolunteerEvent">
@@ -190,9 +193,9 @@ const Dashboard = () => {
                     <img
                       src={
                         volProfile.point >= 400
-                          ? Silver
+                          ? Gold
                           : volProfile.point >= 200
-                            ? Gold
+                            ? Silver
                             : Bronze
                       }
                       alt="Rewards"
@@ -222,17 +225,35 @@ const Dashboard = () => {
 
                       label: `All Posts(${pendingCounter})`,
                       key: "1",
-                      children: <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />,
+                      // children: <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />,
+                      children: (
+                        <>
+                          <MypostVolunteer posts={posts} fetchPost={fetchPost} sendRequest={sendRequest} />
+                          {posts.length === 0 && <div className="noPost">No Posts To Show</div>}
+                        </>
+                      ),
                     },
                     {
                       label: `Active Posts(${approvedCounter})`,
                       key: "2",
-                      children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
+                      // children: <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />,
+                      children: (
+                        <>
+                          <MypostVolunteer posts={approvedPosts} fetchPost={fetchPost} />
+                          {approvedPosts.length === 0 && <div className="noPost">No Active Posts</div>}
+                        </>
+                      ),
                     },
                     {
                       label: `History(${completedCounter})`,
                       key: "3",
-                      children: <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />,
+                      // children: <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />,
+                      children: (
+                        <>
+                          <MypostVolunteer posts={completedPosts} fetchPost={fetchPost} />
+                          {completedPosts.length === 0 && <div className="noPost">No History Posts</div>}
+                        </>
+                      ),
                     },
                   ]
                 }
@@ -242,6 +263,7 @@ const Dashboard = () => {
           </div>
         )
       }
+
 
       {
         singleView == true && (
