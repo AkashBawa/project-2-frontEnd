@@ -134,6 +134,10 @@
     padding-top: 3rem;
 }
 
+.certificate img {
+    max-width: 300px;
+    height: auto;
+}
 
 @media only screen and (max-width: 600px) {
 
@@ -154,6 +158,8 @@
     .certificate {
         flex-flow: column;
     }
+
+
 
     .certificate p {
         width: 300px;
