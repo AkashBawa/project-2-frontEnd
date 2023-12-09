@@ -23,7 +23,7 @@ const MyEvents = () => {
 
       if (response && response.success && response.events) {
 
-        for(let i = 0; i < response.events.length; i++){
+        for (let i = 0; i < response.events.length; i++) {
           let current = response.events[i];
           const data = createFormatedDate(current);
 
@@ -41,13 +41,13 @@ const MyEvents = () => {
   }
 
   const createFormatedDate = (myEvent) => {
-    
+
     const formattedDate = moment(myEvent.date).format('DD-MMM');
     const startDate = moment(myEvent.startDate);
     const endDate = moment(myEvent.endDate);
     // const formattedDateRange = `${startTime.format('ddd')}, ${startDate.format('h:mma')} - ${endDate.format('h:mma')}`;
     const formattedDateRange = `${startDate.format('ddd')}, ${myEvent.startTime} - ${myEvent.endTime}`
-    return  { formattedDate, formattedDateRange};
+    return { formattedDate, formattedDateRange };
   }
 
 
@@ -56,7 +56,7 @@ const MyEvents = () => {
 
       <div className="listEvents">
 
-        {
+        {myEvents.length > 0 ? (
           myEvents.map((event, index) => {
             return (
               <div className="event">
@@ -70,10 +70,11 @@ const MyEvents = () => {
                   </div>
                   <img src={arrowIcon} alt="arrow Icon" />
                 </div>
-
               </div>
             )
-          })
+          })) : (
+          <h1>No Events to Show</h1>
+        )
         }
 
       </div>
