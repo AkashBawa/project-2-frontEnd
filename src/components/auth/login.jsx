@@ -7,6 +7,8 @@ import axios from "../../services/axios";
 import SignupImg from '../../images/Mask group.png'
 import { Link } from "react-router-dom";
 import { setLoader } from '../../redux/user';
+import { FaBars } from "react-icons/fa";
+// import { Link } from "react-router-dom";
 
 import { Input } from 'antd';
 import swal from "sweetalert2";
@@ -16,6 +18,11 @@ function Login() {
   const [email, setEmail] = useState();
   const [passWord, setPassWord] = useState();
   const navigate = useNavigate();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen);
+    };
 
   const submit = async () => {
     setLoader(true);
@@ -41,10 +48,79 @@ function Login() {
   }
 
   return (
-    <div className="Login">
+    <div id='landingpage' className="login">
 
 
-      <nav>
+<header className="">
+                <div className="container">
+                    <a href="#" className="branding">
+                        <img src={IconLogo} alt="Description of the image" />
+                    </a>
+                    {/* <ul className="main-menu">
+                        <li>
+                            <a href="#">Seniors</a>
+                        </li>
+                        <li>
+                            <a href="#">Volunteers</a>
+                        </li>
+                        <li>
+                            <a href="#">Events</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul> */}
+                    <div className="logsignup">
+                        <Link to={"/login"} className="lightBtn">
+                            {" "}
+                            Login{" "}
+                        </Link>
+                        <Link to={"/signup"} className="darkBtn">
+                            {" "}
+                            Signup{" "}
+                        </Link>
+                    </div>
+                    <a href="#" className="landingpage-hm" onClick={toggleMenu}>
+                        <i>
+                            <FaBars size={30} color="#fff" />
+                        </i>
+                    </a>
+                </div>
+            </header>
+            {isMenuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+
+            <div className={`hambergurmenu-cont ${isMenuOpen ? "open" : ""}`}>
+                <ul>
+                    <li>
+                        <a href="#land-seniors">Seniors</a>
+                    </li>
+                    <li>
+                        <a href="#land-volunteer">Volunteers</a>
+                    </li>
+                    <li>
+                        <a href="#land-events">Events</a>
+                    </li>
+                    <li>
+                        <a href="#homeLink">Contact</a>
+                    </li>
+                    <Link to={"/signup"} className="darkBtn">
+                            {" "}
+                            Signup{" "}
+                        </Link>
+                </ul>
+                <div className="logsignup">
+                    <Link to={"/login"} className="lightBtn">
+                        {" "}
+                        Login{" "}
+                    </Link>
+                    <Link to={"/signup"} className="darkBtn">
+                        {" "}
+                        Signup{" "}
+                    </Link>
+                </div>
+            </div>
+
+      {/* <nav>
         <div className="signupHeader">
           <img src={IconLogo} alt="" />
           <div className="headerLinks">
@@ -52,7 +128,7 @@ function Login() {
             <Link to="/signup"><button className="darkBtn">Sign Up</button></Link>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
 
       <div className="main">
