@@ -171,9 +171,10 @@ const Dashboard = () => {
                   <img src={rewardIcon} alt="reward" />
                   <h2 className="pointsDash">Your Points: {volProfile?.point ?? 0}</h2>
                 </div>
+                {/* <p>{volProfile && volProfile.name ? volProfile.name.charAt(0) : ""}</p> */}
+
                 {/* <img src={notIcon} alt="notification icon" />
                 <Link to='/volunteer/profile' id="volProfile">
-                  <p>{volProfile && volProfile.name ? volProfile.name.charAt(0) : ""}</p>
                 </Link> */}
               </div>
             </div>

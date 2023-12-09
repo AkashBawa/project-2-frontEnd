@@ -1,10 +1,12 @@
-$lightGreen: #f5faf6;
+$lightGreen: #e2e2e2;
 $primaryGreen: #00756a;
 $btnDark: #eb592d;
 $btnLight: white;
 $primaryColor: darkgreen;
 $fontFamily: 'Inter', sans-serif !important;
 $breakPoint: 696px;
+$cardGrey: #e2e2e2;
+
 
 @mixin submitButton($bg-color: $btnDark) {
   background: $bg-color !important;

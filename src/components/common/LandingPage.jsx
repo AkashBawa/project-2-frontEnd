@@ -23,21 +23,31 @@ const LandingPage = () => {
       <body>
         <header>
           <div className="container">
-            <a href="#" className="branding">
+            <Link to={"/"}>
+              {/* {" "} */}
               <img src={IconLogo} alt="Description of the image" />
-            </a>
+              {/* {" "} */}
+              {/* <a href="#" className="branding"> */}
+              {/* </a> */}
+            </Link>
             <ul className="main-menu">
               <li>
-                <a href="#">Seniors</a>
+                <Link to={"/login"}>
+                  {" "}
+                  Seniors{" "}
+                </Link>
               </li>
               <li>
-                <a href="#">Volunteers</a>
+                <Link to={"/login"}>
+                  {" "}
+                  Volunteers{" "}</Link>
               </li>
               <li>
-                <a href="#">Events</a>
+                <Link to={"/login"}>{" "}
+                  Events{" "}</Link>
               </li>
               <li>
-                <Link to={"/contact"}><a href="#">Contact</a></Link>
+                <Link to={"/contact"}>Contact</Link>
               </li>
             </ul>
             <div className="logsignup">
@@ -71,7 +81,7 @@ const LandingPage = () => {
               <a href="#land-events">Events</a>
             </li>
             <li>
-              <a href="#homeLink">Contact</a>
+              <Link to={"/contact"}>Contact</Link>
             </li>
           </ul>
           <div className="logsignup">
@@ -232,9 +242,9 @@ const LandingPage = () => {
                 <img src={Seniorslan5} alt="Description of the image" />
               </div>
             </div>
-            <div id="homeLink">
-              <a href="#landingpage" >Home Page</a>
-            </div>
+            {/* <div id="homeLink">
+              <Link to={"#landingpage"}>Home Page</Link>
+            </div> */}
           </section>
         </main>
       </body>
