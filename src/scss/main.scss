@@ -79,6 +79,8 @@ button {
   background-color: $btnDark;
   width: 100px;
   font-weight: bold;
+  text-align: center;
+
   @include submitButton;
 
 

@@ -18,6 +18,7 @@ import { Alert, Select, Form, Input, DatePicker, TimePicker } from "antd";
 import { Button } from "antd";
 
 const Contact = () => {
+    const { TextArea } = Input;
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -100,8 +101,8 @@ const Contact = () => {
                         <div className='memberDes'>
                             <h2>Ahmed Abdou</h2>
                             <p>Developer</p>
-                            <p>linkedin</p>
-                            <p>Github</p>
+                            <p>linkedin.com/in/ahmed-abdou-mieaust-288a4863/</p>
+                            {/* <p>Github</p> */}
                         </div>
                     </div>
                     <div className="teamMember">
@@ -110,7 +111,7 @@ const Contact = () => {
                             <h2>Akash</h2>
                             <p>Developer</p>
                             <p> linkedin.com/in/akash-bawa</p>
-                            <p>www.akashbawa.info</p>
+                            {/* <p>www.akashbawa.info</p> */}
                         </div>
                     </div>
                     <div className="teamMember">
@@ -119,7 +120,7 @@ const Contact = () => {
                             <h2>Alvin Sierra</h2>
                             <p>Designer</p>
                             <p>linkedin.com/in/alvin-dave-sierra-3888b2211/</p>
-                            <p>Github</p>
+                            {/* <p>Github</p> */}
                         </div>
                     </div>
                     <div className="teamMember">
@@ -128,7 +129,7 @@ const Contact = () => {
                             <h2>Beant Singh</h2>
                             <p>Designer</p>
                             <p>linkedin.com/in/beant-singh-a98439261/</p>
-                            <p>Github</p>
+                            {/* <p>Github</p> */}
                         </div>
                     </div>
                     <div className="teamMember">
@@ -137,7 +138,7 @@ const Contact = () => {
                             <h2>Farhang Eradi Alvandi</h2>
                             <p>Developer</p>
                             <p>linkedin.com/in/farhangalv</p>
-                            <p>github.com/farhangalvandi</p>
+                            {/* <p>github.com/farhangalvandi</p> */}
                         </div>
                     </div>
                     <div className="teamMember">
@@ -146,7 +147,7 @@ const Contact = () => {
                             <h2>Jasmine Pui Yuk Tse</h2>
                             <p>Designer</p>
                             <p>linkedin.com/in/jasmine-tse-590320287</p>
-                            <p>Github</p>
+                            {/* <p>Github</p> */}
                         </div>
                     </div>
                     <div className="teamMember">
@@ -155,7 +156,7 @@ const Contact = () => {
                             <h2>Jessica Ruiz</h2>
                             <p>Designer</p>
                             <p>linkedin.com/in/jessica-ruiz-b3110934</p>
-                            <p>behance.net/jessicaruiz24</p>
+                            {/* <p>behance.net/jessicaruiz24</p> */}
                         </div>
                     </div>
                     <div className='teamMember'>
@@ -164,7 +165,7 @@ const Contact = () => {
                             <h2>Sarah Clavijo</h2>
                             <p>Designer</p>
                             <p>linkedin.com/in/sarah-clavijo-9882bb207/</p>
-                            <p>behance.net/sarahmclavijo1999</p>
+                            {/* <p>behance.net/sarahmclavijo1999</p> */}
                         </div>
                     </div>
                     <div className='teamMember'>
@@ -173,16 +174,16 @@ const Contact = () => {
                             <h2>Somchai Sik</h2>
                             <p>Developer</p>
                             <p>linkedin.com/in/somchai-sik-13aaa51b7</p>
-                            <p>github.com/aman7691ithub</p>
+                            {/* <p>github.com/aman7691ithub</p> */}
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className='contactUs'>
-                
-                    <img src={teamImg} alt="" />
-                
+
+                <img src={teamImg} alt="" />
+
 
                 <Form
                     name="trigger"
@@ -213,27 +214,17 @@ const Contact = () => {
 
                         />
                     </Form.Item>
-                    
-
-
-                    <Form.Item label="Gender">
-                        <Select
-                            defaultValue="lucy"
-                            style={{
-                                width: 120,
-                            }}
-
-                        />
-                    </Form.Item>
 
 
 
+                    <Form.Item className="intesrestForm" label="Description">
+                        <TextArea
 
-                    <Form.Item label="Emergency Contact">
-                        <Input
-                            placeholder="Service type"
-                            name="emergencyContact"
-
+                            rows={4}
+                            placeholder="Interest"
+                            name="interest"
+                        // value={formData.interest}
+                        // onChange={handleInputChange}
                         />
                     </Form.Item>
 
