@@ -23,6 +23,15 @@ const MyEvents = () => {
 
       if (response && response.success && response.events) {
 
+        for(let i = 0; i < response.events.length; i++){
+          let current = response.events[i];
+          const data = createFormatedDate(current);
+
+          response.events[i].formattedDate = data.formattedDate;
+          response.events[i].formattedDateRange = data.formattedDateRange;
+
+        }
+
         setEvents(response.events);
       }
     } catch (err) {
@@ -31,10 +40,16 @@ const MyEvents = () => {
     }
   }
 
-  const formattedDate = moment(myEvents.date).format('DD-MMM');
-  const startDate = moment(myEvents.startDate);
-  const endDate = moment(myEvents.endDate);
-  const formattedDateRange = `${startDate.format('ddd')}, ${startDate.format('h:mma')} - ${endDate.format('h:mma')}`;
+  const createFormatedDate = (myEvent) => {
+    
+    const formattedDate = moment(myEvent.date).format('DD-MMM');
+    const startDate = moment(myEvent.startDate);
+    const endDate = moment(myEvent.endDate);
+    // const formattedDateRange = `${startTime.format('ddd')}, ${startDate.format('h:mma')} - ${endDate.format('h:mma')}`;
+    const formattedDateRange = `${startDate.format('ddd')}, ${myEvent.startTime} - ${myEvent.endTime}`
+    return  { formattedDate, formattedDateRange};
+  }
+
 
   return (
     <div className="joinevent" id="myEvents">
@@ -46,11 +61,11 @@ const MyEvents = () => {
             return (
               <div className="event">
                 <div className="img"> <img src={event.image} /> </div>
-                <h1>{formattedDate}</h1>;
+                <h1>{event.formattedDate}</h1>;
                 <div className="event-wrap">
                   <div className="eventDetails">
                     <h2>{event.name}</h2>
-                    <p>{formattedDateRange}</p>
+                    <p>{event.formattedDateRange}</p>
                     <p>{event.location}</p>
                   </div>
                   <img src={arrowIcon} alt="arrow Icon" />
