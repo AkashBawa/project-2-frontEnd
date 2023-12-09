@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../services/axios';
 import '../volunteer/rewards.css'
-import rewards from '../../images/points-rewards1 1.png'
+import rewards from '../../images/image 38.png'
 import { Link } from 'react-router-dom';
 import iconProfile from './../../images/icon_profile.png';
-import Certificate from '../../images/certificate 1.png'
+import Certificate from '../../images/certificate.jpeg'
 import Bronze from '../../images/goldNew.jpeg'
 import Silver from '../../images/silver.jpeg'
 import Gold from '../../images/gold.jpeg'
