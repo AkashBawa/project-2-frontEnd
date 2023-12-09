@@ -79,6 +79,7 @@ const Contact = () => {
                     <li>
                         <a href="#homeLink">Contact</a>
                     </li>
+                    
                 </ul>
                 <div className="logsignup">
                     <Link to={"/login"} className="lightBtn">

@@ -6,34 +6,37 @@
   header {
     @media only screen and (max-width: 950px) {
 
-      .landingpage-hm {
-        display: flex;
-      }
+      // .landingpage-hm {
+      //   display: flex;
+      // }
 
          ul.main-menu {
         display: none !important;
       }
     }
 
-    @media only screen and (min-width: 950px) {
-      .landingpage-hm {
-        display: none;
-      }
+    // @media only screen and (min-width: 950px) {
+    //   .landingpage-hm {
+    //     display: none;
+    //   }
 
-      .logsignup {
-        display: flex;
-        // margin: 0 auto;
-        flex-flow: row nowrap;
-      }
-    }
+    //   .logsignup {
+    //     display: flex;
+    //     // margin: 0 auto;
+    //     flex-flow: row nowrap;
+    //   }
+    // }
 
     @media only screen and (max-width: 550px) {
       .logsignup {
-        display: flex;
+        display: none;
         flex-flow: column nowrap;
         margin-bottom: .5rem;
         gap: 0.5rem;
       }
+
+      
+      
 
       .container {
         margin-top: 0 !important;
@@ -291,3 +294,10 @@
   }
 
 }
+
+@media only screen and (min-width: 550px) {
+  .landingpage-hm {
+    display: none !important;
+  }
+}
+

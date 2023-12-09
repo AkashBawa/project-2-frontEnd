@@ -43,14 +43,14 @@ function Signup() {
   }
 
   return (
-    <div id="landingpage">
+    <div className="Signup" id="landingpage">
 
 <header className="">
                 <div className="container">
                     <a href="#" className="branding">
                         <img src={IconLogo} alt="Description of the image" />
                     </a>
-                    <ul className="main-menu">
+                    {/* <ul className="main-menu">
                         <li>
                             <a href="#">Seniors</a>
                         </li>
@@ -63,7 +63,7 @@ function Signup() {
                         <li>
                             <a href="#">Contact</a>
                         </li>
-                    </ul>
+                    </ul> */}
                     <div className="logsignup">
                         <Link to={"/login"} className="lightBtn">
                             {" "}
