@@ -252,7 +252,7 @@ nav img {
 
 .dashElderEvent h4 {
   font-weight: 200;
-
+  color: #000;
 }
 
 .dashElderUnanswered {
@@ -301,7 +301,7 @@ nav img {
 /* ==================================== */
 
 .myPostElderly {
-  background-color: lightgray;
+  background-color: $cardGrey;
 }
 
 /* ================== */
@@ -314,7 +314,7 @@ nav img {
 }
 
 .rewardPoints {
-  background-color: #f7f7f7;
+  background-color: $cardGrey;
 }
 
 
@@ -371,13 +371,8 @@ img.ant-menu-item-icon {
   margin-bottom: 1rem;
 }
 
-
-.ant-tabs-content-holder {
-  // border: 1px solid #00756A;
-}
-
 .noPost {
-  background-color: #FAFAFA;
+  background-color: $cardGrey;
   margin: .5rem;
   padding: 0;
   border-radius: 15px;

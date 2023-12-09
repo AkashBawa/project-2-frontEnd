@@ -8,12 +8,18 @@
     // width: 700px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #F7F7F7;
+    background-color: $cardGrey;
     border-radius: 15px;
 
+    p {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 16px;
+    }
 
     img {
-        max-width: 150px;
+        max-width: 148px;
         height: 100%;
         border-radius: 1rem 0 0 1rem;
     }
@@ -36,7 +42,10 @@
 
     .details {
         h2 {
-            color: $primaryGreen;
+            color: black;
+            justify-content: center;
+            text-align: center;
+            text-transform: uppercase;
         }
     }
 }

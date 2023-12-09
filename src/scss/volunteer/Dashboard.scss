@@ -169,10 +169,6 @@ h1 {
   color: #00756A;
 }
 
-nav {
-  // background-color: #00756A;
-  /* height: 200px; */
-}
 
 nav div {
   display: flex;
@@ -218,7 +214,7 @@ nav img {
 
 .rewardPoints img {
   margin-right: 1rem;
-  width: 30px;
+  width: 24px;
   height: 30px;
 }
 
@@ -276,7 +272,7 @@ nav img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: grey;
+  background-color: $cardGrey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -359,13 +355,13 @@ nav img {
 // Stlying the Volunteer Card 
 
 .ant-card .ant-card-bordered {
-  background-color: lightgray !important;
+  background-color: $cardGrey !important;
 
 }
 
 #postsSection {
   .ant-card-head-wrapper .ant-card-body {
-    background-color: lightgray !important;
+    background-color: $cardGrey !important;
 
   }
 
@@ -383,7 +379,7 @@ nav img {
 
 .volPostCard {
   padding: 1rem 2rem;
-  background-color: #F5F5F5;
+  background-color: $cardGrey;
   border-radius: 15px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

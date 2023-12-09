@@ -1,26 +1,46 @@
-.rewardsTop{
+#rewardPage {
+    padding: 0 2%;
+}
+
+.rewardsTop {
     display: flex;
     justify-content: space-between;
     padding: 10px;
 }
 
-.earn-rewards{
+.earn-rewards {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #F5FAF6;
     padding: 3rem;
     gap: 8rem;
+    border-radius: 15;
+
 }
 
-.earn-rewards h2{
-    font-size: 2rem;
-    width: 256px;
-    color: #EB592D;
+.earn-rewards h2 {
+    font-size: 48px;
+    font-weight: bold;
+    width: 408px;
+    color: black;
+    text-align: center;
 }
+
+.certificate-section h2,
+.certificate-description h2,
+.badgeMain h2 {
+    text-align: center;
+    color: #00756A;
+    margin-bottom: 2rem;
+    font-size: 36px;
+    font-weight: bold;
+}
+
 
 .earn-rewards img {
-    width: 30%;
+    width: 250px;
+    height: auto;
 }
 
 .certificate {
@@ -28,38 +48,62 @@
     gap: 3rem;
     justify-content: center;
     align-items: center;
+
+
 }
-.certificate img {
-    width: 15%;
-    justify-self: center; 
+
+@media screen and (max-width:550px) {
+
+    .earn-rewards,
+    .certificate {
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:1000px) {
+
+    .earn-rewards h2 {
+        font-size: 36px;
+        text-align: center;
+    }
 }
 
 .appply-now-btn {
     display: flex;
     flex-flow: column;
     align-items: center;
-    width: 30%;
 }
 
-.certificate-section{
+.appply-now-btn p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.appply-now-btn button {
+    font-size: 20px;
+    font-weight: bold;
+    width: 210px;
+}
+
+
+.certificate-section {
     text-align: center;
-    margin: 3rem;
+    margin: 3rem auto;
+    max-width: 900px;
+    justify-content: center;
+    align-items: center;
 }
 
-.certificate-section h2{
-    color: #00756A;
-    margin-bottom: 2rem;
-}
 
-.certificate-description{
+
+.certificate-description {
     background-color: #FFF6F5;
     text-align: center;
     padding: 5rem;
-}
-
-.certificate-description h3{
-    font-size: 1.2rem;
-    color: #00756A ;
 }
 
 .points {
@@ -70,7 +114,7 @@
     font-size: 10px;
 }
 
-.pointDiv{
+.pointDiv {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -85,20 +129,15 @@
     align-items: center;
 }
 
-.badgeMain h2{
-    text-align: center;
-    color: #00756A;
-}
 
-
-.badgeMain{
+.badgeMain {
     padding-top: 3rem;
 }
 
 
 @media only screen and (max-width: 600px) {
 
-    .earn-rewards{
+    .earn-rewards {
         gap: 3rem;
     }
 
@@ -108,26 +147,26 @@
         align-items: center;
     }
 
-    .whyBadgeDes img{
+    .whyBadgeDes img {
         width: 50%;
     }
 
-    .certificate{
+    .certificate {
         flex-flow: column;
     }
 
-    .certificate p{
+    .certificate p {
         width: 300px;
     }
 
-    .whyBadgeP{
+    .whyBadgeP {
         width: 90%;
         text-align: center;
     }
 
-  }
+}
 
-  .bagdeDesDiv{
+.bagdeDesDiv {
     display: flex;
     flex-flow: column;
     gap: 2rem;
@@ -135,6 +174,6 @@
     justify-content: center;
 }
 
-.whyBadgeDes img{
+.whyBadgeDes img {
     width: 187px;
 }

@@ -14,7 +14,7 @@
     }
 
     #myPostsCard {
-        background-color: #FAFAFA;
+        background-color: $cardGrey;
         margin: .5rem;
         padding: 0;
         border-radius: 15px;
@@ -226,7 +226,7 @@
 }
 
 .noInvitations {
-    background-color: #f7f7f7;
+    background-color: $cardGrey;
     border-radius: 5px;
     padding: 3rem;
 }
